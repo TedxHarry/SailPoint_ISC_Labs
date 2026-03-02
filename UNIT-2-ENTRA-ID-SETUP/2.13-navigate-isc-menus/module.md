@@ -1,0 +1,70 @@
+# 2.13 - Navigate ISC Menus
+
+**Unit:** Entra ID Setup & ISC Sandbox | **Tier:** 1 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Navigate ISC menus
+- Understand Administration section
+- Find key configuration areas
+
+---
+
+## 📋 Prerequisites
+
+Module 2.12: Explore ISC Dashboard.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Key Menu Sections
+
+**Administration:**
+- Identity Profiles: Where data model is configured
+- Sources: Where connectors are added
+- Connectors: Connector management and status
+- Provisioning: Provisioning rules
+- Workflows: Workflow automation
+- Transforms: Data transformation
+- Roles: Role management
+- Policies: Governance policies
+
+**Governance:**
+- Access Reviews: Certification campaigns
+- Violations: SoD and policy violations
+- Entitlements: Entitlement management
+
+**Reporting:**
+- Dashboards: Pre-built dashboards
+- Reports: Detailed reports
+- Search: Custom queries
+
+### Locate These
+
+Navigate to:
+1. Administration > Identity Profiles
+2. Administration > Sources (where you'll add Entra ID connector in Unit 3)
+3. Governance > Access Reviews
+4. Reporting > Dashboards
+
+---
+
+## 🧪 TASK
+
+1. Navigate to each section above
+2. Note the location (for future modules)
+3. Screenshot Identity Profiles page
+4. Screenshot Sources page (should be empty)
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Located Administration menu
+- ☑️ Found Identity Profiles
+- ☑️ Found Sources
+- ☑️ Found Governance menu
+- ☑️ Ready for Module 2.14

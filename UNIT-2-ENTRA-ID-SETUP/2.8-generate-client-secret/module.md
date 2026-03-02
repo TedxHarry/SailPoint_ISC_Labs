@@ -1,0 +1,67 @@
+# 2.8 - Generate Client Secret for ISC
+
+**Unit:** Entra ID Setup & ISC Sandbox | **Tier:** 1 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Create client secret for app authentication
+- Understand client secret security
+- Save secret securely
+
+---
+
+## 📋 Prerequisites
+
+Module 2.7: Grant Microsoft Graph API Permissions.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Generate Client Secret
+
+In ISC_Test_App > Certificates & secrets > New client secret:
+
+**Description:** ISC Test Connector Secret
+
+**Expires:** 24 months (or your preference)
+
+Click: Add
+
+### Copy Secret
+
+⚠️ **CRITICAL:** Secret only displays ONCE. Copy immediately.
+
+You'll see:
+- Value: [long string] - COPY THIS
+- Secret ID: [ID]
+
+**Save the Value** in secure location (password manager, encrypted file, etc.)
+
+---
+
+## ⚠️ SECURITY WARNING
+
+- Never commit client secret to git
+- Never share the secret
+- Store in secure vault only
+- If exposed, regenerate immediately
+
+---
+
+## 🧪 TASK
+
+1. Generate client secret
+2. Copy Value immediately (only shown once)
+3. Store securely (password manager)
+4. Do NOT save in plain text file
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Client secret generated
+- ☑️ Secret value saved securely
+- ☑️ You have: Application ID, Tenant ID, Client Secret (3 items)

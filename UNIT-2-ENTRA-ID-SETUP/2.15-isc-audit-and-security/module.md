@@ -1,0 +1,64 @@
+# 2.15 - ISC Audit & Security Settings
+
+**Unit:** Entra ID Setup & ISC Sandbox | **Tier:** 1 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Enable audit logging
+- Verify security settings
+- Understand audit trail
+
+---
+
+## 📋 Prerequisites
+
+Module 2.14: ISC User Management.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Audit Logging
+
+In ISC > Administration > Audit:
+
+**Verify:**
+- [ ] Audit logging enabled
+- [ ] Audit retention set (default: 90 days)
+- [ ] Log entries show recent activity
+
+**View Audit Trail:**
+- Click Audit Log
+- You should see login events, user creation, etc.
+- Each entry shows: User, Action, Date/Time, IP Address
+
+### Security Settings
+
+In ISC > Administration > Security:
+
+**Verify:**
+- [ ] MFA enabled (for production)
+- [ ] Session timeout configured (default: 60 min)
+- [ ] Password policies set
+- [ ] API rate limiting configured
+
+---
+
+## 🧪 TASK
+
+1. Go to Audit section
+2. Verify logging enabled
+3. View recent audit entries
+4. Screenshot audit log showing recent activity
+5. Check Security settings
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Audit logging enabled
+- ☑️ Can view audit trail
+- ☑️ Security settings reviewed
+- ☑️ Session and password policies noted
