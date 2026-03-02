@@ -298,6 +298,90 @@ ISC_Test_App Details:
 └─ Created: [DATE]
 ```
 
+### Step 4.4: **CRITICAL - Grant Microsoft Graph API Permissions**
+
+⚠️ **THIS STEP IS REQUIRED FOR ISC TO CONNECT TO ENTRA ID**
+
+Without these permissions, ISC will NOT be able to read your users and groups. Follow carefully:
+
+1. **On the ISC_Test_App page**, look at left sidebar
+2. **Click:** "API permissions" (under "Manage" section)
+3. **You'll see:** "No API permissions configured"
+4. **Click:** "+ Add a permission"
+5. **A panel opens** - Click: **"Microsoft Graph"** (top option)
+6. **You'll see:** "Delegated permissions" and "Application permissions"
+7. **Click:** **"Application permissions"** (not Delegated)
+
+**Now add these permissions (one by one):**
+
+**Permission 1: User.Read.All**
+1. Search box: Type `user.read`
+2. Look for: `User.Read.All` (with checkbox)
+3. **Check the box** next to `User.Read.All`
+4. Scroll down and look for next permission
+
+**Permission 2: Group.Read.All**
+1. In the list, find: `Group.Read.All`
+2. **Check the box** next to `Group.Read.All`
+
+**Permission 3: Directory.Read.All**
+1. In the list, find: `Directory.Read.All`
+2. **Check the box** next to `Directory.Read.All`
+
+**Note:** If you want ISC to provision (create/update) users and groups, also add:
+- `User.ReadWrite.All`
+- `Group.ReadWrite.All`
+
+For now, just the Read permissions are fine.
+
+8. **After selecting all three**, scroll down and click: **"Add permissions"** button
+9. **You'll see:** Permissions are now added to the list
+10. **Important:** You'll see a message: "Grant admin consent". Click: **"Grant admin consent for [your tenant]"**
+11. **Confirm** by clicking "Yes"
+12. **You should see:** Green checkmarks next to all three permissions
+
+**Why these permissions matter:**
+- `User.Read.All` = ISC can read user data from Entra ID
+- `Group.Read.All` = ISC can read groups
+- `Directory.Read.All` = ISC can read directory structure
+
+**Without these, ISC cannot aggregate your users/groups!**
+
+### Step 4.5: **CRITICAL - Generate Client Secret**
+
+⚠️ **THIS IS THE PASSWORD ISC USES TO AUTHENTICATE**
+
+You must create and save a Client Secret. ISC will use this to prove it's authorized to access Entra ID:
+
+1. **On the ISC_Test_App page**, click left sidebar
+2. **Click:** "Certificates & secrets" (under "Manage" section)
+3. **You'll see:** Tabs for "Certificates" and "Client secrets"
+4. **Click:** "Client secrets" tab
+5. **You'll see:** "No client secrets created"
+6. **Click:** "+ New client secret" button
+7. **A box appears** asking for:
+   - **Description:** Type `ISC_Test_Secret` (just a name for you)
+   - **Expires:** Select `6 months` (recommended for testing)
+8. **Click:** "Add" button
+9. **⚠️ IMPORTANT:** You'll see the secret value displayed. **COPY IT IMMEDIATELY** - it will only show once!
+10. **Paste it** into your safe storage:
+
+```
+ISC_Test_App Credentials:
+├─ Application ID: [FROM STEP 4.3]
+├─ Tenant ID: [FROM STEP 4.3]
+├─ Client Secret: [PASTE_SECRET_HERE - KEEP SAFE!]
+└─ Created: [TODAY'S DATE]
+```
+
+**⚠️ WARNING:** If you close this page without copying the secret, you'll have to delete it and create a new one.
+
+If you missed it:
+1. Go back to "Certificates & secrets"
+2. Click the three dots next to your secret
+3. Delete it
+4. Create a new one and copy it
+
 ---
 
 ## PART 5: Create Additional Test Users (For Realistic Labs)
