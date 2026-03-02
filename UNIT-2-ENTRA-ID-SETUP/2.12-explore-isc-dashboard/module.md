@@ -1,0 +1,65 @@
+# 2.12 - Explore ISC Dashboard
+
+**Unit:** Entra ID Setup & ISC Sandbox | **Tier:** 1 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand ISC dashboard
+- Navigate main sections
+- Familiarize with interface
+
+---
+
+## 📋 Prerequisites
+
+Module 2.11: Access ISC Sandbox.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### ISC Dashboard Sections
+
+**Top Menu:**
+- Identities: View all identities (people)
+- Search: Search users, roles, accounts
+- Reporting: View dashboards and reports
+
+**Left Navigation:**
+- Home: Dashboard home
+- Administration: System settings, configuration
+- Governance: Access reviews, certifications
+- Remediation: Governance violations
+- Monitoring: System health, logs
+
+**Dashboard Widgets:**
+- Active Users: Count of users
+- Pending Certifications: Access reviews to complete
+- Access Violations: Policy violations
+- Recent Activity: Recent system events
+
+### Explore
+
+1. Click each menu item
+2. Note what's available
+3. Explore Administration > navigate settings
+4. Go to Governance > note sections
+5. Check Reporting for dashboards
+
+---
+
+## 🧪 TASK
+
+1. Explore all main menu sections
+2. Take 3 screenshots showing different areas
+3. Familiarize yourself with layout
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Visited all main sections
+- ☑️ Understand general layout
+- ☑️ Ready for Module 2.13
