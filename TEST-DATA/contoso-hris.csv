@@ -1,0 +1,43 @@
+employeeID,firstName,lastName,email,department,jobTitle,manager,startDate,employmentStatus,location
+FIN001,Finance,User1,finance_user1@contoso.com,Finance,Accountant,FIN_MGR,2022-01-15,Active,New York
+FIN002,Finance,User2,finance_user2@contoso.com,Finance,Financial Analyst,FIN_MGR,2021-06-20,Active,New York
+FIN003,Finance,User3,finance_user3@contoso.com,Finance,Finance Manager,CFO,2020-03-10,Active,New York
+FIN004,Finance,User4,finance_user4@contoso.com,Finance,AP Clerk,FIN_MGR,2021-11-01,Active,New York
+FIN005,Finance,User5,finance_user5@contoso.com,Finance,Budget Analyst,FIN_MGR,2022-05-12,Active,New York
+HR001,HR,User1,hr_user1@contoso.com,Human Resources,HR Manager,HR_DIR,2019-08-15,Active,New York
+HR002,HR,User2,hr_user2@contoso.com,Human Resources,HR Specialist,HR001,2021-02-20,Active,New York
+HR003,HR,User3,hr_user3@contoso.com,Human Resources,Recruiter,HR001,2020-09-10,Active,New York
+HR004,HR,User4,hr_user4@contoso.com,Human Resources,Payroll Admin,HR001,2021-12-01,Active,New York
+ENG001,Engineering,User1,eng_user1@contoso.com,Engineering,Software Engineer,ENG_MGR,2020-07-15,Active,San Francisco
+ENG002,Engineering,User2,eng_user2@contoso.com,Engineering,Software Engineer,ENG_MGR,2021-03-20,Active,San Francisco
+ENG003,Engineering,User3,eng_user3@contoso.com,Engineering,Senior Software Engineer,VP_ENG,2018-11-10,Active,San Francisco
+ENG004,Engineering,User4,eng_user4@contoso.com,Engineering,QA Engineer,QA_LEAD,2021-05-12,Active,San Francisco
+ENG005,Engineering,User5,eng_user5@contoso.com,Engineering,DevOps Engineer,ENG_MGR,2020-09-01,Active,San Francisco
+SALES001,Sales,User1,sales_user1@contoso.com,Sales,Sales Representative,SALES_MGR,2021-01-15,Active,Chicago
+SALES002,Sales,User2,sales_user2@contoso.com,Sales,Account Executive,SALES_MGR,2020-06-20,Active,Chicago
+SALES003,Sales,User3,sales_user3@contoso.com,Sales,Sales Manager,VP_SALES,2019-03-10,Active,Chicago
+SALES004,Sales,User4,sales_user4@contoso.com,Sales,Inside Sales Rep,SALES_MGR,2021-11-01,Active,Chicago
+OPS001,Operations,User1,ops_user1@contoso.com,Operations,Operations Analyst,OPS_MGR,2021-02-15,Active,New York
+OPS002,Operations,User2,ops_user2@contoso.com,Operations,Operations Manager,COO,2018-08-20,Active,New York
+OPS003,Operations,User3,ops_user3@contoso.com,Operations,Logistics Coordinator,OPS_MGR,2021-09-10,Active,New York
+IT001,IT,User1,admin_user1@contoso.com,IT,IT Administrator,CISO,2019-04-15,Active,New York
+IT002,IT,User2,admin_user2@contoso.com,IT,IT Support Specialist,IT001,2020-07-20,Active,New York
+IT003,IT,User3,admin_user3@contoso.com,IT,Network Administrator,IT001,2019-11-10,Active,New York
+GEN001,General,User1,general_user1@contoso.com,Operations,Office Manager,OPS_MGR,2021-05-12,Active,New York
+GEN002,General,User2,general_user2@contoso.com,Operations,Facilities Coordinator,OPS_MGR,2020-12-01,Active,New York
+GEN003,General,User3,general_user3@contoso.com,Human Resources,Administrative Assistant,HR001,2021-08-15,Active,New York
+GEN004,General,User4,general_user4@contoso.com,Sales,Marketing Coordinator,MKTG_MGR,2021-10-01,Active,Chicago
+GEN005,General,User5,general_user5@contoso.com,Engineering,Data Analyst,ENG_MGR,2021-03-20,Active,San Francisco
+FIN_MGR,Finance,Manager,finance_mgr@contoso.com,Finance,Finance Director,CFO,2017-01-10,Active,New York
+CFO,CFO,Officer,cfo@contoso.com,Finance,CFO,CEO,2015-06-01,Active,New York
+HR_DIR,HR,Director,hr_director@contoso.com,Human Resources,VP Human Resources,CEO,2016-03-15,Active,New York
+ENG_MGR,Engineering,Manager,eng_mgr@contoso.com,Engineering,Engineering Lead,VP_ENG,2018-02-20,Active,San Francisco
+VP_ENG,VP,Engineering,vp_engineering@contoso.com,Engineering,VP Engineering,CEO,2014-09-10,Active,San Francisco
+SALES_MGR,Sales,Manager,sales_mgr@contoso.com,Sales,Regional Sales Manager,VP_SALES,2017-06-15,Active,Chicago
+VP_SALES,VP,Sales,vp_sales@contoso.com,Sales,VP Sales,CEO,2016-01-20,Active,Chicago
+QA_LEAD,QA,Lead,qa_lead@contoso.com,Engineering,QA Team Lead,ENG_MGR,2019-04-10,Active,San Francisco
+OPS_MGR,Operations,Manager,ops_mgr@contoso.com,Operations,Operations Director,COO,2017-08-15,Active,New York
+COO,COO,Officer,coo@contoso.com,Operations,COO,CEO,2015-02-01,Active,New York
+CISO,CISO,Officer,ciso@contoso.com,IT,CISO,CEO,2016-11-10,Active,New York
+MKTG_MGR,Marketing,Manager,marketing_mgr@contoso.com,Sales,Marketing Manager,VP_SALES,2018-05-15,Active,Chicago
+CEO,CEO,Officer,ceo@contoso.com,Executive,CEO,Board,2010-01-01,Active,New York

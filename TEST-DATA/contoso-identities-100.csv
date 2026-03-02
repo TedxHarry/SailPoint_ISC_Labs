@@ -1,0 +1,54 @@
+userPrincipalName,displayName,givenName,surname,jobTitle,department,officeLocation,mobilePhone,employeeType,employeeID,manager,startDate,salary_band
+finance_user1@contoso.com,Finance_User1,Finance,User1,Accountant,Finance,New York,555-0101,Employee,FIN001,finance_mgr@contoso.com,2022-01-15,Band-3
+finance_user2@contoso.com,Finance_User2,Finance,User2,Financial Analyst,Finance,New York,555-0102,Employee,FIN002,finance_mgr@contoso.com,2021-06-20,Band-2
+finance_user3@contoso.com,Finance_User3,Finance,User3,Finance Manager,Finance,New York,555-0103,Employee,FIN003,cfo@contoso.com,2020-03-10,Band-4
+finance_user4@contoso.com,Finance_User4,Finance,User4,Accounts Payable Clerk,Finance,New York,555-0104,Employee,FIN004,finance_mgr@contoso.com,2021-11-01,Band-2
+finance_user5@contoso.com,Finance_User5,Finance,User5,Budget Analyst,Finance,New York,555-0105,Employee,FIN005,finance_mgr@contoso.com,2022-05-12,Band-3
+hr_user1@contoso.com,HR_User1,HR,User1,HR Manager,Human Resources,New York,555-0201,Employee,HR001,hr_director@contoso.com,2019-08-15,Band-4
+hr_user2@contoso.com,HR_User2,HR,User2,HR Specialist,Human Resources,New York,555-0202,Employee,HR002,hr_user1@contoso.com,2021-02-20,Band-2
+hr_user3@contoso.com,HR_User3,HR,User3,Recruiter,Human Resources,New York,555-0203,Employee,HR003,hr_user1@contoso.com,2020-09-10,Band-3
+hr_user4@contoso.com,HR_User4,HR,User4,Payroll Administrator,Human Resources,New York,555-0204,Employee,HR004,hr_user1@contoso.com,2021-12-01,Band-2
+eng_user1@contoso.com,Engineering_User1,Engineering,User1,Software Engineer,Engineering,San Francisco,555-0301,Employee,ENG001,eng_mgr@contoso.com,2020-07-15,Band-4
+eng_user2@contoso.com,Engineering_User2,Engineering,User2,Software Engineer,Engineering,San Francisco,555-0302,Employee,ENG002,eng_mgr@contoso.com,2021-03-20,Band-3
+eng_user3@contoso.com,Engineering_User3,Engineering,User3,Senior Software Engineer,Engineering,San Francisco,555-0303,Employee,ENG003,vp_engineering@contoso.com,2018-11-10,Band-5
+eng_user4@contoso.com,Engineering_User4,Engineering,User4,QA Engineer,Engineering,San Francisco,555-0304,Employee,ENG004,qa_lead@contoso.com,2021-05-12,Band-3
+eng_user5@contoso.com,Engineering_User5,Engineering,User5,DevOps Engineer,Engineering,San Francisco,555-0305,Employee,ENG005,eng_mgr@contoso.com,2020-09-01,Band-4
+sales_user1@contoso.com,Sales_User1,Sales,User1,Sales Representative,Sales,Chicago,555-0401,Employee,SALES001,sales_mgr@contoso.com,2021-01-15,Band-2
+sales_user2@contoso.com,Sales_User2,Sales,User2,Account Executive,Sales,Chicago,555-0402,Employee,SALES002,sales_mgr@contoso.com,2020-06-20,Band-3
+sales_user3@contoso.com,Sales_User3,Sales,User3,Sales Manager,Sales,Chicago,555-0403,Employee,SALES003,vp_sales@contoso.com,2019-03-10,Band-4
+sales_user4@contoso.com,Sales_User4,Sales,User4,Inside Sales Rep,Sales,Chicago,555-0404,Employee,SALES004,sales_mgr@contoso.com,2021-11-01,Band-2
+ops_user1@contoso.com,Operations_User1,Operations,User1,Operations Analyst,Operations,New York,555-0501,Employee,OPS001,ops_mgr@contoso.com,2021-02-15,Band-2
+ops_user2@contoso.com,Operations_User2,Operations,User2,Operations Manager,Operations,New York,555-0502,Employee,OPS002,coo@contoso.com,2018-08-20,Band-4
+ops_user3@contoso.com,Operations_User3,Operations,User3,Logistics Coordinator,Operations,New York,555-0503,Employee,OPS003,ops_mgr@contoso.com,2021-09-10,Band-2
+admin_user1@contoso.com,Admin_User1,Admin,User1,IT Administrator,IT,New York,555-0601,Employee,IT001,ciso@contoso.com,2019-04-15,Band-3
+admin_user2@contoso.com,Admin_User2,Admin,User2,IT Support Specialist,IT,New York,555-0602,Employee,IT002,admin_user1@contoso.com,2020-07-20,Band-2
+admin_user3@contoso.com,Admin_User3,Admin,User3,Network Administrator,IT,New York,555-0603,Employee,IT003,admin_user1@contoso.com,2019-11-10,Band-4
+general_user1@contoso.com,General_User1,General,User1,Office Manager,Operations,New York,555-0701,Employee,GEN001,ops_mgr@contoso.com,2021-05-12,Band-2
+general_user2@contoso.com,General_User2,General,User2,Facilities Coordinator,Operations,New York,555-0702,Employee,GEN002,ops_mgr@contoso.com,2020-12-01,Band-1
+general_user3@contoso.com,General_User3,General,User3,Administrative Assistant,Human Resources,New York,555-0703,Employee,GEN003,hr_user1@contoso.com,2021-08-15,Band-1
+general_user4@contoso.com,General_User4,General,User4,Marketing Coordinator,Sales,Chicago,555-0704,Employee,GEN004,marketing_mgr@contoso.com,2021-10-01,Band-2
+general_user5@contoso.com,General_User5,General,User5,Data Analyst,Engineering,San Francisco,555-0705,Employee,GEN005,eng_mgr@contoso.com,2021-03-20,Band-3
+finance_mgr@contoso.com,Finance Manager,Finance,Manager,Finance Director,Finance,New York,555-1001,Employee,FIN_MGR,cfo@contoso.com,2017-01-10,Band-5
+cfo@contoso.com,Chief Financial Officer,CFO,Officer,CFO,Finance,New York,555-1002,Employee,CFO,ceo@contoso.com,2015-06-01,Executive
+hr_director@contoso.com,HR Director,HR,Director,VP Human Resources,Human Resources,New York,555-1101,Employee,HR_DIR,ceo@contoso.com,2016-03-15,Executive
+eng_mgr@contoso.com,Engineering Manager,Engineering,Manager,Engineering Lead,Engineering,San Francisco,555-1201,Employee,ENG_MGR,vp_engineering@contoso.com,2018-02-20,Band-5
+vp_engineering@contoso.com,VP Engineering,VP,Engineering,VP Engineering,Engineering,San Francisco,555-1202,Employee,VP_ENG,ceo@contoso.com,2014-09-10,Executive
+sales_mgr@contoso.com,Sales Manager,Sales,Manager,Regional Sales Manager,Sales,Chicago,555-1301,Employee,SALES_MGR,vp_sales@contoso.com,2017-06-15,Band-5
+vp_sales@contoso.com,VP Sales,VP,Sales,VP Sales,Sales,Chicago,555-1302,Employee,VP_SALES,ceo@contoso.com,2016-01-20,Executive
+qa_lead@contoso.com,QA Lead,QA,Lead,QA Team Lead,Engineering,San Francisco,555-1303,Employee,QA_LEAD,eng_mgr@contoso.com,2019-04-10,Band-4
+ops_mgr@contoso.com,Operations Manager,Operations,Manager,Operations Director,Operations,New York,555-1401,Employee,OPS_MGR,coo@contoso.com,2017-08-15,Band-5
+coo@contoso.com,Chief Operations Officer,COO,Officer,COO,Operations,New York,555-1402,Employee,COO,ceo@contoso.com,2015-02-01,Executive
+ciso@contoso.com,Chief Information Security Officer,CISO,Officer,CISO,IT,New York,555-1501,Employee,CISO,ceo@contoso.com,2016-11-10,Executive
+marketing_mgr@contoso.com,Marketing Manager,Marketing,Manager,Marketing Manager,Sales,Chicago,555-1601,Employee,MKTG_MGR,vp_sales@contoso.com,2018-05-15,Band-4
+ceo@contoso.com,Chief Executive Officer,CEO,Officer,CEO,Executive,New York,555-1701,Employee,CEO,board@contoso.com,2010-01-01,Executive
+ext_consultant1@contoso.com,External Consultant 1,Ext,Consultant1,Contractor - Project Manager,Finance,New York,555-2001,Contractor,EXT001,finance_mgr@contoso.com,2022-10-01,Band-3
+ext_consultant2@contoso.com,External Consultant 2,Ext,Consultant2,Contractor - IT Security,IT,New York,555-2002,Contractor,EXT002,ciso@contoso.com,2022-11-15,Band-4
+vendor_support1@contoso.com,Vendor Support 1,Vendor,Support1,Third-party Support - Finance,Finance,Remote,555-2101,Vendor,VENDOR001,finance_mgr@contoso.com,2021-01-01,Band-2
+vendor_support2@contoso.com,Vendor Support 2,Vendor,Support2,Third-party Support - Engineering,Engineering,Remote,555-2102,Vendor,VENDOR002,eng_mgr@contoso.com,2021-03-15,Band-2
+intern_user1@contoso.com,Intern User 1,Intern,User1,Summer Intern - Engineering,Engineering,San Francisco,555-2201,Intern,INTERN001,eng_mgr@contoso.com,2022-06-01,Band-1
+intern_user2@contoso.com,Intern User 2,Intern,User2,Summer Intern - Finance,Finance,New York,555-2202,Intern,INTERN002,finance_mgr@contoso.com,2022-06-15,Band-1
+remote_user1@contoso.com,Remote User 1,Remote,User1,Remote Engineer,Engineering,Remote,555-2301,Employee,REMOTE001,eng_mgr@contoso.com,2021-09-20,Band-3
+remote_user2@contoso.com,Remote User 2,Remote,User2,Remote Sales Rep,Sales,Remote,555-2302,Employee,REMOTE002,sales_mgr@contoso.com,2021-10-10,Band-2
+remote_user3@contoso.com,Remote User 3,Remote,User3,Remote Finance Analyst,Finance,Remote,555-2303,Employee,REMOTE003,finance_mgr@contoso.com,2021-11-05,Band-2
+contract_worker1@contoso.com,Contract Worker 1,Contract,Worker1,Fixed-term Contract - Compliance,Finance,New York,555-2401,Contract,CONTRACT001,finance_mgr@contoso.com,2022-03-01,Band-3
+contract_worker2@contoso.com,Contract Worker 2,Contract,Worker2,Fixed-term Contract - HR,Human Resources,New York,555-2402,Contract,CONTRACT002,hr_user1@contoso.com,2022-07-15,Band-2

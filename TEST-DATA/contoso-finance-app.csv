@@ -1,0 +1,11 @@
+username,firstName,lastName,email,department,role,accountStatus,accountCreated,accountModified
+FINU0001,Finance,User1,finance_user1@contoso.com,Finance,AP_Clerk,ACTIVE,2022-02-15,2024-01-15
+FINU0002,Finance,User2,finance_user2@contoso.com,Finance,FA_Analyst,ACTIVE,2021-07-20,2024-01-10
+FINU0003,Finance,User3,finance_user3@contoso.com,Finance,Finance_Mgr,ACTIVE,2020-04-10,2024-01-05
+FINU0004,Finance,User4,finance_user4@contoso.com,Finance,AP_Clerk,ACTIVE,2021-12-01,2024-01-12
+FINU0005,Finance,User5,finance_user5@contoso.com,Finance,Budget_Analyst,ACTIVE,2022-06-12,2024-01-08
+FINU0006,Finance,Manager,finance_mgr@contoso.com,Finance,Finance_Director,ACTIVE,2017-02-10,2024-01-01
+EXEC0001,CFO,Officer,cfo@contoso.com,Finance,CFO,ACTIVE,2015-07-01,2024-01-01
+OPER0001,Operations,User1,ops_user1@contoso.com,Operations,Ops_Analyst,ACTIVE,2021-03-15,2024-01-15
+OPER0002,Operations,User2,ops_user2@contoso.com,Operations,Ops_Director,ACTIVE,2018-09-20,2024-01-10
+OPER0003,Operations,User3,ops_user3@contoso.com,Operations,Logistics_Coord,ACTIVE,2021-10-10,2024-01-12
