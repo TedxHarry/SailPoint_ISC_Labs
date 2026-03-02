@@ -1,0 +1,111 @@
+# 3.1 - Identity Profiles Fundamentals
+
+**Unit:** Identity Profiles & Sources | **Tier:** 1 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand what Identity Profiles are
+- Know why they're critical
+- Understand profile structure
+- Recognize how they map source data to ISC
+
+---
+
+## 📋 Prerequisites
+
+Unit 1: ISC Fundamentals. Unit 2: Entra ID Setup complete.
+
+---
+
+## 📚 CORE CONCEPTS
+
+### What is an Identity Profile?
+
+**Definition:** Template defining what attributes ISC identities should have, and how source system data maps to those attributes.
+
+**Why critical:** Without Identity Profile, ISC doesn't know what identity data to expect or how to interpret it.
+
+**Example:** Contoso Identity Profile
+```
+ISC Identity Attributes:
+- firstName (required)
+- lastName (required)
+- email (required)
+- department (required)
+- jobTitle (required)
+- manager (optional)
+```
+
+Maps to Entra ID:
+- givenName → firstName
+- surname → lastName
+- mail → email
+- department → department
+- jobTitle → jobTitle
+- manager → manager
+
+---
+
+### Profile Structure
+
+**Schema:** What attributes the identity should have
+
+**Mappings:** How source system attributes map to ISC attributes
+
+**Rules:** Transformations or calculations (concatenate first+last for display name, etc.)
+
+**Validation:** Verify mappings are correct
+
+---
+
+### Why it Matters
+
+Without proper Identity Profile:
+- Data doesn't get read correctly
+- Attributes missing or wrong
+- Provisioning rules can't evaluate (if they need department, but department is blank)
+- Correlation fails
+
+With proper Identity Profile:
+- Clean data in ISC
+- Provisioning rules work
+- Governance decisions accurate
+- Analytics valid
+
+---
+
+## 🧠 KEY TAKEAWAYS
+
+- **Identity Profile = data template**
+- **Defines what attributes ISC expects**
+- **Maps source data to ISC format**
+- **Essential before any other ISC work**
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** Why is Identity Profile created BEFORE adding a connector?
+
+A) Connectors don't need profiles
+B) ✅ Connector needs to know what attributes to expect and where to map them
+C) Profiles are only for governance
+D) Arbitrary order
+
+**Answer: B.** Profile defines structure; connector knows what to populate.
+
+---
+
+## 📚 RESOURCES
+
+- [Next: 3.2 - Identity Profile Components](/modules/3.2-identity-profile-components)
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Understand Identity Profile purpose
+- ☑️ Know profile structure (schema, mappings, rules)
+- ☑️ Understand why it's critical
