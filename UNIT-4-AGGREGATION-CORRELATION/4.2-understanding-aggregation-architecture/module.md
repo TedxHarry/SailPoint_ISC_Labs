@@ -1,0 +1,192 @@
+# 4.2 - Understanding Aggregation Architecture
+
+**Unit:** Aggregation & Correlation | **Tier:** 1 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand aggregation request flow
+- Know how ISC processes connector data
+- Recognize request/response patterns
+- Understand aggregation vs live query
+
+---
+
+## 📋 Prerequisites
+
+Module 4.1: Aggregation Fundamentals Recap.
+
+---
+
+## 📚 CORE CONCEPTS
+
+### Aggregation Architecture: Request-Response Flow
+
+**User initiates:** Admin clicks "Aggregate" in ISC console or scheduler triggers at scheduled time.
+
+**ISC sends request to connector:**
+```
+Connector receives: "Get all users from Entra ID"
+```
+
+**Connector authenticates:** Uses credentials from Module 3.10 (Tenant ID, App ID, Client Secret).
+
+**Connector reads from source:** REST API call to Entra ID Graph API.
+```
+GET https://graph.microsoft.com/v1.0/users
+Header: Authorization: Bearer [token]
+Response: JSON array with 13 users, all attributes
+```
+
+**Connector transforms:** Applies account mapping from Module 3.11.
+- Entra ID `givenName` → ISC `firstName`
+- Entra ID `mail` → ISC `email`
+- Entra ID `department` → ISC `department`
+
+**Connector returns to ISC:** Structured data in ISC format.
+```
+Identity: {firstName: "Alex", lastName: "Lee", email: "alex.lee@contoso.com", ...}
+Account: {nativeIdentity: "alex.lee@contoso.com", sourceSystemID: "Contoso_Entra_ID", ...}
+```
+
+**ISC stores in database:** Saves Identity and Account objects, creates associations.
+
+**Aggregation complete:** Status updates, timestamp recorded, logs generated.
+
+---
+
+### Staged vs Live Query
+
+**Aggregation (Staged Data):**
+- Data read once, stored in ISC database
+- All downstream work uses stored data
+- Fast (no real-time API calls)
+- Must re-aggregate to get fresh data
+- Default approach
+
+**Live Query (Real-time read):**
+- ISC calls source API for each search
+- Always current data
+- Slower (API latency)
+- Used for verification or spot-checks
+- Not default for most operations
+
+**Why staged?** Aggregation stores snapshot. Governance decisions use stable data. If source changed between aggregations, ISC still has reliable basis for decisions.
+
+---
+
+### What Happens to Each Object Type
+
+**Identities:**
+- One entry per person
+- Attributes: firstName, lastName, email, department, jobTitle, manager, hireDate, location
+- UUID assigned by ISC
+- Multiple accounts can link to same identity (correlation, see 4.6)
+
+**Accounts:**
+- One entry per login in one system
+- Same person = different account per system
+- Attributes: nativeIdentity (login name), source system, description
+- Foreign key links to Identity
+
+**Groups/Resources:**
+- One entry per group or entitlement
+- Attributes: name, description, members
+- Account members link via foreign key
+
+**Example - Contoso aggregation:**
+```
+Identity "Alex Lee" (UUID: 12345)
+├─ Account: alex.lee@contoso.com (Entra ID, nativeID: alex.lee@contoso.com)
+├─ Account: alee (Oracle, nativeID: alee)
+├─ Account: alex.lee (Okta, nativeID: alex.lee)
+
+Group "Engineering_Department" (UUID: 99999)
+├─ Member: alex.lee@contoso.com (Entra ID account)
+├─ Member: morgan.chen@contoso.com (Entra ID account)
+```
+
+---
+
+### Connector Behavior During Aggregation
+
+**Connection test (Module 3.10):** Validates credentials work.
+- Tests authentication only
+- Quick response
+- No data retrieved
+
+**Account mapping config (Module 3.11):** Defines transformation rules.
+- What attributes to read
+- How to map them
+- No data movement yet
+
+**Aggregation execution (Module 4.4):** Reads and stores actual data.
+- Follows mapping rules
+- Applies transformations
+- Logs every step
+
+---
+
+## 🧠 KEY TAKEAWAYS
+
+- Aggregation = request/response between ISC and connector
+- Connector reads from source, transforms, returns to ISC
+- ISC stores data in database, creates relationships
+- Staged data (aggregation) vs live query trade-off: speed vs freshness
+- Each Identity can have multiple Accounts
+
+---
+
+## 🧪 TASK
+
+1. Understand aggregation as staged data read
+2. Know the flow: request → connector reads → transform → store
+3. Distinguish aggregation from live query
+4. Recognize object types (Identity, Account, Group)
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Understand request/response flow
+- ☑️ Know aggregation stores snapshot
+- ☑️ Understand connector authentication and read process
+- ☑️ Know why aggregation before correlation/provisioning
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** What is the key difference between aggregation and live query?
+
+A) Aggregation is faster
+B) ✅ Aggregation stores data; live query reads on-demand
+C) Aggregation is more secure
+D) Live query uses stored data
+
+**Answer: B.** Aggregation stores snapshot in ISC database. Live query reads from source each time. Trade-off: speed vs freshness.
+
+**Q:** During aggregation, the Entra ID connector:**
+
+A) Creates new users in ISC
+B) ✅ Reads users from Entra ID and stores as Identity/Account objects
+C) Modifies users in Entra ID
+D) Generates access policies
+
+**Answer: B.** Aggregation reads FROM source, stores IN ISC. No modification of source data.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 3.10: Configure Entra ID Connector - Connection Settings](/modules/3.10-configure-entra-id-connector-part-1)
+- [Module 3.11: Configure Entra ID Connector - Account Mapping](/modules/3.11-configure-entra-id-connector-part-2)
+- [Module 4.1: Aggregation Fundamentals Recap](/modules/4.1-aggregation-fundamentals-recap)
+
+---
+
+## ✅ NEXT STEPS
+
+Proceed to 4.3 to learn types of aggregation (full, partial, seed).
+

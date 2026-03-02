@@ -1,0 +1,268 @@
+# 4.5 - Viewing Aggregated Data
+
+**Unit:** Aggregation & Correlation | **Tier:** 1 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Navigate Identities and Accounts menus
+- View identity attributes and details
+- Understand account associations
+- View entitlements and group memberships
+
+---
+
+## 📋 Prerequisites
+
+Module 4.4: Run Aggregation in ISC (aggregation must be complete).
+
+---
+
+## 📚 HANDS-ON LAB
+
+### VIEW IDENTITIES LIST
+
+**Navigate:** ISC Console > Identities (left sidebar under main menu)
+
+**Page shows:** Table of all 13 identities imported from Entra ID
+
+```
+Name               | Email                    | Department    | Source
+---|---|---|---
+Alex Lee           | alex.lee@contoso.com     | Engineering   | Contoso_Entra_ID
+Morgan Chen        | morgan.chen@contoso.com  | Engineering   | Contoso_Entra_ID
+Casey Kim          | casey.kim@contoso.com    | Finance       | Contoso_Entra_ID
+(10 more rows)
+```
+
+**Columns shown:** Name, Email, Department, Job Title, Last Aggregation, Status
+
+**Search/Filter:** Top of page has search box. Try searching:
+- "Alex" → shows only Alex Lee
+- "Engineering" → shows all Engineering department
+- "Finance" → shows all Finance users
+
+---
+
+### VIEW IDENTITY DETAILS
+
+**Click:** Any identity name (example: "Alex Lee")
+
+**Identity detail page opens showing:**
+
+**Header section:**
+- Name: Alex Lee
+- Email: alex.lee@contoso.com
+- Status: Active
+- Lifecycle state: Active
+
+**Attributes tab:**
+```
+firstName: Alex
+lastName: Lee
+email: alex.lee@contoso.com
+department: Engineering
+jobTitle: Senior Engineer
+manager: (Alex's manager name/ID)
+hireDate: 2020-01-15
+location: San Francisco
+```
+
+**Accounts tab:**
+Shows all accounts linked to this identity across all sources
+```
+Account Type    | Source ID          | Account Name      | Status
+---|---|---|---
+Entra ID        | Contoso_Entra_ID   | alex.lee@contoso.com | Active
+(If Okta added)| Okta                | alex.lee           | Active
+(If Oracle)    | Oracle DB           | alee               | Active
+```
+
+**Groups tab:**
+Shows all group memberships
+```
+Group Name                | Source
+---|---
+Engineering_Department   | Contoso_Entra_ID
+All_Employees           | Contoso_Entra_ID
+Managers (if applicable) | Contoso_Entra_ID
+```
+
+**Entitlements tab:**
+Shows all permissions/roles the identity has (populated after governance configuration)
+
+---
+
+### VIEW ACCOUNTS
+
+**Navigate:** ISC Console > Accounts (left sidebar)
+
+**Page shows:** All accounts from all sources (just one source if only Entra ID aggregated)
+
+```
+Account ID              | Source             | Identity      | Status
+---|---|---|---
+alex.lee@contoso.com    | Contoso_Entra_ID   | Alex Lee      | Active
+morgan.chen@contoso.com | Contoso_Entra_ID   | Morgan Chen   | Active
+casey.kim@contoso.com   | Contoso_Entra_ID   | Casey Kim     | Active
+(10 more Entra accounts)
+```
+
+**Click account:** Opens account detail page
+
+**Account details show:**
+```
+Account ID: alex.lee@contoso.com
+Source: Contoso_Entra_ID
+Identity linked: Alex Lee (UUID: 12345)
+Status: Active
+Last aggregated: [timestamp from Module 4.4]
+Attributes:
+  - displayName: Alex Lee
+  - mail: alex.lee@contoso.com
+  - (other source attributes)
+```
+
+---
+
+### VIEW GROUPS/ENTITLEMENTS
+
+**Navigate:** ISC Console > Accounts (same menu) → find Groups section (usually separate tab or filter)
+
+**Page shows:** 7 groups imported from Entra ID
+
+```
+Group Name              | Source             | Member Count | Status
+---|---|---|---
+Engineering_Department  | Contoso_Entra_ID   | 4            | Active
+Engineering_Managers    | Contoso_Entra_ID   | 2            | Active
+Finance_Department      | Contoso_Entra_ID   | 3            | Active
+Finance_Managers        | Contoso_Entra_ID   | 1            | Active
+Sales_Department        | Contoso_Entra_ID   | 2            | Active
+HR_Department           | Contoso_Entra_ID   | 1            | Active
+All_Employees           | Contoso_Entra_ID   | 13           | Active
+```
+
+**Click group:** Shows members
+```
+Engineering_Department members:
+1. Alex Lee (alex.lee@contoso.com)
+2. Morgan Chen (morgan.chen@contoso.com)
+3. (2 more members)
+```
+
+---
+
+### VERIFY ATTRIBUTE DATA
+
+**Sample verification for Alex Lee:**
+
+| Attribute | Expected | Actual | Status |
+|---|---|---|---|
+| firstName | Alex | ✅ | ✅ |
+| lastName | Lee | ✅ | ✅ |
+| email | alex.lee@contoso.com | ✅ | ✅ |
+| department | Engineering | ✅ | ✅ |
+| jobTitle | Senior Engineer | ✅ | ✅ |
+| manager | (Manager ID) | ✅ | ✅ |
+| hireDate | 2020-01-15 | ✅ | ✅ |
+| location | San Francisco | ✅ | ✅ |
+
+---
+
+### SEARCH AND FILTER
+
+**Search box in Identities/Accounts pages:**
+
+Try searches:
+1. "Alex Lee" → finds identity
+2. "Engineering" → shows department filter
+3. "Senior Engineer" → shows job title filter
+4. "alex.lee@contoso.com" → finds by email
+
+**Advanced filters (if available):**
+- Department = Engineering
+- JobTitle = Manager
+- Hire Date > 2020-01-01
+- Status = Active
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+**After aggregation:**
+
+✅ 13 identities visible with all attributes populated
+✅ 13 accounts visible (one per identity from Entra ID)
+✅ 7 groups visible with correct member counts
+✅ Each identity shows linked account(s)
+✅ Attributes match Entra ID data (from Unit 2.3-2.4)
+✅ Search and filter work correctly
+
+---
+
+## 🔧 TROUBLESHOOTING
+
+**Issue: "No identities found" or identities count is 0**
+- Aggregation didn't run successfully (go back to Module 4.4)
+- Aggregation failed silently (check logs in Administration menu)
+- Entra ID connector not set up correctly (Module 3.10-3.11)
+
+**Issue: Attributes show as null or empty**
+- Attribute mapping incomplete (Module 3.4-3.5)
+- Source data missing (e.g., no department in Entra ID for that user)
+- Mapping rule has syntax error
+- Re-run aggregation after fixing mapping
+
+**Issue: Groups show but members are empty**
+- Group membership aggregation failed
+- Account mapping for groups not configured (Module 3.11)
+- Groups in Entra ID are empty
+
+**Issue: Search shows results but identity details page is blank**
+- Page loading issue (refresh/reload)
+- Identity data corruption (rare)
+- Permissions issue (user role limitation)
+- Try another browser or incognito mode
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** After aggregation, where do you view all user attributes (firstName, lastName, email, department, etc.)?
+
+A) Accounts menu
+B) ✅ Identities menu → Click identity name → Attributes tab
+C) Sources menu
+D) Administration menu
+
+**Answer: B.** Identities menu shows persons (aggregated from sources). Attributes tab shows all identity attributes.
+
+**Q:** If you see an identity in the Identities list but attributes are mostly null/empty, what is the most likely cause?
+
+A) Identity hasn't been aggregated yet
+B) ✅ Attribute mapping not configured correctly (Module 3.4-3.5)
+C) Entra ID is not connected
+D) Source connector is disabled
+
+**Answer: B.** Aggregation reads data and stores it. If attributes are empty, mapping rules didn't populate them correctly.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 4.4: Run Aggregation in ISC](/modules/4.4-run-aggregation-in-isc)
+- [Module 3.4: Attribute Mapping Basics](/modules/3.4-attribute-mapping-basics)
+- [Module 3.11: Configure Entra ID Connector - Account Mapping](/modules/3.11-configure-entra-id-connector-part-2)
+
+---
+
+## ✅ NEXT STEPS
+
+Aggregation complete. Now prepare for correlation (Module 4.6):
+1. Verify all 13 identities and attributes visible
+2. Note any missing data or errors
+3. If issues, go back to Module 3.4-3.5 (attribute mapping)
+4. Proceed to 4.6 (Understanding Account Correlation)
+

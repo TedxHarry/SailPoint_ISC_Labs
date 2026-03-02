@@ -1,0 +1,153 @@
+# 4.1 - Aggregation Fundamentals Recap
+
+**Unit:** Aggregation & Correlation | **Tier:** 1 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand what aggregation does
+- Know why aggregation happens before correlation
+- Recognize aggregation phases (discovery, storage, enrichment)
+- Understand data flow from source to ISC
+
+---
+
+## 📋 Prerequisites
+
+Unit 3: Identity Profiles & Sources complete.
+
+---
+
+## 📚 CORE CONCEPTS
+
+### What is Aggregation?
+
+**Definition:** Process where ISC reads data from source systems, validates it against the Identity Profile, and stores it in the ISC database.
+
+**Why critical:** Without aggregation, ISC has no data about users, groups, entitlements, or accounts. Everything downstream (correlation, provisioning, governance) depends on accurate aggregation.
+
+**Data flow:**
+```
+Source System → Connector reads → ISC validates against Profile → ISC stores
+(Entra ID)     (REST API calls)   (attributes match schema)    (Identity, Account tables)
+```
+
+**Example - Contoso scenario:**
+ISC connector reads 13 users from Entra ID (Alex Lee, Morgan Chen, Casey Kim, etc.). Each user has attributes: firstName, lastName, email, department, jobTitle, manager. ISC validates all 8 attributes exist and match type (string, date, etc.). ISC stores each as an Identity object with linked Account objects.
+
+---
+
+### Aggregation Phases
+
+**Discovery:** Connector lists all objects in source.
+- Entra ID returns: 13 users, 7 groups, department information, manager relationships
+- ISC learns scope: "This source has 13 identities, 7 resource objects"
+
+**Storage:** Connector reads detailed attributes for each object.
+- For each user: firstName, lastName, email, department, jobTitle, manager, hireDate, location
+- ISC stores in native schema: Identity table, Account table, EntitlementGroup table
+- Identity gets unique ID (UUID)
+- Account gets unique ID and link to Identity (foreign key)
+
+**Enrichment:** ISC applies transformations and correlations.
+- Creates display names (firstName + lastName)
+- Calculates manager relationships (finds manager Identity by matching ID)
+- Links accounts to identities (correlation - see 4.6)
+- Adds metadata (source system name, aggregation timestamp)
+
+---
+
+### Why Aggregation Before Correlation?
+
+**Aggregation ≠ Correlation**
+
+Aggregation = bringing data IN (discovery + storage)
+Correlation = matching the data (account belongs to this identity)
+
+Cannot correlate what you haven't aggregated. Correlation rules say "if this account's email matches an Identity's email, link them." The Identity and Account must both exist in ISC from aggregation first.
+
+**Example:**
+1. Aggregation: Read 13 users from Entra ID, store in ISC
+2. Aggregation: Read 5 users from Okta, store in ISC (now 18 total)
+3. Correlation: "User alex.lee@contoso.com exists in both systems - link them"
+
+---
+
+### What Gets Aggregated?
+
+**Identities:** Persons with attributes.
+- Example: Alex Lee (firstName: "Alex", lastName: "Lee", email: "alex.lee@contoso.com", department: "Engineering")
+
+**Accounts:** Login objects in systems.
+- Entra ID account: alex.lee@contoso.com (Azure login)
+- Okta account: alex.lee (Okta username)
+- Database account: alee (Oracle username)
+- Same person, 3 different accounts
+
+**Resources/Entitlements:** What accounts can access.
+- Group memberships: "Engineering_Department", "All_Employees"
+- Application roles: "Editor", "Viewer"
+- System permissions: "Read", "Write", "Delete"
+
+---
+
+## 🧠 KEY TAKEAWAYS
+
+- Aggregation = reading data from sources and storing in ISC
+- Always happens before correlation and provisioning
+- Three phases: discovery → storage → enrichment
+- Correlation requires aggregated data to work
+- Without aggregation, ISC has no identity data
+
+---
+
+## 🧪 TASK
+
+1. Understand aggregation as data import
+2. Recognize the three phases
+3. Know why aggregation prerequisite for correlation
+4. Prepare for hands-on aggregation in module 4.4
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Understand aggregation purpose
+- ☑️ Know the three phases
+- ☑️ Understand why aggregation before correlation
+- ☑️ Ready to run aggregation in ISC
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** What is the primary purpose of aggregation in ISC?
+
+A) Create access policies
+B) ✅ Read data from source systems and store in ISC
+C) Generate access reports
+D) Manage user passwords
+
+**Answer: B.** Aggregation imports source data. Policies, reports, and password management happen after.
+
+**Q:** Aggregation and correlation are the same process. True or False?
+
+A) True
+B) ✅ False
+
+**Answer: B.** Aggregation reads data IN. Correlation LINKS the data. Separate processes, sequential order.
+
+---
+
+## 📚 RESOURCES
+
+- [Next: 4.2 - Understanding Aggregation Architecture](/modules/4.2-understanding-aggregation-architecture)
+- [Module 3.12: Test Entra ID Connector](/modules/3.12-test-entra-id-connector)
+
+---
+
+## ✅ NEXT STEPS
+
+Proceed to 4.2 to understand how aggregation architecture works internally.
+

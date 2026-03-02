@@ -1,0 +1,264 @@
+# 4.9 - Identity Correlation
+
+**Unit:** Aggregation & Correlation | **Tier:** 1 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand identity consolidation
+- Know how multiple accounts map to one identity
+- Understand identity matching
+- Recognize correlation scope (account vs identity level)
+
+---
+
+## 📋 Prerequisites
+
+Module 4.8: Test Correlation (account correlation must be working).
+
+---
+
+## 📚 CORE CONCEPTS
+
+### Account Correlation vs Identity Correlation
+
+**Account Correlation (Module 4.6-4.8):**
+- Matches multiple accounts from SAME source to ONE identity
+- Example: Entra ID has alex.lee@contoso.com, ISC identity is Alex Lee
+
+**Identity Correlation (This module):**
+- Matches multiple accounts from DIFFERENT sources to ONE identity
+- Example: Entra ID alex.lee@contoso.com, Okta alex.lee, Oracle alee → all map to ONE identity "Alex Lee"
+
+---
+
+### Why Identity Correlation Matters
+
+**Without identity correlation:**
+```
+Entra ID account: alex.lee@contoso.com
+  ↓
+Identity: "alex.lee@contoso.com" (from Entra ID)
+
+Okta account: alex.lee
+  ↓
+Identity: "alex.lee" (from Okta)
+
+Oracle account: alee
+  ↓
+Identity: "alee" (from Oracle)
+
+RESULT: ISC thinks 3 different people exist (same person, 3 identities)
+Governance: Policy applies to "alex.lee@contoso.com", misses alex.lee in Okta
+Provisioning: Creates same role 3 times, removes access 3 times
+```
+
+**With identity correlation:**
+```
+Entra ID account: alex.lee@contoso.com  ↘
+Okta account: alex.lee                  → Identity: Alex Lee
+Oracle account: alee                    ↙
+
+RESULT: ISC knows 1 person has 3 accounts
+Governance: One policy covers all 3 accounts
+Provisioning: Creates role once per system, consistent across all
+```
+
+---
+
+### Identity Correlation Process
+
+**When multiple sources aggregated (Unit 4+, hypothetical):**
+
+1. **Aggregation 1:** Entra ID connector reads 13 users
+   - Creates Identity "alex.lee@contoso.com" (from nativeIdentity)
+   - Account: alex.lee@contoso.com (Entra ID)
+
+2. **Aggregation 2:** Okta connector reads 12 users (Alex is in Okta too)
+   - Account: alex.lee (Okta)
+   - ISC needs to match: "This Okta account is same person as alex.lee@contoso.com"
+
+3. **Identity correlation rule:** "IF okta.email MATCHES entra.email, consolidate into ONE identity"
+   - Okta email: alex.lee@contoso.com
+   - Entra email: alex.lee@contoso.com
+   - MATCH: Merge. One identity now has 2 accounts.
+
+---
+
+### Identity Consolidation
+
+**Scenario:** Two accounts created as separate identities need to be merged.
+
+**Before merge:**
+```
+Identity 1: "alex.lee@contoso.com"
+└─ Account: alex.lee@contoso.com (Entra ID)
+
+Identity 2: "alex.lee"
+└─ Account: alex.lee (Okta)
+```
+
+**Correlation rule triggers merge:**
+
+```
+Identity: "Alex Lee" (consolidated)
+├─ Account: alex.lee@contoso.com (Entra ID)
+└─ Account: alex.lee (Okta)
+```
+
+**Result:** ISC now recognizes same person, has unified view of all their accounts and entitlements.
+
+---
+
+### Identity Attributes During Consolidation
+
+**When identities consolidate, attribute merging:**
+
+**Default:** First identity's attributes kept, second identity's attributes ignored (or merged).
+
+**Example:**
+```
+Identity 1 (Entra ID) attributes:
+  firstName: Alex
+  lastName: Lee
+  email: alex.lee@contoso.com
+  department: Engineering
+
+Identity 2 (Okta) attributes:
+  firstName: Alexander
+  lastName: Lee
+  email: alex.lee
+  department: (none)
+
+After consolidation:
+  firstName: Alex (from identity 1)
+  lastName: Lee (from both)
+  email: alex.lee@contoso.com (from identity 1, more complete)
+  department: Engineering (from identity 1, Okta had none)
+```
+
+**Key:** ISC picks "most complete" attribute value (not null, more recent timestamp, etc.)
+
+---
+
+### Identity Life Cycle With Correlation
+
+**Scenario: Alex joins, moves to new department, leaves Contoso**
+
+**T=Day 1 (Join):**
+- HR creates user in Entra ID: alex.lee@contoso.com (Engineering)
+- Okta admin creates account: alex.lee
+- Aggregation runs: Both accounts created
+- Correlation rule matches: One identity "Alex Lee" with 2 accounts
+
+**T=Day 30 (Move):**
+- HR moves Alex to Finance department in Entra ID
+- Aggregation (partial) reads change
+- Identity "Alex Lee" updated: department now Finance
+- Applies to Alex everywhere (Okta, Oracle, etc.)
+
+**T=Day 365 (Leave):**
+- HR deactivates Entra ID user
+- Aggregation reads: alex.lee@contoso.com disabled
+- Identity "Alex Lee" status: Inactive
+- Provisioning rules remove Alex from all systems (Okta, Oracle, etc.)
+
+---
+
+### Correlation Priority (Multi-Source)
+
+**When 3 sources aggregated:**
+
+**Rule Priority:**
+1. **Rule 1 (Email):** IF email matches, consolidate identities
+2. **Rule 2 (Employee ID):** IF employeeID matches, consolidate
+3. **Rule 3 (Name + Department):** IF firstName+lastName+dept match, consolidate
+
+**ISC evaluation:**
+- Okta account arrives
+- Check Rule 1: Does Okta account email match any Entra identity email? → YES, consolidate
+- Don't need Rule 2 or 3
+
+**Example where Rule 2 needed:**
+- New source has employee ID but not email
+- Rule 1 fails (no email match)
+- Rule 2: Employee ID "E12345" matches identity attribute → consolidate
+
+---
+
+### For Unit 4 (Single Source)
+
+**In current Contoso setup:** Only Entra ID aggregated, so identity correlation isn't active yet.
+
+**What happens:**
+- 13 Entra ID users read
+- 13 Identities created (one per user)
+- Each identity has 1 account (from Entra ID)
+- Account correlation is complete
+- Identity correlation would apply when 2nd source added
+
+---
+
+## 🧠 KEY TAKEAWAYS
+
+- Account correlation: One source → one identity
+- Identity correlation: Multiple sources → one identity
+- Consolidates accounts across systems for one person
+- Requires matching rule (email, employee ID, etc.)
+- Critical for governance and provisioning
+
+---
+
+## 🧪 TASK
+
+1. Understand difference between account and identity correlation
+2. Know why identity correlation matters
+3. Understand consolidation process
+4. Recognize scope: single source vs multi-source
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Understand account vs identity correlation
+- ☑️ Understand consolidation
+- ☑️ Recognize multi-source scenario
+- ☑️ Ready for advanced scenarios (Module 4.10)
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** What is the difference between account correlation and identity correlation?
+
+A) They are the same
+B) ✅ Account = same source to identity; Identity = different sources to same identity
+C) Account is manual, identity is automatic
+D) Account is for users, identity is for groups
+
+**Answer: B.** Account correlation: one source → match accounts to identity. Identity correlation: multiple sources → merge accounts under one identity.
+
+**Q:** If you have accounts in Entra ID and Okta for the same person, what does identity correlation do?
+
+A) Deletes one account
+B) Creates two separate identities
+C) ✅ Consolidates both accounts under one identity
+D) Syncs accounts between systems
+
+**Answer: C.** Identity correlation recognizes "alex.lee@contoso.com (Entra) and alex.lee (Okta) = same person" and merges into one identity.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 4.6: Understanding Account Correlation](/modules/4.6-understanding-account-correlation)
+- [Module 4.7: Correlation Rules Configuration](/modules/4.7-correlation-rules-configuration)
+- [Module 4.10: Advanced Correlation Scenarios](/modules/4.10-advanced-correlation-scenarios)
+
+---
+
+## ✅ NEXT STEPS
+
+Proceed to 4.10 (Advanced Correlation Scenarios) for edge cases and complex matching.
+

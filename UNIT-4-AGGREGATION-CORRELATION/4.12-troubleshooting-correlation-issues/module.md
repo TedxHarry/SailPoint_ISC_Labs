@@ -1,0 +1,426 @@
+# 4.12 - Troubleshooting Correlation Issues
+
+**Unit:** Aggregation & Correlation | **Tier:** 2 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Diagnose correlation failures
+- Fix common correlation errors
+- Understand why accounts don't correlate
+- Verify correlation results
+
+---
+
+## 📋 Prerequisites
+
+Module 4.11: Troubleshooting Aggregation Issues (aggregation working first).
+
+---
+
+## 📚 CORE CONCEPTS
+
+### Common Correlation Issues
+
+### ISSUE 1: Accounts Show as Unlinked
+
+**Symptoms:**
+```
+ISC > Accounts page
+Account: alex.lee@contoso.com
+Status: UNLINKED (no linked identity)
+```
+
+**Cause:** Correlation rule didn't match account to any identity.
+
+**Diagnosis:**
+
+**Step 1:** Check correlation rule exists
+```
+ISC > Administration > Correlation (or Sources > Contoso_Entra_ID > Correlation)
+Look for: "Email Match Rule" or similar
+If none shown: No rule created (go to Module 4.7)
+```
+
+**Step 2:** Check rule definition
+```
+Select rule, view details:
+  Rule: "IF account.nativeIdentity EQUALS identity.email"
+  Enabled: Check this is YES
+  Priority: Check this rule is priority 1 (first to evaluate)
+```
+
+**Step 3:** Check account has required attribute
+```
+ISC > Accounts > Select "alex.lee@contoso.com"
+View attributes:
+  nativeIdentity: "alex.lee@contoso.com" (should match rule source)
+```
+
+**Step 4:** Check identity exists with matching attribute
+```
+ISC > Identities
+Search: "alex.lee@contoso.com" or "Alex Lee"
+Check email: "alex.lee@contoso.com" (should match rule target)
+```
+
+**Step 5:** Test rule
+```
+ISC > Administration > Correlation > Select rule
+Click: "Test Rule" or "Preview Matches"
+Expected: Shows this account matches some identity
+If not shown: Rule syntax error
+```
+
+**Fixes:**
+- If rule doesn't exist: Create it (Module 4.7)
+- If rule disabled: Enable it
+- If rule syntax wrong: Fix it (check attribute names)
+- If account/identity attributes missing: Add them (Module 2.3, Module 3.4)
+- Run batch correlation: ISC > Administration > "Correlate Unlinked Accounts"
+
+---
+
+### ISSUE 2: Correlation Rule Test Shows 100%, But Batch Shows 0 Matched
+
+**Symptoms:**
+```
+Rule test: 13/13 accounts match ✅
+Batch correlation: 0 accounts correlated
+```
+
+**Cause:** Rule wasn't actually applied, or data changed between test and execution.
+
+**Diagnosis:**
+
+**Step 1:** Verify rule was saved
+```
+ISC > Administration > Correlation
+Click rule name
+Check: "Status: Active" or "Enabled: Yes"
+If "Draft" or "Disabled": Rule not active
+```
+
+**Step 2:** Check if rule was applied to accounts
+```
+ISC > Accounts
+Count unlinked accounts: If still high number, rule wasn't applied
+```
+
+**Step 3:** Run batch correlation manually
+```
+ISC > Administration > Correlation
+Look for: "Correlate All Accounts" or "Correlate Unlinked"
+Click it
+ISC runs all rules in priority order
+Watch status: Should show count of matched accounts
+```
+
+**Step 4:** Check results page
+```
+After batch correlation:
+  Shows: "13 accounts successfully correlated"
+  Or: "0 accounts correlated, 13 failed"
+  If failed, shows which accounts and why
+```
+
+**Fixes:**
+- Make sure rule is enabled/active
+- Save rule after editing (click Save button)
+- Re-run batch correlation
+- Check logs (ISC > Logs) for correlation errors
+- If still failing, verify account and identity data again (Step 3-4 of Issue 1)
+
+---
+
+### ISSUE 3: "Correlation Rule Syntax Error"
+
+**Symptoms:**
+```
+Error: "Invalid syntax in correlation rule"
+or
+"Unknown attribute: account.nativeIdentityXXX"
+```
+
+**Cause:** Typo or wrong attribute name in rule definition.
+
+**Example:**
+```
+Rule created: "IF account.nativeIdentityXXX EQUALS identity.email"
+                          ↑ typo: should be "nativeIdentity"
+ISC shows error
+```
+
+**Diagnosis:**
+
+**Step 1:** Find the rule with error
+```
+ISC > Administration > Correlation
+Look for rule with red error indicator or status "ERROR"
+```
+
+**Step 2:** Check attribute names
+```
+Compare rule to valid attributes:
+Account attributes: nativeIdentity, displayName, status, attributes map
+Identity attributes: firstName, lastName, email, department, jobTitle, manager, etc.
+Make sure rule uses valid names
+```
+
+**Step 3:** Verify syntax
+```
+Valid syntax: "IF [attribute] [operator] [attribute]"
+Example: "IF account.nativeIdentity EQUALS identity.email"
+Invalid: "IF nativeIdentity == email" (missing "account." and "identity." prefix)
+```
+
+**Fixes:**
+- Edit rule and fix typo
+- Use exact attribute names from ISC schema
+- Test syntax before saving
+- Save and retry correlation
+
+---
+
+### ISSUE 4: Multiple Accounts Correlate to Same Identity
+
+**Symptoms:**
+```
+Identity: "Alex Lee"
+Accounts:
+  ├─ alex.lee@contoso.com ✅ (Entra ID)
+  ├─ alex.lee@contoso.com (Okta) ← Duplicate nativeIdentity!
+  └─ alex.lee (Oracle)
+```
+
+**Cause:** Two different sources have same nativeIdentity (shouldn't happen normally).
+
+**Example:** Admin accidentally created duplicate user in Okta with same email.
+
+**Diagnosis:**
+
+**Step 1:** Check source data
+```
+Entra ID: alex.lee@contoso.com (primary)
+Okta: alex.lee@contoso.com (duplicate created accidentally)
+Oracle: alex.lee (different format)
+```
+
+**Step 2:** Verify both are same person
+```
+Check other attributes:
+  First name: All say "Alex" ✅
+  Last name: All say "Lee" ✅
+  Department: All say "Engineering" ✅
+  Conclusion: Yes, same person
+```
+
+**Fixes:**
+- This is actually correct (one identity with 3 accounts)
+- Or if truly duplicate: Delete duplicate account in source (Okta), re-aggregate
+- Or: Update correlation rule to handle specific source differences
+
+---
+
+### ISSUE 5: Identities Don't Show Any Accounts
+
+**Symptoms:**
+```
+ISC > Identities > Alex Lee
+Accounts section: (empty, no accounts shown)
+```
+
+**Cause:** Accounts exist but didn't correlate to this identity.
+
+**Diagnosis:**
+
+**Step 1:** Check if accounts exist at all
+```
+ISC > Accounts
+Count total accounts shown
+If 0: Aggregation never ran (go to Module 4.11)
+If 13: Accounts exist but not linked
+```
+
+**Step 2:** Check correlation rule
+```
+ISC > Administration > Correlation
+Is rule created? Is it enabled?
+If not: Create rule (Module 4.7)
+```
+
+**Step 3:** Verify identity has matching attribute
+```
+ISC > Identities > Alex Lee > Attributes
+Check: email = "alex.lee@contoso.com" (or whatever correlation rule checks)
+If blank: Attribute mapping didn't populate (Module 3.4)
+```
+
+**Step 4:** Manually check one account-identity pair
+```
+ISC > Accounts > alex.lee@contoso.com
+Shows: "No linked identity" or blank identity field
+```
+
+**Fixes:**
+- Create correlation rule if missing (Module 4.7)
+- If rule exists, run batch correlation: ISC > Correlation > "Correlate Unlinked Accounts"
+- If still fails, check Issue 1 (attributes missing/mismatched)
+- Fix data quality in Module 2.3 or Module 3.4, re-aggregate
+
+---
+
+### ISSUE 6: Correlation Rule Works for Some Users, Not Others
+
+**Symptoms:**
+```
+Rule test: 13/13 match
+After batch correlation:
+  ✅ 10 accounts correlated
+  ❌ 3 accounts failed
+(alex.lee, morgan.chen, casey.kim linked, but others aren't)
+```
+
+**Cause:** Some account or identity attributes are different/missing.
+
+**Example:**
+```
+Rule: "IF account.nativeIdentity EQUALS identity.email"
+
+Alex Lee: account.email="alex.lee@contoso.com", identity.email="alex.lee@contoso.com" ✅
+Sam Smith: account.email="ssmith@contoso.com", identity.email=(blank) ❌
+```
+
+**Diagnosis:**
+
+**Step 1:** Check which accounts failed
+```
+ISC > Logs or Correlation results page
+Shows list of accounts that didn't match
+Example: "ssmith@contoso.com" failed
+```
+
+**Step 2:** Check failed account's attributes
+```
+ISC > Accounts > Select "ssmith@contoso.com"
+View nativeIdentity field: What value shown?
+Compare to identity with same person
+```
+
+**Step 3:** Check if matching identity exists
+```
+ISC > Identities
+Search for "Sam Smith" or "ssmith@contoso.com"
+Does identity exist? Does it have matching email attribute?
+```
+
+**Fixes:**
+- If identity missing: Add data to source and re-aggregate (Module 2.3)
+- If account missing attribute: Check source data has it (Module 2.3)
+- If identity has blank attribute: Check attribute mapping (Module 3.4)
+- Fix data, re-aggregate, retry correlation
+
+---
+
+### ISSUE 7: Manager Relationships Broken After Correlation
+
+**Symptoms:**
+```
+Identity: Alex Lee
+Attributes:
+  manager: (shows ID but no name, or blank)
+```
+
+**Cause:** Manager identity doesn't exist or correlation happened before manager was aggregated.
+
+**Example:** Alex's manager is Morgan Chen, but Morgan's identity created AFTER Alex.
+
+**Diagnosis:**
+
+**Step 1:** Verify manager exists
+```
+ISC > Identities
+Search for Morgan Chen
+Is she in list? Does she have an account?
+```
+
+**Step 2:** Check manager attribute value
+```
+ISC > Identities > Alex Lee > Attributes
+manager field shows: What value? (Manager's ID, email, or name)
+```
+
+**Fixes:**
+- If manager identity doesn't exist: Add to Entra ID (Module 2.3), re-aggregate
+- If exists but reference broken: Re-run correlation (manager should link after aggregation)
+- Or: Re-aggregate to pick up manager relationships
+- Manager relationships usually resolve on next aggregation/correlation cycle
+
+---
+
+## 🧠 KEY TAKEAWAYS
+
+- Check rule exists and is enabled first
+- Verify attributes exist in both account and identity
+- Use rule test before batch correlation
+- Run batch correlation after fixes
+- Data quality issues = correlation failures
+
+---
+
+## 🧪 TASK
+
+1. Understand each correlation issue
+2. Know diagnosis steps
+3. Know how to check logs
+4. Practice fixing one scenario
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Understand common correlation failures
+- ☑️ Know how to diagnose using rule test
+- ☑️ Know how to verify data existence
+- ☑️ Know when to re-aggregate vs re-correlate
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** If batch correlation shows "0 accounts correlated" but rule test showed "13/13 match", what is most likely?
+
+A) Rule test is wrong
+B) Accounts were deleted
+C) ✅ Rule wasn't saved/enabled, or data changed between test and execution
+D) ISC is broken
+
+**Answer: C.** Batch correlation only works if rule is active and data hasn't changed. Check rule "Enabled" status first.
+
+**Q:** An account "alex.lee@contoso.com" shows as unlinked. Rule is "IF account.nativeIdentity EQUALS identity.email". What should you verify?
+
+A) Rule has high priority
+B) ✅ Account.nativeIdentity value matches some Identity.email value
+C) ISC is running
+D) Database has space
+
+**Answer: B.** If rule is correct but account unlinked, the values don't match. Check account's nativeID value and search for identity with same email.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 4.7: Correlation Rules Configuration](/modules/4.7-correlation-rules-configuration)
+- [Module 4.8: Test Correlation](/modules/4.8-test-correlation)
+- [Module 4.11: Troubleshooting Aggregation Issues](/modules/4.11-troubleshooting-aggregation-issues)
+
+---
+
+## ✅ NEXT STEPS
+
+After correlation issues resolved:
+1. Verify all 13 accounts correlated
+2. Check no unlinked accounts remain
+3. Proceed to Module 4.13 (Aggregation Performance & Optimization)
+

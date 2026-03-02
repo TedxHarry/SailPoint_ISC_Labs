@@ -1,0 +1,289 @@
+# 4.10 - Advanced Correlation Scenarios
+
+**Unit:** Aggregation & Correlation | **Tier:** 2 | **Duration:** ~12 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Handle correlation edge cases
+- Understand fuzzy matching
+- Know when manual correlation needed
+- Recognize correlation conflicts
+
+---
+
+## 📋 Prerequisites
+
+Module 4.9: Identity Correlation.
+
+---
+
+## 📚 CORE CONCEPTS
+
+### Scenario 1: Name Changes
+
+**Situation:** Person changes last name (marriage, legal change) between systems.
+
+```
+Entra ID:
+  name: "Alex Smith"
+  email: "alex.smith@contoso.com"
+
+Oracle:
+  name: "Alex Johnson"  ← different last name
+  email: "alex.smith@contoso.com"  ← same email
+```
+
+**Correlation challenge:** Name doesn't match, email does.
+
+**Solution:**
+- Rule: IF email matches, accept as same person (ignore name differences)
+- Result: Consolidated to one identity, attributes merged
+
+**Contoso context:** Morgan Chen joins, has middle name in HR. Systems use different formats (Morgan Chen vs M Chen).
+
+---
+
+### Scenario 2: Email Format Variations
+
+**Situation:** Different systems store email differently.
+
+```
+Entra ID:
+  email: "alex.lee@contoso.com"
+
+Okta:
+  email: "ALEX.LEE@CONTOSO.COM"  ← uppercase
+
+Oracle:
+  email: "alee@contoso.com"  ← shortened
+```
+
+**Correlation challenge:** Strings don't match exactly.
+
+**Solution 1: Case-insensitive rule**
+```
+Rule: IF LOWER(account.email) == LOWER(identity.email)
+```
+
+**Solution 2: Fuzzy matching**
+```
+Rule: IF account.email CONTAINS identity.firstName + identity.lastName
+```
+
+**Solution 3: Manual mapping**
+- Email aliases defined
+- alee@contoso.com → alex.lee@contoso.com (mapping table)
+
+---
+
+### Scenario 3: Duplicate Identities
+
+**Situation:** Same person created twice in ISC (data quality issue).
+
+```
+Identity 1: "Alex Lee" (from Entra ID)
+  email: alex.lee@contoso.com
+  Account: alex.lee@contoso.com (Entra ID)
+
+Identity 2: "A Lee" (from manual import or error)
+  email: alex.lee@contoso.com  ← same email!
+  Account: None
+```
+
+**Correlation challenge:** Different identities, same core data.
+
+**Solution:**
+- Manual merge: Admin selects both, clicks "Merge Identities"
+- ISC consolidates to one identity, keeps better attributes
+- Result: One identity "Alex Lee", all accounts linked
+
+**How to prevent:** Run correlation rules, check for attribute duplicates.
+
+---
+
+### Scenario 4: Account Exists Without Identity
+
+**Situation:** Account aggregated but no matching identity found (new hire not in Entra ID yet).
+
+```
+Okta:
+  account: casey.kim@contoso.com
+  email: casey.kim@contoso.com
+
+Entra ID:
+  (Casey doesn't exist yet)
+
+Result: Okta account exists but can't correlate
+```
+
+**Options:**
+1. **Wait:** Entra ID account created later, next aggregation correlates
+2. **Manual:** Admin creates identity "Casey Kim", manually links Okta account
+3. **Auto-create:** ISC creates identity from account data (not recommended, loses attributes)
+
+**For Contoso:** All 13 test users exist in Entra ID, so this won't happen in Unit 4.
+
+---
+
+### Scenario 5: Account Matches Multiple Identities (Ambiguous)
+
+**Situation:** Account data matches 2 potential identities (dangerous).
+
+```
+Rule: IF firstName+lastName match
+
+Account from new source:
+  firstName: "Alex"
+  lastName: "Lee"
+
+ISC identities with same name:
+  1. "Alex Lee" (engineer, Entra ID)
+  2. "Alex Lee" (different person, contractor, from spreadsheet import)  ← Name collision!
+
+Correlation result: AMBIGUOUS - which Alex Lee?
+```
+
+**Correlation challenge:** Multiple matches, rule ambiguous.
+
+**Solutions:**
+1. **Add more specific rule:** Use email, employee ID, department (eliminates ambiguity)
+2. **Manual review:** Mark as "requires review", admin picks correct identity
+3. **Reject correlation:** Leave account unlinked, flag for investigation
+
+**Best practice:** Use attributes that uniquely identify (email, employee ID, not name).
+
+---
+
+### Scenario 6: Deprovisioning and Orphaned Accounts
+
+**Situation:** Person leaves, identity deleted, but account still active in source.
+
+```
+T=Day 1: Identity "Alex Lee" active, account in Entra ID
+T=Day 365: Alex leaves
+  - ISC deletes identity "Alex Lee"
+  - But Entra ID account alex.lee@contoso.com still active
+
+T=Day 366: Next aggregation
+  - Entra ID still has alex.lee@contoso.com
+  - ISC reads account but no matching identity
+  - Account is "orphaned"
+
+Result: ISC has account without identity
+```
+
+**Solution:**
+- Governance rules should disable/delete Entra ID account when identity removed
+- Aggregation catches deletions on next full scan
+- Or: Manual cleanup (delete orphaned accounts)
+
+---
+
+### Scenario 7: Cross-System Reconciliation
+
+**Situation:** Check if all accounts still match their identities (data drift).
+
+**Problem:** Over time, data in sources changes.
+```
+Original: Entra ID alex.lee@contoso.com = Identity "Alex Lee"
+Later: Entra ID admin changes email to alex.lee.new@contoso.com
+Result: Account doesn't correlate anymore (orphaned)
+```
+
+**Solution:**
+- Periodic reconciliation report
+- Compare stored identity attributes to source
+- Identify mismatches
+- Re-run correlation to catch missed accounts
+
+**ISC feature:** Reconciliation / Account Verification module (Module 4.15)
+
+---
+
+### Scenario 8: Manager Relationships During Correlation
+
+**Situation:** Identity has manager attribute, manager must also be in ISC.
+
+```
+Identity: Alex Lee
+  manager: morgan.chen@contoso.com  ← manager's email
+
+Correlation check:
+  Is there an identity with email = morgan.chen@contoso.com?
+  YES → Link manager relationship
+  NO → Manager reference broken
+```
+
+**Issue:** If Morgan's identity doesn't exist yet (late aggregation).
+
+**Solution:**
+- Aggregate all sources first (all managers exist)
+- Then correlate (all relationships resolve)
+- Or: Use correlation rule that links managers after account correlates
+
+---
+
+## 🧠 KEY TAKEAWAYS
+
+- Correlation handles common scenarios but edge cases exist
+- Fuzzy matching and case-insensitivity help with data quality
+- Duplicate identities need manual resolution
+- Orphaned accounts indicate data issues
+- Reconciliation catches correlation drift
+
+---
+
+## 🧪 TASK
+
+1. Understand edge cases
+2. Know when manual correlation needed
+3. Recognize data quality issues
+4. Plan handling for each scenario
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Understand name/email variations
+- ☑️ Know duplicate resolution methods
+- ☑️ Understand orphaned accounts
+- ☑️ Ready for troubleshooting (Module 4.11-4.12)
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** If a new account arrives with email "ALEX.LEE@CONTOSO.COM" (uppercase) but identity has "alex.lee@contoso.com" (lowercase), what should the rule use to correlate?
+
+A) Exact string match (will fail)
+B) ✅ Case-insensitive match (LOWER or UPPER both sides)
+C) Manual matching only
+D) Create second identity
+
+**Answer: B.** Case-insensitive rule: LOWER(account.email) == LOWER(identity.email) handles format variations.
+
+**Q:** What is an "orphaned account"?
+
+A) An account in ISC with no correlation rule
+B) ✅ An account with no linked identity (identity was deleted or removed)
+C) An account that was never aggregated
+D) An account not assigned to any group
+
+**Answer: B.** Orphaned = exists in ISC but not linked to identity. Usually data drift or identity deleted.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 4.9: Identity Correlation](/modules/4.9-identity-correlation)
+- [Module 4.11: Troubleshooting Aggregation Issues](/modules/4.11-troubleshooting-aggregation-issues)
+- [Module 4.15: Data Reconciliation](/modules/4.15-data-reconciliation)
+
+---
+
+## ✅ NEXT STEPS
+
+Proceed to Module 4.11 (Troubleshooting Aggregation Issues) for problem diagnosis and fixes.
+

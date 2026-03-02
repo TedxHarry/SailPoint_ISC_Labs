@@ -1,0 +1,308 @@
+# 4.15 - Data Reconciliation
+
+**Unit:** Aggregation & Correlation | **Tier:** 2 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand data reconciliation purpose
+- Verify ISC data matches source data
+- Find and fix discrepancies
+- Run reconciliation reports
+
+---
+
+## 📋 Prerequisites
+
+Module 4.5: Viewing Aggregated Data.
+
+---
+
+## 📚 CORE CONCEPTS
+
+### What is Data Reconciliation?
+
+**Definition:** Comparing ISC data to source system data to verify they match.
+
+**Why critical:** Over time, data drifts (discrepancies develop). Reconciliation detects drift before it causes governance problems.
+
+**Example:**
+- Last aggregation: Entra ID had 13 users
+- Today: Entra ID still has 13, but ISC shows 15 (2 deleted accounts never removed)
+- Reconciliation catches this
+
+---
+
+### Reconciliation Scenarios
+
+**Scenario 1: Deleted Accounts**
+
+**Source (Entra ID):** 13 users
+**ISC:** 15 users (2 orphaned accounts from old deletion)
+
+**Reconciliation detects:** ISC has accounts source doesn't
+**Fix:** Delete orphaned accounts from ISC
+
+---
+
+**Scenario 2: Missing Attributes**
+
+**Source (Entra ID):** Alex Lee has department = "Engineering"
+**ISC:** Alex Lee has department = null (attribute blank)
+
+**Reconciliation detects:** ISC attribute incomplete
+**Fix:** Re-aggregate, fix attribute mapping
+
+---
+
+**Scenario 3: Account Name Changed**
+
+**Source (Entra ID):** Account nativeIdentity = alex.lee.new@contoso.com
+**ISC:** Account still shows old nativeIdentity = alex.lee@contoso.com
+
+**Reconciliation detects:** ISC outdated
+**Fix:** Update account in ISC, or delete and re-aggregate
+
+---
+
+**Scenario 4: Accounts Uncorrelated**
+
+**Source (Entra ID):** alex.lee@contoso.com exists
+**ISC:** Account exists but marked "Unlinked" (no identity)
+
+**Reconciliation detects:** Should be correlated but isn't
+**Fix:** Re-run correlation rules
+
+---
+
+### Running Reconciliation
+
+**Step 1: Access Reconciliation Tool**
+
+**Navigate:** ISC > Administration > Reconciliation (or Sources > Contoso_Entra_ID > Reconciliation)
+
+**If not available:** Reconciliation may be in Analytics/Reports module
+
+---
+
+**Step 2: Select Source and Scope**
+
+**Options:**
+- Source: Contoso_Entra_ID
+- Object type: Users, Groups, or All
+- Attributes to verify: (select which attributes to check)
+  - nativeIdentity
+  - email
+  - firstName
+  - lastName
+  - department
+
+---
+
+**Step 3: Run Reconciliation**
+
+**Click:** "Start Reconciliation" or "Run Report"
+
+**ISC will:**
+1. Query Entra ID for current data
+2. Compare to ISC database
+3. Generate report of discrepancies
+
+**Expected time:** 1-5 minutes for small dataset
+
+---
+
+### Reconciliation Report Results
+
+**Report shows:**
+
+```
+Reconciliation Report: Contoso_Entra_ID
+Report Date: 2024-03-02
+Scope: All users and groups
+
+SUMMARY:
+Total objects in source: 20 (13 users, 7 groups)
+Total objects in ISC: 20
+Discrepancies found: 3
+
+DISCREPANCIES:
+
+1. Attribute Mismatch: Alex Lee (Identity)
+   Field: department
+   Source value: Engineering
+   ISC value: null (blank)
+   Action: Update ISC attribute or re-aggregate
+
+2. Orphaned Account: john.doe@contoso.com
+   Found in: ISC
+   Not found in: Entra ID (deleted from source)
+   Action: Delete from ISC
+
+3. Uncorrelated Account: sam.smith@contoso.com
+   Status in ISC: Unlinked
+   Status in Source: Exists in Entra ID
+   Action: Run correlation rule to link
+```
+
+---
+
+### Fixing Discrepancies
+
+**Fix 1: Attribute Mismatch**
+
+**Option A: Update source and re-aggregate**
+```
+1. Add department to Alex Lee in Entra ID
+2. Run aggregation (Module 4.4)
+3. Attribute updates in ISC
+```
+
+**Option B: Fix attribute mapping**
+```
+1. Check attribute mapping (Module 3.4)
+2. If mapping is wrong: Fix it
+3. Re-aggregate
+```
+
+---
+
+**Fix 2: Orphaned Account (Deleted in Source)**
+
+**Option A: Delete from ISC**
+```
+1. Navigate: ISC > Accounts > john.doe@contoso.com
+2. Click "Delete Account"
+3. Confirm deletion
+```
+
+**Option B: Disable instead**
+```
+1. Mark account as "Inactive" instead of deleting
+2. Keeps audit trail
+3. Can be restored if deleted by mistake
+```
+
+---
+
+**Fix 3: Uncorrelated Account**
+
+**Option A: Re-run correlation**
+```
+1. Navigate: ISC > Administration > Correlation
+2. Click "Correlate Unlinked Accounts"
+3. ISC re-evaluates rules
+```
+
+**Option B: Manually correlate**
+```
+1. Navigate: ISC > Accounts > sam.smith@contoso.com
+2. Click "Link to Identity"
+3. Select matching identity
+4. Save
+```
+
+---
+
+### Reconciliation Schedule
+
+**Recommended approach:**
+
+```
+After every aggregation: Quick manual spot-check
+  - ISC > Sources > Status green?
+  - ISC > Accounts > Any unlinked?
+  - ISC > Identities > Random sample populated?
+
+Weekly: Full reconciliation report
+  - Run reconciliation tool
+  - Review report
+  - Fix any discrepancies
+
+Monthly: Deep audit
+  - Compare sample of ISC records to source
+  - Check attribute completeness
+  - Verify no data quality issues
+```
+
+---
+
+### For Contoso Setup (Unit 4)
+
+**Initial state:** Aggregation just completed, data fresh
+- Reconciliation should show 0 discrepancies
+- All 13 users, 7 groups match Entra ID
+- All accounts correlated
+
+**Use reconciliation to verify:**
+- Setup worked correctly
+- No data loss during aggregation
+- Correlation rules effective
+
+---
+
+## 🧠 KEY TAKEAWAYS
+
+- Reconciliation compares ISC to source
+- Detects deleted accounts, missing attributes, uncorrelated accounts
+- Run after initial aggregation and periodically ongoing
+- Fix discrepancies quickly to maintain data quality
+- Reconciliation report shows exact issues and fixes needed
+
+---
+
+## 🧪 TASK
+
+1. Understand reconciliation purpose
+2. Know common discrepancies
+3. Know how to run reconciliation
+4. Know how to fix each discrepancy type
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Understand reconciliation process
+- ☑️ Know how to access and run reconciliation
+- ☑️ Know how to fix attribute mismatches
+- ☑️ Know how to handle orphaned accounts
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** What does reconciliation detect?
+
+A) Grammar errors in documentation
+B) ✅ Discrepancies between ISC data and source data
+C) Unauthorized access attempts
+D) Slow network connections
+
+**Answer: B.** Reconciliation compares ISC records to source system to find mismatches.
+
+**Q:** If reconciliation finds an account in ISC but not in source, what does this likely indicate?
+
+A) New account being created
+B) ✅ Account was deleted from source but not removed from ISC (orphaned)
+C) Account not yet aggregated
+D) Correlation failed
+
+**Answer: B.** If in ISC but not source = orphaned. Should be deleted from ISC to stay in sync.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 4.4: Run Aggregation in ISC](/modules/4.4-run-aggregation-in-isc)
+- [Module 4.14: Monitoring Aggregation & Correlation](/modules/4.14-monitoring-aggregation-correlation)
+- [Module 4.11: Troubleshooting Aggregation Issues](/modules/4.11-troubleshooting-aggregation-issues)
+
+---
+
+## ✅ NEXT STEPS
+
+After reconciliation completed and discrepancies fixed:
+1. Verify ISC data matches source
+2. Proceed to Module 4.16 (Aggregation Scheduling & Automation)
+

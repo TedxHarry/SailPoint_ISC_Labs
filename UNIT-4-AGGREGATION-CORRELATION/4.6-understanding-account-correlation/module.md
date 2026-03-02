@@ -1,0 +1,223 @@
+# 4.6 - Understanding Account Correlation
+
+**Unit:** Aggregation & Correlation | **Tier:** 1 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand what account correlation is
+- Know why correlation matters
+- Understand correlation matching rules
+- Recognize the "nativeIdentity" concept
+
+---
+
+## 📋 Prerequisites
+
+Module 4.5: Viewing Aggregated Data (identities and accounts must exist).
+
+---
+
+## 📚 CORE CONCEPTS
+
+### What is Account Correlation?
+
+**Definition:** Process of linking accounts from the same source system to an identity.
+
+**Why critical:** A person (identity) needs ONE account per system they use. Without correlation, ISC thinks one person has multiple separate identities. Governance, provisioning, and reporting all break.
+
+**Example:** Alex Lee exists in ISC (identity). Entra ID has alex.lee@contoso.com account. Correlation links: "This Entra ID account belongs to Alex Lee identity."
+
+**Before correlation:**
+```
+Identity: Alex Lee (uuid: 12345)
+Account: alex.lee@contoso.com (Entra ID) - UNLINKED
+```
+
+**After correlation:**
+```
+Identity: Alex Lee (uuid: 12345)
+├─ Account: alex.lee@contoso.com (Entra ID)
+```
+
+---
+
+### Correlation Matching Methods
+
+**Method 1: nativeIdentity Match (most common)**
+
+The account's `nativeIdentity` attribute matches a known identifier.
+
+**What is nativeIdentity?** The account's unique ID in the source system.
+- Entra ID: email address (alex.lee@contoso.com)
+- Okta: username (alex.lee)
+- Active Directory: sAMAccountName (alee)
+- Oracle: employee ID (E12345)
+
+**How it works:**
+1. ISC reads account: nativeIdentity = "alex.lee@contoso.com"
+2. ISC has Identity "Alex Lee" with email = "alex.lee@contoso.com"
+3. ISC matches: "nativeIdentity matches email" → CORRELATION FOUND
+4. Account linked to Identity
+
+---
+
+**Method 2: Attribute Mapping Match**
+
+Account attributes match identity attributes using a correlation rule.
+
+**Example rule:** "Link account if account.mail == identity.email"
+- Account from Entra ID: mail = "alex.lee@contoso.com"
+- Identity: email = "alex.lee@contoso.com"
+- Result: CORRELATED
+
+**Example rule 2:** "Link account if account.employeeID == identity.employeeID"
+- Account: employeeID = "E12345"
+- Identity: employeeID = "E12345"
+- Result: CORRELATED
+
+---
+
+**Method 3: Manual Correlation**
+
+Admin manually links account to identity.
+
+**When to use:**
+- Automated correlation failed
+- Legacy data with mismatched IDs
+- Troubleshooting specific cases
+
+**How:** ISC console → Select identity → Add account manually → Select account from list
+
+---
+
+### Why Correlation Fails
+
+**Mismatch 1: NativeIdentity doesn't exist in identity attributes**
+
+Identity has: email, department, jobTitle, manager
+Account nativeIdentity: "alex.lee" (username, not email)
+
+Problem: No matching attribute. Correlation rule needed.
+
+---
+
+**Mismatch 2: Account data doesn't match identity data**
+
+Identity: firstName="Alex", lastName="Lee"
+Account: givenName="Alexander", surName="Lee"
+
+Problem: "Alex" ≠ "Alexander". Correlation rule won't match names directly.
+
+Solution: Use email match instead: identity.email = account.mail
+
+---
+
+**Mismatch 3: Source system has different account identifier than identity**
+
+Example: Contoso has 13 test users.
+- Entra ID: Email-based accounts (alex.lee@contoso.com)
+- Oracle: Employee ID-based accounts (E12345)
+- Active Directory: sAMAccountName-based accounts (alee)
+
+Each system has different nativeIdentity format. Correlation rules must match on common identifier (employee ID, email, etc.)
+
+---
+
+### Correlation in Unit 3 Setup
+
+**Remember Module 3.11 (Account Mapping)?**
+
+When you configured account mapping for Entra ID connector:
+- Defined what attribute is the "nativeIdentity"
+- Example: "email field is the account identifier"
+
+**That mapping becomes the correlation rule:**
+"Any account with nativeIdentity = [email] correlates to Identity with email = [nativeIdentity]"
+
+---
+
+### Single vs Multi-Account Correlation
+
+**Single Account (typical for single source):**
+```
+Identity: Alex Lee
+└─ Account: alex.lee@contoso.com (Entra ID)
+```
+
+**Multi-Account (typical with multiple sources):**
+```
+Identity: Alex Lee
+├─ Account: alex.lee@contoso.com (Entra ID)
+├─ Account: alex.lee (Okta)
+├─ Account: alee (Oracle)
+└─ Account: E12345 (SAP)
+```
+
+Same person, multiple logins. Governance and provisioning see them as one identity.
+
+---
+
+## 🧠 KEY TAKEAWAYS
+
+- Correlation links accounts to identities
+- nativeIdentity is the account's unique ID in source
+- Correlation rule matches nativeIdentity to identity attribute
+- Without correlation, one person appears as multiple identities
+- Account mapping rule (Module 3.11) defines correlation rule
+
+---
+
+## 🧪 TASK
+
+1. Understand correlation purpose
+2. Know nativeIdentity concept
+3. Understand matching methods
+4. Know why correlation matters for governance
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Understand what correlation does
+- ☑️ Know nativeIdentity definition
+- ☑️ Understand matching methods
+- ☑️ Ready for correlation testing (Module 4.8)
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** What is the primary purpose of account correlation in ISC?
+
+A) Convert accounts to identities
+B) ✅ Link accounts to identities to show one person has multiple logins
+C) Delete accounts from source
+D) Generate access policies
+
+**Answer: B.** Correlation groups accounts under one identity (one person). Without it, same person = multiple identities.
+
+**Q:** What is "nativeIdentity"?
+
+A) The person's unique identifier
+B) ✅ The account's unique identifier in the source system
+C) The manager's ID
+D) The department name
+
+**Answer: B.** nativeIdentity is the account ID in source (email, username, employee ID, etc.). Identity has attributes (email, department, jobTitle).
+
+---
+
+## 📚 RESOURCES
+
+- [Module 3.11: Configure Entra ID Connector - Account Mapping](/modules/3.11-configure-entra-id-connector-part-2)
+- [Module 4.5: Viewing Aggregated Data](/modules/4.5-viewing-aggregated-data)
+- [Module 4.7: Correlation Rules Configuration](/modules/4.7-correlation-rules-configuration)
+
+---
+
+## ✅ NEXT STEPS
+
+Proceed to 4.7 to configure correlation rules explicitly.
+

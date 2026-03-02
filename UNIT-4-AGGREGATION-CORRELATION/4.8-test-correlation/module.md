@@ -1,0 +1,257 @@
+# 4.8 - Test Correlation
+
+**Unit:** Aggregation & Correlation | **Tier:** 1 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Verify correlation rules work correctly
+- Test specific account-identity pairs
+- Understand correlation matching results
+- Fix correlation failures
+
+---
+
+## 📋 Prerequisites
+
+Module 4.7: Correlation Rules Configuration (rule must be created).
+
+---
+
+## 📚 HANDS-ON LAB
+
+### VERIFY CORRELATION COMPLETED
+
+**Navigate:** ISC Console > Identities
+
+**View:** List of 13 identities
+
+**For each identity, check accounts linked:**
+
+**Example: Alex Lee**
+- Click "Alex Lee" identity
+- Open "Accounts" tab
+- Expected: Should show "alex.lee@contoso.com" (Entra ID account)
+- Status: "Correlated" or just linked (no longer showing "Unlinked")
+
+**Repeat for 3 identities:**
+- ✅ Alex Lee → sees Entra ID account linked
+- ✅ Morgan Chen → sees Entra ID account linked
+- ✅ Casey Kim → sees Entra ID account linked
+
+---
+
+### TEST SPECIFIC CORRELATION
+
+**Scenario: Verify a specific account-identity pair is correctly matched**
+
+**Steps:**
+
+1. **Navigate:** ISC > Accounts
+
+2. **Find account:** "alex.lee@contoso.com"
+
+3. **Click account:** Opens detail page
+
+4. **Expected shows:**
+```
+Account Details
+Account ID: alex.lee@contoso.com
+Source: Contoso_Entra_ID
+Status: ACTIVE
+Identity Linked: Alex Lee ✅
+Correlation Type: Rule-based (Email Match Rule)
+Correlation Score: 100% (if ISC calculates confidence)
+```
+
+5. **If not linked:**
+   - Shows "No linked identity" or "Unlinked"
+   - Check correlation rule (Module 4.7)
+   - Check account attributes exist
+   - Check identity attributes exist
+
+---
+
+### BATCH CORRELATION TEST
+
+**Navigate:** ISC Administration > Correlation (if available)
+
+**Find:** Bulk Correlation Tool or Batch Correlation
+
+**Option 1: Correlate Unlinked Accounts**
+
+1. Click "Correlate Unlinked Accounts"
+2. Shows: "Found 0 unlinked accounts" (if all already correlated) or "Found 3 unlinked accounts"
+3. If unlinked exist, ISC runs correlation rules
+4. Results shown:
+```
+Correlation Results:
+✅ 13 accounts successfully correlated
+❌ 0 accounts failed
+⚠️ 0 accounts require manual review
+
+Status: COMPLETE
+```
+
+**Option 2: Re-correlate All Accounts**
+
+1. Click "Re-correlate All Accounts"
+2. ISC re-evaluates all rules
+3. Results:
+```
+✅ 13 accounts matched to identities
+   - 13 via Rule 1 (Email Match)
+   - 0 via Rule 2
+   - 0 manual
+```
+
+---
+
+### VERIFY MULTI-SOURCE CORRELATION (Future reference)
+
+**When Okta source is added later (beyond Unit 4):**
+
+**Scenario:** Same person has accounts in 2 systems
+
+**Alex Lee in ISC:**
+```
+Accounts:
+├─ alex.lee@contoso.com (Entra ID)
+├─ alex.lee (Okta)
+```
+
+**Correlation showed:** Both accounts belong to Alex Lee (one identity).
+
+**Verify:**
+1. Navigate to Identity "Alex Lee"
+2. Accounts tab shows both accounts
+3. Both have same linked Identity
+4. Search for "alex.lee" finds Identity "Alex Lee"
+5. Search for "alex.lee@contoso.com" finds same Identity "Alex Lee"
+
+---
+
+### CORRELATION QUALITY CHECK
+
+**After correlation complete, verify quality:**
+
+| Check | Method | Expected |
+|---|---|---|
+| All accounts correlated | ISC > Accounts, count unlinked | 0 unlinked |
+| Identities have accounts | ISC > Identities, each shows Accounts tab | All have ≥1 account |
+| Correct person matched | ISC > Identities > Alex Lee > Accounts | Shows alex.lee@contoso.com |
+| Email uniqueness | ISC > Search for "alex.lee@contoso.com" | Returns 1 identity (Alex Lee) |
+| No duplicates | Count identities vs. source users | 13 identities = 13 Entra ID users |
+
+---
+
+### TROUBLESHOOT CORRELATION FAILURES
+
+**If accounts show as unlinked:**
+
+**Check 1: Account data in ISC**
+- Navigate: ISC > Accounts
+- Find account: alex.lee@contoso.com
+- Click account, view attributes
+- Expected: nativeIdentity = "alex.lee@contoso.com" or similar
+
+**Check 2: Identity data in ISC**
+- Navigate: ISC > Identities
+- Find identity: Alex Lee
+- Click identity, view Attributes
+- Expected: email = "alex.lee@contoso.com" (matches account)
+
+**Check 3: Correlation rule**
+- Navigate: ISC > Administration > Correlation
+- View rule: "Email Match Rule"
+- Expected: "IF account.nativeIdentity EQUALS identity.email"
+- If wrong: Go back to Module 4.7, fix rule
+
+**Check 4: Rule priority**
+- If multiple rules exist: Are they in correct priority order?
+- Rule 1 should match most accounts
+- Rule 2 catches accounts Rule 1 missed
+- Verify correct order
+
+**Check 5: Test rule again**
+- ISC > Administration > Correlation > Select rule > Test Rule
+- Expected: 13/13 accounts match
+- If failures: Shows which accounts don't match, why
+
+---
+
+### MANUAL CORRELATION (If Needed)
+
+**If account won't correlate automatically:**
+
+**Steps:**
+
+1. **Navigate:** ISC > Accounts
+
+2. **Find unlinked account:** Look for "No linked identity" status
+
+3. **Click account:** Opens detail page
+
+4. **Find button:** "Link to Identity" or "Correlate Manually"
+
+5. **Dialog appears:** "Select identity to link"
+
+6. **Search/select:** Find and select matching identity
+
+7. **Confirm:** Click "Link" or "Correlate"
+
+8. **Result:** Account now shows linked identity
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+**After correlation testing:**
+
+✅ All 13 accounts correlated to identities
+✅ Each identity shows 1 linked account (Entra ID)
+✅ No unlinked accounts
+✅ Correlation rule test shows 100% success
+✅ Batch correlation shows 0 failures
+✅ Search finds identities by account ID
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** After correlation, where would you verify that account "alex.lee@contoso.com" is linked to identity "Alex Lee"?
+
+A) ISC > Sources menu
+B) ✅ ISC > Identities > Alex Lee > Accounts tab
+C) ISC > Administration > Settings
+D) ISC > Governance menu
+
+**Answer: B.** Identity detail page shows linked accounts. Or ISC > Accounts > select account, shows linked identity.
+
+**Q:** If batch correlation shows "0 accounts correlated", what is the most likely issue?
+
+A) No accounts in ISC
+B) ✅ Correlation rule is incorrect or missing
+C) Aggregation hasn't run yet
+D) Correlation is disabled
+
+**Answer: B.** If rule exists but matches 0 accounts: rule logic is wrong (check attribute names, operators, values). Verify rule syntax.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 4.7: Correlation Rules Configuration](/modules/4.7-correlation-rules-configuration)
+- [Module 4.6: Understanding Account Correlation](/modules/4.6-understanding-account-correlation)
+- [Module 4.11: Troubleshooting Aggregation Issues](/modules/4.11-troubleshooting-aggregation-issues)
+
+---
+
+## ✅ NEXT STEPS
+
+After correlation verified:
+1. All 13 identities show linked Entra ID accounts
+2. No unlinked accounts remain
+3. Proceed to Module 4.9 (Identity Correlation)
+

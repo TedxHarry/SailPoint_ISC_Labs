@@ -1,0 +1,312 @@
+# 4.7 - Correlation Rules Configuration
+
+**Unit:** Aggregation & Correlation | **Tier:** 1 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Create correlation rules in ISC
+- Understand rule syntax and operators
+- Know rule priority and execution
+- Test rule matching
+
+---
+
+## 📋 Prerequisites
+
+Module 4.6: Understanding Account Correlation.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### What is a Correlation Rule?
+
+**Definition:** A logic statement in ISC that determines how to match accounts to identities.
+
+**Format:** "If [account attribute] [operator] [identity attribute], then correlate"
+
+**Example:**
+```
+IF account.nativeIdentity == identity.email
+THEN link account to identity
+```
+
+---
+
+### ACCESS CORRELATION RULES
+
+**Navigate:** ISC Console > Administration > Identity Management > Correlation
+
+**Or:** Administration > Sources → Select "Contoso_Entra_ID" → Click "Correlation Rules"
+
+**Expected:** Page showing list of rules for this source
+
+**If no rules exist:** ISC may auto-create default rule during aggregation (nativeIdentity match)
+
+---
+
+### CREATE CORRELATION RULE (Example)
+
+**Scenario:** Entra ID accounts use email as nativeIdentity. Identities have email attribute.
+
+**Rule to create:** "If account.nativeIdentity matches identity.email, correlate"
+
+**Steps:**
+
+1. **Click:** "New Rule" or "Add Correlation Rule" button
+
+2. **Rule details form appears:**
+```
+Rule Name: [text field]
+Description: [text field]
+Enabled: [checkbox]
+Operator: [dropdown]
+Account Attribute: [dropdown]
+Identity Attribute: [dropdown]
+Priority: [number field]
+```
+
+3. **Fill in:**
+   - Rule Name: "Email Match Rule"
+   - Description: "Correlate Entra ID account by email to identity"
+   - Enabled: Check this box
+   - Operator: "EQUALS" (exact match)
+   - Account Attribute: "nativeIdentity" or "mail" (depends on how Entra ID stores it)
+   - Identity Attribute: "email"
+   - Priority: "1" (first rule to check)
+
+4. **Save:** Click "Save" or "Create Rule"
+
+---
+
+### RULE OPERATORS
+
+**Common operators:**
+
+| Operator | Meaning | Example |
+|---|---|---|
+| EQUALS | Exact match | account.nativeId = identity.email |
+| CONTAINS | String contains | account.displayName CONTAINS identity.firstName |
+| STARTS_WITH | Begins with | account.mail STARTS_WITH identity.firstName |
+| ENDS_WITH | Ends with | account.mail ENDS_WITH identity.lastName |
+| MATCHES | Pattern match (regex) | account.username MATCHES ^[a-z]+\.[a-z]+$ |
+| NOT_EQUALS | Different | account.status NOT_EQUALS "Disabled" |
+
+**For Contoso test setup:** EQUALS is sufficient.
+
+---
+
+### RULE PRIORITY
+
+**What is priority?** Order in which ISC evaluates rules.
+
+**ISC tries rules 1 → 2 → 3 ...**
+
+**If Rule 1 matches:** Account is correlated, stop.
+**If Rule 1 doesn't match, try Rule 2:** Check this rule, etc.
+
+**Example setup (multi-source):**
+
+```
+Priority 1: Email match (Entra ID)
+  IF account.mail == identity.email
+
+Priority 2: Employee ID match (Oracle)
+  IF account.employeeID == identity.employeeID
+
+Priority 3: Username match (Active Directory)
+  IF account.sAMAccountName == identity.username
+```
+
+For Contoso single source, only 1 rule needed.
+
+---
+
+### RULE MATCHING LOGIC
+
+**Scenario: Does account correlate to this identity?**
+
+```
+Account from Entra ID:
+  nativeIdentity: "alex.lee@contoso.com"
+  displayName: "Alex Lee"
+
+Identity in ISC:
+  email: "alex.lee@contoso.com"
+  firstName: "Alex"
+  lastName: "Lee"
+
+Rule: "IF account.nativeIdentity == identity.email"
+Check: "alex.lee@contoso.com" == "alex.lee@contoso.com" ?
+Result: YES → CORRELATE
+```
+
+---
+
+**Another scenario: What if email doesn't match?**
+
+```
+Account from Entra ID:
+  nativeIdentity: "alexander.lee@contoso.com"  ← Different!
+
+Identity in ISC:
+  email: "alex.lee@contoso.com"
+
+Rule: "IF account.nativeIdentity == identity.email"
+Check: "alexander.lee@contoso.com" == "alex.lee@contoso.com" ?
+Result: NO → NO CORRELATION
+Next: Try Rule 2 (if exists)
+```
+
+Result: Account remains unlinked until matching rule found or manual correlation done.
+
+---
+
+### RULE TESTING
+
+**Before applying rule to live data:**
+
+**Test the rule:**
+
+1. Navigate to Correlation Rules page
+2. Find "Email Match Rule" you created
+3. Click "Test Rule" or "Preview Matching" button
+
+4. **Test shows:**
+```
+Rule: Email Match Rule
+Test Results:
+✅ Account alex.lee@contoso.com → Identity Alex Lee (MATCH)
+✅ Account morgan.chen@contoso.com → Identity Morgan Chen (MATCH)
+✅ Account casey.kim@contoso.com → Identity Casey Kim (MATCH)
+✅ Account (10 more accounts) → (10 identities) (MATCH)
+
+Total matched: 13/13 accounts
+Success rate: 100%
+```
+
+5. **If any failures:**
+   - Shows which accounts didn't match
+   - Reason: "No identity with matching email"
+   - Fix: Check account data, check identity attributes, adjust rule
+
+---
+
+### APPLY RULE TO ACCOUNTS
+
+**After rule is created and tested:**
+
+**Option 1: Manual correlation**
+- Navigate to unlinked account
+- Click "Correlate" or "Link to Identity"
+- Select matching identity
+- Save
+
+**Option 2: Batch correlation**
+- ISC console provides "Correlate Accounts" bulk action
+- Select all unlinked accounts
+- Run correlation engine
+- ISC applies all rules in priority order
+- Shows results: 13 accounts correlated, 0 failed
+
+**For Contoso:** After aggregation, run batch correlation immediately.
+
+---
+
+### VERIFY CORRELATION RESULTS
+
+**After correlation rule applied:**
+
+**Navigate:** ISC > Accounts
+
+**Check each account:**
+```
+Account: alex.lee@contoso.com
+Status: ACTIVE
+Identity linked: Alex Lee ✅
+(vs. Previously: UNLINKED)
+```
+
+**Or navigate:** ISC > Identities > Alex Lee
+
+**Accounts section shows:**
+```
+Accounts:
+✅ alex.lee@contoso.com (Contoso_Entra_ID) - CORRELATED
+```
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+**After correlation rule configured and applied:**
+
+✅ All 13 accounts correlated to matching identities
+✅ No unlinked accounts (unless intentional)
+✅ Each identity shows linked account(s)
+✅ ISC search finds identities by account ID or name
+
+---
+
+## 🔧 TROUBLESHOOTING
+
+**Issue: Rule created but no accounts correlate**
+- Check rule syntax (typos in attribute names)
+- Verify account attributes exist (check Module 3.11)
+- Verify identity attributes exist (check Module 4.5)
+- Test rule before applying (use preview)
+
+**Issue: Some accounts correlate, others don't**
+- Multiple rules with correct priority?
+- First rule matches some, second should catch others
+- Add more rules if accounts have different ID formats
+- Check for data quality issues in source
+
+**Issue: Rule test shows 100% match, but batch correlation shows failures**
+- Data changed between test and execution
+- Rule not saved properly (refresh and check)
+- Multiple rules interfering (check priority)
+- Rerun batch correlation
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** What does a correlation rule do?
+
+A) Creates accounts in source systems
+B) ✅ Defines how to match accounts to identities
+C) Generates governance policies
+D) Deletes unmatched accounts
+
+**Answer: B.** Correlation rule = matching logic. "If account email = identity email, link them."
+
+**Q:** In the rule "IF account.nativeIdentity EQUALS identity.email", what happens if no identity has a matching email?
+
+A) Account is deleted
+B) Account is created again
+C) ✅ Account remains unlinked (unmatched)
+D) Rule is disabled
+
+**Answer: C.** If no match found, account stays unlinked. Admin can manually correlate or fix data.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 4.6: Understanding Account Correlation](/modules/4.6-understanding-account-correlation)
+- [Module 4.8: Test Correlation](/modules/4.8-test-correlation)
+- [Module 3.11: Configure Entra ID Connector - Account Mapping](/modules/3.11-configure-entra-id-connector-part-2)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Create correlation rule as described
+2. Test rule to verify matching
+3. Apply to accounts
+4. Verify all accounts correlated
+5. Proceed to Module 4.8 (Test Correlation - hands-on verification)
+
