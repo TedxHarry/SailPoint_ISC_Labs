@@ -1,0 +1,355 @@
+# 1.7 - ISC Data Model Fundamentals
+
+**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+By the end of this module, you will be able to:
+- Identify the core data types in ISC: Identity, Account, Entitlement
+- Explain the relationships between Identity, Account, and Entitlement
+- Understand how ISC uses this data model to make access decisions
+- Recognize how source systems map to these core data types
+- Understand attributes and how they're used in ISC rules
+
+---
+
+## 📋 Prerequisites
+
+**Knowledge Required:**
+- Module 1.1: What is Identity Management?
+- Module 1.2: Identity vs Access vs Governance
+- Module 1.5: ISC Architecture Overview
+- Module 1.6: ISC Four Core Modules
+- Basic understanding of database concepts (entities, relationships)
+
+**Access Required:**
+- None for this module (conceptual reading only)
+
+**Time Required:** ~10 hours (3 hours reading, 5-7 hours research and data mapping)
+
+**Difficulty:** Beginner
+
+---
+
+## 🔍 CONTEXT & BUSINESS SCENARIO
+
+**Scenario:** Understanding data structures that underpin ISC
+
+**Business Background:**
+
+When you configure ISC, you're not just clicking buttons—you're working with data. ISC's data model is designed around a few core concepts:
+
+- **Identity:** The person (Morgan Chen)
+- **Account:** The person's login in a system (morgan.chen@finance.app)
+- **Entitlement:** A permission in a system (Finance_Manager_Role, Approve_Payments_Permission)
+
+Everything ISC does—provisioning, governance, analytics—operates on these data types. Understanding the data model helps you understand ISC's capabilities and limitations. It also helps you understand configuration and troubleshooting.
+
+**What You'll Be Doing:**
+
+You're learning the fundamental data structures that ISC uses. This knowledge is foundational for everything you'll configure later. It's like learning that a car has an engine, transmission, and wheels—understanding these basics helps you understand everything else.
+
+---
+
+## 📚 CONCEPTUAL FOUNDATION
+
+### Core Concept 1: Identity - The Person
+
+**Definition:**
+
+An **Identity** in ISC represents a person in the organization. It's the unified view of that person across all systems. An identity has attributes (name, email, department, job title, manager, hire date, etc.) that come from source systems.
+
+**Why It Matters:**
+
+Identity is the foundation. ISC's purpose is identity governance—managing the access of identities. If ISC doesn't have accurate identity data, everything else fails. Access Modeling rules depend on identity attributes. Provisioning decisions depend on identity attributes. Governance depends on understanding identities.
+
+**In ISC Context:**
+
+When you configure ISC, you define an Identity Profile that describes what attributes identities should have:
+- Name (required)
+- Email (required)
+- Department (required)
+- Job Title (required)
+- Manager (required)
+- Hire Date (required)
+- Employee ID (optional)
+- Cost Center (optional)
+- Location (optional)
+
+ISC reads these attributes from source systems (Entra ID, HRIS, apps) and creates a unified identity.
+
+**Example (Morgan Chen's Identity at Contoso):**
+
+| Attribute | Value | Source |
+|-----------|-------|--------|
+| **Name** | Morgan Chen | Entra ID |
+| **Email** | morgan.chen@contoso.com | Entra ID |
+| **Employee ID** | E-00547 | HRIS |
+| **Department** | Finance | HRIS |
+| **Job Title** | Senior Accountant | HRIS |
+| **Manager** | Alex Lee | HRIS |
+| **Hire Date** | 2021-03-15 | HRIS |
+| **Cost Center** | FIN-001 | HRIS |
+| **Location** | Boston | HRIS |
+
+ISC correlates this data from multiple sources (Entra ID provides name/email; HRIS provides job title/manager/hire date) into one unified identity: "This is Morgan Chen."
+
+---
+
+### Core Concept 2: Account - Access to a System
+
+**Definition:**
+
+An **Account** is a user account in a target system. An identity may have many accounts (one per system they use). For example, Morgan Chen might have:
+- Entra ID account: morgan.chen@contoso.com
+- Finance app account: mchen (username)
+- QuickBooks account: morgan.chen.finance (username)
+- ServiceNow account: morgan.chen (username)
+
+**Why It Matters:**
+
+ISC's job is to manage accounts. When someone is hired, ISC creates accounts. When someone is fired, ISC disables/deletes accounts. When someone changes roles, ISC updates accounts. Understanding accounts helps you understand what ISC actually does—it creates/updates/disables user accounts in target systems.
+
+**In ISC Context:**
+
+ISC discovers and correlates accounts across systems. When configuring connectors, you define:
+- Which systems have accounts
+- What account attributes look like in each system
+- How to match accounts to identities (correlation)
+
+**Example (Morgan Chen's Accounts):**
+
+| System | Account Name | Account Type | Created By | Status |
+|--------|---|---|---|---|
+| **Entra ID** | morgan.chen@contoso.com | Email/Cloud | ISC (Lifecycle) | Active |
+| **Finance App** | mchen | Internal App | ISC (Lifecycle) | Active |
+| **QuickBooks** | morgan.chen.finance | Cloud App | ISC (Lifecycle) | Active |
+| **HRIS** | e-00547 | ERP System | ISC | Active |
+| **ServiceNow** | morgan.chen | IT Ticketing | ISC (Lifecycle) | Active |
+
+All five accounts represent Morgan Chen in different systems. ISC created/manages them.
+
+---
+
+### Core Concept 3: Entitlement - A Permission
+
+**Definition:**
+
+An **Entitlement** is a permission or role that can be granted to an account. Examples:
+- "Finance_Manager_Role" in Finance app
+- "Approve_Payments" permission in Finance app
+- "Read_Only" role in QuickBooks
+- "All" group membership in HRIS reports
+
+An entitlement defines what an account can do in a system.
+
+**Why It Matters:**
+
+Access management is really about entitlements. When you provision access, you're granting entitlements. When you review access, you're reviewing entitlements. ISC must understand:
+- What entitlements exist in each system
+- How to grant/revoke them
+- Who should have which entitlements based on roles
+
+**In ISC Context:**
+
+ISC discovers entitlements from target systems. When configuring Access Modeling, you bundle entitlements into profiles:
+
+"Finance Manager Access Profile includes:"
+- Finance app: "Finance_Manager_Role" entitlement
+- Finance app: "Approve_Payments" entitlement
+- Finance app: "Approve_Expenses" entitlement
+- QuickBooks: "Manager_Access" entitlement
+- Email: "Finance_Manager_Group" membership
+- HRIS: "Payroll_Reports" access
+
+Then Lifecycle Management provisions all these entitlements when someone becomes a Finance Manager.
+
+**Example (Morgan Chen's Entitlements as Senior Accountant):**
+
+| System | Entitlement | Type | Purpose |
+|--------|---|---|---|
+| **Finance App** | Senior_Accountant_Role | Role | Grants read/write access to accounting module |
+| **Finance App** | View_General_Ledger | Permission | Ability to view GL reports |
+| **QuickBooks** | Accounting_Module_Access | Role | Read/write to accounting |
+| **HRIS** | Financial_Reports | Group | Access to financial reports (read-only) |
+| **Email** | Finance_Team | Group | Finance team distribution list |
+| **Salesforce** | Finance_Read_Only | Role | Read-only access to financial deals (revenue recognition) |
+
+Morgan has 6 entitlements across 4 systems. If Morgan is promoted to Manager, ISC would ADD new entitlements (Approval permissions, Manager report access) while keeping these.
+
+---
+
+### Core Concept 4: Identity-Account-Entitlement Relationships
+
+**Definition:**
+
+The relationships between these three data types form ISC's core model:
+- **1 Identity (Person) → Multiple Accounts (logins in different systems)**
+- **1 Account (login) → Multiple Entitlements (permissions in that system)**
+- **Access Decisions based on Identity Attributes → Determine which Entitlements to provision**
+
+**Why It Matters:**
+
+Understanding these relationships helps you understand:
+- Why ISC needs to read from multiple systems (each has accounts/entitlements)
+- How provisioning works (evaluate identity attributes, determine entitlements, create/update accounts)
+- How governance works (review accounts and entitlements based on identity)
+- How data quality issues arise (if identity data is wrong, provisioning decisions are wrong)
+
+**In ISC Context:**
+
+Every ISC configuration is based on these relationships:
+
+```
+Identity: Morgan Chen
+├── Attributes: department=Finance, title=Senior_Accountant, manager=Alex_Lee
+│
+└── Rules: IF department=Finance AND title contains "Accountant" THEN provision:
+    ├── Finance App Account
+    │   └── Entitlements: Senior_Accountant_Role, View_General_Ledger
+    ├── QuickBooks Account
+    │   └── Entitlements: Accounting_Module_Access
+    ├── HRIS Account
+    │   └── Entitlements: Financial_Reports
+    └── Email Account
+        └── Entitlements: Finance_Team distribution list
+```
+
+When Morgan's identity changes (promoted to Manager), the rules re-evaluate, and new entitlements are provisioned.
+
+---
+
+### Core Concept 5: Source Systems and Target Systems
+
+**Definition:**
+
+**Source Systems** are where identity data comes from (Entra ID, HRIS, HR system). **Target Systems** are where ISC provisions access (Finance app, QuickBooks, ServiceNow, Slack). ISC reads from sources, creates/manages accounts in targets.
+
+**Why It Matters:**
+
+This distinction is foundational. ISC doesn't create identities—it reads them from sources. ISC creates/manages accounts/entitlements in target systems based on identity data. Understanding this helps you understand:
+- Why you must have good source systems (Entra ID must have accurate department/title data)
+- What ISC can and cannot do (can't create identities, only read them)
+- Configuration patterns (discover accounts from targets, read identities from sources)
+
+**In ISC Context:**
+
+ISC configuration is organized around source and target systems:
+
+**Source Systems (Identity Data):**
+- Entra ID: Users, attributes, groups
+- HRIS: Job title, department, manager, hire/termination dates
+- Spreadsheets: Employee data, cost centers
+- APIs: Real-time identity updates
+
+**Target Systems (Account Management):**
+- Finance app: Create accounts, grant entitlements
+- QuickBooks: Create accounts, grant accounting roles
+- Salesforce: Create accounts, grant roles
+- ServiceNow: Create accounts, grant groups
+- Email: Create mailboxes, add distribution lists
+- HRIS: Sync employee records
+
+**Example (Contoso Configuration):**
+
+| System | Role | Attributes |
+|--------|------|-----------|
+| **Entra ID** | Source | Provides: Name, Email, Groups, Department |
+| **HRIS** | Source | Provides: Job Title, Manager, Hire Date, Cost Center, Employment Status |
+| **Finance App** | Target | ISC creates accounts, grants Finance_Manager_Role |
+| **QuickBooks** | Target | ISC creates accounts, grants access |
+| **ServiceNow** | Target | ISC creates accounts, assigns to groups |
+| **Salesforce** | Target | ISC creates accounts, grants roles |
+
+ISC reads from Entra ID and HRIS (sources), determines what access is needed based on job title and department, then creates/updates accounts in Finance App, QuickBooks, ServiceNow, and Salesforce (targets).
+
+---
+
+## 🧠 KEY CONCEPTS TO REMEMBER
+
+- **Identity** = The person (Morgan Chen) with attributes (department, title, manager)
+- **Account** = Login in a system (morgan.chen.finance in QuickBooks)
+- **Entitlement** = Permission in a system (Finance_Manager_Role)
+- **Relationship:** 1 Identity → Multiple Accounts → Multiple Entitlements
+- **Source Systems** provide identity data; **Target Systems** receive accounts and entitlements
+- **Access decisions** are made based on identity attributes, producing entitlements to provision
+
+---
+
+## 🎓 CERTIFICATION ALIGNMENT
+
+**Certification Domain:** ISC Data Model and Relationships
+
+**Exam Focus:** Candidates must understand Identity, Account, and Entitlement concepts and relationships
+
+**Practice Exam Questions:**
+
+**Question 1:** In ISC's data model, which of the following correctly describes the relationship between Identity, Account, and Entitlement?
+
+A) One Identity has one Account, which has one Entitlement (1:1:1)
+B) ✅ One Identity has multiple Accounts (in different systems), and each Account has multiple Entitlements (1:N:N)
+C) One Entitlement belongs to one Account in one system
+D) Accounts and Entitlements are the same thing
+
+**Explanation:** The correct answer is **B) One Identity has multiple Accounts (in different systems), and each Account has multiple Entitlements (1:N:N)**. Morgan Chen (1 identity) has 5 accounts (one per system), and each account has multiple entitlements (Senior_Accountant_Role + View_GL in Finance app, Accounting_Access in QuickBooks, etc.).
+
+A) is incorrect—identities have multiple accounts and entitlements.
+C) is incorrect—accounts often have multiple entitlements.
+D) is incorrect—they're distinct concepts.
+
+---
+
+**Question 2:** ISC reads identity data from Entra ID and HRIS (name, email, department, job title, manager, hire date). These are examples of:
+
+A) Accounts and Entitlements that ISC will create
+B) ✅ Identity attributes that ISC uses to determine what accounts and entitlements to provision
+C) Target systems where ISC will manage access
+D) Entitlements that users currently have
+
+**Explanation:** The correct answer is **B) Identity attributes that ISC uses to determine what accounts and entitlements to provision**. Identity attributes from source systems (Entra ID and HRIS) are the raw data ISC uses. Rules evaluate these attributes ("If department=Finance AND title=Manager") to decide what access (accounts and entitlements) to provision in target systems.
+
+A) is incorrect—these are source attributes, not accounts/entitlements created by ISC.
+C) is incorrect—Entra ID and HRIS are source systems providing identity data, not target systems receiving accounts.
+D) is incorrect—these are attributes used to determine entitlements, not current entitlements.
+
+---
+
+## 📚 ADDITIONAL RESOURCES
+
+**Related Modules:**
+- [Previous: 1.6 - ISC Four Core Modules](/modules/1.6-isc-four-core-modules) — How modules work with this data model
+- [Next: 1.8 - Identity Governance Frameworks](/modules/1.8-identity-governance-frameworks) — Using this data for governance
+- [Unit 3: Identity Profiles & Sources](/units/unit-3-identity-profiles) — Deep dive into Identity Profiles (future unit)
+- [Unit 5: Access Modeling](/units/unit-5-access-modeling) — Using entitlements in role design (future unit)
+
+**Official Documentation:**
+- [SailPoint ISC Data Model Overview](https://example.com)
+- [Identity Profiles and Attributes](https://example.com)
+- [Accounts and Entitlements in ISC](https://example.com)
+
+---
+
+## 🔄 NEXT STEPS
+
+You now understand ISC's core data types and relationships. In **Module 1.8 - Identity Governance Frameworks**, you'll learn governance concepts (RBAC, ABAC, SoD) that determine HOW identity and entitlement data is managed.
+
+**Before moving forward:**
+- Map your organization's systems: Which are source systems (provide identity data)? Which are targets (receive accounts)?
+- Identify identity attributes your organization tracks
+- Think about what entitlements exist in your target systems
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+By the end of this module, you should be able to:
+- ☑️ Define Identity, Account, and Entitlement
+- ☑️ Explain the relationships between these data types
+- ☑️ Identify source systems vs target systems
+- ☑️ Understand how identity attributes drive access decisions
+- ☑️ Map real-world scenarios to Identity/Account/Entitlement concepts
+- ☑️ Answer practice exam questions correctly
+
+**If you cannot do these things, review this module and Module 1.6 before proceeding to 1.8.**

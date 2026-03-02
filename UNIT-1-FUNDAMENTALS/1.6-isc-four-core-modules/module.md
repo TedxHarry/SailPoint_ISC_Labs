@@ -1,0 +1,329 @@
+# 1.6 - ISC Four Core Modules
+
+**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+By the end of this module, you will be able to:
+- Identify ISC's four core modules and their primary purposes
+- Understand how each module addresses specific identity management challenges
+- Recognize which module handles different organizational scenarios
+- Understand how the four modules work together as an integrated solution
+- Explain ISC's architecture using the four-module framework
+
+---
+
+## 📋 Prerequisites
+
+**Knowledge Required:**
+- Module 1.1: What is Identity Management?
+- Module 1.2: Identity vs Access vs Governance (three pillars)
+- Module 1.3: Introduction to SailPoint ISC (ISC overview)
+- Module 1.5: ISC Architecture Overview (technical foundation)
+
+**Access Required:**
+- None for this module (conceptual reading only)
+
+**Time Required:** ~10 hours (2-3 hours reading, 5-7 hours research and scenario mapping)
+
+**Difficulty:** Beginner
+
+---
+
+## 🔍 CONTEXT & BUSINESS SCENARIO
+
+**Scenario:** Understanding ISC's value through its four core capabilities
+
+**Business Background:**
+
+When SailPoint designed ISC, they organized it around four core capabilities, each solving a specific set of business problems:
+
+1. **Access Modeling:** Designing roles and access rules
+2. **Lifecycle Management:** Automating join/move/leave processes
+3. **Governance Management:** Reviewing access and ensuring compliance
+4. **Analytics:** Understanding access patterns and risks
+
+Each capability has distinct value. Some customers primarily use Lifecycle (fast onboarding). Some focus on Governance (compliance-driven). Most use all four together. Understanding them separately helps you understand ISC's full value.
+
+**What You'll Be Doing:**
+
+You're learning the four modules that make up ISC's core functionality. These four modules map to ISC's menu, configuration, and professional certifications. Mastering them is foundational to your ISC expertise.
+
+---
+
+## 📚 CONCEPTUAL FOUNDATION
+
+### Core Concept 1: Access Modeling Module - "What Roles Should People Have?"
+
+**Definition:**
+
+The **Access Modeling Module** enables organizations to design role structures, define what permissions each role should have, and model access rules. It answers: "What is a 'Finance Manager' role? What permissions should it include?"
+
+**Why It Matters:**
+
+Without role definitions, access governance is impossible. If you don't define what a Finance Manager should access, you can't provision it, govern it, or certify it. Access Modeling is the foundation—it's where organizations document their access strategy.
+
+**In ISC Context:**
+
+Access Modeling in ISC includes:
+- **Role Definition:** Design and document roles (Finance Manager, Engineering Lead, etc.)
+- **Access Profiles:** Create access profiles that bundle permissions (e.g., "Finance Manager Profile" includes access to Finance app, accounting module, approval authority)
+- **Rules and Policies:** Create rules like "If department = Finance AND title = Manager, provision this access profile"
+- **Entitlement Modeling:** Understand what entitlements (permissions) exist in target systems and how to grant them
+
+**Example (Contoso):**
+
+Finance Manager Role at Contoso:
+- **Permissions needed:**
+  - QuickBooks: Full accounting module access, approval authority
+  - Finance App: Payment approval (>$10,000), expense approval
+  - HRIS: Payroll report access (read-only)
+  - Email: Finance Manager distribution list
+- **Rule:** If title = "Accounting Manager" AND reports_to = "Finance Director", provision all of the above
+- **Policy:** Access approved by Finance Director
+
+Result: New Finance Manager is automatically provisioned with exactly the right access based on their role.
+
+---
+
+### Core Concept 2: Lifecycle Management Module - "How Do We Automate Join/Move/Leave?"
+
+**Definition:**
+
+The **Lifecycle Management Module** automates identity lifecycle processes. It watches for join/move/leave events and triggers access provisioning/deprovisioning automatically. It answers: "When someone is hired, how do we automatically get them access? When they leave, how do we automatically revoke it?"
+
+**Why It Matters:**
+
+Manual lifecycle processes are the biggest pain point for IT. Lifecycle Management is often the #1 reason organizations deploy ISC—it reduces onboarding from days to hours, ensures everyone's access is revoked on their last day (compliance requirement), and eliminates manual work for IT staff.
+
+**In ISC Context:**
+
+Lifecycle Management in ISC includes:
+- **Lifecycle Events:** Monitor events from HRIS (hire, transfer, termination)
+- **Automatic Provisioning:** When hire event detected, automatically provision access based on Access Modeling rules
+- **Automatic Deprovisioning:** When termination event detected, automatically revoke access
+- **Transition Management:** Handle transfers (revoke old role access, provision new role access)
+- **Workflows:** Define approval processes for lifecycle events
+
+**Example (Contoso):**
+
+**New Hire:**
+1. HR records "Casey Kim hired as Finance AP Clerk"
+2. Lifecycle Management detects hire event
+3. Lifecycle Management evaluates rules: "Finance AP Clerk needs Finance app, QuickBooks, HRIS"
+4. Lifecycle Management triggers provisioning: Creates Finance app account, QuickBooks login, adds to HRIS system
+5. Result: Casey has all access on Day 1 (vs. manual 3-5 day process)
+
+**Termination:**
+1. HR records "Casey Kim terminated"
+2. Lifecycle Management detects termination event
+3. Lifecycle Management triggers deprovisioning: Disables all accounts, removes group memberships, suspends email
+4. Result: Casey's access fully revoked on termination day (vs. forgotten ad-hoc revocation)
+
+---
+
+### Core Concept 3: Governance Module - "Is Access Appropriate?"
+
+**Definition:**
+
+The **Governance Module** automates ongoing compliance and access reviews. It answers: "Does this person still need the access they have? Is their access appropriate for their role? Are there violations we should address?"
+
+**Why It Matters:**
+
+Provisioning gets access right initially. But people accumulate access over time. Engineers transferred to Finance still have engineering access. Contractors' access isn't revoked. Former managers still have approval authority. Without ongoing governance, access creep creates security vulnerabilities and compliance violations. Governance ensures access stays appropriate.
+
+**In ISC Context:**
+
+Governance in ISC includes:
+- **Access Certification:** Managers periodically review their teams' access and certify "appropriate" or "revoke"
+- **Policy Enforcement:** Detect violations of access policies (e.g., "Can't have both Payment Approver and Payment Processor roles")
+- **Compliance Management:** Track compliance requirements (SOX, HIPAA, GDPR) and ensure controls exist
+- **Risk Detection:** Identify risky access patterns (excessive access, privileged access concentration)
+
+**Example (Contoso):**
+
+**Q1 2024 Access Certification:**
+
+Finance Manager (Alex Lee) receives: "Certify your team's access"
+
+Finance Team Access Review:
+- Morgan Chen (Senior Accountant): Finance app ✅ Appropriate, QuickBooks ✅ Appropriate, CEO Dashboard ❌ Why? Morgan doesn't need executive dashboard, revoke
+- Casey Kim (AP Clerk): Finance app ✅ Appropriate, QuickBooks ✅ Appropriate, Salesforce access ❌ Why? AP Clerk doesn't use Salesforce, revoke
+- Alex Torres (Manager, transferred from Sales): Finance app ✅ Appropriate, Manager approval ✅ Appropriate, Sales Commission ❌ Why? Alex is no longer in Sales, revoke immediately
+
+Result: Governance removes inappropriate access and documents the review for compliance.
+
+---
+
+### Core Concept 4: Analytics Module - "What Does Our Access Landscape Look Like?"
+
+**Definition:**
+
+The **Analytics Module** provides dashboards, reports, and insights into identity and access patterns. It answers: "Who has the most access? Are there risks we should address? How do access patterns compare to policies?"
+
+**Why It Matters:**
+
+You can't manage what you can't measure. Analytics provides visibility. It helps leadership understand the access landscape, identify risks before they become problems, and demonstrate compliance to auditors. It answers questions like: "Do we have too many people with excessive access?" or "Is our access distribution aligned with our policies?"
+
+**In ISC Context:**
+
+Analytics in ISC includes:
+- **Dashboards:** Visual summaries of access, certifications, policy violations, risk scores
+- **Reports:** Detailed reports on who has access to what, access trends over time, certification completion rates
+- **Risk Scoring:** Automated scores identifying high-risk users (excessive access, privileged access, violations)
+- **Insights:** AI/ML-driven recommendations (e.g., "This access combination is statistically unusual")
+
+**Example (Contoso):**
+
+**Finance Director views Analytics Dashboard:**
+
+| Metric | Value | Trend | Action |
+|--------|-------|-------|--------|
+| **Finance Team Members** | 8 | — | — |
+| **Avg Access Per Person** | 4.2 systems | ↑ 2% | Monitor |
+| **Users with Excessive Access** | 2 | ↑↑ | Review immediately |
+| **Policy Violations** | 1 (SoD) | ↓ | Good |
+| **Q1 Certification Completion** | 100% | ✅ | Compliant |
+| **Last Access Review Date** | 2024-01-15 | — | Next due 2024-04-15 |
+
+Insights:
+- "Morgan Chen's access score: 8.2/10 (high risk) — has access to Approve Payments AND Process Payments (Separation of Duties violation)"
+- "Alex Torres has access to 6 systems (average is 4)—recommend review"
+
+Result: Finance Director immediately sees which areas need attention and can proactively address risks.
+
+---
+
+### Core Concept 5: How the Four Modules Work Together
+
+**Definition:**
+
+The four modules form a complete identity governance system: **Access Modeling** designs the rules, **Lifecycle Management** applies them, **Governance** monitors them, and **Analytics** provides visibility.
+
+**Why It Matters:**
+
+ISC's power comes from integration. Access Modeling without Lifecycle is just documentation. Lifecycle without Governance leads to access creep. Governance without Analytics is reactive. All four together create an automated, compliant, transparent identity system.
+
+**In ISC Context:**
+
+Understanding this integration helps you grasp ISC's complete value and how to configure it properly.
+
+**The Integrated Cycle:**
+
+```
+1. DESIGN (Access Modeling)
+   - Define roles and rules
+   - Example: "Finance AP Clerk needs Finance app + QuickBooks"
+
+2. AUTOMATE (Lifecycle Management)
+   - Watch for events
+   - Apply rules automatically
+   - Example: "New hire = Finance AP Clerk? Provision both systems"
+
+3. MONITOR (Governance)
+   - Review access regularly
+   - Enforce policies
+   - Example: "Q1 Certification—Is everyone's access still appropriate?"
+
+4. MEASURE (Analytics)
+   - Provide dashboards and insights
+   - Identify risks
+   - Example: "This person has excessive access—flag for review"
+
+5. IMPROVE
+   - Insights feed back into design
+   - Refine rules based on data
+   - Cycle repeats
+```
+
+---
+
+## 🧠 KEY CONCEPTS TO REMEMBER
+
+- **Access Modeling** = Design (what rules should we have?)
+- **Lifecycle Management** = Automate (apply rules when people join/move/leave)
+- **Governance** = Monitor (review and ensure compliance)
+- **Analytics** = Measure (visibility into access landscape and risks)
+- **Together** = Complete identity governance system (design → automate → monitor → measure → improve)
+
+---
+
+## 🎓 CERTIFICATION ALIGNMENT
+
+**Certification Domain:** ISC Four Core Modules
+
+**Exam Focus:** Candidates must understand each module's purpose and how they integrate
+
+**Practice Exam Questions:**
+
+**Question 1:** Contoso Ltd wants to ensure new Finance Managers are automatically provisioned with Finance app and approval authority access when hired, without manual IT requests. Which ISC module is responsible for this automation?
+
+A) Governance Module (it reviews all access)
+B) ✅ Lifecycle Management Module (it automates join/move/leave provisioning)
+C) Analytics Module (it measures access)
+D) Access Modeling Module (it defines roles)
+
+**Explanation:** The correct answer is **B) Lifecycle Management Module**. Lifecycle Management watches for hire events and automatically provisions access based on rules. While Access Modeling defines what access a Finance Manager should have, Lifecycle Management is what actually provisions it automatically when the hire event occurs.
+
+A) is incorrect—Governance reviews after provisioning; it doesn't automate provisioning.
+C) is incorrect—Analytics measures; it doesn't provision.
+D) is incorrect—Access Modeling defines rules; Lifecycle Management applies them.
+
+---
+
+**Question 2:** During Q1 access certification, Alex Lee (Finance Manager) reviews his team's access and finds that Morgan Chen has access to both "Approve Payments" and "Process Payments"—a separation of duties violation. Which ISC module would have alerted the organization to this violation before certification?
+
+A) ✅ Governance Module (detects policy violations) and Analytics Module (risk scoring)
+B) Lifecycle Management Module (it only provisions; doesn't detect violations)
+C) Access Modeling Module (it defines roles; doesn't detect violations)
+D) None—violation detection is only possible through manual review
+
+**Explanation:** The correct answer is **A) Governance Module (detects policy violations) and Analytics Module (risk scoring)**. Both modules should have flagged this violation. Governance enforces policies and detects when access violates them (e.g., "Can't have both Approve and Process permissions"). Analytics should have flagged Morgan with a high risk score due to the SoD violation. These modules work together to identify risks.
+
+B) is incorrect—Lifecycle only provisions; doesn't detect violations.
+C) is incorrect—Access Modeling defines what shouldn't happen; Governance detects when it does.
+D) is incorrect—Modern governance systems automatically detect violations, not just manual reviews.
+
+---
+
+## 📚 ADDITIONAL RESOURCES
+
+**Related Modules:**
+- [Next: 1.7 - ISC Data Model Fundamentals](/modules/1.7-isc-data-model-fundamentals) — Data structures behind these modules
+- [Next: 1.9 - The Identity Lifecycle (JML)](/modules/1.9-the-identity-lifecycle-jml) — Deep dive into Lifecycle Management
+- [Unit 5: Access Modeling](/units/unit-5-access-modeling) — Detailed module design (future unit)
+- [Unit 9: Governance & Certification](/units/unit-9-governance-certification) — Governance deep dive (future unit)
+
+**Official Documentation:**
+- [SailPoint ISC Modules Overview](https://example.com)
+- [Access Modeling Best Practices](https://example.com)
+- [Lifecycle Management Configuration](https://example.com)
+- [Governance and Certification](https://example.com)
+- [Analytics and Reporting](https://example.com)
+
+---
+
+## 🔄 NEXT STEPS
+
+You now understand ISC's four core modules and how they work together. In **Module 1.7 - ISC Data Model Fundamentals**, you'll learn the data structures (Identity, Account, Entitlement) that these modules operate on.
+
+**Before moving forward:**
+- Map your organization's processes to these four modules
+- Which module addresses your biggest pain points?
+- How would all four modules work together in your environment?
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+By the end of this module, you should be able to:
+- ☑️ Define each of the four ISC modules and their purpose
+- ☑️ Identify which module handles specific scenarios
+- ☑️ Explain how the four modules work together
+- ☑️ Understand why organizations need all four modules, not just one
+- ☑️ Map organizational challenges to specific modules
+- ☑️ Answer practice exam questions correctly
+
+**If you cannot do these things, review this module and Module 1.5 before proceeding to 1.7.**

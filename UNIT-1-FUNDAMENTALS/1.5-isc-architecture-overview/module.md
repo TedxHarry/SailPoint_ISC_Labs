@@ -1,0 +1,308 @@
+# 1.5 - ISC Architecture Overview
+
+**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+By the end of this module, you will be able to:
+- Understand ISC's cloud-native architecture and multi-tenant design
+- Identify the core components of ISC and their roles
+- Explain how ISC connects to external systems (on-premises and cloud)
+- Understand the difference between ISC Core Services and Virtual Appliances
+- Recognize data flow patterns in ISC (read, correlate, provision, govern)
+
+---
+
+## 📋 Prerequisites
+
+**Knowledge Required:**
+- Module 1.1: What is Identity Management?
+- Module 1.3: Introduction to SailPoint ISC
+- Module 1.4: ISC vs IdentityIQ vs IdentityNow (understanding cloud-native architecture)
+- Basic familiarity with cloud infrastructure, APIs, and data flows
+
+**Access Required:**
+- None for this module (conceptual reading only; no hands-on)
+
+**Time Required:** ~10 hours (3 hours reading, 5-7 hours research and visualization)
+
+**Difficulty:** Beginner
+
+---
+
+## 🔍 CONTEXT & BUSINESS SCENARIO
+
+**Scenario:** Technical architecture and system design decisions
+
+**Business Background:**
+
+When Contoso Ltd's IT leadership was evaluating ISC, they asked technical questions: "How does ISC connect to our systems? Where does our data live? How does it scale? Is it secure?" Understanding ISC's architecture answers these questions and helps IT teams confidently deploy it.
+
+A cloud-native SaaS platform must solve unique architectural problems:
+- How to securely connect to on-premises systems (firewalls, no direct internet access)
+- How to scale to thousands of customers without compromising security
+- How to handle real-time and batch data flows simultaneously
+- How to ensure customer data is protected and isolated
+
+ISC's architecture elegantly solves these problems. Understanding the design helps you appreciate ISC's strengths and understand its capabilities.
+
+**What You'll Be Doing:**
+
+You're learning ISC's technical design—not to become an architect, but to understand how ISC works. This knowledge helps you configure it properly, understand its limitations, and troubleshoot issues.
+
+---
+
+## 📚 CONCEPTUAL FOUNDATION
+
+### Core Concept 1: Multi-Tenant Cloud Architecture
+
+**Definition:**
+
+ISC is a **multi-tenant SaaS platform**, meaning thousands of customers share the same cloud infrastructure while remaining completely isolated from each other. Each customer gets their own isolated instance (tenant) of the platform.
+
+**Why It Matters:**
+
+Multi-tenancy is what makes ISC economical. SailPoint doesn't maintain separate infrastructure for each customer—they maintain one platform that serves thousands. This is why ISC costs much less than on-premises IdentityIQ (lower infrastructure costs, economies of scale). But multi-tenancy introduces security and isolation requirements that ISC must handle carefully.
+
+**In ISC Context:**
+
+When you log into your ISC sandbox, you're logging into a dedicated tenant—an isolated copy of ISC that is completely separate from other customers' data. Your data doesn't mix with anyone else's. Your configurations don't affect anyone else. But you're running on the same physical infrastructure.
+
+**Example:**
+
+Imagine a large building with many apartments:
+- **Building** = ISC cloud infrastructure (managed by SailPoint)
+- **Each apartment** = An ISC tenant (customer's isolated instance)
+- **Wall isolation** = Data isolation (customer data never leaks between tenants)
+- **Shared utilities** = Shared cloud resources (compute, storage, networking)
+
+Contoso has one apartment. A bank has another apartment. A hospital has another. All share the building, but they're completely isolated from each other.
+
+---
+
+### Core Concept 2: ISC Core Services and Components
+
+**Definition:**
+
+ISC consists of several core services that work together: **Identity Engine** (reads and correlates identity data), **Provisioning Service** (provisions and deprovisiones access), **Governance Service** (manages reviews and compliance), **Connector Framework** (connects to external systems), and **API Gateway** (provides extensibility).
+
+**Why It Matters:**
+
+Understanding these components helps you recognize which ISC service handles different functions. When something goes wrong, knowing the components helps you diagnose it. When you need to extend ISC, you know which service to extend.
+
+**In ISC Context:**
+
+These services work together seamlessly—you usually don't think about them as separate—but understanding them helps you grasp how ISC works.
+
+**Core Services:**
+
+| Service | Purpose | Examples |
+|---------|---------|----------|
+| **Identity Engine** | Reads data from sources (Entra ID, HRIS, apps), correlates it into unified identities | Ingests 1,000 users from Entra ID, correlates them with HRIS data |
+| **Provisioning Service** | Creates/updates/removes accounts in target systems based on rules | Provisions Contoso's new Finance person access to Finance app and email |
+| **Governance Service** | Manages access reviews, certifications, policy enforcement, compliance | Triggers quarterly access review for Finance Manager |
+| **Connector Framework** | Reads/writes data to external systems (cloud apps, on-premises databases, APIs) | Connects to Salesforce, QuickBooks, Active Directory |
+| **API Gateway** | Provides APIs for custom integrations and extensions | Allows custom workflows, external systems to call ISC |
+| **Search & Analytics** | Indexes all identity data for fast searching and analytics | Allows fast queries like "who has access to Finance app?" |
+
+**Example (Contoso):**
+
+When Casey Kim is hired at Contoso:
+1. **Identity Engine:** Reads Casey's data from Entra ID (name, email, department) and HRIS (job title, manager, hire date)
+2. **Identity Engine:** Correlates data—realizes this is the same person across systems, creates unified identity
+3. **Provisioning Service:** Sees Casey is Finance AP Clerk, evaluates provisioning rules
+4. **Provisioning Service:** Creates accounts via Connector Framework (Finance app account, email group membership)
+5. **Governance Service:** Records the provisioning event in audit log
+6. **Search & Analytics:** Indexes Casey's new access for future queries
+
+---
+
+### Core Concept 3: Connectors and Virtual Appliances - How ISC Connects to Systems
+
+**Definition:**
+
+ISC connects to external systems through **Connectors** (for cloud systems) and **Virtual Appliances** (for on-premises systems). Connectors use APIs; Virtual Appliances are lightweight servers placed in customer environments to reach on-premises systems.
+
+**Why It Matters:**
+
+Contoso uses both cloud systems (Entra ID, Salesforce) and on-premises systems (QuickBooks server, custom Finance app). ISC must read/write data to both. Different connection methods exist for security and technical reasons. Understanding this helps you understand what infrastructure ISC needs and how it secures connections.
+
+**In ISC Context:**
+
+You'll configure connectors for cloud systems and Virtual Appliances for on-premises systems. Knowing which type applies to which system is crucial.
+
+**Connector Types:**
+
+| Connector Type | Use Case | Examples | Security |
+|---|---|---|---|
+| **Cloud/SaaS Connector** | Connect to cloud applications with APIs | Salesforce, ServiceNow, Workday, Google Workspace | API authentication (OAuth, API keys) |
+| **Entra ID / Azure Connector** | Specialized connector for Microsoft Entra ID and Azure | Entra ID, Exchange Online, Azure resources | OAuth with Azure |
+| **Database Connector** | Connect to SQL/database systems | Oracle, SQL Server, MySQL | JDBC with credentials |
+| **Virtual Appliance (VA)** | Bridge to on-premises systems in customer networks | On-premises Active Directory, proprietary apps, legacy systems | Outbound HTTPS from customer network to ISC |
+
+**Example (Contoso's Connections):**
+
+| System | Type | Method |
+|--------|------|--------|
+| **Entra ID** | Cloud | Cloud Connector (OAuth) |
+| **Salesforce** | Cloud | SaaS Connector (API) |
+| **QuickBooks Server** | On-premises | Virtual Appliance (reads/writes to local database) |
+| **Custom Finance App** | On-premises | Virtual Appliance (REST API to app) |
+| **HRIS** | Cloud SaaS | SaaS Connector (API) |
+
+---
+
+### Core Concept 4: Data Flow - Read, Correlate, Provision, Govern
+
+**Definition:**
+
+ISC follows a predictable data flow: **Read** identity data from sources, **Correlate** it into unified identities, **Provision** access based on rules, **Govern** by monitoring and auditing access.
+
+**Why It Matters:**
+
+Understanding this flow helps you grasp how ISC works end-to-end. It also helps you understand where to configure things (which service handles reading? correlating? provisioning?).
+
+**In ISC Context:**
+
+This flow happens continuously, triggered by scheduled jobs and real-time events. Understanding the flow helps you understand timing and event-driven architecture.
+
+**Complete Data Flow:**
+
+```
+1. READ
+   - Connectors/VAs read from source systems (Entra ID, HRIS, apps)
+   - Data: identities, accounts, entitlements, group memberships
+   - Frequency: Real-time (events) or scheduled (batch jobs)
+
+2. CORRELATE
+   - Identity Engine matches accounts across systems to same person
+   - Example: Entra ID user "morgan.chen@contoso.com" + HRIS employee "Morgan Chen" = same identity
+   - Result: Unified identity with attributes from all sources
+
+3. PROVISION
+   - Provisioning Service evaluates rules based on identity
+   - Determines: "What access should Morgan have based on job title?"
+   - Creates/updates/removes accounts via Connectors/VAs
+   - Updates target systems: "Morgan needs Finance app access"
+
+4. GOVERN
+   - Governance Service monitors all access
+   - Stores audit trail: "Morgan provisioned access on 2024-01-15"
+   - Triggers reviews: "Quarterly: Does Morgan still need this access?"
+   - Detects violations: "Morgan has conflicting access—should be flagged"
+
+5. REPEAT
+   - Continuous cycle: identity changes → provisioning updates → governance monitors
+```
+
+**Example (Full Cycle for Casey Kim):**
+
+**T=0 (Hire):**
+1. Read: HR system shows "Casey Kim hired, Finance AP Clerk"
+2. Correlate: ISC creates identity "Casey Kim" with attributes (name, department, title, manager)
+3. Provision: ISC sees "AP Clerk" → provisions Finance app access, email group, QuickBooks access
+4. Govern: ISC records "Casey provisioned Finance app access on 2024-01-15 by Finance Manager request"
+
+**T=6 months (Promotion):**
+1. Read: HR system shows "Casey Kim promoted to Accounting Manager"
+2. Correlate: ISC updates identity attributes (title changes from AP Clerk to Manager)
+3. Provision: ISC sees "Manager" → revokes AP Clerk access, grants Manager approval permissions
+4. Govern: ISC records "Casey's access updated on 2024-07-15 due to promotion"
+
+**T=18 months (Offboard):**
+1. Read: HR system shows "Casey Kim terminated"
+2. Correlate: ISC marks Casey's identity as terminated
+3. Provision: ISC revokes all access—Finance app disabled, email suspended, QuickBooks access removed
+4. Govern: ISC records "Casey's access fully revoked on 2024-12-15 per termination"
+
+---
+
+## 🧠 KEY CONCEPTS TO REMEMBER
+
+- **Multi-tenancy**: ISC is shared infrastructure, but your tenant is completely isolated
+- **Connectors** connect to cloud systems; **Virtual Appliances** connect to on-premises systems
+- **Core services** work together: Identity Engine (read/correlate), Provisioning (access), Governance (monitor/review)
+- **Data flow** is predictable: Read → Correlate → Provision → Govern (repeat continuously)
+- **Architecture decisions** prioritize security, scalability, and customer isolation
+
+---
+
+## 🎓 CERTIFICATION ALIGNMENT
+
+**Certification Domain:** ISC Architecture and Components
+
+**Exam Focus:** Candidates must understand ISC's multi-tenant architecture, core components, and data flow
+
+**Practice Exam Questions:**
+
+**Question 1:** Contoso Ltd uses both cloud systems (Entra ID, Salesforce) and on-premises systems (QuickBooks server, custom Finance app). How does ISC connect to these different types of systems?
+
+A) ISC uses the same type of connector for all systems regardless of location
+B) ✅ ISC uses Cloud Connectors for cloud systems (API-based) and Virtual Appliances for on-premises systems (secure outbound connections)
+C) ISC can only connect to cloud systems; on-premises systems require separate tools
+D) ISC requires a VPN tunnel to all systems
+
+**Explanation:** The correct answer is **B) ISC uses Cloud Connectors for cloud systems (API-based) and Virtual Appliances for on-premises systems (secure outbound connections)**. ISC's architecture is specifically designed to handle both cloud and on-premises. Cloud systems connect via APIs; on-premises systems connect through Virtual Appliances (lightweight servers in the customer network).
+
+A) is incorrect—different connection types are used based on system location and security requirements.
+C) is incorrect—ISC absolutely can connect to on-premises systems via Virtual Appliances.
+D) is incorrect—VPN is not required; Virtual Appliances make outbound HTTPS connections.
+
+---
+
+**Question 2:** In ISC's data flow, which service is responsible for reading data from external source systems like Entra ID and HRIS?
+
+A) Provisioning Service
+B) ✅ Identity Engine (via Connectors/Virtual Appliances)
+C) Governance Service
+D) API Gateway
+
+**Explanation:** The correct answer is **B) Identity Engine (via Connectors/Virtual Appliances)**. The Identity Engine is responsible for reading/ingesting identity data from source systems. It uses Connectors (for cloud) and Virtual Appliances (for on-premises) to reach external systems and read their data.
+
+A) is incorrect—Provisioning Service writes to target systems, not reads from sources.
+C) is incorrect—Governance Service monitors compliance, not reads source data.
+D) is incorrect—API Gateway provides extensibility, not source system integration.
+
+---
+
+## 📚 ADDITIONAL RESOURCES
+
+**Related Modules:**
+- [Next: 1.6 - ISC Four Core Modules](/modules/1.6-isc-four-core-modules) — How architecture components deliver business value
+- [Next: 1.7 - ISC Data Model Fundamentals](/modules/1.7-isc-data-model-fundamentals) — Identity, Account, Entitlement data structures
+
+**Official Documentation:**
+- [SailPoint ISC Architecture Overview](https://example.com)
+- [ISC Connectors and Virtual Appliances](https://example.com)
+- [ISC Multi-Tenancy and Security](https://example.com)
+
+**Further Learning:**
+- Research "cloud-native architecture" to understand multi-tenancy principles
+- Study Virtual Appliance placement patterns for security
+
+---
+
+## 🔄 NEXT STEPS
+
+You now understand ISC's cloud-native architecture and how it connects to systems. In **Module 1.6 - ISC Four Core Modules**, you'll learn how these architectural components deliver business value through access modeling, lifecycle management, governance, and analytics.
+
+**Before moving forward:**
+- Visualize your organization's systems—which are cloud-based? Which are on-premises?
+- Think about how ISC would need to connect to each
+- Consider security implications of connecting cloud and on-premises systems
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+By the end of this module, you should be able to:
+- ☑️ Explain ISC's multi-tenant cloud architecture
+- ☑️ Identify core ISC components and their roles
+- ☑️ Understand the difference between Cloud Connectors and Virtual Appliances
+- ☑️ Describe the complete data flow (Read, Correlate, Provision, Govern)
+- ☑️ Recognize how ISC connects to both cloud and on-premises systems
+- ☑️ Answer practice exam questions correctly
+
+**If you cannot do these things, review this module before proceeding to 1.6.**

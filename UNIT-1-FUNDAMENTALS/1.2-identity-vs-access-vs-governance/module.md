@@ -1,0 +1,256 @@
+# 1.2 - Identity vs Access vs Governance
+
+**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+By the end of this module, you will be able to:
+- Define identity, access management, and governance and understand their relationship
+- Explain how these three concepts work together in a complete identity solution
+- Distinguish when each concept applies in organizational scenarios
+- Understand why organizations need all three, not just one
+- Recognize these concepts as the three pillars of ISC
+
+---
+
+## 📋 Prerequisites
+
+**Knowledge Required:**
+- Module 1.1: What is Identity Management? (foundational context)
+- Basic understanding of organizational structure (departments, roles, responsibilities)
+
+**Access Required:**
+- None for this module (conceptual reading only)
+
+**Time Required:** ~10 hours (2-3 hours reading, 5-7 hours reflection and research)
+
+**Difficulty:** Beginner
+
+---
+
+## 🔍 CONTEXT & BUSINESS SCENARIO
+
+**Scenario:** Contoso Ltd (50-person professional services firm)
+
+**Business Background:**
+
+At Contoso Ltd, the Finance team uses three critical systems: QuickBooks (for accounting), a custom Finance app (for payments and expense approvals), and an HRIS system (for payroll). When Morgan Chen (Senior Accountant) was hired, Morgan needed access to all three systems. But each system uses different credentials and has different permission structures:
+- QuickBooks: Username/password for the accounting module
+- Finance App: API credentials for the payment approval system
+- HRIS: Role-based permissions (Accountant, Manager, Reviewer)
+
+The Finance Manager asked IT, "Should Morgan have access?" The answer wasn't simple—it required understanding WHO Morgan is (identity), WHAT systems Morgan needs (access), and WHETHER Morgan should have the permissions they're requesting (governance).
+
+**What You'll Be Doing:**
+
+You're learning the vocabulary and conceptual distinctions that underpin everything in ISC. These three words—identity, access, governance—are used thousands of times in ISC documentation and configuration. Getting clear on them now prevents months of confusion later.
+
+---
+
+## 📚 CONCEPTUAL FOUNDATION
+
+### Core Concept 1: Identity - "Who Are You?"
+
+**Definition:**
+
+**Identity** is the answer to the question "Who are you?" It's a set of attributes describing a person—their name, employee ID, email, department, manager, hire date, job title, location, and other characteristics that define them in the organization.
+
+**Why It Matters:**
+
+Before you can manage access, you must know who people are. Identity is the foundation. If the system doesn't know that Morgan Chen works in Finance, reports to Alex Lee, was hired as a Senior Accountant, and is located in the Boston office, you can't make smart access decisions.
+
+**In ISC Context:**
+
+ISC's primary data structure is the **Identity**. Every person in ISC is an identity with a set of attributes. These attributes come from source systems (Entra ID provides name/email/department, HRIS provides job title/hire date/manager, Finance app provides cost center). ISC correlates all these sources into one unified identity: "This is Morgan Chen."
+
+**Example:**
+
+Morgan Chen's identity in Contoso:
+- Legal Name: Morgan Chen
+- Email: morgan.chen@contoso.com
+- Employee ID: E-00547
+- Department: Finance
+- Job Title: Senior Accountant
+- Manager: Alex Lee (Finance Manager)
+- Hire Date: 2021-03-15
+- Location: Boston
+- Cost Center: FIN-001
+
+All of these attributes are part of Morgan's *identity*. ISC reads these from Entra ID, HRIS, and other systems, and creates a unified view.
+
+---
+
+### Core Concept 2: Access Management - "What Systems Can You Use?"
+
+**Definition:**
+
+**Access management** (also called provisioning/deprovisioning) is the process of granting and revoking user permissions to systems and resources. It answers the question: "What systems can this person use, and what can they do in those systems?"
+
+**Why It Matters:**
+
+Knowing who someone is (identity) is useless if you can't actually give them access to do their job. Access management connects identity to systems. It says: "Because Morgan Chen is a Senior Accountant in Finance, Morgan gets read/write access to QuickBooks accounting module, Finance app payment processor, and HRIS payroll reports."
+
+**In ISC Context:**
+
+ISC's **Provisioning** module is where access management happens. It reads Morgan's identity attributes, compares them against rules, determines what access Morgan should have, and then creates/updates/removes accounts in target systems.
+
+**Example (Access for Morgan Chen):**
+
+Systems where Morgan needs access:
+- **QuickBooks:** Username created, password set, accounting module permissions granted
+- **Finance App:** API credentials generated, payment approval role assigned
+- **HRIS:** Morgan created as Accountant user, payroll report access granted
+- **Contoso Email:** morgan.chen@contoso.com mailbox created, Finance team distribution list added
+- **Salesforce:** Read-only access to Finance deals (for revenue recognition)
+
+Morgan has different permissions in each system based on what's needed for the Senior Accountant role.
+
+---
+
+### Core Concept 3: Governance - "Should You Have That?"
+
+**Definition:**
+
+**Governance** (also called compliance, certification, or review) is the ongoing process of ensuring access is appropriate. It answers the question: "Does this person actually NEED the access they have, or should something be revoked?"
+
+**Why It Matters:**
+
+Access management (provisioning) hands out access based on role. But people accumulate access over time. An engineer who transfers to Finance still has engineering system access. A contractor whose project ended still has client access. A former manager's approval authority isn't revoked. Without governance, "access creep" creates security vulnerabilities and compliance violations.
+
+**In ISC Context:**
+
+ISC's **Governance** and **Compliance** modules handle ongoing reviews. Periodically (quarterly, annually), ISC triggers an **Access Certification** where managers review their teams' access and certify "Yes, Casey should have access to the Finance system" or "No, revoke access to the old project repository."
+
+**Example (Governance for Contoso):**
+
+Scenario: It's Q3 2024, and Alex Lee (Finance Manager) receives a Governance notification: "Review your team's access."
+
+Alex reviews his team:
+- **Morgan Chen, Senior Accountant:** QuickBooks ✅ Yes (needs for accounting), Finance App ✅ Yes (approves payments), HRIS ✅ Yes, Engineering Git Repo ❌ NO—Morgan doesn't work in Engineering, revoke this
+- **Casey Kim, AP Clerk:** Finance App ✅ Yes (enters invoices), QuickBooks ✅ Yes (entry level), CEO Dashboard ❌ NO—Casey doesn't need executive dashboard, revoke
+- **Alex Torres, Accounting Manager (transferred from Sales):** All approvals ✅ Yes, but Sales Commission system ❌ NO—Alex is no longer in Sales, revoke immediately
+
+Result: ISC revokes inappropriate access and documents the review for compliance purposes.
+
+---
+
+### Core Concept 4: How Identity, Access, and Governance Work Together
+
+**Definition:**
+
+The three concepts form a cycle: **Identity** (who you are) → **Access** (what you should be able to do based on who you are) → **Governance** (ongoing verification that you still need it) → back to **Identity** (if you change departments, your identity changes, triggering access changes).
+
+**Why It Matters:**
+
+Organizations that have only one or two of these fail:
+- **Identity + Access, No Governance:** Access sprawls out of control. People accumulate permissions.
+- **Identity + Governance, No Access:** Nobody can do their job because access isn't provisioned.
+- **Access + Governance, No Identity:** Governance happens manually; nobody knows who is who across systems.
+- **All Three Together:** Automated, audited, scalable identity management.
+
+**In ISC Context:**
+
+SailPoint ISC is built on this three-pillar model. The three core modules are:
+1. **Access Modeling** (identity + access rules)
+2. **Lifecycle Management** (automatic access provisioning when identity changes)
+3. **Governance** (ongoing certification and reviews)
+
+**Example (Complete Cycle at Contoso):**
+
+1. **Identity:** Casey Kim hired as Finance AP Clerk (Entra ID creates user, HRIS records job title)
+2. **Access:** ISC sees "AP Clerk in Finance" → provisions Finance app access, QuickBooks entry-level access, Finance email group
+3. **Governance:** Every quarter, Finance Manager certifies Casey still needs this access ✅
+4. **Change:** Casey promoted to Accounting Manager (HRIS updates job title)
+5. **Re-Access:** ISC sees job title changed → revokes AP Clerk access, grants Manager approval permissions
+6. **Governance:** Q4 review—Finance Manager certifies Casey needs all manager-level access ✅
+7. **Offboarding:** Casey accepts position at another company (HRIS records termination)
+8. **Access Removal:** ISC automatically revokes all access—email suspended, Finance app accounts deleted, HRIS user deactivated
+9. **Governance:** Audit trail shows Casey's access was removed on termination date (compliance proof)
+
+---
+
+## 🧠 KEY CONCEPTS TO REMEMBER
+
+- **Identity answers "Who?"** — It's the data describing a person (name, email, department, job title, manager)
+- **Access answers "What?"** — It's the permissions in systems based on identity attributes
+- **Governance answers "Should?"** — It's the ongoing verification that access is still appropriate
+- **They work together as a cycle:** Identity determines access; access is granted; governance verifies; identity changes trigger new access cycles
+- **ISC does all three:** Identity aggregation → provisioning (access) → governance (certification)
+
+---
+
+## 🎓 CERTIFICATION ALIGNMENT
+
+**Certification Domain:** Identity Management Fundamentals - Identity, Access, and Governance Concepts
+
+**Exam Focus:** Candidates must understand the three pillars of identity management and how they relate
+
+**Practice Exam Questions:**
+
+**Question 1:** Morgan Chen's identity attributes include: name, email, job title (Senior Accountant), department (Finance), hire date, and manager (Alex Lee). Morgan also has access to QuickBooks, Finance app, and HRIS. In ISC terminology, which of the following statements is CORRECT?
+
+A) Morgan's identity is the same as Morgan's access
+B) Morgan's access is determined by Morgan's identity attributes, but identity and access are distinct concepts
+C) ✅ Morgan's governance determines Morgan's identity
+D) Morgan's identity and access should be reviewed quarterly, but governance is not required
+
+**Explanation:** The correct answer is **B) Morgan's access is determined by Morgan's identity attributes, but identity and access are distinct concepts**. Identity (who you are) and access (what you can do) are separate things. Access is BASED ON identity, but they're not the same. A person's identity is their attributes; their access is the permissions those attributes entitle them to.
+
+A) is incorrect—identity and access are different. Identity is attributes; access is permissions.
+C) is incorrect—governance doesn't determine identity; it verifies access is appropriate.
+D) is incorrect—governance IS required (quarterly is just one example).
+
+---
+
+**Question 2:** At Contoso Ltd, an employee transfers from Engineering to Finance. According to the three pillars of identity management, what should happen?
+
+A) The employee's identity remains unchanged, so no access changes are necessary
+B) ✅ The employee's identity attributes change (department), triggering access changes (revoke engineering systems, provision finance systems)
+C) The employee's access must be manually reviewed by IT before any changes
+D) The employee's governance status should change, but identity and access remain the same
+
+**Explanation:** The correct answer is **B) The employee's identity attributes change (department), triggering access changes (revoke engineering systems, provision finance systems)**. When an employee transfers departments, their identity attributes change (department field updates from "Engineering" to "Finance"). This change triggers automatic access provisioning/deprovisioning. This is the complete cycle: identity change → access change.
+
+A) is incorrect—when department changes, identity attributes change, which should trigger access changes.
+C) is incorrect—in modern systems like ISC, this is automatic, not manual.
+D) is incorrect—both identity and access change, not just governance.
+
+---
+
+## 📚 ADDITIONAL RESOURCES
+
+**Related Modules:**
+- [Previous: 1.1 - What is Identity Management?](/modules/1.1-what-is-identity-management) — Foundational context
+- [Next: 1.3 - Introduction to SailPoint ISC](/modules/1.3-introduction-to-sailpoint-isc) — See these concepts in action
+- [Reference: 1.19 - ISC Glossary & Terminology](/modules/1.19-isc-glossary-terminology) — Look up identity, access, governance definitions
+
+**Official Documentation:**
+- SailPoint ISC: [Identity and Access Management Basics](https://example.com)
+- NIST: [Access Control Fundamentals](https://example.com)
+
+---
+
+## 🔄 NEXT STEPS
+
+You now understand the three pillars of identity management. In **Module 1.3 - Introduction to SailPoint ISC**, you'll learn how these concepts are implemented in the actual ISC platform. You'll see how ISC manages identity data, provisions access, and enables governance.
+
+**Before moving forward:**
+- Think about your own organization: Who manages identities? How is access granted? Is there ongoing governance/review?
+- Research your company's identity systems: Do they have all three pillars (identity, access, governance)?
+- Identify a business problem at your organization that relates to one of these three pillars
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+By the end of this module, you should be able to:
+- ☑️ Define identity, access, and governance in your own words
+- ☑️ Explain how identity determines access (with an example)
+- ☑️ Describe how governance maintains appropriate access over time
+- ☑️ Recognize scenarios as identity, access, or governance problems
+- ☑️ Explain why organizations need all three pillars, not just one
+- ☑️ Answer practice exam questions correctly
+
+**If you cannot do these things, re-read this module and revisit Module 1.1 before proceeding to 1.3.**
