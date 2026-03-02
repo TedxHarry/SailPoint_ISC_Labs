@@ -1,0 +1,65 @@
+# 3.3 - Create First Identity Profile
+
+**Unit:** Identity Profiles & Sources | **Tier:** 1 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Create Identity Profile in ISC
+- Define schema for Contoso
+- Understand ISC UI for profiles
+
+---
+
+## 📋 Prerequisites
+
+Module 3.2: Identity Profile Components. Unit 2 complete (ISC sandbox access).
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Create Contoso Identity Profile
+
+In ISC > Administration > Identity Profiles > Create Profile:
+
+**Name:** Contoso_Entra_Profile
+
+**Description:** Maps Entra ID data to ISC identities
+
+### Define Schema Attributes
+
+Add attributes (in ISC UI):
+
+1. **firstName** - String, Required, Max 50 chars
+2. **lastName** - String, Required, Max 50 chars
+3. **email** - String, Required, Unique
+4. **department** - String, Required, Enum (Finance, Engineering, Sales, HR)
+5. **jobTitle** - String, Required
+6. **manager** - String, Optional, Reference to identity
+7. **hireDate** - Date, Optional
+8. **location** - String, Optional (Boston, Seattle, etc.)
+
+### Save Profile
+
+Click Save. Profile now created and ready for attribute mapping (Module 3.4).
+
+---
+
+## 🧪 TASK
+
+1. Navigate to Administration > Identity Profiles
+2. Create new profile
+3. Name: Contoso_Entra_Profile
+4. Add all 8 attributes above
+5. Save profile
+6. Verify it appears in list
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Profile created
+- ☑️ All 8 attributes defined
+- ☑️ Profile shows in Identity Profiles list

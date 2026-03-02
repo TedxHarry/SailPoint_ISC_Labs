@@ -1,0 +1,113 @@
+# 3.2 - Identity Profile Components
+
+**Unit:** Identity Profiles & Sources | **Tier:** 1 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand Identity Profile components
+- Know schema, mappings, rules, validation
+- Understand attribute types and requirements
+
+---
+
+## 📋 Prerequisites
+
+Module 3.1: Identity Profiles Fundamentals.
+
+---
+
+## 📚 CORE CONCEPTS
+
+### Schema
+
+**Definition:** List of attributes ISC identity should have.
+
+**Example (Contoso):**
+```
+Required:
+- firstName (string, max 50 chars)
+- lastName (string, max 50 chars)
+- email (string, unique)
+- department (string, enum: Finance, Engineering, Sales, HR)
+- jobTitle (string)
+
+Optional:
+- manager (string, reference to another identity)
+- location (string)
+- costCenter (string)
+- hireDate (date)
+```
+
+---
+
+### Mappings
+
+**Definition:** How source attributes map to ISC attributes.
+
+**Example:**
+```
+Source (Entra ID) → ISC Attribute
+givenName → firstName
+surname → lastName
+mail → email
+department → department
+jobTitle → jobTitle
+manager (DN) → manager (name)
+```
+
+---
+
+### Rules & Transforms
+
+**Definition:** Transformations or calculations on attributes.
+
+**Example:**
+```
+displayName = firstName + " " + lastName
+email = firstName.lowercase + "." + lastName.lowercase + "@company.com"
+```
+
+---
+
+### Validation
+
+**Definition:** Verify mappings work and data quality is good.
+
+**Checks:**
+- All required attributes populated
+- Data types correct
+- No orphaned attributes
+- Uniqueness constraints met (email)
+
+---
+
+## 🧠 KEY TAKEAWAYS
+
+- **Schema** = attribute definitions
+- **Mappings** = how source data populates schema
+- **Rules** = transformations
+- **Validation** = data quality check
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** In Contoso Identity Profile, email is marked "required" and "unique". What does this mean?
+
+A) Email is optional and duplicates allowed
+B) ✅ Every identity MUST have email, and no two identities can have same email
+C) Email is for display only
+D) Email is calculated from name
+
+**Answer: B.** Required = mandatory. Unique = no duplicates.
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Understand schema structure
+- ☑️ Know how mappings work
+- ☑️ Understand rules/transforms
+- ☑️ Know validation purpose

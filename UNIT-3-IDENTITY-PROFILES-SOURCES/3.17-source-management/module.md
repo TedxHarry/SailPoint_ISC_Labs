@@ -1,0 +1,82 @@
+# 3.17 - Source Management in ISC
+
+**Unit:** Identity Profiles & Sources | **Tier:** 1 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Manage multiple sources
+- Understand source prioritization
+- Handle source updates
+
+---
+
+## 📋 Prerequisites
+
+Module 3.16: Troubleshooting Connector Issues.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Multiple Sources
+
+In ISC > Administration > Sources:
+
+View all connectors (currently just Contoso_Entra_ID for labs).
+
+In production, might have:
+- Entra ID (users, groups)
+- HRIS (job title, department, manager)
+- Salesforce (customer assignments)
+- ServiceNow (IT systems)
+
+Each source = separate connector.
+
+---
+
+### Source Prioritization
+
+If multiple sources provide same attribute (e.g., both Entra ID and HRIS have department):
+
+Define priority: Which source is authoritative?
+
+**Example:**
+- HRIS = authoritative for department (used if both have value)
+- Entra ID = secondary
+
+ISC uses priority to resolve conflicts.
+
+---
+
+### Source Lifecycle
+
+**Add:** Create new source (Module 3.10)
+
+**Configure:** Set up authentication, mappings (Module 3.11)
+
+**Test:** Run aggregation, verify data (Module 3.12)
+
+**Monitor:** Check health, logs (Module 3.13)
+
+**Update:** Modify mappings, credentials, permissions
+
+**Archive:** Disable source if no longer needed (don't delete historical data)
+
+---
+
+## 🧪 TASK
+
+1. View Sources list
+2. Note Contoso_Entra_ID source
+3. Understand it's one of potentially many sources
+4. Document priority if multiple sources in future
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Understand source management
+- ☑️ Know source prioritization
+- ☑️ Ready for Unit 4 (Aggregation & Correlation)

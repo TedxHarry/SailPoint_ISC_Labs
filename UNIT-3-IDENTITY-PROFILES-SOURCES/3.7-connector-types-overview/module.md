@@ -1,0 +1,87 @@
+# 3.7 - Connector Types Overview
+
+**Unit:** Identity Profiles & Sources | **Tier:** 1 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Know connector types
+- Understand which type for which system
+- Recognize connector capabilities
+
+---
+
+## 📋 Prerequisites
+
+Module 3.6: Identity Profile Validation. Unit 1.11 recommended (connector review).
+
+---
+
+## 📚 CORE CONCEPTS
+
+### Cloud/SaaS Connectors
+
+Connect to cloud applications via APIs.
+
+**Examples:** Salesforce, ServiceNow, Workday, Google Workspace
+
+**How:** OAuth, API keys, service accounts
+
+**Used for:** Cloud-hosted systems
+
+---
+
+### Entra ID Connector
+
+Specialized for Azure/Entra ID.
+
+**How:** OAuth with Azure
+
+**Capabilities:** Read users, groups; Write group memberships
+
+**Used for:** Entra ID/Azure
+
+---
+
+### Database Connectors
+
+Connect directly to SQL databases.
+
+**Examples:** Oracle, SQL Server, MySQL
+
+**How:** JDBC connection
+
+**Used for:** On-premises databases with user/group tables
+
+---
+
+### Virtual Appliance (VA)
+
+Lightweight server in customer network. Bridges cloud ISC to on-premises.
+
+**How:** Outbound HTTPS only (secure)
+
+**Used for:** On-premises systems, legacy apps, non-internet systems
+
+---
+
+### For Contoso
+
+Entra ID Connector (cloud-hosted, has OAuth support).
+
+---
+
+## 🧠 KEY TAKEAWAYS
+
+- **Cloud systems:** Cloud Connector
+- **Entra ID:** Entra ID Connector
+- **On-premises databases:** Database Connector
+- **On-premises apps/legacy:** Virtual Appliance
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Know 4 connector types
+- ☑️ Understand when to use each

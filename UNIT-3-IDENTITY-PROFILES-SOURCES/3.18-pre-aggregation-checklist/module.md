@@ -1,0 +1,91 @@
+# 3.18 - Pre-Aggregation Checklist
+
+**Unit:** Identity Profiles & Sources | **Tier:** 1 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Verify Unit 3 complete
+- Ensure ready for Unit 4
+- Document source setup
+
+---
+
+## 📋 Prerequisites
+
+Module 3.17: Source Management in ISC.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### IDENTITY PROFILE CHECKLIST
+
+- [ ] Contoso_Entra_Profile created
+- [ ] 8 attributes defined (firstName, lastName, email, department, jobTitle, manager, hireDate, location)
+- [ ] Attribute mappings configured (Module 3.4)
+- [ ] Advanced mappings/transformations added (Module 3.5)
+- [ ] Profile validates successfully (Module 3.6)
+
+---
+
+### CONNECTOR CHECKLIST
+
+- [ ] Contoso_Entra_ID connector created (Module 3.10)
+- [ ] Connection settings entered (Tenant ID, App ID, Client Secret from Unit 2)
+- [ ] Connection test passes (Module 3.10)
+- [ ] Account mapping configured (Module 3.11)
+- [ ] Users object configured
+- [ ] Groups object configured
+- [ ] Aggregation completed (Module 3.12)
+
+---
+
+### DATA VERIFICATION CHECKLIST
+
+- [ ] 13 users visible in ISC > Identities
+- [ ] All user attributes populated (firstName, lastName, email, department, jobTitle)
+- [ ] 7 groups visible as accounts
+- [ ] Connector status: Green (Module 3.13)
+- [ ] Last aggregation successful
+- [ ] No errors in logs
+
+---
+
+### DOCUMENTATION CHECKLIST
+
+- [ ] Connector credentials saved securely (not in git)
+- [ ] Source management plan documented
+- [ ] Troubleshooting notes saved
+- [ ] Next steps for Unit 4 clear
+
+---
+
+## 🧪 TASK
+
+1. Go through all checklists
+2. Check off each item
+3. If any unchecked, go back to relevant module
+4. Fix any issues
+5. Screenshot showing complete setup
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ ALL items checked
+- ☑️ No incomplete items
+- ☑️ Data verified (13 users, 7 groups)
+- ☑️ Ready for Unit 4 (Aggregation & Correlation)
+
+---
+
+## UNIT 3 COMPLETE
+
+Congratulations! You've configured:
+- Identity Profile with attributes and mappings
+- Entra ID Connector with authentication
+- Aggregated 13 users and 7 groups into ISC
+
+**Next:** Unit 4 - Aggregation & Correlation (deep dive into data flow)

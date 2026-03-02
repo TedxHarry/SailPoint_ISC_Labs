@@ -1,0 +1,82 @@
+# 3.13 - Connector Health Monitoring
+
+**Unit:** Identity Profiles & Sources | **Tier:** 1 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Monitor connector status
+- Check aggregation health
+- Troubleshoot connection issues
+
+---
+
+## 📋 Prerequisites
+
+Module 3.12: Test Entra ID Connector.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Check Connector Status
+
+In ISC > Administration > Sources > Contoso_Entra_ID:
+
+**Status indicators:**
+- **Green:** Connected, working
+- **Yellow:** Warning (slow, partial data)
+- **Red:** Error (disconnected, failed auth)
+
+---
+
+### View Aggregation History
+
+Click > Aggregation History:
+
+Shows:
+- Last aggregation run time
+- Data count (users imported, groups imported)
+- Success/failure status
+- Any errors
+
+---
+
+### View Logs
+
+Click > Logs:
+
+Shows:
+- Authentication attempts
+- Data read operations
+- Errors/warnings
+- Performance metrics
+
+---
+
+### Common Issues
+
+**Connection Failed:** Check credentials (Tenant ID, App ID, Secret). Regenerate if needed.
+
+**No Data Imported:** Check connector is reading users/groups objects.
+
+**Slow Performance:** Check Entra ID load, connector polling frequency.
+
+---
+
+## 🧪 TASK
+
+1. Check connector status (should be green)
+2. View aggregation history (should show 13 users, 7 groups)
+3. Check logs for any warnings
+4. If red status, troubleshoot credentials
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Connector status: Green
+- ☑️ Last aggregation successful
+- ☑️ 13 users, 7 groups imported
+- ☑️ No error logs
