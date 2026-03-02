@@ -1,0 +1,189 @@
+# 1.9 - The Identity Lifecycle (Join/Move/Leave)
+
+**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand the four phases of identity lifecycle
+- Know what happens in each phase and why it matters
+- Recognize lifecycle events that trigger access changes
+- Understand timing and dependencies between lifecycle events
+- Recognize JML automation as a core ISC value driver
+
+---
+
+## 📋 Prerequisites
+
+Module 1.1: What is Identity Management? Module 1.6: ISC Four Core Modules.
+
+---
+
+## 📚 CORE CONCEPTS
+
+### The Four Lifecycle Phases
+
+**Join (Hire)**
+
+Person enters organization. System: HR records hire date, department, job title, manager in HRIS.
+
+ISC: Detects hire event → evaluates access rules based on department/title → provisions accounts and entitlements in all target systems.
+
+Manual process: 3-5 days (IT gets request, creates account in each system individually, misses some systems, delays affect new hire productivity)
+
+ISC process: Minutes (automatic)
+
+**Example:** Casey hired as Finance AP Clerk
+- Day 0 (old): IT receives request
+- Day 1: Finance app account created
+- Day 2: QuickBooks account created, email created
+- Day 4: HRIS access set up, missing some systems
+- Result: Casey doesn't have full access for 4+ days
+
+ISC automated:
+- Day 0: HR records hire → ISC detects → ISC provisions all systems simultaneously
+- Result: Casey has full access same day
+
+---
+
+**Move (Transfer/Promotion)**
+
+Person changes role/department/manager. System: HRIS updates job title, department, manager, reporting structure.
+
+ISC: Detects attribute change → revokes old role access → provisions new role access.
+
+Manual: Request submitted, IT manually removes old access and adds new, often incomplete, lag time.
+
+ISC: Automatic, immediate.
+
+**Example:** Morgan promoted from Senior Accountant to Accounting Manager
+- HRIS: title changes from Senior_Accountant to Accounting_Manager
+- ISC: Detects title change → revokes Senior Accountant permissions → grants Manager approval permissions + Manager dashboard access
+- Result: Morgan has new access immediately without IT intervention
+
+---
+
+**Change (Temporary Modification)**
+
+Person's access changes temporarily without role change. Examples: maternity leave (suspend access), temporary project assignment (add specific access), consulting engagement (add temporary system).
+
+System: Could be triggered by HRIS (leave of absence), manual request (project assignment), or API call (partner system).
+
+ISC: Suspends/restores access or adds/removes specific entitlements.
+
+**Example:** Alex takes parental leave
+- HR: Marks leave of absence in HRIS
+- ISC: Detects leave event → suspends all access temporarily
+- Alex returns: HR marks return
+- ISC: Restores all previous access
+
+---
+
+**Leave (Offboard)**
+
+Person exits organization (termination, resignation, contract end). System: HR records termination date in HRIS.
+
+ISC: Detects termination → revokes ALL access across all systems immediately.
+
+Manual: Offboarding forgotten, access left active for weeks/months (compliance violation, security risk).
+
+ISC: Automatic revocation on termination day.
+
+**Example:** Casey resigns
+- HR: Records termination date
+- ISC: Detects termination → disables all accounts (Finance app, QuickBooks, email, HRIS, ServiceNow)
+- Result: Casey's access fully revoked on termination date
+
+---
+
+### Lifecycle Event Triggers
+
+Events that trigger ISC lifecycle actions:
+
+| Event | Source | ISC Action |
+|-------|--------|-----------|
+| **Hire Date** | HRIS | Provision all access for new role |
+| **Termination Date** | HRIS | Revoke all access |
+| **Department Change** | HRIS | Revoke old dept access, provision new |
+| **Job Title Change** | HRIS | Revoke old role access, provision new |
+| **Manager Change** | HRIS | Update approval authorities, reporting |
+| **Leave of Absence** | HRIS | Suspend all access |
+| **Return from Leave** | HRIS | Restore suspended access |
+| **Contract End Date** | HRIS | Revoke access |
+| **Contractor On-board** | Manual/API | Provision limited access |
+| **Promotion** | HRIS | Revoke old permissions, grant new |
+
+ISC monitors these events (real-time or scheduled polling) and triggers provisioning/deprovisioning.
+
+---
+
+### Why JML Matters
+
+**Cost Reduction:** Eliminates manual onboarding/offboarding work. One person can onboard 10 new hires simultaneously.
+
+**Compliance:** Ensures access revoked on termination day (required by SOX, HIPAA, GDPR). Audit trail proves it.
+
+**Security:** Prevents access creep. When someone leaves, all access gone. When someone transfers, old access gone.
+
+**User Experience:** New hires productive on Day 1, not Day 5.
+
+**Scalability:** Process doesn't get slower as company grows. Cost stays constant.
+
+---
+
+## 🧠 KEY TAKEAWAYS
+
+- **JML = Join/Move/Leave**, the four phases of employee lifecycle
+- **Each phase triggers automatic access changes in ISC**
+- **Timing matters:** Access must be ready Day 1 of hire, revoked Day 1 of termination
+- **Automation is the value:** Manual processes don't scale; ISC scales without additional staff
+- **Foundation for other modules:** JML provisions the access that Governance then reviews and manages
+
+---
+
+## 🎓 CERTIFICATION ALIGNMENT
+
+**Question 1:** Contoso's current manual offboarding process takes 1-2 weeks. When someone terminates, what's the primary risk?
+
+A) New hire can't access systems
+B) ✅ Terminated employee still has access for 1-2 weeks (security/compliance risk)
+C) Manager doesn't know employee left
+D) IT staff are overworked
+
+**Answer: B.** Manual offboarding introduces lag. ISC eliminates this by revoking access same day.
+
+---
+
+**Question 2:** Alex promoted from Engineer to Engineering Manager. HRIS updates title. What should happen in ISC?
+
+A) Nothing—Alex already had access as Engineer
+B) ISC asks Alex which permissions to grant
+C) ✅ ISC detects title change, revokes Engineer permissions, provisions Manager permissions automatically
+D) Manual IT request needed
+
+**Answer: C.** Lifecycle Management detects the attribute change and re-evaluates access rules automatically.
+
+---
+
+## 📚 ADDITIONAL RESOURCES
+
+- [Next: 1.10 - Compliance & Audit Concepts](/modules/1.10-compliance-audit-concepts)
+- Unit 7: Lifecycle Management (future - configuration and workflows)
+- Unit 8: Access Request & User Portal (future - user-driven access requests)
+
+---
+
+## 🔄 NEXT STEPS
+
+Module 1.10 covers compliance requirements (SOX, HIPAA, GDPR) and audit concepts. JML automation is how ISC helps meet these compliance requirements.
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Define the four lifecycle phases
+- ☑️ Explain what happens in each phase
+- ☑️ Recognize lifecycle events and their ISC triggers
+- ☑️ Understand why JML matters (cost, compliance, security)
+- ☑️ Answer practice questions correctly

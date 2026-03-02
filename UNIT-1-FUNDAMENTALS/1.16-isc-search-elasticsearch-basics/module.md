@@ -1,0 +1,181 @@
+# 1.16 - ISC Search & Elasticsearch Basics
+
+**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | **Duration:** ~12 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand ISC's search capability and what can be searched
+- Know basic search syntax and query concepts
+- Understand indexing and search performance
+- Recognize common search use cases
+- Know limitations of search
+
+---
+
+## 📋 Prerequisites
+
+Module 1.12: Aggregation Fundamentals. Module 1.15: Roles & Access Profiles.
+
+---
+
+## 📚 CORE CONCEPTS
+
+### What Can You Search?
+
+ISC indexes all identity data for fast searching:
+
+**Identities:** Find people by name, email, department, job title, manager, hire date, etc.
+- "Find all Finance Managers"
+- "Find all employees in Boston hired after 2020"
+- "Find all people who report to Alex Lee"
+
+**Accounts:** Find system accounts by username, system, status.
+- "Find all inactive accounts in QuickBooks"
+- "Find duplicate accounts in Salesforce"
+- "Find all accounts created by ISC in last 30 days"
+
+**Entitlements:** Find permissions and access.
+- "Find all Finance App Admin access"
+- "Find who has Approve_Payments permission"
+- "Find all SoD violations (users with conflicting access)"
+
+**Governance:** Find reviews and certifications.
+- "Find all incomplete access reviews"
+- "Find certifications by department"
+
+---
+
+### Search Syntax Basics
+
+**Simple search:**
+```
+department = Finance
+```
+Find all people in Finance department.
+
+**Combined search:**
+```
+department = Finance AND title = Manager
+```
+Find Finance Managers.
+
+**Contains search:**
+```
+name CONTAINS Morgan
+```
+Find anyone with "Morgan" in their name.
+
+**Date range:**
+```
+hire_date BETWEEN 2020-01-01 AND 2021-12-31
+```
+Find people hired in 2020-2021.
+
+**Advanced:**
+```
+(department = Finance OR department = Accounting) AND title CONTAINS Manager AND hire_date > 2018-01-01
+```
+Find Finance or Accounting Managers hired before 2018.
+
+---
+
+### Indexing and Search Performance
+
+**Indexing:** ISC indexes identity data to Elasticsearch for fast searching. When data changes, index updates (usually within minutes).
+
+**Lag time:** There's slight delay between data change and search result update. Usually seconds to minutes.
+
+**Example:** New employee added to HRIS at 9 AM. By 9:05 AM, they appear in search results.
+
+**Search speed:** Indexed searches are instant (milliseconds). Non-indexed searches are slow.
+
+---
+
+### Common Search Use Cases
+
+**Auditor queries:**
+- "Show all Finance system access (who has accounts)"
+- "Show all certifications approved by Director level"
+- "Find users with excessive access"
+
+**Manager queries:**
+- "Show my team members and their access"
+- "Find all AP Clerks"
+- "Show people in my department transferred last 6 months"
+
+**Governance queries:**
+- "Find all incomplete access reviews"
+- "Find SoD violations"
+- "Find accounts not reviewed in 6 months"
+
+**Troubleshooting queries:**
+- "Find failed provisioning requests for new user Casey"
+- "Find orphaned accounts in Finance app"
+
+---
+
+### Search Limitations
+
+- **Real-time lag:** Slight delay before new data appears in search (seconds to minutes)
+- **Indexed data only:** Can't search unindexed attributes (must be configured to be indexed)
+- **No cross-system joins:** Can't easily correlate between systems (query limits)
+- **Access control:** Search results respect permission (users see only what they have access to)
+
+---
+
+## 🧠 KEY TAKEAWAYS
+
+- **Search indexes all identity data** for fast querying
+- **Search syntax is SQL-like:** Conditions, AND/OR, comparisons
+- **Common uses:** Audits, compliance, troubleshooting, governance
+- **Slight lag:** Data takes minutes to appear in search after creation
+- **Powerful but not real-time**
+
+---
+
+## 🎓 CERTIFICATION ALIGNMENT
+
+**Question 1:** Finance Director needs to find all Finance Managers and their access to the Finance system. Which search would work?
+
+A) `name = Finance Manager`
+B) ✅ `title = Manager AND department = Finance`
+C) `system = Finance`
+D) `title CONTAINS Manager` (all organizations)
+
+**Answer: B.** Title = Manager finds managers, department = Finance filters to Finance dept only.
+
+---
+
+**Question 2:** ISC indexed new user Casey at 9:05 AM. Casey should appear in search immediately. Why might Casey not appear?
+
+A) Search is broken
+B) ✅ There's lag between data creation and indexing (may take seconds to minutes)
+C) Only directors can search
+D) Casey is orphaned
+
+**Answer: B.** Elasticsearch indexing has slight lag. New data takes time to be indexed and searchable.
+
+---
+
+## 📚 ADDITIONAL RESOURCES
+
+- [Next: 1.17 - ISC APIs & Integration Patterns](/modules/1.17-isc-apis-integration-patterns)
+- Unit 13: Search, Analytics & Reporting (future - detailed search and analytics)
+
+---
+
+## 🔄 NEXT STEPS
+
+Module 1.17 covers APIs and integration—how external systems integrate with ISC.
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Understand what can be searched
+- ☑️ Write basic search queries
+- ☑️ Know search performance and lag
+- ☑️ Recognize common use cases
+- ☑️ Answer practice questions correctly

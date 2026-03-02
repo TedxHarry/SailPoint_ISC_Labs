@@ -1,0 +1,172 @@
+# 1.15 - Roles & Access Profiles
+
+**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand roles and access profiles
+- Know the difference between business roles and system roles
+- Understand entitlements and how they bundle into profiles
+- Recognize role hierarchies and inheritance
+- Know role validation and conflict detection
+
+---
+
+## 📋 Prerequisites
+
+Module 1.7: ISC Data Model Fundamentals. Module 1.8: Identity Governance Frameworks.
+
+---
+
+## 📚 CORE CONCEPTS
+
+### Business Roles vs System Roles
+
+**Business Roles:** Job functions in organization (Finance Manager, Engineer, Sales Rep, HR Specialist).
+
+Describe what people do. Not system-specific.
+
+**System Roles:** Permissions in a specific system (QuickBooks Accountant Role, Salesforce Admin, ServiceNow User).
+
+Technical, system-specific.
+
+**Mapping:** Business role → multiple system roles
+
+**Example (Morgan Chen, Finance Manager):**
+
+| Business Role | System Roles |
+|---|---|
+| **Finance Manager** | - QuickBooks: Manager_Role |
+| | - Finance App: Manager_Access, Approval_Authority |
+| | - HRIS: Payroll_Reports, Manager_Dashboard |
+| | - Email: Finance_Manager_Group |
+
+ISC models business role. When provisioning, creates/assigns corresponding system roles.
+
+---
+
+### Access Profiles
+
+**Definition:** Bundle of entitlements in a system. Simplifies provisioning (assign one profile instead of individual entitlements).
+
+**Structure:**
+
+```
+Access Profile: Finance_Manager_Profile
+├── System: Finance App
+│   └── Entitlements: Finance_Manager_Role, Approval_Authority, Approve_Expenses
+├── System: QuickBooks
+│   └── Entitlements: Manager_Access, GL_Access
+├── System: HRIS
+│   └── Entitlements: Payroll_Reports, Manager_Dashboard
+└── System: Email
+    └── Entitlements: Finance_Manager_Group
+```
+
+When Morgan assigned to Finance_Manager business role, ISC provisions the entire Finance_Manager_Profile in all systems.
+
+---
+
+### Role Hierarchy and Inheritance
+
+**Hierarchy:** Roles build on each other. Higher-level roles inherit lower-level permissions.
+
+**Example:**
+```
+Staff (base) - can view reports, submit expenses
+  ↓
+Manager - inherits Staff, plus approval authority, can manage team
+  ↓
+Director - inherits Manager, plus budgeting authority, can hire
+```
+
+**Inheritance:** Manager gets both Staff AND Manager permissions automatically.
+
+**Advantage:** Don't repeat common permissions. Higher roles add on.
+
+---
+
+### Role Conflicts and SoD
+
+**Conflict:** Some role combinations are incompatible.
+
+**Example:** Can't have both:
+- Approve_Payments + Process_Payments (SoD)
+- Modify_Data + Audit_Data (conflict of interest)
+- Create_User + Assign_User_Permissions (can't manage own permissions)
+
+**Detection:**
+- ISC flags when rules would grant conflicting roles
+- Prevents automatic provisioning of conflicts
+- Governance reviews detect existing conflicts and alert managers
+
+---
+
+### Dynamic Roles
+
+**Definition:** Roles that change automatically based on attributes.
+
+**Traditional:** Manager assigns role → role doesn't change until manager updates it.
+
+**Dynamic:** "IF title contains Manager, automatically grant Manager_Role. IF department changes, role changes."
+
+**Advantage:** Self-updating (no manual intervention when people change roles).
+
+---
+
+## 🧠 KEY TAKEAWAYS
+
+- **Business roles** = job functions, **system roles** = permissions in systems
+- **Access profiles** bundle entitlements, simplify provisioning
+- **Role hierarchy:** Higher roles inherit lower-level permissions
+- **Conflicts matter:** SoD and policy violations must be prevented
+- **Dynamic roles** update automatically based on attributes
+
+---
+
+## 🎓 CERTIFICATION ALIGNMENT
+
+**Question 1:** Finance Manager business role requires access to Finance App, QuickBooks, and HRIS in different systems. What's the most efficient way to provision this?
+
+A) Define 3 separate roles (one per system)
+B) ✅ Create one Access Profile (Finance_Manager) with entitlements from all 3 systems, assign profile
+C) Manually provision each entitlement individually
+D) Use a generic "Manager" role for all managers
+
+**Answer: B.** Access profiles bundle multi-system entitlements. Assign once, get all permissions.
+
+---
+
+**Question 2:** Director role should inherit Manager role permissions plus budget authority. When someone becomes Director, what happens?
+
+A) They lose Manager permissions (replaced by Director)
+B) ✅ They keep Manager permissions (inherited) plus gain budget authority
+C) They must be assigned both Manager and Director roles
+D) No change—role stays same
+
+**Answer: B.** Role inheritance means Director has both Manager permissions (inherited) and new Director permissions.
+
+---
+
+## 📚 ADDITIONAL RESOURCES
+
+- [Next: 1.16 - ISC Search & Elasticsearch Basics](/modules/1.16-isc-search-elasticsearch-basics)
+- Unit 5: Access Modeling (future - detailed role design)
+
+---
+
+## 🔄 NEXT STEPS
+
+Module 1.16 covers search and analytics—how to query and report on all this role and access data.
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Explain business roles vs system roles
+- ☑️ Understand access profiles and entitlements
+- ☑️ Know role hierarchy and inheritance
+- ☑️ Recognize role conflicts
+- ☑️ Answer practice questions correctly
