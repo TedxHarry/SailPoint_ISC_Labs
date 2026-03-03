@@ -1,0 +1,235 @@
+# 5.14 - Test Dynamic Role Membership
+
+**Unit:** Access Modeling | **Tier:** 2 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Test dynamic role rules
+- Verify rule matching
+- Handle rule exceptions
+- Validate complete role structure
+
+---
+
+## 📋 Prerequisites
+
+Module 5.13: Create Dynamic Role (Part 2). Dynamic roles created.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### TASK 1: Verify Dynamic Role Members
+
+**Navigate:** ISC > Administration > Roles
+
+**Check each dynamic role:**
+
+**Engineering_Employee:**
+- Rule: `department == "Engineering"`
+- Expected members: 3 (Alex Lee, User4, User12)
+- Navigate to role, view Members section
+- Verify: All 3 listed
+- Status: "Automatically managed"
+
+**Finance_Employee:**
+- Rule: `department == "Finance"`
+- Expected members: 3 (Casey Kim, Morgan Chen, User5)
+- Verify: All 3 listed
+- Status: "Automatically managed"
+
+**Managers:**
+- Rule: `jobTitle contains "Manager"`
+- Expected members: 2-3 (Finance_Manager, HR_Manager, possibly others)
+- Verify: Correct matches
+
+**Technical_Staff:**
+- Rule: `(department == "Engineering") OR (department == "IT")`
+- Expected members: 5 (3 engineering + 2 IT)
+- Verify: All 5 listed
+
+---
+
+### TASK 2: Verify from User Perspective
+
+**Navigate:** ISC > Identities
+
+**Check individual user (example: Alex Lee):**
+
+**Roles section shows:**
+```
+Assigned Roles:
+├─ Engineer_Senior (manually assigned, Module 5.9)
+├─ Engineering_Employee (automatically assigned)
+├─ Technical_Staff (automatically assigned)
+```
+
+**Access includes (combined from all roles):**
+- Engineer_Senior entitlements
+- Engineering_Employee entitlements
+- Technical_Staff entitlements
+
+**Key insight:** User can belong to BOTH manual and dynamic roles
+
+---
+
+### TASK 3: Rule Change Impact
+
+**Scenario:** What if Alex changes departments?
+
+**Simulate (optional):**
+1. Navigate to Identity > Alex Lee
+2. Edit: Change department from "Engineering" to "Finance"
+3. Save
+
+**Expected behavior:**
+- ISC re-evaluates ALL dynamic rules
+- Engineering_Employee rule no longer matches (dept ≠ Engineering)
+- ISC auto-removes Alex from Engineering_Employee role
+- Finance_Employee rule now matches
+- ISC auto-adds Alex to Finance_Employee role
+- Result: Instant access change, no manual work
+
+**In real scenario:**
+- Don't actually change Alex's department
+- Just understand the concept
+- ISC handles updates automatically
+
+---
+
+### TASK 4: Test Rule Exceptions
+
+**Question:** What if someone should be Engineer but doesn't have dept=Engineering?
+
+**Scenario - Contractor:**
+- Contractor works with Engineering team
+- Has jobTitle="Contractor" (not "Engineer")
+- Doesn't match `department == "Engineering"` rule (not in dept)
+
+**Solution 1: Manual Assignment**
+- Keep contractor out of dynamic role
+- Manually assign to Engineer_Developer role
+- Result: Manual + dynamic roles work together
+
+**Solution 2: Update Rule**
+```
+Original: department == "Engineering"
+New: department == "Engineering" OR jobTitle contains "Contractor"
+Result: Catches both employees and contractors
+```
+
+**Solution 3: Special Role**
+- Create separate Contractor_Engineer role
+- Manually assign contractors
+
+---
+
+### TASK 5: Validate Complete Role Structure
+
+**Checklist - All Roles (Standard + Dynamic):**
+
+**Standard Roles (manually assigned):**
+- [ ] Finance_Manager (1 member)
+- [ ] Senior_Accountant (1 member)
+- [ ] Finance_AP_Clerk (1 member)
+- [ ] Engineer_Senior (1 member)
+- [ ] Engineer_Developer (1 member)
+- [ ] Sales_Representative (2 members)
+- [ ] HR_Specialist (1 member)
+- [ ] IT_Administrator (1 member)
+- [ ] Security_Officer (1 member)
+
+**Dynamic Roles (automatically assigned):**
+- [ ] Engineering_Employee (3 members)
+- [ ] Finance_Employee (3 members)
+- [ ] Sales_Employee (2 members)
+- [ ] HR_Employee (2 members)
+- [ ] IT_Employee (2 members)
+- [ ] Managers (2-3 members)
+- [ ] Technical_Staff (5 members)
+
+**Result:**
+- 9-10 standard roles with manual assignments
+- 6-7 dynamic roles with automatic assignments
+- All 13 users covered by appropriate roles
+- Mix of manual and automatic for flexibility
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+✅ All dynamic rules matching correct users
+✅ Users showing both manual and dynamic roles
+✅ No rule conflicts or unexpected matches
+✅ Rule logic validated with examples
+
+---
+
+## 🔧 TROUBLESHOOTING
+
+**Issue: "Dynamic role shows 0 members"**
+- Rule not matching anyone
+- Check rule syntax
+- Check user attributes (go to Identity, verify attribute exists and value)
+- Test rule logic separately
+
+**Issue: "User in wrong roles"**
+- Check all rules for that user
+- Verify attributes match rule conditions
+- May be in multiple roles (correct)
+
+**Issue: "Rule update not taking effect"**
+- ISC may need time to re-evaluate
+- Try refreshing page
+- Wait a minute and refresh again
+- ISC may batch updates
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ All dynamic roles matching expected users
+- ☑️ All users showing correct role memberships
+- ☑️ Standard + dynamic roles working together
+- ☑️ Rule logic validated with examples
+- ☑️ Complete role structure in place
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** If Alex's department changes from Engineering to Finance, what happens to her role memberships?
+
+A) Must manually update roles
+B) ✅ ISC automatically removes her from Engineering roles and adds to Finance roles
+C) Her access stays the same
+D) ISC requires admin approval
+
+**Answer: B.** Dynamic rules continuously evaluated. Attribute change → role change automatic.
+
+**Q:** A user belongs to both Engineer_Senior (manual) and Engineering_Employee (dynamic). What access does she get?
+
+A) Only Engineer_Senior access
+B) Only Engineering_Employee access
+C) ✅ Combined access from both roles
+D) Access is deleted (conflict)
+
+**Answer: C.** User can be in multiple roles. Access combined from all.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 5.13: Create Dynamic Role (Part 2)](/modules/5.13-create-dynamic-role-part-2)
+- [Next: 5.15 - Separation of Duties Concepts](/modules/5.15-separation-of-duties-concepts)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Verify all role memberships correct
+2. Validate complete role structure
+3. Proceed to 5.15 for Separation of Duties (preventing conflicts)
+

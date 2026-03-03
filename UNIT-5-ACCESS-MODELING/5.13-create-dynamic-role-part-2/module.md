@@ -1,0 +1,251 @@
+# 5.13 - Create Dynamic Role (Part 2)
+
+**Unit:** Access Modeling | **Tier:** 2 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Create advanced dynamic rules
+- Use multiple conditions (AND, OR)
+- Use different operators
+- Handle complex matching
+
+---
+
+## 📋 Prerequisites
+
+Module 5.12: Create Dynamic Role (Part 1). Department roles created.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Objective
+Create advanced dynamic roles with complex rules: Manager roles, Technical staff, Location-based.
+
+---
+
+### TASK 1: Create Managers Dynamic Role
+
+**Scenario:** Want a role that applies to all managers, regardless of department.
+
+**Rule Logic:**
+```
+IF jobTitle CONTAINS "Manager"
+THEN add to Managers role
+```
+
+**Create Role:**
+- Name: Managers
+- Type: Dynamic
+
+**Rule Expression:**
+```
+jobTitle contains "Manager"
+```
+
+**Or alternative syntax:**
+```
+jobTitle.toLowerCase().includes("Manager")
+```
+
+**Explanation:**
+- `jobTitle`: User attribute
+- `contains` or `includes`: Operator (substring match, not exact match)
+- `"Manager"`: Value to find in job title
+
+**Result:**
+- Matches: Finance_Manager, HR_Manager (any job title with "Manager")
+- From Contoso: Casey Kim (Finance Manager), User9 (HR Manager) → 2 users
+
+**Access Profiles:**
+- Approval_Authority (managers can approve)
+
+---
+
+### TASK 2: Create Technical_Staff Dynamic Role
+
+**Scenario:** Want role for Engineering + IT combined.
+
+**Rule Logic:**
+```
+IF (department = "Engineering" OR department = "IT")
+THEN add to Technical_Staff
+```
+
+**Create Role:**
+- Name: Technical_Staff
+- Type: Dynamic
+
+**Rule Expression:**
+```
+department == "Engineering" OR department == "IT"
+```
+
+**Or syntax:**
+```
+(department == "Engineering") OR (department == "IT")
+```
+
+**Explanation:**
+- `OR`: Match if EITHER condition true
+- First condition: department is Engineering
+- OR second condition: department is IT
+- Result: Anyone in either dept
+
+**Result:**
+- Engineering: 3 users ✓
+- IT: 2 users ✓
+- Total matches: 5 users
+
+**Access Profiles:**
+- Tools_Admin (technical tools)
+- Security_Training (required)
+
+---
+
+### TASK 3: Create Senior_Staff Dynamic Role (Concept)
+
+**Scenario:** Only senior staff get advanced access.
+
+**Rule Logic:**
+```
+IF jobTitle CONTAINS "Senior" OR jobTitle CONTAINS "Manager"
+THEN add to Senior_Staff
+```
+
+**Rule Expression:**
+```
+(jobTitle contains "Senior") OR (jobTitle contains "Manager")
+```
+
+**Result:**
+- Matches job titles with "Senior" OR "Manager"
+- From Contoso: Senior Engineer, Senior Accountant, Finance Manager, HR Manager
+- Total: ~4 users
+
+**Access Profiles:**
+- Advanced_Reports
+- Mentoring_Authority
+
+---
+
+### TASK 4: Understand Operators
+
+**Common operators:**
+
+| Operator | Meaning | Example |
+|----------|---------|---------|
+| `==` | Exact match | `department == "Engineering"` |
+| `!=` | Not equal | `status != "Inactive"` |
+| `contains` or `includes` | Substring | `jobTitle contains "Manager"` |
+| `startsWith` | Begins with | `email startsWith "admin"` |
+| `>`, `<`, `>=`, `<=` | Comparison | `salary > 100000` |
+| `AND` | Both conditions | `dept == "IT" AND level > 3` |
+| `OR` | Either condition | `dept == "IT" OR dept == "HR"` |
+| `NOT` or `!` | Negation | `status != "Inactive"` |
+
+---
+
+### TASK 5: Test Complex Rules
+
+**Create test rules and verify:**
+
+**Rule 1:**
+```
+department == "Finance" AND jobTitle contains "Manager"
+```
+**Matches:** Finance Manager only (1 person)
+
+**Rule 2:**
+```
+(department == "Engineering" OR department == "IT") AND NOT jobTitle contains "Manager"
+```
+**Matches:** Technical staff except managers (4 people)
+
+**Rule 3:**
+```
+location == "San Francisco"
+```
+**Matches:** SF-based employees (if location data exists)
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+After this module, you should have created:
+
+✅ Managers role (contains "Manager") → ~2 users
+✅ Technical_Staff role (Engineering OR IT) → ~5 users
+✅ (Optional) Senior_Staff role (Senior OR Manager) → ~4 users
+
+**All rules working correctly and matching expected users**
+
+---
+
+## 🔧 TROUBLESHOOTING
+
+**Issue: "OR doesn't work"**
+- Check syntax: `(condition1) OR (condition2)`
+- Some ISC versions use different syntax
+- Test each condition separately
+
+**Issue: "AND doesn't work"**
+- Same as OR - check syntax
+- Also verify both conditions are true for matches
+- Example: dept=IT AND title=Manager won't match IT person who isn't manager
+
+**Issue: "contains is case-sensitive"**
+- Rule: `jobTitle contains "Manager"`
+- Won't match: "manager" (lowercase)
+- Solution: Use case-insensitive or specify both cases
+- Or use: `jobTitle.toLowerCase() contains "manager"`
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Managers role created with "contains" operator
+- ☑️ Technical_Staff created with OR logic
+- ☑️ Complex rules tested and working
+- ☑️ All rules matching expected users
+- ☑️ Understand AND/OR/NOT logic
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** Which rule creates a role for all managers across departments?
+
+A) `department == "Finance"`
+B) ✅ `jobTitle contains "Manager"`
+C) `jobTitle == "Manager"`
+D) `owner == true`
+
+**Answer: B.** "contains" catches "Finance Manager", "HR Manager", etc. "==" would require exact match.
+
+**Q:** Which rule matches Technical staff (Engineering OR IT) but NOT managers?
+
+A) `department == "Engineering" OR department == "IT"`
+B) ✅ `(department == "Engineering" OR department == "IT") AND NOT jobTitle contains "Manager"`
+C) `department contains "Technical"`
+D) `jobTitle == "Engineer"`
+
+**Answer: B.** AND NOT filters out managers from tech staff.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 5.12: Create Dynamic Role (Part 1)](/modules/5.12-create-dynamic-role-part-1)
+- [Next: 5.14 - Test Dynamic Role Membership](/modules/5.14-test-dynamic-role-membership)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Create 2-3 advanced dynamic roles
+2. Verify complex rules working
+3. Proceed to 5.14 to test all dynamic rules
+
