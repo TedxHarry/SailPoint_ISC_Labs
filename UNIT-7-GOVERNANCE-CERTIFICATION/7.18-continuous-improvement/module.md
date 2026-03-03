@@ -1,0 +1,245 @@
+# 7.18 - Continuous Improvement
+
+**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+
+Improve governance: Learn from reviews, refine processes, increase efficiency.
+
+---
+
+## 🎯 Learning Objectives
+
+- Analyze governance effectiveness
+- Identify improvement opportunities
+- Refine policies and procedures
+- Track improvement metrics
+
+---
+
+## 📋 Prerequisites
+
+Module 7.17: Compliance Documentation. Documentation understood.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Improvement Cycle
+
+```
+Q1 2026 Review Complete:
+├─ Lessons learned identified
+├─ Metrics analyzed
+├─ Feedback from stakeholders collected
+└─ Improvements planned
+
+Issues Found:
+├─ Approval delays (average 2.5 days, target 1 day)
+├─ One manager missed review deadline
+├─ Exceptions not tracked well
+└─ Dashboard needs more visibility
+
+Improvements Planned for Q2:
+
+1. Speed up approvals:
+   ├─ Issue: Role owners slow to approve
+   ├─ Solution: Pre-populate approval with recommendation
+   ├─ Measurement: Track approval time trend
+   ├─ Target: < 1 day average
+   └─ Implementation: Update workflow
+
+2. Improve tracking:
+   ├─ Issue: Exceptions scattered across systems
+   ├─ Solution: Centralized exception tracker
+   ├─ Measurement: Exception audit trail
+   ├─ Target: 100% tracked
+   └─ Implementation: New ISC view
+
+3. Better visibility:
+   ├─ Issue: Managers don't see pending actions
+   ├─ Solution: Manager dashboard with alerts
+   ├─ Measurement: Manager portal usage
+   ├─ Target: 90% engagement
+   └─ Implementation: New portal feature
+
+4. Reduce exceptions:
+   ├─ Issue: Too many exceptions requested
+   ├─ Solution: Review if SoD rules too restrictive
+   ├─ Measurement: Exception frequency
+   ├─ Target: Reduce exceptions 20%
+   └─ Implementation: Policy review
+```
+
+### Metrics Framework
+
+```
+Quarterly Metrics Review:
+
+Governance Effectiveness Metrics:
+├─ Review completion rate (target: 100%)
+├─ Remediation completion rate (target: 100%)
+├─ SoD violation prevention (target: 0)
+├─ Unauthorized access discovered (target: minimal)
+├─ Approval time average (target: < 2 days)
+└─ Manager compliance with review (target: 100%)
+
+Process Efficiency Metrics:
+├─ Provisioning time per user (target: < 5 min)
+├─ Deprovisioning time per user (target: < 10 min)
+├─ Approval cycle time (target: < 2 days)
+├─ Exception processing time (target: < 4 hours)
+├─ Review processing time (target: < 3 hours per manager)
+└─ Report generation time (target: < 1 hour)
+
+Quality Metrics:
+├─ Access accuracy rate (target: 100%)
+├─ Audit trail completeness (target: 100%)
+├─ First-time approval rate (target: > 90%)
+├─ Re-work due to errors (target: < 5%)
+└─ Manager satisfaction (target: > 8/10)
+
+Compliance Metrics:
+├─ SoD rules enforced (target: 100%)
+├─ Reviews completed on schedule (target: 100%)
+├─ Violations remediated (target: 100%)
+├─ Audit findings addressed (target: 100%)
+└─ Regulatory requirements met (target: 100%)
+
+Cost Metrics:
+├─ Admin hours per review (benchmark: 8 hours)
+├─ Admin hours per request (benchmark: 1 hour)
+├─ System uptime (target: > 99.5%)
+└─ Support tickets (track trend)
+```
+
+### Quarterly Review Meeting
+
+```
+Q1 Review Meeting: 2026-03-31
+
+Attendees:
+├─ Governance lead
+├─ Department managers (Finance, Engineering, Sales, IT, HR)
+├─ Compliance team
+├─ System owners (QB, GitHub, AWS, AD, ADP)
+└─ Security team
+
+Agenda:
+├─ Q1 metrics summary
+├─ Issues identified
+├─ Lessons learned
+├─ Improvements proposed
+├─ Resource needs
+└─ Q2 priorities
+
+Q1 Results Summary:
+├─ 3 of 5 reviews completed (on schedule)
+├─ 0 SoD violations found (100% enforcement)
+├─ 2 issues remediated (100% completion)
+├─ 12 requests processed (92% approval rate)
+├─ Average approval time: 1.5 days (target: 2 days ✓)
+├─ Overall compliance: 98% (target: > 95% ✓)
+└─ Manager satisfaction: 8.5/10 (target: > 8 ✓)
+
+Q1 Lessons Learned:
+├─ Department transfers easier when planned ahead
+├─ SoD conflict earlier catches save rework
+├─ Manager training helps review completion
+├─ Real-time alerts improve responsiveness
+└─ Clear policies reduce exception requests
+
+Q2 Improvements:
+├─ Speed up approvals (new workflow)
+├─ Better exception tracking (new view)
+├─ Manager dashboard (new feature)
+├─ Policy review for high-exception areas
+└─ Additional manager training
+
+Q2 Priorities:
+├─ Complete pending reviews (Sales, Engineering)
+├─ Deploy approval improvements
+├─ Train managers on new tools
+├─ Reduce average approval time to < 1 day
+└─ Achieve 100% review completion
+```
+
+### Continuous Improvement Log
+
+```
+Improvement Tracking:
+
+Improvement #1 (Q1 2026):
+├─ Issue: Approval delays
+├─ Status: PLANNED
+├─ Implementation date: Q2
+├─ Expected impact: 25% faster approvals
+└─ Measurement: Approval time dashboard
+
+Improvement #2 (Q1 2026):
+├─ Issue: Exception tracking
+├─ Status: PLANNED
+├─ Implementation date: Q2
+├─ Expected impact: 100% tracking
+└─ Measurement: Exception audit log
+
+Improvement #3 (Q2 2026):
+├─ Issue: Manager engagement
+├─ Status: IN PROGRESS
+├─ Implementation date: Q2 end
+├─ Expected impact: 90% portal usage
+└─ Measurement: Usage analytics
+
+Improvement #4 (Q3 2026):
+├─ Issue: SoD rules too restrictive
+├─ Status: PLANNED
+├─ Implementation date: Q3
+├─ Expected impact: 20% fewer exceptions
+└─ Measurement: Exception frequency
+```
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+✅ Metrics collected and analyzed
+✅ Improvement opportunities identified
+✅ Improvements prioritized
+✅ Implementation plans documented
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Quarterly metrics reviewed
+- ☑️ Improvements identified
+- ☑️ Root causes analyzed
+- ☑️ Solutions prioritized
+- ☑️ Implementation planned
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** Q1 review shows 2-day approval average. Target is 1 day. What happens?
+
+A) Keep as-is (close enough)
+B) ✅ Plan improvement, measure, adjust
+C) Increase target to 2 days
+D) Add more approvers
+
+**Answer: B.** Continuous improvement cycle = analyze, improve, measure.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 7.17: Compliance Documentation](/modules/7.17-compliance-documentation)
+- [Next: 7.19 - Governance Audit](/modules/7.19-governance-audit)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Collect quarterly metrics
+2. Identify improvements
+3. Prioritize changes
+4. Proceed to 7.19

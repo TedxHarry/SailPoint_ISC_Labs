@@ -1,0 +1,108 @@
+# 7.9 - Policy Enforcement
+
+**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+
+Enforce governance policies: SoD rules, approval workflows, least privilege, compliance requirements.
+
+---
+
+## 🎯 Learning Objectives
+
+- Implement policy enforcement
+- Configure SoD rule enforcement
+- Set up approval requirements
+- Monitor policy violations
+
+---
+
+## 📋 Prerequisites
+
+Module 7.8: Detect Access Anomalies. Anomalies identified.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### SoD Policy Enforcement
+
+```
+Policy: Finance_Manager cannot be Finance_AP_Clerk
+
+Enforcement Method:
+├─ Prevent: Block conflicting assignments
+├─ Alert: Notify on violation attempt
+├─ Monitor: Daily check for violations
+└─ Action: Escalate any violations found
+
+Contoso Example:
+├─ Casey = Finance_Manager (can approve)
+├─ Try to assign: Finance_AP_Clerk (can create)
+├─ ISC blocks: "Conflict with Finance_Manager"
+└─ Result: Violation prevented ✓
+```
+
+### Least Privilege Enforcement
+
+```
+Policy: Users have ONLY required access
+
+Enforcement:
+├─ Remove: Access not matching current role
+├─ Monitor: Quarterly reviews catch drift
+├─ Approve: Any non-standard access
+└─ Document: Exceptions with justification
+
+Contoso Example:
+├─ User6: Sales_Representative (needs Salesforce only)
+├─ Found: Has Finance QB access (old role)
+├─ Action: Remove Finance access
+└─ Result: Clean access ✓
+```
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+✅ SoD rules enforced
+✅ Least privilege maintained
+✅ Violations prevented
+✅ Approvals working
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ SoD enforcement active
+- ☑️ Least privilege enforced
+- ☑️ Approvals required
+- ☑️ Violations escalated
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** SoD violation attempt. What should happen?
+
+A) Allow (let manager decide)
+B) ✅ Block (prevent violating assignment)
+C) Alert (log and continue)
+D) Exception approve
+
+**Answer: B.** SoD policy = prevent violations automatically.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 7.8: Detect Access Anomalies](/modules/7.8-detect-access-anomalies)
+- [Next: 7.10 - Exceptions and Waivers](/modules/7.10-exceptions-and-waivers)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Enable policy enforcement
+2. Configure SoD rules
+3. Monitor violations
+4. Proceed to 7.10
+

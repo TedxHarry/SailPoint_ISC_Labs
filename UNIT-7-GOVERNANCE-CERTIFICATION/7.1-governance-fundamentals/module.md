@@ -1,0 +1,259 @@
+# 7.1 - Governance Fundamentals
+
+**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand identity governance purpose
+- Know governance framework components
+- Understand access reviews and certification
+- Recognize compliance requirements
+
+---
+
+## 📋 Prerequisites
+
+Unit 6: Provisioning & Deprovisioning complete. Access now in systems.
+
+---
+
+## 📚 CORE CONCEPTS
+
+### What is Identity Governance?
+
+**Definition:** Ongoing process of ensuring users have correct access, nothing more, nothing less, continuously over time.
+
+**Simple View:**
+```
+Unit 5-6: Get access right (once)
+Unit 7: Keep access right (forever)
+
+Provisioning: "User has correct access TODAY"
+Governance: "User still has correct access TOMORROW, NEXT WEEK, NEXT YEAR"
+```
+
+**Why Governance Matters:**
+
+```
+Without Governance:
+├─ User hired 5 years ago
+├─ Promoted 3 times
+├─ Transferred 2 times
+├─ Has access from: All 5 previous roles
+├─ Current role needs: Only 1 of those 5 roles
+└─ Result: ACCESS SPRAWL (too much unnecessary access)
+
+With Governance:
+├─ User hired 5 years ago
+├─ Quarterly review: Does she still need this access?
+├─ Each promotion: Old access removed, new access added
+├─ Each transfer: Old dept access removed, new dept added
+├─ Result: Always correct access for current role only
+```
+
+---
+
+### Governance Lifecycle
+
+**Four Key Phases:**
+
+```
+Phase 1: Planning & Design
+├─ Define: Governance policies
+├─ Identify: Review schedules (quarterly, annual)
+├─ Assign: Role owners and reviewers
+└─ Document: Governance procedures
+
+Phase 2: Execution (Access Reviews)
+├─ Quarterly review: Department managers certify team's access
+├─ Annual review: Full access review across organization
+├─ Spot check: Risk-based reviews of sensitive access
+└─ On-demand: Review when role changes
+
+Phase 3: Exception Handling
+├─ Identify: Access that doesn't match role
+├─ Request: Exception with business justification
+├─ Approve: Manager approval required
+├─ Document: Exception reason and duration
+└─ Monitor: Re-review if exception granted
+
+Phase 4: Remediation
+├─ Remove: Unauthorized or expired access
+├─ Provision: Missing required access
+├─ Document: All changes and reasons
+├─ Verify: Access now correct
+└─ Audit: Log all remediation actions
+```
+
+---
+
+### Governance Components
+
+**Who's Involved:**
+
+```
+1. Identity Management Team
+   ├─ Administers ISC system
+   ├─ Supports governance processes
+   ├─ Runs compliance audits
+   └─ Reports to executives
+
+2. Department Managers
+   ├─ Certify their team's access (quarterly review)
+   ├─ Request exceptions (if needed)
+   ├─ Approve/deny access requests
+   └─ Accountable for team's access decisions
+
+3. Role Owners
+   ├─ Own specific roles (Finance_Manager, Engineer_Senior, etc.)
+   ├─ Certify role membership (do these people still need this role?)
+   ├─ Approve new assignments to their role
+   └─ Update role as job requirements change
+
+4. Executives
+   ├─ Receive governance reports
+   ├─ Approve governance policies
+   ├─ Responsible for compliance
+   └─ Address escalated issues
+
+5. Audit/Compliance
+   ├─ Verify governance processes work
+   ├─ Audit access decisions
+   ├─ Report to regulators (if needed)
+   └─ Identify improvements
+```
+
+**What Governance Includes:**
+
+```
+Access Reviews:
+├─ Quarterly: Department reviews team access
+├─ Annual: Full organization access review
+├─ Role-based: Role owner certifies membership
+├─ Risk-based: Extra scrutiny for sensitive access
+└─ Spot-check: Random verification
+
+Policy Enforcement:
+├─ SoD: Prevent conflicting access combinations
+├─ Principle of Least Privilege: Only necessary access
+├─ Access approval: Manager approval for new access
+├─ Exception process: Formal request for non-standard access
+└─ Monitoring: Alert on violations
+
+Compliance:
+├─ Audit trails: Document all decisions
+├─ Reports: Governance metrics (how many violations found?)
+├─ Certification: Sign-off from managers/role owners
+├─ Retention: Keep records 7+ years
+└─ Escalation: Route issues to executives if needed
+```
+
+---
+
+### Contoso Governance Structure
+
+**Department Managers (Quarterly Reviewers):**
+
+```
+Finance Manager (Casey Kim):
+├─ Reviews: Finance department access (3 people)
+├─ Reviews: Morgan, User5, plus Casey's own access
+├─ Questions: "Does everyone still need their current access?"
+├─ Action: Certify or identify changes needed
+└─ Quarterly: Every Q1, Q2, Q3, Q4
+
+Engineering Manager (Alex Lee):
+├─ Reviews: Engineering team (3 people)
+├─ Reviews: User4, User12, plus Alex's own
+├─ Same process
+└─ Quarterly
+
+(Same for IT, Sales, HR managers)
+```
+
+**Role Owners (Role Maintenance):**
+
+```
+Finance_Manager Role Owner: Casey Kim
+├─ Owns: Finance_Manager role
+├─ Certifies: "Is everyone in this role supposed to be here?"
+├─ Approves: "Should I add this person to Finance_Manager role?"
+├─ Updates: "What permissions does this role need?" (if changing)
+└─ Quarterly certification required
+
+Engineer_Senior Role Owner: Alex Lee
+├─ Owns: Engineer_Senior role
+├─ Same responsibilities
+└─ Quarterly certification
+
+(Each role has an owner)
+```
+
+---
+
+## 🧠 KEY TAKEAWAYS
+
+- Governance = keeping access correct continuously
+- Without governance = access sprawl (users accumulate old access)
+- With governance = clean access (users have only current role access)
+- Governance requires: Reviews, certification, exception handling, remediation
+- Everyone involved: Managers, role owners, auditors, executives
+
+---
+
+## 🧪 TASK
+
+1. Understand governance purpose
+2. Know governance lifecycle phases
+3. Understand governance components
+4. Recognize Contoso governance structure
+5. Ready to design reviews (Module 7.2)
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Understand governance concept
+- ☑️ Know governance lifecycle
+- ☑️ Know who's involved in governance
+- ☑️ Know Contoso governance structure
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** What's the primary goal of governance?
+
+A) Delete unused accounts
+B) ✅ Keep users' access correct over time
+C) Prevent new hires from getting access
+D) Reduce IT work
+
+**Answer: B.** Governance = continuous assurance of correct access.
+
+**Q:** How often should department managers review team access?
+
+A) Never (one-time)
+B) ✅ Quarterly (every 3 months)
+C) Annually (once a year)
+D) Only when user leaves
+
+**Answer: B.** Quarterly reviews catch access drift before it becomes problem.
+
+---
+
+## 📚 RESOURCES
+
+- [Unit 6: Provisioning & Deprovisioning Complete](/units/6-provisioning-deprovisioning)
+- [Next: 7.2 - Identity Governance Frameworks](/modules/7.2-identity-governance-frameworks)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Understand governance fundamentals
+2. Know governance phases and components
+3. Proceed to 7.2 for governance frameworks
+

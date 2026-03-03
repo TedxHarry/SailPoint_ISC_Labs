@@ -1,0 +1,221 @@
+# 7.16 - Reporting Dashboards
+
+**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+
+Create governance reports: Access reports, compliance metrics, executive summaries.
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand governance reporting
+- Create access reports
+- Build compliance dashboards
+- Generate executive summaries
+
+---
+
+## 📋 Prerequisites
+
+Module 7.15: Identity Analytics. Analytics understood.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Report Types
+
+```
+Executive Summary (Monthly):
+├─ Audience: Leadership, board
+├─ Content:
+│  ├─ Access compliance status (%)
+│  ├─ SoD violations (count)
+│  ├─ High-risk users (list)
+│  ├─ Remediation completion rate (%)
+│  ├─ Request approval time (average)
+│  └─ Upcoming deadlines
+├─ Length: 2 pages (summary + key metrics)
+└─ Format: PDF to leadership
+
+Compliance Status Report (Quarterly):
+├─ Audience: Compliance team, auditors
+├─ Content:
+│  ├─ Access review completion rate
+│  ├─ All SoD rules enforced
+│  ├─ Remediation actions taken
+│  ├─ Audit trail completeness
+│  ├─ Policy enforcement metrics
+│  └─ Regulatory alignment (SOX, HIPAA)
+├─ Length: 10-15 pages (detailed analysis)
+└─ Format: PDF + Excel data
+
+Department Access Report (Monthly):
+├─ Audience: Department managers
+├─ Content:
+│  ├─ Team members + their access
+│  ├─ Roles assigned
+│  ├─ System access breakdown
+│  ├─ Access requests pending
+│  └─ Items needing manager action
+├─ Length: 3-5 pages per department
+└─ Format: PDF, customized per dept
+
+System Access Report (Quarterly):
+├─ Audience: System owners
+├─ Content:
+│  ├─ All users with access (by system)
+│  ├─ Access level breakdown (admin vs editor)
+│  ├─ Accounts needing attention
+│  ├─ Failed provisioning attempts
+│  └─ Recommendations
+├─ Length: 5-10 pages per system
+└─ Format: PDF + linked Excel
+
+Audit Trail Report (On-demand):
+├─ Audience: Security, auditors
+├─ Content:
+│  ├─ All access changes in date range
+│  ├─ Who made each change
+│  ├─ Approval chain for each change
+│  ├─ Complete timeline
+│  └─ Search by user/action/date
+├─ Length: Variable
+└─ Format: Searchable database export
+
+High-Risk User Report (Monthly):
+├─ Audience: Security team
+├─ Content:
+│  ├─ All users scoring > 3.5 risk
+│  ├─ Risk factors breakdown
+│  ├─ Recommended actions
+│  ├─ Monitoring recommendations
+│  └─ Approval required for exceptions
+├─ Length: 2-5 pages
+└─ Format: PDF with action items
+```
+
+### Sample Dashboard
+
+```
+ISC Governance Dashboard (Real-time):
+
+Access Compliance Score: 98%
+├─ Roles assigned correctly: 100%
+├─ SoD violations: 0 (0%)
+├─ Access matches current job: 98%
+├─ Audit trail complete: 100%
+└─ Overall: COMPLIANT ✓
+
+Review Status:
+├─ Q1 reviews complete: 60% (3 of 5)
+├─ Overdue: 0
+├─ Next deadline: 2026-03-31
+└─ Status: ON TRACK
+
+Request Status (This Quarter):
+├─ Submitted: 12
+├─ Approved: 11 (92%)
+├─ Denied: 1 (8%)
+├─ Average approval: 1.5 days
+└─ Fastest: 2 hours
+
+Remediation Tracking:
+├─ Issues found: 2
+├─ Resolved: 2 (100%)
+├─ In progress: 0
+├─ Pending: 0
+└─ Status: ALL RESOLVED ✓
+
+High-Risk Users:
+├─ Count: 1 user
+├─ Details: User9 (access creep)
+├─ Action: Review scheduled
+└─ Follow-up: Due 2026-03-20
+
+System Health:
+├─ All connectors: Connected ✓
+├─ Provisioning: Working ✓
+├─ Audit logging: Active ✓
+└─ Overall: HEALTHY ✓
+```
+
+### Automated Report Schedule
+
+```
+Daily Reports:
+├─ Provisioning activity log (sent to IT)
+├─ Failed requests (escalated immediately)
+└─ High-risk alert summary
+
+Weekly Reports:
+├─ Request approval status (for approvers)
+├─ Access review reminders (for managers)
+└─ System health check
+
+Monthly Reports:
+├─ Executive summary (to leadership)
+├─ High-risk user list (to security)
+├─ Department access (to managers)
+├─ Compliance metrics (to compliance)
+
+Quarterly Reports:
+├─ Full compliance audit (to auditors)
+├─ System access detailed (to system owners)
+├─ Risk assessment summary (to CISO)
+└─ Access review completion (to compliance)
+
+Annual Reports:
+├─ Comprehensive compliance report (to board)
+├─ Full audit trail archive (to auditors)
+├─ Year-over-year trends (to leadership)
+└─ Certification completion (to board)
+```
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+✅ All required reports automated
+✅ Dashboards real-time updated
+✅ Distribution schedules working
+✅ Data accurate and complete
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Executive summary created
+- ☑️ Compliance reports generated
+- ☑️ Department reports available
+- ☑️ Dashboard real-time
+- ☑️ Automated distribution working
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** CEO needs access status. Which report?
+
+A) Audit trail
+B) ✅ Executive summary (high-level metrics)
+C) System access detail
+D) Department list
+
+**Answer: B.** Executive summary for leadership (quick overview).
+
+---
+
+## 📚 RESOURCES
+
+- [Module 7.15: Identity Analytics](/modules/7.15-identity-analytics)
+- [Next: 7.17 - Compliance Documentation](/modules/7.17-compliance-documentation)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Configure report templates
+2. Automate distributions
+3. Test all reports
+4. Proceed to 7.17

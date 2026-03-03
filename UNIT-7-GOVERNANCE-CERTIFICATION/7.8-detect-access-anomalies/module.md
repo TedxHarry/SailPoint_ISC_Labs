@@ -1,0 +1,101 @@
+# 7.8 - Detect Access Anomalies
+
+**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+
+Identify and investigate access drift, unusual patterns, and compliance violations.
+
+---
+
+## 🎯 Learning Objectives
+
+- Identify access anomalies
+- Investigate root causes
+- Escalate violations
+- Prevent future issues
+
+---
+
+## 📋 Prerequisites
+
+Module 7.7: Access Compliance Audit. Audit complete.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Anomaly Detection
+
+**Access Drift:**
+```
+Detection: User6 has Finance QB access but is Sales_Representative
+Cause: Old role never removed when transferred
+Action: Remove Finance access immediately
+Document: Why drift occurred
+Prevent: Improve deprovisioning process
+```
+
+**Role Overlap:**
+```
+Detection: User4 has both Developer and Senior Engineer roles
+Cause: Legitimate promotion (approved exception)
+Action: Monitor, not violation
+Document: Promotion approval on file
+Status: Acceptable
+```
+
+**SoD Violations:**
+```
+Detection: User has both Create + Approve permissions
+Cause: Unauthorized assignment
+Action: Immediately remove one permission
+Escalate: Investigate who made change
+Prevent: Enforce SoD in workflows
+```
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+✅ All anomalies identified
+✅ Root causes determined
+✅ Violations escalated
+✅ Prevention measures implemented
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Detect access drift
+- ☑️ Investigate causes
+- ☑️ Escalate violations
+- ☑️ Implement fixes
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** How should access drift be handled?
+
+A) Ignore (harmless)
+B) ✅ Remove (comply with least privilege)
+C) Exception approve (keep it)
+D) Review next year
+
+**Answer: B.** Drift remediated immediately per least privilege.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 7.7: Access Compliance Audit](/modules/7.7-access-compliance-audit)
+- [Next: 7.9 - Policy Enforcement](/modules/7.9-policy-enforcement)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Run anomaly detection
+2. Investigate findings
+3. Remediate violations
+4. Proceed to 7.9
+

@@ -1,0 +1,237 @@
+# 7.17 - Compliance Documentation
+
+**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+
+Document compliance: Procedures, evidence, attestations, regulatory alignment.
+
+---
+
+## 🎯 Learning Objectives
+
+- Document governance procedures
+- Maintain compliance evidence
+- Prepare audit documentation
+- Align with regulatory requirements
+
+---
+
+## 📋 Prerequisites
+
+Module 7.16: Reporting Dashboards. Reporting understood.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Documentation Requirements
+
+```
+Policy Documents:
+├─ Access Control Policy (defines who gets what access)
+├─ SoD Policy (defines conflict rules)
+├─ Review Policy (defines quarterly/annual review process)
+├─ Exception Policy (defines exception request/approval)
+├─ Remediation Policy (defines violation handling)
+├─ Audit Policy (defines audit trail and retention)
+└─ Status: All documented, current version dated 2026-03-01
+
+Procedure Documents:
+├─ Access Request Procedure (how to request)
+├─ Approval Workflow Procedure (how to approve)
+├─ Provisioning Procedure (how to implement)
+├─ Review Process Procedure (how to certify)
+├─ Remediation Procedure (how to fix violations)
+├─ Audit Procedure (how to audit compliance)
+└─ Status: All documented with step-by-step instructions
+
+Role Documents:
+├─ Role Definition: Finance_Manager
+│  ├─ Purpose: Manage finance department
+│  ├─ Responsibilities: Approve invoices, budget oversight
+│  ├─ Access required: QB admin, ADP payroll
+│  ├─ Conflicts: Cannot be Finance_AP_Clerk
+│  ├─ Owner: Finance Director
+│  └─ Last reviewed: 2026-03-15
+├─ Role Definition: Engineer_Senior
+├─ Role Definition: IT_Administrator
+└─ (All 11 standard roles documented)
+
+Governance Records:
+├─ Q1 2026 review certifications (3 departments)
+├─ SoD rule enforcement log (6 rules verified)
+├─ Exception approvals (2 approved, tracked)
+├─ Remediation tickets (2 completed)
+├─ Access requests (12 processed)
+└─ Archive: All previous quarters
+```
+
+### Regulatory Alignment
+
+```
+SOX Compliance (Finance):
+├─ Requirements: SoD, audit trail, quarterly reviews
+├─ ISC Implementation:
+│  ├─ ✓ SoD rules enforced (Finance_Manager ↔ Clerk)
+│  ├─ ✓ Complete audit trail (all logged)
+│  ├─ ✓ Quarterly reviews (Q1, Q2, Q3, Q4)
+│  ├─ ✓ Management attestation (documented)
+│  └─ ✓ Annual compliance assessment (completed)
+├─ Evidence: Audit logs + review certifications
+└─ Status: COMPLIANT ✓
+
+HIPAA Compliance (If PII/PHI):
+├─ Requirements: Access control, audit trail, role-based
+├─ ISC Implementation:
+│  ├─ ✓ Role-based access (RBAC enforced)
+│  ├─ ✓ Least privilege (only needed access)
+│  ├─ ✓ Access logging (all actions logged)
+│  ├─ ✓ Quarterly reviews (compliance requirement)
+│  └─ ✓ Breach notification procedures (documented)
+├─ Evidence: Access policies + audit trails
+└─ Status: COMPLIANT ✓
+
+GDPR Compliance (If EU data):
+├─ Requirements: Consent, right to access, data minimization
+├─ ISC Implementation:
+│  ├─ ✓ Access consent (employee data stored)
+│  ├─ ✓ Data minimization (least privilege enforced)
+│  ├─ ✓ Right to audit (full audit trail)
+│  ├─ ✓ Deletion procedures (offboarding process)
+│  └─ ✓ Data retention (7+ years for audit)
+├─ Evidence: Data handling policies + audit records
+└─ Status: COMPLIANT ✓
+
+NIST Cybersecurity Framework:
+├─ Requirements: Identity management, access control, monitoring
+├─ ISC Implementation:
+│  ├─ ✓ Identity verification (user provisioning)
+│  ├─ ✓ Access control (role-based, SoD)
+│  ├─ ✓ Continuous monitoring (quarterly reviews)
+│  ├─ ✓ Incident response (remediation workflows)
+│  └─ ✓ Recovery (backup and restore procedures)
+├─ Evidence: Governance procedures + audit logs
+└─ Status: COMPLIANT ✓
+```
+
+### Audit Evidence
+
+```
+Audit File Storage (for regulators):
+
+Quarterly Review Certifications:
+├─ Q1 2026: Finance review (signed by Finance Manager)
+├─ Q1 2026: Engineering review (signed by Eng Manager)
+├─ Q1 2026: Sales review (signed by Sales Manager)
+├─ Q2 2026: [Upcoming]
+└─ Archive: 90-day retention minimum, 7 years preferred
+
+SoD Violation Reports:
+├─ Report date: 2026-03-15
+├─ Violations found: 0
+├─ Violations prevented: [count of attempts blocked]
+├─ Enforcement status: 100%
+└─ Evidence: System logs proving enforcement
+
+Exception Trail:
+├─ Exception ID: EXC-2026-001
+├─ User: Casey Kim (Finance_Manager)
+├─ Access: AWS_Audit role
+├─ Justification: Compliance audit project
+├─ Approvers: Manager ✓, Compliance ✓
+├─ Duration: 2026-02-01 to 2026-06-30
+├─ Status: Expires 2026-06-30
+└─ Evidence: Approval emails + provisioning logs
+
+Remediation Evidence:
+├─ Issue: User9 unauthorized ADP admin access
+├─ Discovery date: 2026-03-15
+├─ Root cause: Old role assignment not cleaned up
+├─ Remediation: Removed ADP admin access
+├─ Approvals: Manager ✓, Compliance ✓
+├─ Execution date: 2026-03-17
+├─ Verification: User confirmed access removed
+└─ Evidence: Removal tickets + audit logs
+```
+
+### Attestations
+
+```
+Annual Management Attestation (Required for SOX):
+
+From: CFO (Chief Financial Officer)
+To: Audit Committee
+Date: 2026-12-31
+Re: Internal Control Assessment
+
+"I hereby certify that:
+
+1. I have reviewed the design and operation of internal controls
+2. I have assessed the effectiveness of access controls
+3. I have reviewed access control procedures
+4. I have monitored SoD enforcement
+5. I have reviewed quarterly access reviews
+6. I have assessed remediation of violations
+7. I can attest that access controls are effective
+8. No material weaknesses in access control were identified
+
+The ISC system provides effective, auditable access control.
+
+Signed,
+Chief Financial Officer
+Date: [certification date]"
+
+Supporting Evidence:
+├─ Quarterly review certifications (4 per year)
+├─ SoD violation reports (0 violations)
+├─ Audit trail logs (complete records)
+├─ Remediation evidence (all issues resolved)
+└─ Risk assessments (documented)
+```
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+✅ All policies documented
+✅ Procedures clearly defined
+✅ Regulatory alignment verified
+✅ Audit evidence organized
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ All policies current and signed
+- ☑️ Procedures documented step-by-step
+- ☑️ Regulatory requirements mapped
+- ☑️ Audit evidence collected
+- ☑️ Attestations prepared
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** Auditor requests SoD enforcement evidence. What do you provide?
+
+A) Policy document only
+B) ✅ Audit logs showing violations prevented + enforcement reports
+C) Manager attestation
+D) Risk assessment
+
+**Answer: B.** Evidence = actual logs, not just policies.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 7.16: Reporting Dashboards](/modules/7.16-reporting-dashboards)
+- [Next: 7.18 - Continuous Improvement](/modules/7.18-continuous-improvement)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Document all governance procedures
+2. Collect regulatory evidence
+3. Prepare attestations
+4. Proceed to 7.18

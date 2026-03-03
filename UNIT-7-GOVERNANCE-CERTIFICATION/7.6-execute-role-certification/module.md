@@ -1,0 +1,160 @@
+# 7.6 - Execute Role Certification
+
+**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Execute role certification process
+- Handle certification exceptions
+- Document and remediate issues
+- Verify all roles certified quarterly
+
+---
+
+## 📋 Prerequisites
+
+Module 7.5: Role Certification Process. Process understood.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Objective
+
+Execute complete quarterly role certification for all Contoso roles, handle exceptions, remediate issues.
+
+---
+
+### TASK 1: Certify Finance Roles (Q1)
+
+**Finance_Manager (Casey):**
+- Members: Casey (1)
+- Review: "Is Casey supposed to be Finance Manager?" YES
+- Certification: APPROVED ✓
+
+**Senior_Accountant (Morgan):**
+- Members: Morgan (1)
+- Review: "Is Morgan supposed to be Senior Accountant?" YES
+- Certification: APPROVED ✓
+
+**Finance_AP_Clerk (User5):**
+- Members: User5 (1)
+- Review: "Is User5 supposed to be AP Clerk?" YES
+- Certification: APPROVED ✓
+
+---
+
+### TASK 2: Certify Engineering Roles (Q2)
+
+**Engineer_Senior (Alex):**
+- Members: Alex (1)
+- Issue found: "Should User4 be Senior too?" Request exception
+- Decision: Approve User4 for Senior (promotion)
+- Action: Add User4 to Engineer_Senior role
+- Result: Members now [Alex, User4]
+
+**Engineer_Developer (User4 + new members):**
+- Members: User4 (1)
+- Note: User4 now has both Developer + Senior roles (overlap okay)
+- Certification: APPROVED ✓
+
+**DevOps (User12):**
+- Members: User12 (1)
+- Certification: APPROVED ✓
+
+---
+
+### TASK 3: Certify IT & Sales Roles (Q3)
+
+**IT_Administrator (User10):**
+- Certification: APPROVED ✓
+
+**Security_Officer (User11):**
+- Certification: APPROVED ✓
+
+**Sales_Representative (User6, User7):**
+- Members: [User6, User7] (2)
+- Issue: User6 also has Finance access (old role never removed)
+- Action: Remove User6 from Finance roles
+- Remediation: Deprovision Finance QB access
+- Result: User6 now Sales only ✓
+
+---
+
+### TASK 4: Certify HR Roles (Q4)
+
+**HR_Specialist (User8):**
+- Certification: APPROVED ✓
+
+**HR_Manager (User9):**
+- Certification: APPROVED ✓
+
+---
+
+### TASK 5: Annual Full Audit (Q4)
+
+**Comprehensive verification:**
+
+```
+All users reviewed: 13/13 ✓
+All roles reviewed: 11+ standard ✓
+All dynamic roles reviewed: 8+ ✓
+SoD rules enforced: 6+ ✓
+Exceptions approved: 2 (User4 promotion, User6 overlap removal) ✓
+Issues remediated: 1 (User6 old access removed) ✓
+Audit trail: 100% complete ✓
+Executive sign-off: Required for compliance ✓
+```
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+✅ All roles certified quarterly
+✅ All 13 users reviewed
+✅ Exceptions identified and approved
+✅ Issues remediated
+✅ Annual audit complete
+✅ Executive sign-off obtained
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ All roles certified
+- ☑️ Exceptions handled
+- ☑️ Issues remediated
+- ☑️ Annual audit complete
+- ☑️ Documentation complete
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** During certification, User6 found to have old Finance access. What's correct action?
+
+A) Leave it (not hurting anyone)
+B) ✅ Remove it (remediate the access drift)
+C) Ask for exception (keep old access)
+D) Schedule for next year
+
+**Answer: B.** Access drift remediated immediately (principle of least privilege).
+
+---
+
+## 📚 RESOURCES
+
+- [Module 7.5: Role Certification Process](/modules/7.5-role-certification-process)
+- [Next: 7.7 - Access Compliance Audit](/modules/7.7-access-compliance-audit)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Execute role certification for all roles
+2. Handle exceptions and issues
+3. Complete annual audit
+4. Proceed to 7.7 for compliance audit
+

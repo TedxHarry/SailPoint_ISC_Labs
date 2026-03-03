@@ -1,0 +1,227 @@
+# 7.4 - Design Review Workflow
+
+**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Design quarterly review workflow
+- Configure ISC review automation
+- Plan notification schedule
+- Define escalation paths
+
+---
+
+## 📋 Prerequisites
+
+Module 7.3: Access Reviews Concepts. Review process understood.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Objective
+
+Design and configure automated quarterly access review workflow for Contoso.
+
+---
+
+### TASK 1: Review Workflow Design
+
+**Quarterly Department Review Workflow:**
+
+```
+Trigger: Q1 (Jan 31)
+
+Step 1: Generate Reports (automatic)
+├─ ISC: Create access report for each department
+├─ Content: Users, roles, entitlements, system accounts
+├─ Format: PDF/Excel, readable for managers
+└─ File: Sent to department manager email
+
+Step 2: Manager Review (manual)
+├─ Manager: Receives report in email
+├─ Manager: Reviews each team member's access
+├─ Manager: Questions: "Still need? Still appropriate?"
+├─ Manager: Notes: Any issues or changes needed
+└─ Timeline: 5 business days
+
+Step 3: Certification (ISC form)
+├─ ISC Portal: Manager accesses certification form
+├─ Options: "Approved" or "Changes needed"
+├─ Comments: Manager notes any issues
+├─ Sign: Manager digitally signs certification
+└─ Timestamp: Recorded automatically
+
+Step 4: Exception Processing
+├─ If changes needed:
+│  ├─ Manager identifies: Which users need access removed
+│  ├─ Manager specifies: Reason for removal
+│  └─ ISC creates: Remediation tickets
+├─ If exceptions needed:
+│  ├─ Manager requests: Formal exception
+│  ├─ Manager justifies: Business reason
+│  └─ ISC routes: To executive for approval
+└─ Tracking: All documented
+
+Step 5: Remediation (automatic or manual)
+├─ Access changes: Remove/add as documented
+├─ Provisioning: Automatic if removing
+├─ Verification: Confirm changes executed
+└─ Notification: User notified if access changed
+
+Step 6: Audit Recording
+├─ Timestamp: Review completion date
+├─ Approver: Manager signature
+├─ Scope: Department and users reviewed
+├─ Status: Approved/Changes made
+└─ Compliance: Ready for audit
+```
+
+---
+
+### TASK 2: Contoso Review Schedule
+
+**Configure in ISC:**
+
+```
+Q1 Review (March 31):
+├─ Department: Finance
+├─ Manager: Casey Kim
+├─ Users: Casey, Morgan, User5
+└─ Roles to certify: Finance_Manager, Senior_Accountant, AP_Clerk
+
+Q2 Review (June 30):
+├─ Department: Engineering
+├─ Manager: Alex Lee
+├─ Users: Alex, User4, User12
+└─ Roles to certify: Engineer_Senior, Developer, DevOps
+
+Q3 Review (September 30):
+├─ Department: IT
+├─ Manager: User10
+├─ Users: User10, User11
+└─ Roles to certify: IT_Administrator, Security_Officer
+│
+├─ Department: Sales
+├─ Manager: User6
+├─ Users: User6, User7
+└─ Roles to certify: Sales_Representative
+
+Q4 Review (December 31):
+├─ Department: HR
+├─ Manager: User9
+├─ Users: User8, User9
+└─ Roles to certify: HR_Specialist, HR_Manager
+│
+├─ ANNUAL FULL AUDIT:
+│  ├─ All users, all roles, all access
+│  ├─ Executive sign-off required
+│  └─ Compliance readiness
+```
+
+---
+
+### TASK 3: Notification Plan
+
+**Automated communications:**
+
+```
+2 Weeks Before Review (Jan 17 for Q1):
+├─ Email to: Department manager
+├─ Subject: "Quarterly Access Review - Action Required"
+├─ Content: Due date, instructions, access report attached
+└─ Request: "Please review and certify by Jan 31"
+
+1 Week Before Deadline (Jan 24):
+├─ Email to: Managers who haven't certified yet
+├─ Subject: "Reminder: Quarterly Access Review Due Jan 31"
+└─ Request: "Please complete this week"
+
+1 Day After Deadline (Feb 1):
+├─ Email to: Managers who missed deadline
+├─ Subject: "Urgent: Overdue Access Review"
+├─ Escalation: Manager's director CC'd
+└─ Action: Executive follow-up required
+
+After Certification (Feb 2):
+├─ Email to: Manager
+├─ Content: "Certification received and recorded"
+├─ Details: Review ID, timestamp, scope
+└─ Next: Q2 review June 30
+```
+
+---
+
+### TASK 4: Escalation Paths
+
+**If issues found:**
+
+```
+Issue: Manager doesn't complete review
+├─ Day 5: First reminder
+├─ Day 10: Second reminder + manager's director notified
+├─ Day 15: Executive escalation
+└─ Day 20: Review marked "Not Completed" (compliance violation)
+
+Issue: Access doesn't match documented requirements
+├─ Identify: Which user has wrong access
+├─ Escalate: To role owner for justification
+├─ Decision: Approve exception OR remove access
+└─ Document: Reason and approver
+
+Issue: SoD violation detected during review
+├─ Alert: Immediately (not quarterly)
+├─ Action: Escalate to compliance officer
+├─ Resolution: Remove one of conflicting access
+└─ Document: Why violation existed
+```
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+✅ Quarterly review workflow automated
+✅ Department managers can easily certify access
+✅ Escalation paths defined
+✅ Notification schedule configured
+✅ Remediation process clear
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Review workflow designed
+- ☑️ Schedule configured for all Q1-Q4
+- ☑️ Notifications automated
+- ☑️ Escalation paths defined
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** When should Q1 access review be completed?
+
+A) January 15
+B) ✅ January 31
+C) February 28
+D) March 31
+
+**Answer: B.** Q1 = Jan-Mar, deadline end of quarter (Jan 31).
+
+---
+
+## 📚 RESOURCES
+
+- [Module 7.3: Access Reviews Concepts](/modules/7.3-access-reviews-concepts)
+- [Next: 7.5 - Role Certification Process](/modules/7.5-role-certification-process)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Design quarterly review workflow
+2. Configure schedule and notifications
+3. Proceed to 7.5 for role certification
+
