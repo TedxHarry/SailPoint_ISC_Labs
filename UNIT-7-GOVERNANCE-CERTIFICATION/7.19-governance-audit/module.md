@@ -1,0 +1,223 @@
+# 7.19 - Governance Audit
+
+**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+
+Comprehensive governance audit: Verify controls, assess effectiveness, document findings.
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand audit objectives
+- Execute comprehensive audit
+- Assess control effectiveness
+- Document findings and recommendations
+
+---
+
+## 📋 Prerequisites
+
+Module 7.18: Continuous Improvement. Continuous improvement understood.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Annual Governance Audit
+
+```
+Audit Scope: Full governance review (Q4 2026)
+
+Audit Objectives:
+├─ Verify access control design is effective
+├─ Assess policy enforcement working
+├─ Review review process completion
+├─ Validate remediation effectiveness
+├─ Examine audit trail completeness
+├─ Assess SoD compliance
+└─ Provide recommendations for 2027
+
+Audit Timeline:
+├─ Planning: Week 1
+├─ Fieldwork: Weeks 2-4
+├─ Findings: Week 5
+├─ Management review: Week 6
+└─ Final report: End of Q4
+
+Audit Team:
+├─ Lead: Internal audit manager
+├─ Security: CISO or security lead
+├─ Compliance: Compliance officer
+├─ IT: ISC administrator
+└─ External: External auditor (if required for SOX)
+```
+
+### Audit Testing
+
+```
+Test 1: Access Matrix Verification
+├─ Sample: 20% of users (3 of 13)
+├─ Check: Access matches assigned roles
+├─ Verify: No unauthorized access
+├─ Results:
+│  ├─ User1: COMPLIANT ✓
+│  ├─ User5: COMPLIANT ✓
+│  ├─ User10: COMPLIANT ✓
+│  └─ Overall: 100% compliant
+└─ Evidence: Access reports + screenshots
+
+Test 2: SoD Rule Enforcement
+├─ Verify: All 6 SoD rules active
+├─ Test: Attempt conflicting assignment
+├─ Result: System blocks attempt ✓
+├─ Check: No violations in audit log
+├─ Conclusion: SoD enforcement working
+└─ Evidence: System test + audit logs
+
+Test 3: Review Process Completion
+├─ Sample: All 5 Q1 reviews
+├─ Verify: All completed on schedule
+├─ Check: Certifications signed
+├─ Review: Process followed correctly
+├─ Results:
+│  ├─ Finance review: COMPLETE ✓
+│  ├─ Engineering review: COMPLETE ✓
+│  ├─ Sales review: COMPLETE ✓
+│  ├─ IT review: PENDING → COMPLETE ✓
+│  ├─ HR review: PENDING → COMPLETE ✓
+│  └─ Overall: 100% completion
+└─ Evidence: Signed certifications
+
+Test 4: Request Approval Workflow
+├─ Sample: 12 requests processed
+├─ Verify: Approval routing correct
+├─ Check: No requests approved without review
+├─ Results:
+│  ├─ Correct approvers: 12/12 (100%)
+│  ├─ Denied requests: 1 (SoD conflict detected)
+│  ├─ Average time: 1.5 days
+│  └─ Escalations triggered: 0
+├─ Conclusion: Workflow functioning correctly
+└─ Evidence: Request tickets + approval trails
+
+Test 5: Remediation Effectiveness
+├─ Sample: 2 issues found and remediated
+├─ Verify: All remediation actions completed
+├─ Check: Issues actually resolved
+├─ Results:
+│  ├─ Issue #1: Removed unauthorized access ✓
+│  ├─ Issue #2: Escalated and documented ✓
+│  └─ Re-audit: Both issues confirmed resolved
+├─ Conclusion: Remediation process working
+└─ Evidence: Remediation tickets + verification
+
+Test 6: Audit Trail Completeness
+├─ Check: All access changes logged
+├─ Sample: 20 random provisioning events
+├─ Verify: Each has:
+│  ├─ User ID
+│  ├─ Action taken
+│  ├─ Timestamp
+│  ├─ Approver
+│  ├─ Result
+│  └─ Complete details
+├─ Results: 20/20 complete (100%)
+└─ Evidence: Audit log export
+```
+
+### Audit Findings
+
+```
+GOVERNANCE AUDIT REPORT - Q4 2026
+
+Overall Assessment: EFFECTIVE
+
+Control Effectiveness Rating: 95/100
+
+Finding #1 (Minor):
+├─ Area: Review deadline tracking
+├─ Issue: Two managers requested extensions
+├─ Impact: Low (only 1-2 weeks late)
+├─ Recommendation: Automated reminder system
+├─ Priority: Medium
+└─ Remediation: Implement in Q1 2027
+
+Finding #2 (Minor):
+├─ Area: Exception documentation
+├─ Issue: One exception missing business justification
+├─ Impact: Low (exception valid, docs incomplete)
+├─ Recommendation: Improve exception form template
+├─ Priority: Medium
+└─ Remediation: Update form in Q1 2027
+
+Strengths:
+├─ SoD enforcement 100% effective
+├─ Access requests thoroughly reviewed
+├─ Audit trail complete and accurate
+├─ Remediation process working well
+└─ Management engaged in governance
+
+Improvement Opportunities:
+├─ Automate review reminders
+├─ Enhance exception documentation
+├─ Increase manager self-service training
+├─ Expand real-time dashboard visibility
+└─ Add predictive anomaly detection
+
+Overall Opinion:
+"The governance and access control environment is operating effectively.
+Controls are functioning as designed, with no significant gaps.
+Recommend continued quarterly assessments and address minor findings in 2027."
+
+Management Response:
+"We accept all audit findings and will implement recommendations
+by end of Q1 2027. Current governance processes are strong."
+```
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+✅ All controls tested
+✅ Effectiveness assessed
+✅ Findings documented
+✅ Recommendations provided
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Comprehensive test plan executed
+- ☑️ All controls verified
+- ☑️ Findings documented
+- ☑️ Recommendations provided
+- ☑️ Final report completed
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** Audit finds review process mostly works but 2 weeks late sometimes. What rating?
+
+A) Fail (not perfect)
+B) ✅ Effective with minor findings (works but needs improvement)
+C) Fully effective (allow minor delays)
+D) Not started
+
+**Answer: B.** Effective = controls work, minor issues = low-priority improvements.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 7.18: Continuous Improvement](/modules/7.18-continuous-improvement)
+- [Next: 7.20 - Governance Complete](/modules/7.20-governance-complete)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Plan annual audit
+2. Execute test procedures
+3. Document findings
+4. Proceed to 7.20
