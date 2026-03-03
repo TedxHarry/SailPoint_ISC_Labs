@@ -1,0 +1,204 @@
+# 5.1 - Access Modeling Fundamentals
+
+**Unit:** Access Modeling | **Tier:** 2 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand access modeling purpose
+- Know the relationship between roles and access
+- Understand standard vs dynamic roles
+- Know why role design matters
+
+---
+
+## 📋 Prerequisites
+
+Unit 4: Aggregation & Correlation complete. (13 identities with accounts linked in ISC)
+
+---
+
+## 📚 CORE CONCEPTS
+
+### What is Access Modeling?
+
+**Definition:** Process of designing role structures that define what access (applications, data, permissions) each person should have based on their job function.
+
+**Why it matters:** Without access modeling, you have identities and accounts but no way to govern WHO gets WHAT access. Governance doesn't work without proper role design.
+
+**Example:** Contoso has 13 employees.
+- Alex Lee: Senior Engineer → needs: GitHub, Jenkins, AWS engineer role
+- Casey Kim: Finance Manager → needs: QuickBooks, Expensify, approval authority
+- Morgan Chen: Senior Accountant → needs: QuickBooks, Excel tools, (no approval authority)
+
+Access modeling translates "Senior Engineer" and "Finance Manager" job titles into specific system access.
+
+---
+
+### The Problem Access Modeling Solves
+
+**Without modeling:**
+```
+Employee joins: "Add them to systems?"
+- Add to everything? (too much access)
+- Add to nothing? (can't work)
+- Ask manager? (manual, inconsistent, slow)
+- Ad-hoc decisions → Security gaps
+```
+
+**With modeling:**
+```
+Employee joins as "Senior Engineer"
+→ ISC applies "Engineer_Developer" role
+→ Automatically gets: GitHub, Jenkins, AWS, Slack engineers channel
+→ Consistent, auditable, predictable
+```
+
+---
+
+### Access vs Role vs Entitlement (Terminology)
+
+**Entitlement:** Permission to do something
+- Examples: "read files", "approve expenses", "deploy code", "view reports"
+- Granted by: Access profiles or group memberships
+
+**Role:** Collection of entitlements related to a job function
+- Examples: "Senior Engineer" (includes GitHub access + Jenkins + AWS)
+- Granted to: Users/identities
+
+**Access Profile:** Collection of entitlements for a specific system
+- Examples: GitHub access profile includes: "pull_code", "create_branch", "review_pr"
+
+**Chain:** User → assigned to Role → Role grants Entitlements → User has access
+
+---
+
+### Role Types
+
+**Standard Roles:** Manually defined, assigned to specific people
+- "Finance_AP_Clerk": Alex gets this role → gets QuickBooks, expense reports
+- "Senior Engineer": Morgan gets this → gets GitHub + Jenkins access
+- Best for: Job-based access, stable roles
+- Example: Finance department has 5 AP Clerks, all get same access
+
+**Dynamic Roles:** Rules-based, automatically assigned based on attributes
+- Rule: "IF department = Engineering, THEN add to Engineer role"
+- Rule: "IF jobTitle CONTAINS Manager, THEN add to Approver role"
+- Best for: Attribute-based access, scalability
+- Example: New person joins Engineering → automatically in Engineer role
+
+---
+
+### Role Sources
+
+**Manual Role Assignment (Standard):**
+- Admin: "Assign Alex to Finance_AP_Clerk role"
+- Pros: Simple, explicit, audit trail
+- Cons: Slow, manual, error-prone, doesn't scale
+
+**Automatic Role Assignment (Dynamic):**
+- Rule: "IF department matches, assign role automatically"
+- Pros: Scalable, consistent, faster
+- Cons: Requires good data quality, rule maintenance
+
+**Hybrid (Most Common):**
+- Standard roles for most stable positions
+- Dynamic roles for common patterns (by department, job title, location)
+- Result: 80% automated, 20% manual exceptions
+
+---
+
+### Contoso Access Model Preview
+
+**Contoso has 13 employees, 5 departments:**
+
+```
+Finance (3 people):
+├─ Finance_AP_Clerk (1)
+├─ Finance_Manager (1)
+└─ Senior_Accountant (1)
+
+Engineering (3 people):
+├─ Senior_Engineer (1)
+├─ Software_Developer (1)
+└─ DevOps_Engineer (1)
+
+Sales (2 people):
+└─ Sales_Representative (2)
+
+HR (2 people):
+├─ HR_Specialist (1)
+└─ HR_Manager (1)
+
+IT/Admin (2 people):
+├─ IT_Administrator (1)
+└─ Security_Officer (1)
+```
+
+**Tasks:** Design these 9 roles with specific system access for each.
+
+---
+
+## 🧠 KEY TAKEAWAYS
+
+- Access modeling translates job functions into system access
+- Roles organize entitlements for consistent governance
+- Standard roles: manual assignment for specific people
+- Dynamic roles: automatic assignment based on rules
+- Good modeling = automated, scalable, auditable access
+
+---
+
+## 🧪 TASK
+
+1. Understand access modeling purpose
+2. Know difference between entitlements, roles, profiles
+3. Know standard vs dynamic roles
+4. Understand Contoso role structure
+5. Ready for role design principles (Module 5.2)
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Understand access modeling concept
+- ☑️ Know what roles and entitlements are
+- ☑️ Understand standard vs dynamic roles
+- ☑️ Familiar with Contoso organization structure
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** What is the primary purpose of access modeling?
+
+A) Creating user accounts
+B) Reading data from source systems
+C) ✅ Translating job functions into system access
+D) Provisioning accounts automatically
+
+**Answer: C.** Access modeling = job → roles → access.
+
+**Q:** What is the difference between a standard role and dynamic role?
+
+A) Standard is secure, dynamic is not
+B) ✅ Standard = manual assignment, Dynamic = rules-based automatic assignment
+C) Dynamic is always better
+D) They are the same
+
+**Answer: B.** Standard: "assign Alex to role". Dynamic: "if department = Eng, assign role".
+
+---
+
+## 📚 RESOURCES
+
+- [Next: 5.2 - Role Design Principles](/modules/5.2-role-design-principles)
+- [Unit 4: Aggregation & Correlation complete](/modules/4.18-pre-provisioning-checklist)
+
+---
+
+## ✅ NEXT STEPS
+
+Proceed to 5.2 to learn role design principles and best practices.
+

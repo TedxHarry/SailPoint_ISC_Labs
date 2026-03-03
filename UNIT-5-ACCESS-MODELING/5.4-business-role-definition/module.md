@@ -1,0 +1,185 @@
+# 5.4 - Business Role Definition
+
+**Unit:** Access Modeling | **Tier:** 2 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Gather business requirements for roles
+- Analyze job functions
+- Identify required entitlements
+- Document role specifications
+
+---
+
+## 📋 Prerequisites
+
+Module 5.3: Standard Roles vs Dynamic Roles.
+
+---
+
+## 📚 CORE CONCEPTS
+
+### Gathering Business Requirements
+
+**Goal:** Understand what access each job function needs.
+
+**Process:**
+
+**Step 1: Identify all job functions**
+- Interview department managers
+- Ask: "What different jobs do we have?"
+- Document job titles, responsibilities
+
+**Step 2: For each job, understand:**
+- What systems do they use?
+- What data do they access?
+- What actions do they perform?
+- What approvals do they have?
+
+**Step 3: Translate to entitlements**
+- Finance_AP_Clerk needs: "Create invoices in QB", "View reports in QB"
+- Engineer needs: "Push code to GitHub", "Deploy to staging"
+
+---
+
+### Contoso Role Design
+
+**Contoso Ltd: 13 employees, 5 departments**
+
+**Finance Department (3 people):**
+
+| Job Title | Name | Role Name | Key Entitlements |
+|---|---|---|---|
+| Finance Manager | Casey Kim | Finance_Manager | Create invoices, approve invoices, reconcile, GL access, reporting |
+| Senior Accountant | Morgan Chen | Senior_Accountant | Create invoices, view reports, period close support |
+| AP Clerk | (other) | Finance_AP_Clerk | Create invoices, submit for approval |
+
+**Engineering Department (3 people):**
+
+| Job Title | Name | Role Name | Key Entitlements |
+|---|---|---|---|
+| Senior Engineer | Alex Lee | Engineer_Senior | Create/review PRs, merge to main, deploy to prod, architect decisions |
+| Software Developer | (other) | Engineer_Developer | Create PRs, review code, merge to develop |
+| DevOps Engineer | (other) | DevOps | Deploy/monitor, infrastructure, CI/CD pipeline |
+
+**Sales Department (2 people):**
+
+| Job Title | Name | Role Name | Key Entitlements |
+|---|---|---|---|
+| Sales Rep | (multiple) | Sales_Representative | CRM access, create opportunities, view pipeline |
+
+**HR Department (2 people):**
+
+| Job Title | Name | Role Name | Key Entitlements |
+|---|---|---|---|
+| HR Manager | (other) | HR_Manager | Employee records, hiring, compensation, approvals |
+| HR Specialist | (other) | HR_Specialist | Employee records view, benefits admin |
+
+**IT Department (2 people):**
+
+| Job Title | Name | Role Name | Key Entitlements |
+|---|---|---|---|
+| IT Administrator | (other) | IT_Administrator | All systems access, admin privileges, user management |
+| Security Officer | (other) | Security_Officer | Audit logs, security monitoring, incident response |
+
+---
+
+### Role-to-System Mapping
+
+**Finance_Manager role:**
+- QuickBooks: Full access (create, approve, delete, reconcile)
+- Excel: Create and share reports
+- Bank systems: View account reconciliation
+- Approval authority: Can approve expenses up to $10,000
+
+**Engineer_Developer role:**
+- GitHub: Create feature branches, push code, create PRs
+- Jenkins: Run tests, deploy to staging
+- JIRA: Create/update tickets
+- AWS: View compute resources (read-only)
+
+**Sales_Representative role:**
+- Salesforce: Create/view opportunities, manage deals
+- Slack: #sales-team channel
+- Reports access: Read sales dashboards
+
+---
+
+### Interview Questions for Roles
+
+**Ask department managers:**
+
+1. "What systems does this job use?"
+2. "What actions do they perform in each system?"
+3. "Can they approve? Who do they approve for?"
+4. "What data can they see? What can't they see?"
+5. "Do they create reports? What data?"
+6. "Any sensitive access (financial, personnel)?"
+7. "Who supervises this role?"
+8. "Are there conflicts (can't have both)?"
+
+---
+
+## 🧠 KEY TAKEAWAYS
+
+- Identify all job functions in organization
+- For each job, understand systems and actions
+- Translate to entitlements
+- Document role specifications
+- Contoso has 9-11 roles (standard + some dynamic)
+
+---
+
+## 🧪 TASK
+
+1. Understand Contoso department and job structure
+2. Know what entitlements each role needs
+3. Understand role-to-system mapping
+4. Ready to create roles in ISC (Module 5.6)
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Understand Contoso organization
+- ☑️ Know what access each role needs
+- ☑️ Understand entitlements for 9+ roles
+- ☑️ Ready for hands-on role creation
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** To define business requirements for a Finance_Manager role, who would you interview?
+
+A) IT team
+B) ✅ Finance department manager/director
+C) Marketing team
+D) Sales team
+
+**Answer: B.** Role owner (finance manager) knows what finance managers need.
+
+**Q:** Finance_Manager role needs which entitlements?
+
+A) All system access
+B) ✅ QB full access, approvals up to limit, reconciliation, reporting
+C) Only read access
+D) No specific entitlements yet
+
+**Answer: B.** Manager needs: create, approve, reconcile, report.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 5.3: Standard vs Dynamic Roles](/modules/5.3-standard-roles-vs-dynamic)
+- [Next: 5.5 - Entitlements & Access Profiles](/modules/5.5-entitlements-access-profiles)
+
+---
+
+## ✅ NEXT STEPS
+
+Proceed to 5.5 to understand entitlements and access profiles in detail.
+

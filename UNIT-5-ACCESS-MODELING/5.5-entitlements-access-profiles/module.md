@@ -1,0 +1,245 @@
+# 5.5 - Entitlements & Access Profiles
+
+**Unit:** Access Modeling | **Tier:** 2 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand entitlements
+- Understand access profiles
+- Know how roles use access profiles
+- Know aggregation of entitlements
+
+---
+
+## 📋 Prerequisites
+
+Module 5.4: Business Role Definition.
+
+---
+
+## 📚 CORE CONCEPTS
+
+### Terminology: Entitlement
+
+**Definition:** Specific permission to perform an action in a system.
+
+**Examples:**
+- "create_invoice" (in QuickBooks)
+- "push_code" (in GitHub)
+- "approve_expense" (in expense system)
+- "view_employee_records" (in HRIS)
+- "delete_user" (in Active Directory)
+
+**Where it comes from:**
+- Most systems have their own permission model (RBAC, ABAC, etc.)
+- ISC reads entitlements from systems during aggregation
+- ISC groups them into access profiles
+
+---
+
+### Terminology: Access Profile
+
+**Definition:** Collection of related entitlements for one system.
+
+**Example - QuickBooks Access Profile:**
+```
+QB_Finance_Manager profile includes:
+├─ create_invoice
+├─ approve_invoice
+├─ create_check
+├─ reconcile_account
+├─ generate_report
+└─ (other QB entitlements for managers)
+```
+
+**Another example - GitHub Access Profile:**
+```
+GitHub_Developer profile includes:
+├─ push_code_to_develop
+├─ create_feature_branch
+├─ create_pull_request
+├─ review_pull_request
+└─ (does NOT include: merge_to_main, delete_branch)
+```
+
+**Key insight:** Access profile = role FOR ONE SYSTEM
+
+---
+
+### Terminology: Role
+
+**Definition:** Collection of access profiles across multiple systems.
+
+**Example - Finance_Manager role:**
+```
+Finance_Manager role includes:
+├─ QB_Finance_Manager access profile (QuickBooks)
+├─ Bank_Admin access profile (bank systems)
+├─ Excel_Reports access profile (Excel file server)
+├─ Approval authority: Approve up to $10,000
+└─ (maybe more...)
+```
+
+**Chain of delegation:**
+```
+User → Role → Access Profiles → Entitlements
+```
+
+---
+
+### How ISC Uses Entitlements
+
+**During Aggregation (Unit 4):**
+- ISC reads accounts from systems
+- Each account has entitlements
+- Example: morgan.chen account in QB has: create_invoice, view_reports
+
+**During Role Assignment:**
+- User assigned to Role
+- Role grants Access Profiles
+- Access Profiles grant Entitlements
+- User gets: create_invoice, view_reports entitlements in QB
+
+---
+
+### Access Profile Design
+
+**Design Pattern 1: By Permission Level**
+```
+QB_User: read-only reports
+QB_Clerk: create invoices, submit
+QB_Manager: create + approve invoices, reconcile
+QB_Admin: all QB access
+```
+
+**Design Pattern 2: By Function**
+```
+GitHub_CodeReviewer: view code, review PRs, comment
+GitHub_Developer: above + push code, create branches
+GitHub_Maintainer: above + merge PRs, manage repos
+```
+
+**Design Pattern 3: By System Module**
+```
+AWS_Compute: launch/stop instances, view logs
+AWS_Storage: read/write S3 buckets
+AWS_Networking: manage security groups
+```
+
+---
+
+### Contoso Access Profile Examples
+
+**Finance Department:**
+
+| Access Profile | System | Entitlements | Who Gets It |
+|---|---|---|---|
+| QB_Clerk | QuickBooks | create_invoice, submit_for_approval | AP Clerks |
+| QB_Manager | QuickBooks | create, approve, reconcile | Finance Manager |
+| Bank_Full | Bank Portal | view_accounts, initiate_transfer | Finance Manager |
+| Excel_Reports | Report Server | create_report, share | All finance |
+
+**Engineering Department:**
+
+| Access Profile | System | Entitlements | Who Gets It |
+|---|---|---|---|
+| GitHub_Developer | GitHub | push_code, create_pr, review_pr | All engineers |
+| GitHub_Maintainer | GitHub | above + merge_to_main | Senior Engineer |
+| Jenkins_Deploy | Jenkins | deploy_to_staging, run_tests | All engineers |
+| Jenkins_Prod | Jenkins | deploy_to_production | Senior Engineer only |
+| AWS_Dev | AWS | EC2 dev access | All engineers |
+| AWS_Prod | AWS | EC2 prod access (read-only) | Senior Engineer only |
+
+---
+
+### Entitlement Aggregation
+
+**ISC discovers entitlements during source aggregation:**
+
+**Example - GitHub:**
+```
+During GitHub aggregation:
+├─ Alex Lee account has entitlements:
+│  ├─ push_code
+│  ├─ create_pr
+│  └─ review_pr
+├─ Morgan Chen account has entitlements:
+│  ├─ push_code
+│  └─ create_pr
+└─ ISC stores all entitlements
+```
+
+**ISC then groups into access profiles:**
+```
+GitHub entitlements grouped:
+├─ GitHub_Developer: push_code, create_pr, review_pr
+├─ GitHub_Reviewer: review_pr only
+└─ GitHub_Admin: all entitlements
+```
+
+---
+
+## 🧠 KEY TAKEAWAYS
+
+- Entitlement: specific permission in one system
+- Access Profile: collection of entitlements for one system
+- Role: collection of access profiles across systems
+- User → Role → Access Profiles → Entitlements
+- ISC aggregates entitlements from systems
+
+---
+
+## 🧪 TASK
+
+1. Understand entitlements concept
+2. Understand access profiles
+3. Know role composition
+4. Understand Contoso access profiles
+5. Ready for hands-on role creation (Module 5.6)
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Understand entitlement definition
+- ☑️ Understand access profile definition
+- ☑️ Understand role composition
+- ☑️ Know Contoso access profiles
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** What is an entitlement?
+
+A) A job title
+B) ✅ A specific permission in a system (e.g., "create_invoice")
+C) A role name
+D) A user account
+
+**Answer: B.** Entitlement = specific action/permission. "create_invoice" is entitlement.
+
+**Q:** What does an access profile contain?
+
+A) User account information
+B) ✅ Collection of entitlements for one system
+C) List of users
+D) Job descriptions
+
+**Answer: B.** Access Profile = entitlements grouped for one system. QB_Manager = QB entitlements.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 5.4: Business Role Definition](/modules/5.4-business-role-definition)
+- [Next: 5.6 - Create Standard Role (Part 1)](/modules/5.6-create-standard-role-part-1)
+
+---
+
+## ✅ NEXT STEPS
+
+Proceed to 5.6 to create your first standard role (Finance_Manager) in ISC.
+
