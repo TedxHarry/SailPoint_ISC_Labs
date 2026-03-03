@@ -1,0 +1,184 @@
+# 7.13 - Risk Assessment
+
+**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+
+Assess access risk: Identify high-risk users, evaluate privilege, determine remediation priority.
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand risk assessment process
+- Identify high-risk access patterns
+- Evaluate privilege levels
+- Create remediation plans
+
+---
+
+## 📋 Prerequisites
+
+Module 7.12: Test Approval Workflows. Approval testing complete.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Risk Scoring Model
+
+```
+Risk Factors (scored 1-5):
+
+1. Privilege Level:
+   ├─ Read-only: 1 (lowest risk)
+   ├─ Editor: 2
+   ├─ Admin: 3
+   ├─ Root access: 4
+   └─ Super-admin: 5 (highest risk)
+
+2. System Sensitivity:
+   ├─ Public data: 1
+   ├─ Internal systems: 2
+   ├─ Finance/PII: 3
+   ├─ Executive/secrets: 4
+   └─ Security/credentials: 5
+
+3. Access Justification:
+   ├─ Role-based, current: 1
+   ├─ Role-based, outdated: 2
+   ├─ Exception, documented: 3
+   ├─ Exception, justification weak: 4
+   └─ No clear justification: 5
+
+4. Orphan Status:
+   ├─ User still employed: 1
+   ├─ Role changed, access not: 2
+   ├─ Former role, still has access: 3
+   ├─ Project ended, access remains: 4
+   └─ User left company, still has access: 5
+
+Risk Score = (Privilege + Sensitivity + Justification + Orphan) / 4
+
+HIGH RISK: Score > 3.5 (immediate review)
+MEDIUM RISK: Score 2-3.5 (quarterly review)
+LOW RISK: Score < 2 (standard monitoring)
+```
+
+### High-Risk Users
+
+```
+Contoso Risk Assessment:
+
+User10 (IT Administrator):
+├─ Access: AD domain admin, GitHub admin
+├─ Privilege: 5 (super-admin)
+├─ Sensitivity: 5 (critical systems)
+├─ Justification: 1 (current role)
+├─ Orphan: 1 (employed, current role)
+├─ Risk Score: (5+5+1+1)/4 = 3.0 (MEDIUM)
+└─ Action: Quarterly access review
+
+User12 (DevOps):
+├─ Access: AWS full admin, GitHub admin
+├─ Privilege: 5 (infrastructure admin)
+├─ Sensitivity: 5 (critical systems)
+├─ Justification: 1 (current role)
+├─ Orphan: 1 (employed, current role)
+├─ Risk Score: (5+5+1+1)/4 = 3.0 (MEDIUM)
+└─ Action: Quarterly access review
+
+User9 (HR Manager):
+├─ Access: ADP admin
+├─ Justification: Weak (temporary project ended 6 months ago)
+├─ Privilege: 4 (admin access)
+├─ Sensitivity: 4 (PII/salary data)
+├─ Orphan: 3 (project ended, access not removed)
+├─ Risk Score: (4+4+4+3)/4 = 3.75 (HIGH)
+└─ Action: Immediate review, likely remediation needed
+
+Casey Kim:
+├─ Current: QB admin, Finance_Manager role
+├─ Risk Score: (3+3+1+1)/4 = 2.0 (LOW)
+└─ Action: Standard monitoring
+
+User5:
+├─ Current: QB clerk, Finance_AP_Clerk role
+├─ Risk Score: (1+2+1+1)/4 = 1.25 (LOW)
+└─ Action: Standard monitoring
+```
+
+### Risk Remediation
+
+```
+HIGH RISK User9:
+├─ Issue: ADP admin access after project ended
+├─ Remediation options:
+│  ├─ Option 1: Remove completely (primary)
+│  ├─ Option 2: Downgrade to standard HR user
+│  ├─ Option 3: Keep as exception (rare, with strong justification)
+│  └─ Decision: Remove (no business justification)
+├─ Process:
+│  ├─ Notify user: "Your ADP admin access is being removed"
+│  ├─ Notify manager: "User9 ADP admin access removed"
+│  ├─ Deprovision: Remove from ADP_Admin role
+│  ├─ Verify: User cannot access admin features
+│  └─ Document: Reason + date in audit trail
+└─ Timeline: 48 hours
+
+MEDIUM RISK User10:
+├─ Issue: High privilege (domain admin) requires oversight
+├─ Mitigation:
+│  ├─ No removal (legitimate role)
+│  ├─ Enhanced monitoring: Log all domain changes
+│  ├─ MFA: Enforce multi-factor authentication
+│  ├─ Session recording: Record admin sessions
+│  └─ Quarterly review: Risk assessment every 3 months
+└─ Timeline: Ongoing
+```
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+✅ Risk scores calculated for all users
+✅ High-risk users identified
+✅ Remediation plans created
+✅ Risk mitigation implemented
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Risk scoring model applied
+- ☑️ High-risk users identified
+- ☑️ Risk assessments documented
+- ☑️ Remediation plans created
+- ☑️ Actions executed
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** User has legitimate admin role but ADP access shouldn't be admin. Risk score = 3.8. What happens?
+
+A) Leave as-is
+B) ✅ Schedule immediate review and likely remediation
+C) Just monitor
+D) Wait for annual audit
+
+**Answer: B.** High risk (>3.5) = immediate action, not waiting.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 7.12: Test Approval Workflows](/modules/7.12-test-approval-workflows)
+- [Next: 7.14 - Remediation Workflows](/modules/7.14-remediation-workflows)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Calculate risk scores
+2. Identify high-risk users
+3. Create remediation plans
+4. Proceed to 7.14

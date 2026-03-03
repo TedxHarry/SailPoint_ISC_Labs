@@ -1,0 +1,210 @@
+# 7.15 - Identity Analytics
+
+**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+
+Analyze access patterns: Understand access distribution, identify anomalies, discover insights.
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand analytics dashboards
+- Analyze access distribution
+- Identify access patterns
+- Generate governance insights
+
+---
+
+## 📋 Prerequisites
+
+Module 7.14: Remediation Workflows. Remediation understood.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Access Distribution Analysis
+
+```
+Contoso Access Summary (Q1 2026):
+
+By Department:
+├─ Finance: 3 users, 7 roles, 3 systems (QB, AD, ADP)
+├─ Engineering: 3 users, 8 roles, 3 systems (GitHub, AWS, AD)
+├─ IT: 2 users, 6 roles, 4 systems (AD, GitHub, AWS, ADP)
+├─ Sales: 2 users, 3 roles, 3 systems (Salesforce, AD, QB)
+└─ HR: 2 users, 4 roles, 2 systems (ADP, AD)
+
+By System:
+├─ Active Directory: 13 users (100%, foundational)
+├─ ADP: 13 users (100%, all employees)
+├─ QuickBooks: 3 users (Finance dept only)
+├─ GitHub: 6 users (Engineering + IT)
+└─ Salesforce: 2 users (Sales dept)
+└─ AWS: 3 users (Engineering + DevOps)
+
+By Privilege Level:
+├─ Read-only: 4 users
+├─ Editor: 6 users
+├─ Admin: 3 users
+└─ Total: 13 users (all accounted for)
+
+By Role:
+├─ Standard roles: 11 (all have 1+ assignments)
+├─ Dynamic roles: 8 (evaluated automatically)
+├─ Highest concentration: Finance (8 users assigned Finance roles)
+└─ Least populated: Sales (2 users, 1 role each)
+```
+
+### Anomaly Detection
+
+```
+Access Pattern Insights:
+
+User10 (IT Admin):
+├─ Pattern: Domain admin + GitHub admin
+├─ Normal for role: YES
+├─ Risk indicator: High privilege, closely monitored
+├─ Action: Quarterly review (standard for admin)
+
+User4 (Developer):
+├─ Pattern: GitHub contributor + AWS staging only
+├─ Normal for role: YES
+├─ Privilege level: Moderate
+├─ Action: Standard monitoring
+
+User6 (Sales Rep):
+├─ Pattern: Salesforce + AD + QB read-only
+├─ Normal for role: YES
+├─ QB access unusual: Yes, but documented for reporting
+├─ Action: Verify QB read-only justification annually
+
+Unusual Pattern Alert:
+├─ User7 has Salesforce + AWS developer access
+├─ Expected: Only Salesforce
+├─ Actual: Also has AWS access
+├─ Reason: Assigned to "Sales Engineer" project role
+├─ Action: Verify still needed, document if ongoing
+
+Exception Summary:
+├─ Total exceptions active: 2
+├─ Time-bound: 2
+├─ Expiring soon: 1 (less than 30 days)
+├─ Action: Review expiring exception before renewal
+```
+
+### Dashboard Metrics
+
+```
+ISC Governance Dashboard:
+
+Access Compliance:
+├─ SoD violations: 0 (0%)
+├─ Users with unauthorized access: 0 (0%)
+├─ Access matching roles: 100%
+└─ Overall compliance: 100%
+
+Review Status:
+├─ Reviews completed this quarter: 3 of 5 (60%)
+├─ Pending reviews: 2 (Engineering, Sales)
+├─ Reviews overdue: 0
+└─ Next review deadline: 2026-03-31
+
+Remediation Status:
+├─ Issues found: 2
+├─ Resolved: 2 (100%)
+├─ In progress: 0
+├─ Pending approval: 0
+
+Request Status:
+├─ Access requests submitted: 12 (this quarter)
+├─ Approved: 11 (92%)
+├─ Denied: 1 (8%, SoD conflict)
+├─ Average approval time: 1.5 days
+├─ Fastest approval: 2 hours
+└─ Longest approval: 3 days
+
+Audit Metrics:
+├─ Audit trail entries: 1,200+ (all actions logged)
+├─ Entries with full detail: 100%
+├─ Longest audit lookback: 90 days
+└─ Data retention: 7 years
+```
+
+### Trend Analysis
+
+```
+Q1 2026 Trends:
+
+Growth:
+├─ New users (hired): 0 (none this quarter)
+├─ New roles created: 2 (Sales Engineer, AWS Audit)
+├─ New system integrations: 0
+└─ Expected growth: 1-2 new users Q2
+
+Access Changes:
+├─ Provisioned new: 2 (both roles)
+├─ Deprovisioned: 0
+├─ Modified: 1 (User4 role change)
+├─ Exceptions granted: 2
+└─ Exceptions expired: 0
+
+Risk Changes:
+├─ High-risk users: 1 (decreased from 2)
+├─ Medium-risk users: 3 (stable)
+├─ Low-risk users: 9 (increased from 8)
+└─ Trend: Overall risk decreasing (positive)
+
+Review Completion:
+├─ On-time reviews: 3 of 3 (100%)
+├─ Late reviews: 0
+├─ Trend: Improving manager engagement
+```
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+✅ Access distribution analyzed
+✅ Patterns identified and documented
+✅ Anomalies detected
+✅ Insights generated for improvement
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Distribution dashboards created
+- ☑️ Anomalies identified
+- ☑️ Patterns documented
+- ☑️ Trends analyzed
+- ☑️ Insights communicated
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** Dashboard shows User7 has AWS access but not expected. What should happen?
+
+A) Ignore (probably fine)
+B) Delete immediately
+C) ✅ Investigate and verify if still needed
+D) Ask management to decide
+
+**Answer: C.** Anomalies trigger investigation, not immediate action.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 7.14: Remediation Workflows](/modules/7.14-remediation-workflows)
+- [Next: 7.16 - Reporting Dashboards](/modules/7.16-reporting-dashboards)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Generate access distribution report
+2. Analyze anomalies
+3. Document insights
+4. Proceed to 7.16
