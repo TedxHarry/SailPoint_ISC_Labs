@@ -1,0 +1,279 @@
+# 8.5 - Risk Scoring & Prediction
+
+**Unit:** Identity Analytics | **Tier:** 2 | **Duration:** ~10 hours
+
+Score access risk: Assess user risk profiles, predict future risks, enable proactive remediation.
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand risk scoring models
+- Calculate user risk profiles
+- Predict access risks
+- Enable proactive remediation
+
+---
+
+## 📋 Prerequisites
+
+Module 8.4: Anomaly Detection. Anomalies understood.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### User Risk Profile
+
+```
+Risk Scoring Model:
+
+Factor 1: Access Level (0-5)
+├─ Read-only: 1 (minimal impact)
+├─ Standard user: 2
+├─ Editor/Contributor: 3 (can create/modify)
+├─ Administrator: 4
+└─ Super-admin: 5 (total control)
+
+Factor 2: System Sensitivity (0-5)
+├─ General operations: 1
+├─ Finance: 3 (money/fraud risk)
+├─ HR/Payroll: 4 (PII/compensation)
+├─ Security systems: 4
+└─ Executive systems: 5
+
+Factor 3: Access Justification (0-5)
+├─ Role-based, current: 0 (expected)
+├─ Role-based, outdated: 2 (should remove)
+├─ Exception, documented: 1 (minor risk)
+├─ Exception, weak justification: 3 (concerning)
+└─ No justification: 5 (danger sign)
+
+Factor 4: User Tenure (0-5)
+├─ New (<30 days): 3 (not yet vetted)
+├─ Standard (30 days - 2 years): 1 (vetted)
+├─ Long-term (>2 years): 0 (established)
+├─ Departure notice: 5 (leaving soon)
+└─ Terminated: 5 (shouldn't have access)
+
+Factor 5: Compliance History (0-5)
+├─ No violations ever: 0 (clean)
+├─ Minor issues (1-2): 2 (watch)
+├─ Multiple issues (3+): 4 (concern)
+├─ SoD violation: 5 (critical)
+└─ Audit failure: 5 (failure)
+
+Risk Score = (Access + Sensitivity + Justification + Tenure + History) / 5
+
+Scale: 0 (lowest) to 5 (highest)
+```
+
+### User Risk Profiles (Contoso Q1 2026)
+
+```
+User Risk Assessment:
+
+Low Risk Users:
+├─ User6 (Sales Rep):
+│  ├─ Access: Salesforce, QB read
+│  ├─ Score: 0.8 (read-only, standard tenure)
+│  └─ Action: Standard monitoring
+├─ User7 (Sales Rep):
+│  ├─ Score: 0.9
+│  └─ Action: Standard monitoring
+└─ User8 (HR Specialist):
+   ├─ Score: 1.2
+   └─ Action: Standard monitoring
+
+Medium Risk Users:
+├─ Alex Lee (Engineer Senior):
+│  ├─ Access: GitHub maintainer, AWS prod
+│  ├─ Score: 2.4 (high privilege, ops system)
+│  └─ Action: Quarterly risk review
+├─ User4 (Engineer Developer):
+│  ├─ Score: 1.9
+│  └─ Action: Quarterly monitoring
+└─ Casey Kim (Finance Manager):
+   ├─ Score: 2.1 (QB admin, sensitive system)
+   └─ Action: Quarterly governance review
+
+High Risk Users:
+├─ User10 (IT Administrator):
+│  ├─ Access: Domain admin, GitHub admin, AWS power
+│  ├─ Score: 3.8 (super-admin, 4 systems, highest)
+│  └─ Action: Monthly risk review + quarterly audit
+├─ User12 (DevOps):
+│  ├─ Access: AWS full admin
+│  ├─ Score: 3.5 (infrastructure admin)
+│  └─ Action: Monthly risk review
+└─ User9 (HR Manager):
+   ├─ Score: 3.2 (was higher, remediated)
+   └─ Action: Quarterly governance review
+
+Overall Risk Profile:
+├─ Critical (4+): 0 users
+├─ High (3-4): 2 users (both IT/infrastructure)
+├─ Medium (2-3): 4 users (appropriate)
+├─ Low (0-2): 7 users (appropriate)
+└─ Risk Distribution: HEALTHY (mostly low-medium)
+```
+
+### Predictive Risk Models
+
+```
+Prediction Model 1: Future Access Creep
+
+Question: Which users will likely have access creep?
+
+Factors:
+├─ History: Has user accumulated unnecessary access before?
+├─ Tenure: Long tenure (more time to accumulate)
+├─ Role changes: Frequent transfers (old access lingers)
+└─ Deprovisioning track record: Is access cleanup complete?
+
+Prediction Results:
+├─ High risk: User9 (had access creep before)
+├─ Medium risk: User4 (role changes in history)
+├─ Low risk: User6, User7 (stable in same role)
+└─ Preventive action: Quarterly access clean-up for User9
+
+Prediction Model 2: SoD Violation Risk
+
+Question: Which users might create SoD conflicts?
+
+Factors:
+├─ Current roles: Do they already have sensitive access?
+├─ Access trajectory: Are they requesting related systems?
+├─ Team dynamics: Is their department growing?
+└─ Request patterns: Are they frequently changing roles?
+
+Prediction Results:
+├─ High risk: Finance department (all 3 users)
+│  └─ Reason: Multiple conflicting roles possible
+├─ Medium risk: Engineering (growing team)
+│  └─ Reason: New projects = new roles
+├─ Low risk: Sales, HR
+└─ Preventive action: Pre-screen finance requests
+
+Prediction Model 3: Departure Risk
+
+Question: Which users might leave, creating orphaned access?
+
+Factors:
+├─ Tenure: How long have they been here?
+├─ Industry norms: Is 2-3 years typical?
+├─ Department: High-turnover or stable?
+└─ Skill: Are they high-demand (likely poached)?
+
+Prediction Results:
+├─ Normal tenure: Most users stable
+├─ Potential departures: Senior engineers (typical career moves)
+├─ Action: Ensure proper offboarding documented
+└─ Risk mitigation: Cross-train replacements
+
+Prediction Model 4: Compliance Risk
+
+Question: Which users are at risk for audit failure?
+
+Factors:
+├─ History: Past violations?
+├─ Access alignment: Does access match job?
+├─ Documentation: Is everything documented?
+└─ Review history: Do they pass reviews?
+
+Prediction Results:
+├─ High compliance risk: None (0%)
+├─ Medium risk: User10 (high access needs oversight)
+├─ Low risk: All others (clean history)
+└─ Action: Enhanced monitoring for User10
+```
+
+### Proactive Risk Mitigation
+
+```
+Risk Monitoring Strategy:
+
+Continuous (Real-Time):
+├─ Monitor high-risk user access changes
+├─ Alert on anomalies scoring > 4.0
+├─ Prevent SoD violations automatically
+└─ Log all admin actions
+
+Weekly:
+├─ Review anomaly alerts (score 2.5-4.0)
+├─ Investigate significant risks
+└─ Alert managers for medium risks
+
+Monthly:
+├─ High-risk user access review
+├─ Risk score recalculation
+├─ Trend analysis
+└─ Remediation tracking
+
+Quarterly:
+├─ Full risk assessment (all users)
+├─ Risk profile updates
+├─ Prediction model refresh
+├─ Governance planning
+└─ Management reporting
+
+Annual:
+├─ Comprehensive risk audit
+├─ Model effectiveness review
+├─ Policy updates
+└─ Board reporting
+
+Remediation Triggers:
+├─ Score > 4.0: Investigate immediately
+├─ Score 2.5-4.0: Review within 2 weeks
+├─ Score < 2.5: Standard monitoring
+└─ Score increase 1.0+: Investigate reason
+```
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+✅ Risk scores calculated for all users
+✅ User risk profiles created
+✅ Predictive models applied
+✅ Mitigation strategies implemented
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Risk scoring model understood
+- ☑️ All users scored
+- ☑️ Predictions generated
+- ☑️ Mitigation plans created
+- ☑️ Monitoring implemented
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** User10 risk score = 3.8, trending up due to new projects. What happens?
+
+A) Remove all access
+B) ✅ Increase monitoring to monthly reviews + quarterly audit
+C) Accept higher risk as normal
+D) Wait for audit
+
+**Answer: B.** Trending risk = increase monitoring frequency, not immediate action.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 8.4: Anomaly Detection](/modules/8.4-anomaly-detection)
+- [Next: 8.6 - Compliance Trending](/modules/8.6-compliance-trending)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Calculate risk scores
+2. Create risk profiles
+3. Apply prediction models
+4. Proceed to 8.6
