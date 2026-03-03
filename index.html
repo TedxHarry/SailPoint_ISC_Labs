@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SailPoint ISC Labs - Interactive Learning Platform</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --accent-1: #f093fb;
+            --accent-2: #4facfe;
+            --accent-3: #00f2fe;
+            --accent-4: #43e97b;
+            --accent-5: #fa709a;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="80" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="20" cy="80" r="2" fill="white" opacity="0.1"/></svg>');
+            background-size: 100px 100px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+            animation: slideDown 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            z-index: 10;
+        }
+
+        .header h1 {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #ffffff 0%, #e0e0ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .rocket {
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        .header p {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            font-weight: 300;
+        }
+
+        .header .subtext {
+            font-size: 1rem;
+            margin-top: 10px;
+            opacity: 0.85;
+        }
+
+        /* Quick Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 50px;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .stat-box {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .stat-box:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-5px);
+        }
+
+        .stat-box .number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-box .label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation Grid */
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .nav-card {
+            background: white;
+            border-radius: 18px;
+            padding: 35px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+            border-left: 6px solid var(--primary);
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .nav-card:hover::before {
+            left: 100%;
+        }
+
+        .nav-card:nth-child(1) { animation-delay: 0.15s; --primary: #667eea; }
+        .nav-card:nth-child(2) { animation-delay: 0.25s; --primary: #764ba2; }
+        .nav-card:nth-child(3) { animation-delay: 0.35s; --primary: #f093fb; }
+        .nav-card:nth-child(4) { animation-delay: 0.45s; --primary: #4facfe; }
+        .nav-card:nth-child(5) { animation-delay: 0.55s; --primary: #00f2fe; }
+        .nav-card:nth-child(6) { animation-delay: 0.65s; --primary: #43e97b; }
+
+        .nav-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+
+        .nav-card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .nav-card h3 {
+            font-size: 1.7rem;
+            margin-bottom: 12px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .nav-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .nav-card a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--primary) 0%, darken(var(--primary), 10%) 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+        }
+
+        .nav-card a:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Track Cards */
+        .tracks-section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            animation: slideDown 1s ease-out;
+        }
+
+        .tracks {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .track-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            border-top: 5px solid;
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .track-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .track-card.beginner { border-top-color: #43e97b; animation-delay: 0.8s; }
+        .track-card.intermediate { border-top-color: #fa709a; animation-delay: 0.9s; }
+        .track-card.advanced { border-top-color: #4facfe; animation-delay: 1s; }
+
+        .track-card-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .track-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .track-card .duration {
+            color: #999;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .track-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .track-card .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Features Section */
+        .features-section {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 50px;
+            color: white;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .features-section h3 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .feature-item i {
+            font-size: 2rem;
+            color: #43e97b;
+        }
+
+        .feature-item p {
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+            opacity: 0.95;
+            animation: fadeInUp 1.3s ease-out;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            margin-top: 40px;
+        }
+
+        .footer p {
+            margin-bottom: 5px;
+        }
+
+        .footer .version {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+
+        /* Animations */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .header h1 { font-size: 2.8rem; }
+            .nav-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+            .section-title { font-size: 2rem; }
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 15px; }
+            .header h1 { font-size: 2rem; }
+            .header p { font-size: 1.1rem; }
+            .nav-grid { grid-template-columns: 1fr; gap: 15px; }
+            .nav-card { padding: 25px; }
+            .tracks { grid-template-columns: 1fr; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .features-section { padding: 25px; }
+            .section-title { font-size: 1.8rem; margin-bottom: 25px; }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 { font-size: 1.5rem; }
+            .header p { font-size: 0.95rem; }
+            .nav-card { padding: 20px; }
+            .nav-card h3 { font-size: 1.3rem; }
+            .stats { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1><span class="rocket">🚀</span> SailPoint ISC Labs</h1>
+            <p>Zero to Professional: Complete Hands-On Learning Path</p>
+            <p class="subtext">Master SailPoint Identity Security Cloud with 80+ practical labs</p>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="stats">
+            <div class="stat-box">
+                <span class="number">80+</span>
+                <span class="label">Labs</span>
+            </div>
+            <div class="stat-box">
+                <span class="number">10</span>
+                <span class="label">Units</span>
+            </div>
+            <div class="stat-box">
+                <span class="number">24+</span>
+                <span class="label">Weeks</span>
+            </div>
+            <div class="stat-box">
+                <span class="number">3</span>
+                <span class="label">Scenarios</span>
+            </div>
+        </div>
+
+        <!-- Navigation Cards -->
+        <div class="nav-grid">
+            <div class="nav-card">
+                <div class="nav-card-icon">📚</div>
+                <h3>Curriculum</h3>
+                <p>Explore the complete 80+ module curriculum with detailed learning objectives and certification alignment.</p>
+                <a href="./TABLE-OF-CONTENTS.md">View Curriculum <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="nav-card">
+                <div class="nav-card-icon">🔧</div>
+                <h3>Setup Guides</h3>
+                <p>Step-by-step guides to configure Entra ID and ISC sandbox for your lab environment.</p>
+                <a href="./SETUP-GUIDES/">Go to Setup <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="nav-card">
+                <div class="nav-card-icon">📋</div>
+                <h3>Sample Labs</h3>
+                <p>Three complete sample labs showing the format and structure of all learning modules.</p>
+                <a href="./SAMPLE-LABS/">View Samples <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="nav-card">
+                <div class="nav-card-icon">📊</div>
+                <h3>Test Data</h3>
+                <p>Ready-to-use synthetic datasets for small (100), mid-market (300), and enterprise (500) deployments.</p>
+                <a href="./TEST-DATA/">Download Data <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="nav-card">
+                <div class="nav-card-icon">📖</div>
+                <h3>Glossary</h3>
+                <p>Complete terminology reference for SailPoint ISC concepts and industry standard definitions.</p>
+                <a href="./GLOSSARY.md">View Glossary <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="nav-card">
+                <div class="nav-card-icon">👥</div>
+                <h3>Character Profiles</h3>
+                <p>Meet the fictional organization and characters used throughout the labs for realistic scenarios.</p>
+                <a href="./CHARACTER-PROFILES.md">Meet Characters <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <!-- Learning Tracks -->
+        <div class="tracks-section">
+            <h2 class="section-title">🎯 Learning Tracks</h2>
+            <div class="tracks">
+                <div class="track-card beginner">
+                    <div class="track-card-icon">🟢</div>
+                    <h4>Fundamentals</h4>
+                    <p class="duration">Units 1-5</p>
+                    <p style="color: #666;">8-12 weeks intensive learning</p>
+                    <p style="font-size: 0.95rem; color: #999;">Master core ISC concepts and architecture</p>
+                    <span class="badge">Professional Eligible</span>
+                </div>
+
+                <div class="track-card intermediate">
+                    <div class="track-card-icon">🟡</div>
+                    <h4>Engineer Track</h4>
+                    <p class="duration">Units 1-9</p>
+                    <p style="color: #666;">18-24 weeks comprehensive path</p>
+                    <p style="font-size: 0.95rem; color: #999;">Complete engineer certification program</p>
+                    <span class="badge">Engineer Certified</span>
+                </div>
+
+                <div class="track-card advanced">
+                    <div class="track-card-icon">🔴</div>
+                    <h4>Full Program</h4>
+                    <p class="duration">Units 1-10</p>
+                    <p style="color: #666;">24+ weeks expert mastery</p>
+                    <p style="font-size: 0.95rem; color: #999;">Enterprise-scale architecture strategy</p>
+                    <span class="badge">Specialist Track</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features-section">
+            <h3>✨ What's Inside</h3>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Hands-on practical labs</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Real-world scenarios</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Certification aligned</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Complete setup guides</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Synthetic test data</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Expert troubleshooting</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2026 SailPoint ISC Labs | Created for comprehensive hands-on learning</p>
+            <p>
+                <a href="https://documentation.sailpoint.com/saas/" target="_blank" style="color: #43e97b; text-decoration: none; margin-right: 20px;">Official Docs</a>
+                <a href="https://www.sailpoint.com/university" target="_blank" style="color: #43e97b; text-decoration: none;">Identity University</a>
+            </p>
+            <p class="version">Version 1.0 | Maintained by TedxHarry</p>
+        </div>
+    </div>
+</body>
+</html>
