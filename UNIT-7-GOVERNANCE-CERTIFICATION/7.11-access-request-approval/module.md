@@ -1,0 +1,167 @@
+# 7.11 - Access Request Approval
+
+**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+
+Manage user access requests: Submit, route, approve, provision, track.
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand access request process
+- Configure approval routing
+- Handle request exceptions
+- Track request lifecycle
+
+---
+
+## 📋 Prerequisites
+
+Module 7.10: Exceptions and Waivers. Exception process understood.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Access Request Lifecycle
+
+```
+User initiates request
+├─ What: Which access/role needed?
+├─ Why: Business justification
+├─ When: Start date, expected duration
+└─ Manager approval required
+
+Request routed to approvers
+├─ First: Direct manager (cost center)
+├─ Second: Access owner (role owner)
+├─ Third: Compliance (if sensitive)
+└─ Escalation: If no approval in 2 days
+
+Approval decision
+├─ Approved: Provision immediately
+├─ Denied: Notify requester with reason
+├─ Clarification: Request more info
+└─ Escalate: Send to higher approval
+
+Provisioning (if approved)
+├─ ISC: Add user to role
+├─ Systems: Create accounts/permissions
+├─ Notify: User has new access
+└─ Timestamp: Log request → provision time
+
+Audit trail
+├─ Request date: When submitted
+├─ Approvers: Who approved
+├─ Decision: What was approved
+├─ Dates: Approval timestamps
+└─ Archive: Permanent record
+```
+
+### Request Types
+
+```
+New Role Request:
+├─ User: Wants Finance_Manager role
+├─ Manager approval: Does user need this?
+├─ Role owner approval: Does user fit role?
+├─ Compliance: Any SoD conflicts?
+└─ Timeline: 2 days to provision
+
+Additional Access Request:
+├─ User: Already has Developer role, needs AWS prod
+├─ Current: Only has staging access
+├─ Justification: New project requires prod
+├─ Approval: Role owner + security team
+└─ Timeline: 1 day
+
+System Access Request:
+├─ User: Has QB role, but no QB login yet
+├─ Type: Self-service provisioning
+├─ Approval: Automatic (role already approved)
+├─ Provision: Immediate
+└─ Timeline: Minutes
+
+Shared Account Request:
+├─ Type: Multiple users need same account
+├─ Example: Service account for integration
+├─ Approval: Security team only
+├─ Tracking: Shared account log
+└─ Timeline: 3 days (security review)
+```
+
+### Approval Routing Rules
+
+```
+Finance Access:
+├─ Direct manager approval
+├─ Finance director approval
+├─ If SoD risk: Compliance approval
+└─ If salary access: CFO approval
+
+Engineering Access:
+├─ Engineering manager approval
+├─ If production: Chief architect approval
+├─ If AWS admin: CTO approval
+└─ If 3+ users: Security team approval
+
+Sales Access:
+├─ Sales manager approval
+├─ If Salesforce admin: Sales director approval
+└─ If multi-system: Compliance approval
+
+Sensitive Access (any department):
+├─ Immediate manager approval
+├─ Access owner approval
+├─ Security team approval (always)
+├─ If executive: CTO/CISO approval
+└─ Escalation: 24 hours max per approver
+```
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+✅ Users can request access
+✅ Approval routing works correctly
+✅ Access provisioned when approved
+✅ Request audit trail maintained
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Request submission working
+- ☑️ Approval routing correct
+- ☑️ Approvals documented
+- ☑️ Provisioning triggered
+- ☑️ Audit trail complete
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** User requests QB access. Manager approved, but role owner denies. What happens?
+
+A) Provision anyway (manager approved)
+B) ✅ Deny request (role owner approval required)
+C) Escalate to CFO
+D) Auto-provision in 3 days
+
+**Answer: B.** All approvers must approve. One "no" = denied request.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 7.10: Exceptions and Waivers](/modules/7.10-exceptions-and-waivers)
+- [Next: 7.12 - Test Approval Workflows](/modules/7.12-test-approval-workflows)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Configure access request form
+2. Set up approval routing
+3. Enable request notifications
+4. Proceed to 7.12

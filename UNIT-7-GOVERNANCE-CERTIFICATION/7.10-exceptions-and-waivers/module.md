@@ -1,0 +1,155 @@
+# 7.10 - Exceptions and Waivers
+
+**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+
+Manage access exceptions: Request waivers, document justifications, track compliance, remediate violations.
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand exception request process
+- Create exception justifications
+- Approve and track waivers
+- Set expiration and renewal policies
+
+---
+
+## 📋 Prerequisites
+
+Module 7.9: Policy Enforcement. Policy enforcement understood.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Exception Request Process
+
+```
+Scenario: User needs temporary access outside normal role
+
+Request: Casey Kim (Finance_Manager) needs AWS access for audit
+├─ Normal: Finance_Manager does NOT have AWS
+├─ Reason: Special audit project, 3 months
+├─ Justification: Required for compliance review
+└─ Process: Submit exception request
+
+Steps:
+1. User submits request with:
+   ├─ What access needed: AWS (audit role)
+   ├─ Why needed: Compliance audit project
+   ├─ How long: Until 2026-06-30
+   └─ Approval chain: Manager → Compliance Lead
+
+2. Approvers review:
+   ├─ Manager: Is work legitimate? YES ✓
+   ├─ Compliance: Is it documented? YES ✓
+   └─ Status: APPROVED
+
+3. ISC provisions exception:
+   ├─ Add Casey to: AWS_Audit_Read role (temporary)
+   ├─ Set expiration: 2026-06-30
+   ├─ Log: Exception reason + approvers
+   └─ Notify: User has new access
+
+4. Track and expire:
+   ├─ Before expiration: Notify approvers "Review needed"
+   ├─ At expiration: Automatically remove access
+   ├─ Record: Exception completed in audit trail
+   └─ Archive: Documentation for compliance
+```
+
+### Exception Types
+
+```
+Time-Bound Exception:
+├─ Duration: Specific end date
+├─ Example: 3-month project access
+├─ Auto-expiration: Remove on date
+└─ Review before removal
+
+One-Time Exception:
+├─ Usage: Single task, then remove
+├─ Example: Ad-hoc access for incident
+├─ Removal: After task complete
+└─ Manual cleanup
+
+Permanent Exception:
+├─ Rare: Special business need
+├─ Example: Executive requiring multiple system access
+├─ Review: Quarterly (not auto-expire)
+└─ Document: Strong justification required
+
+Emergency Exception:
+├─ Fast track: Reduced approval time
+├─ Example: Security incident requires fast access
+├─ Timeline: 15 min approval vs normal 2 days
+├─ Restriction: CTO pre-approval limit
+└─ Review: Audit within 48 hours
+```
+
+### Exception Approval Workflow
+
+```
+Submitter creates exception request
+     ↓
+Manager approval (2 hours)
+     ↓
+Policy owner approval (4 hours)
+     ↓
+Compliance lead approval (6 hours)
+     ↓
+ISC provisions access
+     ↓
+Notify submitter + approvers
+     ↓
+Track expiration (set calendar reminder)
+```
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+✅ Exception requests documented
+✅ Approval chain working
+✅ Access provisioned conditionally
+✅ Expirations tracked automatically
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Exceptions documented with justification
+- ☑️ Approval chain enforced
+- ☑️ Temporary access provisioned
+- ☑️ Expirations managed automatically
+- ☑️ Compliance audit trail maintained
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** Exception expires 2026-06-30. What should ISC do?
+
+A) Let user keep access
+B) ✅ Auto-remove access on expiration date
+C) Email user to request renewal
+D) Keep forever unless removed manually
+
+**Answer: B.** Time-bound exceptions auto-expire per original approval.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 7.9: Policy Enforcement](/modules/7.9-policy-enforcement)
+- [Next: 7.11 - Access Request Approval](/modules/7.11-access-request-approval)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Create exception request process
+2. Configure approval workflow
+3. Set expiration policies
+4. Proceed to 7.11
