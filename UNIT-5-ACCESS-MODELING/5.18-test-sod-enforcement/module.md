@@ -1,0 +1,225 @@
+# 5.18 - Test SoD Enforcement
+
+**Unit:** Access Modeling | **Tier:** 2 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Test SoD rule enforcement
+- Verify conflicts detected
+- Understand enforcement responses
+- Validate complete SoD policy
+
+---
+
+## 📋 Prerequisites
+
+Module 5.17: Define SoD Rules (Part 2). 6+ SoD rules created.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### TASK 1: Test Finance SoD Rule
+
+**Scenario:** Try to assign Casey (Finance_Manager) to Finance_AP_Clerk role
+
+**Navigate:** ISC > Identities > Casey Kim
+
+**Attempt:** Click "Assign Role" > Select "Finance_AP_Clerk"
+
+**Expected Behavior:**
+
+**Option A - Enforcement: Prevent**
+```
+ISC blocks assignment:
+"Cannot assign Finance_AP_Clerk - SoD conflict with Finance_Manager
+Reason: Rule Finance_Role_Conflict_1 prevents both roles"
+Result: Assignment fails, role not assigned
+```
+
+**Option B - Enforcement: Flag for Review**
+```
+ISC warns:
+"SoD conflict detected - requires risk acceptance
+Rule Finance_Role_Conflict_1 conflicts
+[Accept] [Reject]"
+Admin clicks "Accept"
+Result: Assigned with audit log showing conflict override
+```
+
+**Verification:**
+- Try assignment
+- Verify ISC blocks or warns
+- Check Casey still only has Finance_Manager (not both)
+
+---
+
+### TASK 2: Test Create/Delete Conflict
+
+**Scenario:** Try to assign entitlements Create_Invoice AND Delete_Invoice to same user
+
+**Navigate:** ISC > Administration > SoD (or Roles if managing entitlements)
+
+**Attempt:** Grant both Create_Invoice and Delete_Invoice to someone
+
+**Expected:** ISC blocks due to SoD rule "Finance_Create_Delete_Conflict"
+
+---
+
+### TASK 3: Test IT Access Request Conflict
+
+**Scenario:** Try to grant IT_Administrator + Approve_Access_Request to same person
+
+**Navigate:** ISC > Identities > (IT person)
+
+**Attempt:** Assign both roles
+
+**Expected:** ISC blocks or flags "IT_Create_Approve_Conflict"
+
+**Verification:**
+- Person assigned to only one role
+- Cannot have both simultaneously
+
+---
+
+### TASK 4: Verify All SoD Rules Working
+
+**SoD Rule Validation Matrix:**
+
+| Rule | Test | Expected | Result |
+|------|------|----------|--------|
+| Finance_Role_Conflict_1 | Assign AP_Clerk + Manager | Blocked | ✓ |
+| Finance_Create_Delete | Grant Create + Delete | Blocked | ✓ |
+| Finance_Reconcile | Grant Post + Reconcile GL | Blocked | ✓ |
+| IT_Create_Approve | Grant Create_User + Approve | Blocked | ✓ |
+| IT_Deploy_Approve | Grant Deploy + Approve | Blocked | ✓ |
+| Security_Audit | Grant Audit_Mgmt + Admin | Flagged | ✓ |
+
+**All rules should show enforcement working** ✓
+
+---
+
+### TASK 5: Check SoD Audit Trail
+
+**Navigate:** ISC > Audit Logs > Filter: SoD
+
+**Logs should show:**
+```
+2024-03-02 10:30:45 | SoD Violation Attempted
+├─ User: Casey Kim
+├─ Action: Assign Finance_AP_Clerk role
+├─ Conflict Detected: Finance_Role_Conflict_1
+├─ Enforcement: Prevented
+└─ Status: Blocked
+
+2024-03-02 10:31:22 | SoD Override Accepted
+├─ User: Security Officer
+├─ Action: Assign Deploy + Approve (by exception)
+├─ Conflict: IT_Deploy_Approve_Conflict
+├─ Override Reason: Small company necessity
+└─ Approved By: Admin
+```
+
+**Audit trail shows:**
+- What was attempted
+- What rule was violated
+- What enforcement action taken
+- Any overrides with justification
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+After testing:
+
+✅ All SoD rules actively enforcing
+✅ Conflicting assignments blocked or flagged
+✅ No violations get through undetected
+✅ Audit trail complete for all attempts
+✅ Contoso finance and IT systems protected
+
+---
+
+## 🧠 VALIDATION CHECKLIST
+
+**SoD Enforcement Complete:**
+- [ ] Finance rules preventing AP Clerk + Manager combo
+- [ ] Finance rules preventing conflicting entitlements
+- [ ] IT rules preventing Create User + Approve combo
+- [ ] IT rules preventing Deploy + Approve combo
+- [ ] Security audit trail protected
+- [ ] Audit logs show all attempts and blocks
+- [ ] Small company exceptions documented
+
+---
+
+## 🔧 TROUBLESHOOTING
+
+**Issue: "SoD rule not blocking assignment"**
+- Rule status: check if "Active"
+- Rule enforcement: verify not "Flag Only"
+- Try refreshing ISC
+- Verify users/roles in rule still exist
+
+**Issue: "Want to override SoD rule (exception)"**
+- If enforcement is "Prevent": Can't override (by design)
+- If enforcement is "Flag": Admin can accept override
+- Requires audit trail and documentation
+- Best for small orgs with flexibility needs
+
+**Issue: "SoD blocks legitimate assignment"**
+- Rule too broad, catches innocent combo
+- Review rule, adjust if needed
+- Or use "Flag for Review" instead of "Prevent"
+- Or add exception with documentation
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ All 6+ SoD rules actively enforcing
+- ☑️ Conflicting assignments blocked/flagged
+- ☑️ Audit trail shows all attempts
+- ☑️ Finance and IT operations protected
+- ☑️ No SoD violations possible
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** If ISC blocks a role assignment due to SoD rule, what happened?
+
+A) User assignment succeeded
+B) ✅ Conflicting role prevented user from being assigned
+C) Rule is broken
+D) Audit log deleted
+
+**Answer: B.** SoD rule detected conflict and prevented assignment (enforcement=Prevent).
+
+**Q:** What should happen if SoD rule enforcement is "Flag for Review"?
+
+A) Always prevent assignment
+B) Always allow assignment
+C) ✅ Warn admin and require override with documentation
+D) Silently block
+
+**Answer: C.** Flag = warn but allow if admin accepts responsibility + documents reason.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 5.17: Define SoD Rules (Part 2)](/modules/5.17-define-sod-rules-part-2)
+- [Next: 5.19 - Role Ownership & Governance](/modules/5.19-role-ownership-governance)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Test all SoD rules enforcement
+2. Verify rules blocking/flagging appropriately
+3. Check audit trail for all attempts
+4. Proceed to 5.19 for role governance
+

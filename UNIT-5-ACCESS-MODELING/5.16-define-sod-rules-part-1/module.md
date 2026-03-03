@@ -1,0 +1,244 @@
+# 5.16 - Define SoD Rules (Part 1)
+
+**Unit:** Access Modeling | **Tier:** 2 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Create SoD rules in ISC
+- Define financial conflicts
+- Configure conflict prevention
+- Document SoD policies
+
+---
+
+## 📋 Prerequisites
+
+Module 5.15: Separation of Duties Concepts. Finance roles created.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Objective
+Define SoD rules preventing critical financial conflicts in Contoso.
+
+---
+
+### TASK 1: Access SoD Configuration
+
+**Navigate:** ISC > Administration > Separation of Duties (or Policy > SoD)
+
+**Page shows:**
+```
+Separation of Duties
+├─ SoD Rules (list of existing)
+└─ Create Rule button
+```
+
+**Click:** "Create Rule" or "New SoD Policy"
+
+---
+
+### TASK 2: Create Finance SoD Rule 1
+
+**Rule: AP Clerk cannot be Finance Manager**
+
+**Configuration:**
+
+**Rule Name:**
+- Finance_Role_Conflict_1
+
+**Description:**
+- Prevent accounts payable clerk from approving their own invoices
+
+**Conflict Definition:**
+- Role A: Finance_AP_Clerk
+- Role B: Finance_Manager
+- Conflict: Cannot have both roles
+
+**Rule Type:**
+- "Roles" (not entitlements)
+
+**Enforcement:**
+- Prevent assignment (block if conflict detected)
+
+**Process:**
+1. Click "Create Rule"
+2. Name: Finance_Role_Conflict_1
+3. Select Role A: Finance_AP_Clerk
+4. Select Role B: Finance_Manager
+5. Set enforcement: "Prevent"
+6. Save
+
+**Result:**
+```
+SoD Rule Created:
+├─ Rule: Finance_AP_Clerk CANNOT have Finance_Manager
+├─ Enforcement: Prevent assignment
+└─ Status: Active
+```
+
+---
+
+### TASK 3: Create Finance SoD Rule 2
+
+**Rule: Cannot both create and delete invoices**
+
+**Configuration:**
+
+**Rule Name:**
+- Finance_Create_Delete_Conflict
+
+**Description:**
+- Prevent same person from creating and deleting invoices (audit trail protection)
+
+**Conflict Definition:**
+- Entitlement A: Create_Invoice
+- Entitlement B: Delete_Invoice
+- Conflict: Cannot have both
+
+**Rule Type:**
+- "Entitlements"
+
+**Process:**
+1. Create Rule
+2. Name: Finance_Create_Delete_Conflict
+3. Select Entitlement A: Create_Invoice
+4. Select Entitlement B: Delete_Invoice
+5. Enforcement: Prevent
+6. Save
+
+---
+
+### TASK 4: Create Finance SoD Rule 3
+
+**Rule: Cannot reconcile and post to GL**
+
+**Configuration:**
+
+**Rule Name:**
+- Finance_Reconcile_Post_Conflict
+
+**Description:**
+- Prevent GL manipulation: can't both post entries and reconcile
+
+**Conflict Definition:**
+- Entitlement A: Post_GL_Entry
+- Entitlement B: Reconcile_GL
+- Conflict: Cannot have both
+
+**Process:** (Same as Rule 2)
+1. Create Rule
+2. Name: Finance_Reconcile_Post_Conflict
+3. Select entitlements
+4. Enforcement: Prevent
+5. Save
+
+---
+
+### TASK 5: Verify SoD Rules Active
+
+**Navigate:** ISC > SoD Rules
+
+**All three rules should show:**
+```
+Finance_Role_Conflict_1
+├─ Finance_AP_Clerk ↔ Finance_Manager
+├─ Enforcement: Prevent
+└─ Status: Active ✓
+
+Finance_Create_Delete_Conflict
+├─ Create_Invoice ↔ Delete_Invoice
+├─ Enforcement: Prevent
+└─ Status: Active ✓
+
+Finance_Reconcile_Post_Conflict
+├─ Post_GL_Entry ↔ Reconcile_GL
+├─ Enforcement: Prevent
+└─ Status: Active ✓
+```
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+After creating SoD rules:
+
+✅ 3 financial SoD rules created
+✅ Rules actively enforcing conflicts
+✅ Finance roles and entitlements protected
+✅ ISC will block violating assignments
+
+**Example - What ISC will prevent:**
+- Assigning Casey (Finance Manager) to also be Finance_AP_Clerk → BLOCKED
+- Granting someone Create_Invoice + Delete_Invoice → BLOCKED
+- Granting Post_GL_Entry + Reconcile_GL → BLOCKED
+
+---
+
+## 🔧 TROUBLESHOOTING
+
+**Issue: "Can't create SoD rule - entitlements not showing"**
+- Entitlements come from aggregated systems (Unit 4)
+- If none available, use roles instead
+- Or skip entitlement-based rules for now
+
+**Issue: "Rule showing but not enforcing"**
+- Check rule status: should be "Active"
+- May need to refresh ISC
+- Try again after 1 minute
+
+**Issue: "Can't select Role B"**
+- Role may not exist
+- Create roles first (Module 5.8)
+- Then create SoD rules
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Finance_Role_Conflict_1 created (AP Clerk ↔ Manager)
+- ☑️ Finance_Create_Delete_Conflict created
+- ☑️ Finance_Reconcile_Post_Conflict created
+- ☑️ All 3 rules active and enforcing
+- ☑️ ISC prevents violating assignments
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** What does SoD rule "Finance_AP_Clerk ↔ Finance_Manager" prevent?
+
+A) Creating invoices
+B) ✅ Same person having both roles (create + approve)
+C) Viewing reports
+D) Deleting users
+
+**Answer: B.** This rule prevents one person from both creating and approving invoices.
+
+**Q:** If someone has Create_Invoice entitlement and you try to grant Delete_Invoice, what happens?
+
+A) Success - both granted
+B) ✅ Blocked - SoD rule prevents conflict
+C) Requires approval
+D) Silently fails with no message
+
+**Answer: B.** SoD rule prevents conflicting entitlements from being granted.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 5.15: Separation of Duties Concepts](/modules/5.15-separation-of-duties-concepts)
+- [Next: 5.17 - Define SoD Rules (Part 2)](/modules/5.17-define-sod-rules-part-2)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Verify all 3 financial SoD rules active
+2. Proceed to 5.17 for IT/Security SoD rules
+3. Then test SoD enforcement (5.18)
+

@@ -1,0 +1,220 @@
+# 5.19 - Role Ownership & Governance
+
+**Unit:** Access Modeling | **Tier:** 2 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Assign role owners
+- Understand approval workflows
+- Set up role governance
+- Create role certification process
+
+---
+
+## 📋 Prerequisites
+
+Module 5.18: Test SoD Enforcement. All roles and rules created.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Objective
+Establish governance for Contoso roles with defined owners and approval workflows.
+
+---
+
+### TASK 1: Assign Role Owners
+
+**Navigate:** ISC > Administration > Roles
+
+**For each role, assign owner:**
+
+**Finance Roles:**
+- Finance_Manager → Owner: Casey Kim (or Finance Director)
+- Senior_Accountant → Owner: Casey Kim
+- Finance_AP_Clerk → Owner: Casey Kim
+- Finance_Employee (dynamic) → Owner: Finance Manager
+
+**Engineering Roles:**
+- Engineer_Senior → Owner: Alex Lee (or Engineering Lead)
+- Engineer_Developer → Owner: Alex Lee
+- Engineering_Employee (dynamic) → Owner: Engineering Manager
+
+**IT Roles:**
+- IT_Administrator → Owner: IT Director
+- Security_Officer → Owner: Security Director
+- IT_Employee (dynamic) → Owner: IT Manager
+
+**Sales Roles:**
+- Sales_Representative → Owner: Sales Manager
+- Sales_Employee (dynamic) → Owner: Sales Manager
+
+**HR Roles:**
+- HR_Specialist → Owner: HR Manager
+- HR_Employee (dynamic) → Owner: HR Manager
+
+**Process for each:**
+1. Click role name
+2. Find "Owner" field
+3. Select owner from list
+4. Save
+
+---
+
+### TASK 2: Set Up Approval Workflows
+
+**Navigate:** ISC > Administration > Governance (or Workflows)
+
+**Workflow: Role Assignment Request**
+
+**When:** User requests a role
+
+**Flow:**
+```
+1. User clicks "Request Access"
+2. Selects role (e.g., Finance_Employee)
+3. Request goes to Role Owner (Finance Manager)
+4. Manager reviews request:
+   - [ ] Is this person supposed to be in this role?
+   - [ ] Do they have SoD conflicts?
+   - [ ] Is there business justification?
+5. Manager approves or denies
+6. If approved: Role assigned automatically
+7. If denied: Request closed, user notified
+```
+
+**Configure (if available in ISC):**
+1. Access: Workflow builder or Policy settings
+2. Create approval workflow
+3. Set approver: Role Owner
+4. Set notification: Email on approval/denial
+5. Save
+
+---
+
+### TASK 3: Set Up Certification Process
+
+**Certification:** Periodic review of role memberships (annual, quarterly, etc.)
+
+**Process:**
+```
+Quarterly Role Certification:
+1. ISC notifies Role Owners: "Review your role members"
+2. Email sent to Finance Manager for Finance roles
+3. Finance Manager reviews: "Is Casey still Finance Manager? Yes ✓"
+4. Finance Manager reviews: "Should User5 still be AP Clerk? No ✗ - she's in Sales now"
+5. Finance Manager certifies or rejects memberships
+6. ISC removes User5 from Finance_AP_Clerk
+7. Audit trail: Removal tracked
+```
+
+**Configure Certification:**
+1. Access: ISC > Governance > Role Certification
+2. Set frequency: Quarterly, Semi-annual, Annual
+3. Set reviewers: Role Owners
+4. Set reminder: 30 days before certification due
+5. Save
+
+---
+
+### TASK 4: Document Role Governance Policy
+
+**Create policy document:**
+
+```
+CONTOSO ROLE GOVERNANCE POLICY
+
+1. Role Owner Responsibilities
+   - Approve/deny role assignment requests
+   - Quarterly certification of members
+   - Update role documentation
+   - Monitor SoD violations
+
+2. Role Assignment Process
+   - User requests role from ISC
+   - Role owner approves
+   - System assigns automatically
+   - Audit trail created
+
+3. Role Certification
+   - Quarterly reviews conducted
+   - Role owners validate members
+   - Removals processed within 48 hours
+   - Audit trail maintained
+
+4. SoD Compliance
+   - System prevents SoD violations
+   - Exceptions documented
+   - Annual audit of exceptions
+   - Violations escalated to security
+
+5. Changes
+   - New roles: Executive approval required
+   - Role changes: Role owner approves
+   - Entitlement updates: Reviewed for SoD
+```
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+After governance setup:
+
+✅ All roles have assigned owners
+✅ Approval workflow configured
+✅ Certification process scheduled
+✅ Role governance policy documented
+✅ Clear accountability established
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ All roles have owners assigned
+- ☑️ Approval workflow working
+- ☑️ Certification process scheduled
+- ☑️ Governance policy documented
+- ☑️ Clear escalation paths defined
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** Who should be the role owner for a department role?
+
+A) IT department
+B) CEO
+C) ✅ Department manager/director
+D) Random user
+
+**Answer: C.** Role owner = person responsible for that role (department manager).
+
+**Q:** What is the purpose of role certification?
+
+A) Create new roles
+B) ✅ Periodically verify role members are still appropriate
+C) Delete roles
+D) Change role names
+
+**Answer: B.** Certification = quarterly/annual review to ensure members still should have role.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 5.18: Test SoD Enforcement](/modules/5.18-test-sod-enforcement)
+- [Next: 5.20 - Role Documentation & Design](/modules/5.20-role-documentation-design)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Assign owners to all roles
+2. Configure approval workflow
+3. Set up certification schedule
+4. Document governance policy
+5. Proceed to 5.20 for role documentation
+

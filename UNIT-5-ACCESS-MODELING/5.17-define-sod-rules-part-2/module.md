@@ -1,0 +1,225 @@
+# 5.17 - Define SoD Rules (Part 2)
+
+**Unit:** Access Modeling | **Tier:** 2 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Create IT/Security SoD rules
+- Understand system administration conflicts
+- Protect audit and deployment processes
+- Define advanced SoD policies
+
+---
+
+## 📋 Prerequisites
+
+Module 5.16: Define SoD Rules (Part 1). Finance SoD rules created.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Objective
+Define SoD rules for IT/Security to prevent system compromise.
+
+---
+
+### TASK 1: IT SoD Rule 1 - User Management Conflict
+
+**Rule: Cannot both create users AND approve access requests**
+
+**Why:** Person creating accounts could approve their own privileged accounts.
+
+**Configuration:**
+
+**Rule Name:**
+- IT_Create_Approve_Conflict
+
+**Conflict Definition:**
+- Role A: IT_Administrator (or entitlement Create_User)
+- Role B: Access_Request_Approver (or entitlement Approve_Access_Request)
+
+**Enforcement:** Prevent
+
+**Process:**
+1. Navigate: ISC > SoD
+2. Create Rule
+3. Name: IT_Create_Approve_Conflict
+4. Select conflicting roles/entitlements
+5. Enforcement: Prevent
+6. Save
+
+---
+
+### TASK 2: IT SoD Rule 2 - Deployment Conflict
+
+**Rule: Cannot both deploy code AND approve deployments**
+
+**Why:** Developer could deploy malicious code without review.
+
+**Configuration:**
+
+**Rule Name:**
+- IT_Deploy_Approve_Conflict
+
+**Conflict Definition:**
+- Entitlement A: Deploy_Production
+- Entitlement B: Approve_Deployment
+
+**Enforcement:** Prevent
+
+---
+
+### TASK 3: Security SoD Rule - Audit Trail Protection
+
+**Rule: Cannot manage audit logs and access systems simultaneously**
+
+**Why:** Admin could delete evidence of unauthorized access.
+
+**Configuration:**
+
+**Rule Name:**
+- Security_Audit_Management_Conflict
+
+**Conflict Definition:**
+- Entitlement A: Manage_Audit_Logs (delete/modify logs)
+- Entitlement B: Any_System_Admin (could cover tracks)
+
+**Enforcement:** Flag for Review (warn but allow with documentation)
+
+**Note:** This might be "Flag" not "Prevent" because in small companies one person might need both.
+
+---
+
+### TASK 4: Create Additional SoD Rules
+
+**Optional - Create more rules based on your system:**
+
+**Developer SoD:**
+```
+Rule: Cannot merge code to production AND deploy to production
+Conflict: Code_Reviewer ↔ Deploy_Production
+```
+
+**Finance SoD:**
+```
+Rule: Cannot approve expense AND process payment
+Conflict: Approve_Expense ↔ Process_Payment
+```
+
+**HR SoD:**
+```
+Rule: Cannot hire employee AND approve their compensation
+Conflict: Hiring_Manager ↔ Compensation_Approver
+```
+
+---
+
+### TASK 5: Review All SoD Rules
+
+**Navigate:** ISC > SoD Rules
+
+**Complete list should include:**
+
+**Finance Rules (from Module 5.16):**
+- ✓ Finance_Role_Conflict_1
+- ✓ Finance_Create_Delete_Conflict
+- ✓ Finance_Reconcile_Post_Conflict
+
+**IT Rules (this module):**
+- ✓ IT_Create_Approve_Conflict
+- ✓ IT_Deploy_Approve_Conflict
+
+**Security Rules (this module):**
+- ✓ Security_Audit_Management_Conflict
+
+**Total: 6+ SoD rules active**
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+After Module 5.17:
+
+✅ 3 IT/Security SoD rules created
+✅ Finance rules + IT/Security rules = 6+ total
+✅ All critical system operations protected
+✅ Fraud/compromise scenarios prevented
+
+**What ISC now prevents:**
+- Finance: AP Clerk can't approve own invoices
+- Finance: Can't create and delete invoices
+- IT: Can't create accounts and approve own access
+- IT: Can't deploy code and approve own deployment
+- Security: Audit trail protected from manipulation
+
+---
+
+## 🔧 TROUBLESHOOTING
+
+**Issue: "Don't have IT roles defined"**
+- Go back to Module 5.8
+- Create IT_Administrator, Security_Officer roles
+- Then create SoD rules
+
+**Issue: "SoD rule should be 'Flag' not 'Prevent'"**
+- Some rules should warn, not block
+- Contoso might need some flexibility (small company)
+- Set enforcement to "Flag for Review" instead
+- ISC warns but allows with documentation
+
+**Issue: "Rule created but ISC not enforcing"**
+- Refresh ISC console
+- Check rule status is "Active"
+- Wait 1-2 minutes for ISC to apply
+- Try assigning conflicting roles to test
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ IT_Create_Approve_Conflict created
+- ☑️ IT_Deploy_Approve_Conflict created
+- ☑️ Security_Audit_Management_Conflict created
+- ☑️ All 6+ SoD rules active
+- ☑️ Finance + IT/Security protections in place
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** What does SoD rule "Deploy_Production ↔ Approve_Deployment" prevent?
+
+A) All deployments
+B) ✅ Same person deploying code without code review
+C) Testing
+D) Development work
+
+**Answer: B.** Requires two people: developer deploys, different person approves.
+
+**Q:** When should SoD enforcement be "Flag for Review" instead of "Prevent"?
+
+A) Never - always prevent
+B) ✅ When small org needs flexibility but wants audit trail
+C) Always
+D) For unimportant rules
+
+**Answer: B.** Flag = warn and require documentation. Prevent = block completely.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 5.16: Define SoD Rules (Part 1)](/modules/5.16-define-sod-rules-part-1)
+- [Next: 5.18 - Test SoD Enforcement](/modules/5.18-test-sod-enforcement)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Create 3+ IT/Security SoD rules
+2. Verify all 6+ rules active
+3. Proceed to 5.18 to test SoD enforcement
+
