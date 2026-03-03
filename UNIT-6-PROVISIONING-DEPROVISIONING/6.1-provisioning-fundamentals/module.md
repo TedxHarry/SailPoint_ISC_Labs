@@ -1,0 +1,344 @@
+# 6.1 - Provisioning Fundamentals
+
+**Unit:** Provisioning & Deprovisioning | **Tier:** 2 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand provisioning process (identity → systems)
+- Know provisioning vs access modeling relationship
+- Understand ISC provisioning architecture
+- Recognize provisioning challenges and solutions
+
+---
+
+## 📋 Prerequisites
+
+Unit 5: Access Modeling complete. All roles and governance in place.
+
+---
+
+## 📚 CORE CONCEPTS
+
+### What is Provisioning?
+
+**Definition:** Process of creating accounts, granting access, and configuring systems based on user roles and entitlements.
+
+**Simple View:**
+```
+Access Model (Unit 5):         Provisioning (Unit 6):
+"Casey should have QB_Admin"  "Give Casey admin access in QB"
+
+Design Phase                  Implementation Phase
+```
+
+**Reality:**
+```
+Provisioning is the bridge between access model design and actual system access.
+
+Without provisioning = access model is just documentation
+With provisioning = access model becomes REAL enforced access
+```
+
+---
+
+### Access Model → Provisioning Chain
+
+**How it flows:**
+
+```
+UNIT 5: Access Model Design
+├─ Role: Finance_Manager
+├─ Entitlements: QB_Admin, Reports_Finance, Bank_Access
+├─ Members: Casey Kim
+└─ Result: Policy documented, not yet active
+
+↓ (Wait for provisioning)
+
+UNIT 6: Provisioning Execution
+├─ Read access model
+├─ Find: Casey has Finance_Manager role
+├─ Find: Finance_Manager = QB_Admin entitlement
+├─ Find: QB_Admin = create QB account, set admin permissions
+├─ Execute: Create QB account for Casey
+├─ Execute: Set QB admin permissions
+├─ Verify: Casey can now access QB as admin
+└─ Result: Access model realized in actual systems
+```
+
+---
+
+### Why Provisioning Matters
+
+**Without provisioning:**
+```
+Company has access model but nobody has actual access
+Employees can't do their jobs
+IT spends time manually creating accounts
+Risk: Access not aligned with roles (inconsistent)
+```
+
+**With provisioning:**
+```
+Access model automatically deployed to systems
+Employees get access instantly when role assigned
+IT automated (scales from 10 to 10,000 users)
+Risk: Eliminated (access always matches roles)
+```
+
+---
+
+### ISC Provisioning Architecture
+
+**High-level flow:**
+
+```
+User Role Assignment
+        ↓
+ISC recognizes: "Casey is now Finance_Manager"
+        ↓
+ISC evaluates: "Finance_Manager role has QB_Admin entitlement"
+        ↓
+ISC determines: "QB_Admin means create account in QB with admin settings"
+        ↓
+ISC connects: To QuickBooks via Connector
+        ↓
+Connector executes: Create QB account, set permissions
+        ↓
+ISC logs: "Successfully provisioned Casey to QB"
+        ↓
+Verification: Casey logs into QB, has admin access
+```
+
+**Key Components:**
+
+```
+1. Role Assignment (Unit 5 result)
+   └─ User is now member of Finance_Manager role
+
+2. Access Profile → Entitlement Mapping
+   └─ Finance_Manager role includes QB_Admin entitlement
+
+3. ISC Provisioning Engine
+   └─ Reads role membership change
+   └─ Evaluates entitlements
+   └─ Determines actions needed
+
+4. Connector (Target System Integration)
+   └─ QB Connector (QuickBooks)
+   └─ GitHub Connector (GitHub)
+   └─ AWS Connector (Amazon Web Services)
+   └─ AD Connector (Active Directory)
+   └─ Etc.
+
+5. Provisioning Workflows
+   └─ Define: "When someone gets QB_Admin entitlement, do X, Y, Z"
+   └─ Templates: Pre-built workflows for common systems
+
+6. Audit Trail
+   └─ Logs every provisioning action
+   └─ Documents: What was provisioned, when, by who, result
+```
+
+---
+
+### Provisioning vs Deprovisioning
+
+**Provisioning (Add Access):**
+
+```
+User gets role → Provision access
+
+Example:
+Casey hired → assigned Finance_Manager → provisioned to QB, Reports, Bank systems
+Casey promoted → assigned Senior Finance Manager → provisioned to additional systems
+```
+
+**Deprovisioning (Remove Access):**
+
+```
+User loses role → Revoke access
+
+Example:
+Casey leaves company → all role assignments removed → deprovisioned from QB, Reports, Bank
+Casey transfers dept → old role removed, new role assigned → deprovisioned from old systems, provisioned to new systems
+```
+
+**Important:**
+```
+Provisioning without deprovisioning = access sprawl
+User accumulates access from all previous roles
+After 10 years: User has access to systems they don't need
+
+With deprovisioning:
+User always has access matching CURRENT role only
+Leaving job = automatic access removal
+```
+
+---
+
+### Contoso Provisioning Scenario
+
+**What we'll do in Unit 6:**
+
+```
+Starting Point (Unit 5 deliverable):
+├─ 13 users assigned to 11 standard roles + 8 dynamic roles
+├─ 6+ SoD rules enforced
+├─ Governance policies documented
+└─ Access model validated and ready
+
+Unit 6 Objective:
+├─ Provision 13 users to their assigned roles
+├─ Connect to 5 target systems:
+│  ├─ QuickBooks (finance)
+│  ├─ GitHub (engineering)
+│  ├─ AWS (infrastructure)
+│  ├─ Active Directory (user accounts)
+│  └─ HRIS/ADP (HR system)
+├─ Create accounts in each system
+├─ Set permissions matching roles
+├─ Verify all users have correct access
+└─ Test deprovisioning (remove access when role removed)
+
+Result:
+├─ All 13 users have real system access
+├─ Access matches Unit 5 access model
+├─ Audit trail documents all provisioning
+└─ Ready for certification and operations
+```
+
+---
+
+### Common Provisioning Challenges
+
+**Challenge 1: Target System Doesn't Have API**
+
+```
+ISC wants to provision to a system
+But system has no API, no automation
+Only way: Manual account creation (slow, error-prone)
+
+Solution:
+├─ Direct API (preferred): ISC calls system API directly
+├─ Email workflow: ISC sends email to system admin "create account for Casey"
+├─ SFTP: ISC deposits CSV file, system imports batch
+└─ UI automation: ISC automates clicking through web forms (fragile)
+```
+
+**Challenge 2: Account Creation Takes Time**
+
+```
+User assigned role at 9:00 AM
+ISC tries to provision immediately
+System takes 2 hours to create account
+User logs in at 9:15 AM = account doesn't exist yet = access denied
+
+Solution:
+├─ Async provisioning: ISC queues request, system handles later
+├─ Pre-provisioning: Create accounts before user start date
+├─ Workflow approval: Manager approves, account created in parallel
+└─ SLA monitoring: Alert if not provisioned within 4 hours
+```
+
+**Challenge 3: Permission Levels Don't Match**
+
+```
+ISC says: "Give Casey admin access"
+System has: viewer, editor, admin, super-admin
+Which level matches "admin"?
+
+ISC assumes: admin
+System admin assumes: super-admin
+Result: Casey gets less access than intended
+
+Solution:
+├─ Clear mapping documentation
+├─ Test with real scenarios
+├─ Review permissions after provisioning
+└─ Alert if permission level doesn't match expectation
+```
+
+**Challenge 4: Deprovisioning Forgotten**
+
+```
+User leaves company
+Provisioning team removes all access in ISC
+But one system wasn't included in deprovisioning workflow
+User still has access to that system months later = security breach
+
+Solution:
+├─ Comprehensive deprovisioning plan
+├─ Test deprovisioning process
+├─ Quarterly access reviews
+├─ Audit trail shows all deprovisioning actions
+```
+
+---
+
+## 🧠 KEY TAKEAWAYS
+
+- Provisioning = bridge from access model design to real system access
+- Without provisioning: access model is documentation only
+- With provisioning: access model becomes enforced in target systems
+- Connectors integrate ISC with target systems
+- Workflows automate provisioning for each system
+- Deprovisioning removes access, prevents access sprawl
+- Audit trail documents all provisioning actions
+
+---
+
+## 🧪 TASK
+
+1. Understand provisioning purpose
+2. Know ISC provisioning architecture
+3. Understand access model → provisioning relationship
+4. Recognize provisioning challenges
+5. Ready to learn connectors and workflows (Module 6.2)
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Understand what provisioning is and why it matters
+- ☑️ Know difference between provisioning and access modeling
+- ☑️ Understand ISC provisioning flow
+- ☑️ Recognize common provisioning challenges
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** What is provisioning?
+
+A) Designing roles and access models
+B) ✅ Creating accounts and granting access based on roles
+C) Removing access when user leaves
+D) Documenting user activities
+
+**Answer: B.** Provisioning = executing access model in target systems.
+
+**Q:** Why is deprovisioning important?
+
+A) It's optional, only for large companies
+B) ✅ It prevents access sprawl and security breaches
+C) It slows down business processes
+D) It's only needed for contractors
+
+**Answer: B.** Deprovisioning removes access when roles change. Without it, users accumulate old access.
+
+---
+
+## 📚 RESOURCES
+
+- [Unit 5: Access Modeling](/units/5-access-modeling)
+- [Next: 6.2 - Connectors & Integration](/modules/6.2-connectors-integration)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Understand provisioning fundamentals
+2. Proceed to 6.2 for connectors and target system integration
+

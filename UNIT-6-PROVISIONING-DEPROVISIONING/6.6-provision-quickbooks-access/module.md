@@ -1,0 +1,518 @@
+# 6.6 - Provision QuickBooks Access
+
+**Unit:** Provisioning & Deprovisioning | **Tier:** 2 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Execute provisioning workflows in production
+- Provision Contoso finance users to QB
+- Verify provisioning success
+- Monitor and troubleshoot provisioning
+
+---
+
+## 📋 Prerequisites
+
+Module 6.5: Configure Provisioning Workflows. All workflows configured and tested.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Objective
+
+Provision Contoso finance users (3 users) to QuickBooks with correct permission levels based on roles.
+
+---
+
+### TASK 1: Pre-Provisioning Checklist
+
+**Before running provisioning:**
+
+```
+Verify QB Connector:
+☑ QB API key valid and not expired
+☑ ISC IP whitelisted in QB
+☑ Connection test successful (green checkmark)
+☑ API rate limits understood (QB allows X calls/minute)
+
+Verify Workflows:
+☑ QB_Finance_Manager_Provisioning configured
+☑ QB_Senior_Accountant_Provisioning configured
+☑ QB_Finance_AP_Clerk_Provisioning configured
+☑ QB_Finance_Employee_Provisioning configured
+☑ Error handling configured (retry, alert, etc.)
+☑ Notifications configured (email to user)
+☑ Logging configured (audit trail complete)
+
+Verify Users:
+☑ Casey Kim assigned to Finance_Manager role
+☑ Morgan Chen assigned to Senior_Accountant role
+☑ User5 assigned to Finance_AP_Clerk role
+☑ All three assigned to Finance_Employee (dynamic)
+☑ Email addresses present for all users
+☑ Department = Finance for all
+
+Verify QB Target System:
+☑ QB admin account available
+☑ Permission levels exist: admin, editor, data entry, user
+☑ Groups exist: Accounting, Management, Reports
+☑ Capacity: QB can handle 3 new accounts
+☑ Backup made (just in case)
+
+Result: All prerequisites met ✓
+```
+
+---
+
+### TASK 2: Execute QB Provisioning for Finance Manager
+
+**Step 1: Initiate Provisioning for Casey Kim**
+
+```
+Method 1: Automatic (Role Assignment Trigger)
+├─ Go to ISC > Identities > Casey Kim
+├─ If not already assigned, assign Finance_Manager role
+├─ Workflow triggers automatically
+└─ ISC begins provisioning
+
+Method 2: Manual (Admin Button)
+├─ Go to ISC > Administration > Provisioning > Manual Provision
+├─ Select user: Casey Kim
+├─ Select role: Finance_Manager
+├─ Select target system: QuickBooks
+├─ Click "Provision Now"
+└─ ISC begins provisioning
+
+Expected Timeline:
+├─ Submission: 0:00
+├─ API call sent: 0:05
+├─ QB processing: 0:30 (account creation takes time)
+├─ Verification: 1:00
+└─ Complete: 1:30
+```
+
+**Step 2: Monitor Provisioning Progress**
+
+```
+Watch provisioning status:
+├─ Go to ISC > Provisioning > Status
+├─ Look for Casey Kim, Finance_Manager, QB
+├─ Status states:
+│  ├─ Queued: Waiting to run
+│  ├─ In Progress: ISC calling QB API
+│  ├─ Verifying: Checking QB account was created
+│  └─ Completed: Success!
+│
+├─ Expected result: Completed ✓
+
+If Errors:
+├─ Status: Failed
+├─ Error message: "QB API timeout" or other
+├─ Action: Check error details, retry or fix manually
+└─ See TROUBLESHOOTING section below
+```
+
+**Step 3: Verify QB Account Created**
+
+```
+Verify in QB directly:
+
+Login to QB (admin account):
+├─ QB > Administration > Users & Roles
+├─ Look for new account: "casey"
+├─ Account properties:
+│  ├─ Email: casey@contoso.com ✓
+│  ├─ Full name: Casey Kim ✓
+│  ├─ Permission level: admin ✓
+│  ├─ Groups: Accounting ✓
+│  ├─ Groups: Management ✓
+│  └─ Groups: Reports ✓
+│
+├─ Status: Active ✓
+├─ First login: Not yet (user hasn't logged in)
+└─ Result: Account correctly created ✓
+
+Try to Login as Casey:
+├─ QB login page
+├─ Username: casey
+├─ Password: [from email ISC sent]
+├─ Result: Successfully logs in ✓
+├─ Verify: Can access QB as admin
+└─ Can create invoices, post GL, etc. ✓
+
+Check QB Audit Log:
+├─ QB > Administration > Audit Log
+├─ Look for: "User casey created"
+├─ Timestamp: [today's date]
+├─ Details: "Created via ISC provisioning"
+└─ Result: Audit trail complete ✓
+```
+
+**Step 4: Verify ISC Audit Trail**
+
+```
+Check ISC provisioning audit log:
+
+ISC > Administration > Audit > Provisioning
+├─ Look for entry: Casey Kim, QB, Finance_Manager
+├─ Details:
+│  ├─ Timestamp: 2026-03-02 09:15:23
+│  ├─ User: Casey Kim
+│  ├─ Action: Provision
+│  ├─ System: QuickBooks
+│  ├─ Status: Success
+│  ├─ Account created: casey
+│  ├─ Permissions: admin
+│  ├─ Groups: [Accounting, Management, Reports]
+│  └─ Notes: "Provisioned via Finance_Manager role"
+│
+└─ Result: Complete audit trail ✓
+```
+
+---
+
+### TASK 3: Execute QB Provisioning for Senior Accountant & AP Clerk
+
+**Repeat for Morgan Chen (Senior Accountant):**
+
+```
+Go to ISC > Identities > Morgan Chen
+├─ Verify: Assigned to Senior_Accountant role
+├─ Trigger: QB_Senior_Accountant_Provisioning workflow
+├─ Monitor: Status in ISC > Provisioning > Status
+├─ Verify in QB:
+│  ├─ Account: "mchen" created
+│  ├─ Email: morgan@contoso.com
+│  ├─ Permission level: editor (not admin)
+│  ├─ Groups: Accounting
+│  └─ Groups: Reports (but not Management)
+└─ Result: Morgan provisioned correctly ✓
+```
+
+**Repeat for User5 (Finance AP Clerk):**
+
+```
+Go to ISC > Identities > User5
+├─ Verify: Assigned to Finance_AP_Clerk role
+├─ Trigger: QB_Finance_AP_Clerk_Provisioning workflow
+├─ Monitor: Status in ISC > Provisioning > Status
+├─ Verify in QB:
+│  ├─ Account: "user5" created
+│  ├─ Email: user5@contoso.com
+│  ├─ Permission level: data entry (lowest level)
+│  ├─ Groups: Accounting
+│  └─ Groups: Invoice Entry
+└─ Result: User5 provisioned correctly ✓
+```
+
+---
+
+### TASK 4: Verify All Finance Users Provisioned Correctly
+
+**Comprehensive Verification Table:**
+
+```
+User: Casey Kim
+├─ Role: Finance_Manager (manual)
+├─ QB Account: casey ✓
+├─ Permission: admin ✓
+├─ Groups: Accounting, Management, Reports ✓
+├─ Can create invoices: YES ✓
+├─ Can approve invoices: YES ✓
+├─ Can reconcile GL: YES ✓
+├─ Can access reports: YES ✓
+├─ Audit log: Provisioned ✓
+└─ Status: READY FOR PRODUCTION ✓
+
+User: Morgan Chen
+├─ Role: Senior_Accountant (manual)
+├─ QB Account: mchen ✓
+├─ Permission: editor ✓
+├─ Groups: Accounting, Reports ✓
+├─ Can create GL entries: YES ✓
+├─ Can post transactions: YES ✓
+├─ Can reconcile GL: NO ✗ (correct - only manager does)
+├─ Can create invoices: NO ✗ (correct - AP clerk does)
+├─ Audit log: Provisioned ✓
+└─ Status: READY FOR PRODUCTION ✓
+
+User: User5
+├─ Role: Finance_AP_Clerk (manual)
+├─ QB Account: user5 ✓
+├─ Permission: data entry ✓
+├─ Groups: Accounting, Invoice Entry ✓
+├─ Can create invoices: YES ✓
+├─ Can approve invoices: NO ✗ (correct - manager approves)
+├─ Can post GL: NO ✗ (correct - senior accountant does)
+├─ Can reconcile GL: NO ✗ (correct - manager does)
+├─ Audit log: Provisioned ✓
+└─ Status: READY FOR PRODUCTION ✓
+
+Summary:
+├─ All 3 finance users provisioned to QB ✓
+├─ All permissions correct per role ✓
+├─ All accounts verified in QB ✓
+├─ All audit trails complete ✓
+├─ No SoD violations (Casey can't both create + approve) ✓
+└─ Ready for production use ✓
+```
+
+---
+
+### TASK 5: Test SoD Enforcement in QB
+
+**Verify: Casey cannot both create AND approve invoices (SoD rule)**
+
+```
+Test 1: Try to assign Casey both AP Clerk + Manager roles
+
+ISC > Identities > Casey Kim
+├─ Currently assigned: Finance_Manager
+├─ Try to assign: Finance_AP_Clerk
+├─ ISC checks SoD rules
+├─ SoD Rule: Finance_Manager ↔ Finance_AP_Clerk = CONFLICT
+├─ Result: ISC blocks assignment
+│  └─ Error message: "Cannot assign Finance_AP_Clerk - conflicts with Finance_Manager role"
+└─ Verification: SoD rule working ✓
+
+Test 2: Verify QB permissions match SoD
+
+QB Security Model:
+├─ Finance_Manager (Casey):
+│  ├─ Can: Create invoices (yes), Approve invoices (yes), Reconcile GL (yes)
+│  └─ Result: Casey can do all actions BUT...
+├─ Finance_AP_Clerk (User5):
+│  ├─ Can: Create invoices (yes), Approve invoices (NO)
+│  └─ Result: User5 can only create, cannot approve
+├─ Result: Two people required (create + approve) = SoD enforced ✓
+
+Test 3: Simulate fraudulent attempt
+
+Fraud attempt: Casey creates fake invoice, approves it, company pays
+ISC/QB prevention:
+├─ If SoD configured correctly: Cannot happen
+├─ Reason: Casey has "approve" permission, but User5 must create
+├─ Or: User5 can create, but cannot approve (Casey must)
+├─ Result: Requires two people, fraud requires collusion ✓
+```
+
+---
+
+### TASK 6: Troubleshooting & Common Issues
+
+**Issue 1: QB Account Creation Fails with "API Timeout"**
+
+```
+Error message: "QB API call timed out after 30 seconds"
+
+Causes:
+├─ QB server slow or under heavy load
+├─ Network latency between ISC and QB
+├─ Connector timeout too short (30 sec default)
+└─ QB API rate limit reached (too many requests at once)
+
+Troubleshooting Steps:
+1. Check QB server status
+   ├─ Is QB website responding?
+   ├─ Try logging in manually to QB
+   └─ Check QB status page (status.intuit.com)
+
+2. Increase timeout in workflow
+   ├─ ISC > Workflows > QB_Finance_Manager_Provisioning
+   ├─ Edit: Increase timeout from 30 to 60 seconds
+   ├─ Save
+   └─ Retry
+
+3. Check network connectivity
+   ├─ From ISC appliance: ping QB server
+   ├─ Check firewall allows ISC IP to QB
+   └─ Verify: ISC IP in QB whitelist
+
+4. Reduce concurrent requests
+   ├─ Don't provision all 3 users at once
+   ├─ Provision 1 user, wait 5 min, provision next
+   └─ This avoids rate limiting
+
+5. If still failing:
+   ├─ Contact QB support
+   ├─ Provide: Error log, timestamp, user affected
+   └─ Temporary solution: Create accounts manually in QB
+```
+
+**Issue 2: QB Account Already Exists (Duplicate)**
+
+```
+Error message: "Account 'casey' already exists in QB"
+
+Cause:
+├─ Account was created previously
+├─ Maybe manually created before ISC provisioning
+├─ Maybe re-running provisioning on same user
+
+Troubleshooting:
+1. Verify: Is old account the same person?
+   ├─ Go to QB > Users, search for "casey"
+   ├─ If same email/name: Yes, same person
+   └─ If different: Maybe test account, safe to delete
+
+2. Update workflow to handle this
+   ├─ ISC > Workflows > QB_Finance_Manager_Provisioning
+   ├─ Error handling: "If account exists, use existing"
+   ├─ Don't create duplicate, update permissions instead
+   └─ Save
+
+3. Retry provisioning
+   ├─ ISC will use existing account
+   ├─ Will set correct permissions
+   └─ Result: Success ✓
+
+4. If need to delete and recreate:
+   ├─ QB admin deletes old account
+   ├─ Disable user in QB (or fully delete)
+   ├─ Wait 24 hours (QB may cache)
+   ├─ Retry provisioning
+   └─ New account created
+```
+
+**Issue 3: Permissions Set Incorrectly**
+
+```
+Error: Casey provisioned but only has "user" permission, should be "admin"
+
+Cause:
+├─ Workflow didn't set permission level correctly
+├─ QB API call executed but permissions not applied
+├─ Manual error in workflow configuration
+
+Troubleshooting:
+1. Check workflow configuration
+   ├─ ISC > Workflows > QB_Finance_Manager_Provisioning
+   ├─ Step: "Set QB Permissions"
+   ├─ Permission level: Should be "admin"
+   ├─ If wrong: Edit and fix
+   └─ Save
+
+2. Fix permissions manually in QB
+   ├─ QB > Users > casey
+   ├─ Edit permission level: admin
+   ├─ Save
+   └─ Casey now has correct permissions
+
+3. Test role change workflow
+   ├─ Remove Finance_Manager role from Casey
+   ├─ Re-assign Finance_Manager role
+   ├─ Workflow re-runs (should fix permissions)
+   └─ Verify: Permissions now correct
+
+4. If repeats:
+   ├─ May be QB API issue
+   ├─ Contact QB support with error logs
+   └─ Temporary: Set permissions manually
+```
+
+**Issue 4: Notification Email Not Received**
+
+```
+Error: Casey didn't receive QB account setup email
+
+Cause:
+├─ Email not configured in ISC
+├─ User email address wrong in ISC
+├─ Email server not running
+├─ ISC not connected to email server
+
+Troubleshooting:
+1. Check email configuration
+   ├─ ISC > Administration > Email Settings
+   ├─ SMTP server: configured?
+   ├─ SMTP credentials: valid?
+   ├─ Test email: Click "Send Test Email"
+   └─ If fails: Fix email settings
+
+2. Check user email
+   ├─ ISC > Identities > Casey Kim
+   ├─ Email field: casey@contoso.com (correct?)
+   ├─ If wrong: Fix email address
+   └─ Email will be sent on next provisioning
+
+3. Resend email manually
+   ├─ ISC > Provisioning > Actions
+   ├─ Find Casey Kim QB provisioning
+   ├─ Click "Resend Notification"
+   ├─ Email sent to casey@contoso.com
+   └─ Casey should receive within 5 min
+
+4. If still not received:
+   ├─ Check spam folder
+   ├─ Check email bounce log
+   ├─ Call Casey, provide password manually
+   └─ Follow up later when email working
+```
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+After QB provisioning:
+
+✅ Casey Kim has QB account with admin permissions
+✅ Morgan Chen has QB account with editor permissions
+✅ User5 has QB account with data entry permissions
+✅ All can log in with provided credentials
+✅ Audit trail documents all provisioning actions
+✅ SoD rules preventing conflicting access
+✅ Notification emails received by users
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ All 3 finance users provisioned to QB
+- ☑️ Each has correct permission level
+- ☑️ Audit trail complete for all provisioning
+- ☑️ Users verified able to access QB
+- ☑️ SoD enforcement verified (no conflicts)
+- ☑️ Troubleshooting successful for any issues
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** After Casey provisioned to QB as Finance_Manager, what permission level should she have?
+
+A) User (read-only)
+B) Editor (can create/modify)
+C) ✅ Admin (can manage all including permissions)
+D) Data Entry (invoice entry only)
+
+**Answer: C.** Finance_Manager role gets admin access in QB (can create, approve, reconcile).
+
+**Q:** QB account creation times out. What's the first troubleshooting step?
+
+A) Delete user and start over
+B) ✅ Check QB server status and network connectivity
+C) Increase provisioning timeout in workflow
+D) Bypass QB and provision manually only
+
+**Answer: B.** First check if QB is available and reachable. If QB is down, provisioning will always fail.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 6.5: Configure Provisioning Workflows](/modules/6.5-configure-provisioning-workflows)
+- [Module 6.4: Contoso Provisioning Plan](/modules/6.4-contoso-provisioning-plan)
+- [Next: 6.7 - Provision GitHub Access](/modules/6.7-provision-github-access)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Execute QB provisioning for all 3 finance users
+2. Verify access in QB and ISC audit logs
+3. Troubleshoot any issues
+4. Proceed to 6.7 to provision engineering users to GitHub
+

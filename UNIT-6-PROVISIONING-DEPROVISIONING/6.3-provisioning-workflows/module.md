@@ -1,0 +1,434 @@
+# 6.3 - Provisioning Workflows
+
+**Unit:** Provisioning & Deprovisioning | **Tier:** 2 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand provisioning workflow purpose
+- Know workflow steps and decision logic
+- Understand workflow templates
+- Recognize workflow testing requirements
+
+---
+
+## 📋 Prerequisites
+
+Module 6.2: Connectors & Integration. Connectors understood.
+
+---
+
+## 📚 CORE CONCEPTS
+
+### What is a Provisioning Workflow?
+
+**Definition:** Series of automated steps ISC performs when provisioning/deprovisioning access.
+
+**Simple Example:**
+
+```
+Event: User assigned Finance_Manager role
+↓
+Workflow (What to do):
+1. Check if user has QB account
+2. If not, create QB account
+3. Set QB permission to "admin"
+4. Add to QB "Accounting" group
+5. Send welcome email with login instructions
+6. Log provisioning action in audit trail
+↓
+Result: User has QB access, documentation complete
+```
+
+---
+
+### Workflow Components
+
+**Component 1: Trigger (When to run)**
+
+```
+Provisioning Triggers:
+
+├─ Role Assignment: User assigned to X role
+├─ Entitlement Assignment: User assigned to X entitlement
+├─ Attribute Change: User's department changed
+├─ Schedule: Run every night (reconciliation)
+└─ Manual: Admin clicks "Provision Now" button
+
+Contoso Examples:
+├─ Trigger: User assigned Finance_Manager role
+├─ Trigger: User assigned QB_Admin entitlement
+├─ Trigger: User department changed to Finance
+├─ Trigger: Nightly reconciliation (verify all roles provisioned)
+└─ Trigger: Admin requests emergency access
+```
+
+**Component 2: Conditions (If/Then logic)**
+
+```
+Conditional Logic:
+
+Example 1:
+├─ IF user role = Finance_Manager
+├─ AND department = Finance
+├─ THEN provision QB account with admin level
+└─ ELSE provision QB account with user level
+
+Example 2:
+├─ IF target system = GitHub
+├─ AND user in Engineering dept
+├─ THEN add to "Engineering" team
+├─ ELSE add to "Contractors" team
+
+Example 3:
+├─ IF deprovisioning AND user transferred to different dept
+├─ THEN remove access from old dept systems
+├─ AND provision access to new dept systems
+```
+
+**Component 3: Actions (What to do)**
+
+```
+Provisioning Actions:
+
+Create Account:
+├─ Create new account in target system
+├─ Set username/login
+├─ Generate temp password
+└─ Example: Create QB account for Casey
+
+Set Permissions:
+├─ Assign permission level (admin, editor, viewer, etc.)
+├─ Assign groups/roles in target system
+├─ Grant specific entitlements
+└─ Example: Make Casey an admin in QB
+
+Disable Account:
+├─ Disable (don't delete) account
+├─ Revoke all permissions
+├─ Keep historical record
+└─ Example: Disable QB account for user who left
+
+Modify Account:
+├─ Change permission level
+├─ Add/remove from groups
+├─ Update attributes
+└─ Example: Promote User4 from developer to admin level
+
+Notification:
+├─ Send email to user ("Your access is ready")
+├─ Send email to manager (approval workflow)
+├─ Send email to system admin (logging)
+└─ Example: "Casey, your QB admin access is active"
+
+Custom Actions:
+├─ Webhooks (call external systems)
+├─ Scripts (run custom code)
+├─ API calls (any REST endpoint)
+└─ Example: Call custom system API to create account
+```
+
+**Component 4: Error Handling (What if something fails)**
+
+```
+Error Handling:
+
+Scenario: QB API returns "Account already exists"
+├─ Option 1: Stop workflow, alert admin
+├─ Option 2: Continue (account already exists, no problem)
+├─ Option 3: Disable old account, create new one
+└─ Choose based on business logic
+
+Scenario: GitHub API timeout (slow response)
+├─ Option 1: Retry 3 times, then alert
+├─ Option 2: Queue for later retry
+├─ Option 3: Alert immediately
+└─ Choose based on SLA requirements
+
+Scenario: User has no email address (required by system)
+├─ Option 1: Fail and alert admin
+├─ Option 2: Use default email pattern
+├─ Option 3: Skip provisioning to that system
+└─ Choose based on business requirements
+```
+
+**Component 5: Logging & Verification**
+
+```
+Logging:
+
+Every step logged:
+├─ Timestamp: When action performed
+├─ Action: What was done
+├─ Result: Success or failure
+├─ Details: Account created, permissions set, etc.
+└─ Example: "2026-03-02 09:15:23 - Created QB account for Casey, admin level"
+
+Verification:
+
+After provisioning, verify:
+├─ Account exists in target system
+├─ Permissions correct
+├─ User can log in
+├─ Access matches expectations
+└─ Example: "Verified Casey can access QB as admin"
+```
+
+---
+
+### Provisioning Workflow Examples
+
+**Example 1: QB Provisioning (Finance)**
+
+```
+Trigger: User assigned Finance_Manager role
+
+Conditions:
+├─ Department = Finance ✓
+├─ Role = Finance_Manager ✓
+└─ QB account exists? No
+
+Actions:
+1. Create QB account
+   ├─ Username: email prefix (casey → casey@contoso)
+   ├─ Password: Generate secure random
+   └─ Email: Send to user
+2. Set QB permissions
+   ├─ Permission level: admin
+   ├─ Add to groups: "Accounting", "Management"
+   └─ GL access: enabled
+3. Send notifications
+   ├─ User: "Your QB account is ready, temporary password: xxxxx"
+   ├─ Manager: "Casey provisioned to QB as admin"
+   └─ IT: "QB provisioning complete, user: casey"
+4. Log action
+   └─ "Provisioned Casey to QB (admin level), success"
+
+Result: Casey can log into QB with admin access
+```
+
+**Example 2: GitHub Provisioning (Engineering)**
+
+```
+Trigger: User assigned Engineer_Developer role
+
+Conditions:
+├─ Department = Engineering ✓
+├─ Role = Engineer_Developer ✓
+└─ GitHub account exists? No
+
+Actions:
+1. Create GitHub account
+   ├─ Username: user4.contoso
+   ├─ Email: user4@contoso.com
+   └─ Name: User 4
+2. Add to GitHub organization
+   ├─ Organization: contoso
+   ├─ Team: "Engineering"
+   └─ Role: "Developer" (not admin)
+3. Grant repository access
+   ├─ Repositories: [main repo, staging repo]
+   ├─ Permission: write (can push code, create PRs)
+   └─ Admin repo: No access
+4. Send notifications
+   ├─ User: "Welcome to Contoso GitHub, set your password"
+   ├─ Engineering Manager: "User4 provisioned to GitHub"
+   └─ GitHub admin: GitHub account created"
+5. Log action
+   └─ "Provisioned User4 to GitHub (developer), success"
+
+Result: User4 can write code to engineering repos
+```
+
+**Example 3: AWS Provisioning (Infrastructure)**
+
+```
+Trigger: User assigned DevOps role
+
+Conditions:
+├─ Department = Engineering ✓
+├─ Role = DevOps ✓
+└─ AWS IAM user exists? No
+
+Actions:
+1. Create AWS IAM user
+   ├─ Username: user12-devops
+   ├─ Access Key: auto-generated
+   └─ Secret: send via secure channel
+2. Add to IAM groups
+   ├─ Group: "DevOps_Admins"
+   ├─ Group: "Infrastructure"
+   └─ Permissions: Full AWS access
+3. Enable MFA (multi-factor auth)
+   ├─ Requirement: User12 must set up MFA
+   ├─ Until MFA: Access limited
+   └─ QR code: Send to user
+4. Assign policies
+   ├─ Policy: PowerUser (except IAM)
+   ├─ Policy: Infrastructure management
+   └─ Restriction: Cannot modify billing
+5. Log action
+   └─ "Provisioned User12 to AWS (DevOps admin), MFA required"
+
+Result: User12 can manage infrastructure on AWS
+```
+
+**Example 4: AD Deprovisioning (User Leaves)**
+
+```
+Trigger: User assigned to leave, all roles removed
+
+Conditions:
+├─ Employee status changed to "Terminated" ✓
+├─ User has AD account ✓
+└─ Last day of work passed ✓
+
+Actions:
+1. Disable AD account
+   ├─ Status: Disabled (don't delete)
+   ├─ Password: Reset
+   └─ Group memberships: Remove all
+2. Remove from all groups
+   ├─ Distribution lists: Removed
+   ├─ Security groups: Removed
+   └─ Department groups: Removed
+3. Move AD object
+   ├─ Organizational unit: "Terminated Users"
+   ├─ Reason: "Employee departed 2026-03-02"
+   └─ Retention: 90 days before deletion
+4. Notify system admins
+   ├─ AD admin: "User account disabled"
+   ├─ QB admin: "Deprovisioning User5 from QB"
+   ├─ GitHub admin: "Deprovisioning from GitHub"
+   └─ AWS admin: "Deprovisioning from AWS"
+5. Revoke access everywhere
+   ├─ Deprovisioning workflows triggered for all systems
+   ├─ Each system removes user's access
+   └─ See below for each system deprovisioning
+```
+
+---
+
+### Workflow Template Approach
+
+**ISC Comes With Templates:**
+
+```
+Pre-built workflow templates for:
+
+├─ Standard Provisioning (create account, set permissions)
+├─ Deprovisioning (disable account, remove access)
+├─ Role Change (remove old access, add new access)
+├─ Emergency Access (grant immediate temporary access)
+├─ User Lifecycle (hire → assign roles → provision)
+└─ Each system (QB template, GitHub template, AWS template, etc.)
+
+How to use:
+1. Select template for your use case
+2. Customize for your systems
+3. Map your roles/entitlements to systems
+4. Test with small group
+5. Deploy to production
+```
+
+---
+
+### Testing Provisioning Workflows
+
+**Test Approach:**
+
+```
+Step 1: Test in sandbox
+├─ Create test user (TestUser1)
+├─ Assign test role (TestRole)
+├─ Run workflow
+├─ Verify: Account created in test QB, permissions set
+└─ Result: Workflow logic correct
+
+Step 2: Test error scenarios
+├─ Try provisioning twice (handle "account exists")
+├─ Try with missing required attributes
+├─ Try with system unavailable (handle timeout)
+└─ Verify: Error handling works
+
+Step 3: Test rollback
+├─ If provisioning fails, does it clean up?
+├─ Test: Remove role, verify deprovisioning
+└─ Verify: Access removed correctly
+
+Step 4: Test at scale
+├─ Provision 10 test users at once
+├─ Check performance (< 1 minute per user acceptable)
+├─ Check for race conditions
+└─ Result: Ready for production
+```
+
+---
+
+## 🧠 KEY TAKEAWAYS
+
+- Workflows = automated provisioning steps when roles assigned/removed
+- Triggers = when workflow runs (role assignment, schedule, manual)
+- Conditions = if/then logic (IF role = X, THEN provision Y)
+- Actions = what to do (create account, set permissions, notify)
+- Error handling = what if something fails (retry, alert, skip)
+- Logging = complete audit trail of all provisioning actions
+- Testing = verify workflows work before production use
+
+---
+
+## 🧪 TASK
+
+1. Understand provisioning workflow components
+2. Know trigger types and conditions
+3. Understand action types
+4. Recognize error handling strategies
+5. Ready to apply workflows to Contoso (Module 6.4)
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Understand workflow purpose
+- ☑️ Know trigger/condition/action components
+- ☑️ Understand error handling approaches
+- ☑️ Know workflow testing requirements
+- ☑️ Ready to implement Contoso provisioning plan
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** What triggers a provisioning workflow?
+
+A) User logs in to ISC
+B) ✅ User assigned to a role or entitlement
+C) Admin reads audit logs
+D) System boots up
+
+**Answer: B.** Workflow triggers on role/entitlement assignment.
+
+**Q:** In a provisioning workflow, what should happen if QB account already exists?
+
+A) Fail and alert admin
+B) Delete old account and create new one
+C) ✅ Continue (account exists, set permissions on existing account)
+D) Skip provisioning to QB
+
+**Answer: C.** Handle "account exists" gracefully - use existing account and set permissions.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 6.2: Connectors & Integration](/modules/6.2-connectors-integration)
+- [Next: 6.4 - Contoso Provisioning Plan](/modules/6.4-contoso-provisioning-plan)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Understand workflow components and logic
+2. Proceed to 6.4 to plan Contoso provisioning
+
