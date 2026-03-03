@@ -1,0 +1,350 @@
+# 6.13 - Deprovisioning Fundamentals
+
+**Unit:** Provisioning & Deprovisioning | **Tier:** 2 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand deprovisioning process
+- Know why deprovisioning matters
+- Understand access removal strategies
+- Recognize deprovisioning risks
+
+---
+
+## 📋 Prerequisites
+
+Module 6.12: Troubleshoot Provisioning Issues. Provisioning complete and verified.
+
+---
+
+## 📚 CORE CONCEPTS
+
+### What is Deprovisioning?
+
+**Definition:** Process of removing account access when user no longer needs it (role change, department transfer, or employee departure).
+
+**Simple View:**
+```
+Provisioning: "Give user access"
+Deprovisioning: "Remove user access"
+
+Must be automatic + immediate to prevent access sprawl
+```
+
+**Scenarios Requiring Deprovisioning:**
+
+```
+Scenario 1: User Transferred Departments
+├─ Old access: Finance systems (QB, ADP finance)
+├─ New access: Sales systems (Salesforce, ADP sales)
+├─ Action: Remove finance access, add sales access
+└─ Timing: Same day as transfer effective
+
+Scenario 2: User Promoted to Senior Role
+├─ Old access: Developer level (staging repos, AWS dev)
+├─ New access: Senior level (prod repos, AWS prod approval)
+├─ Action: Remove junior restrictions, add senior access
+└─ Timing: Same day as promotion effective
+
+Scenario 3: User Leaves Company
+├─ All access: Remove completely
+├─ Exception: Disable not delete (keep audit history)
+├─ Action: Disable in all systems same day
+├─ Timing: Last day of employment
+└─ Cleanup: Delete after 90-day retention period
+
+Scenario 4: Contract Ends
+├─ Access: Remove same as employee departure
+├─ Timing: Last day of contract
+└─ Documentation: Record in ISC for audit
+```
+
+---
+
+### Why Deprovisioning Matters
+
+**Without Deprovisioning (Access Sprawl):**
+
+```
+User's career timeline:
+├─ Year 1: Hired, Finance department
+│  └─ Access: QB, ADP, Finance AD groups
+│
+├─ Year 2: Promoted to Finance Manager
+│  ├─ New access: Finance_Manager role
+│  └─ Old access: Never removed
+│
+├─ Year 3: Transferred to Sales
+│  ├─ New access: Salesforce, Sales role
+│  └─ Old access: Still has Finance manager access
+│
+├─ Year 4: Promoted to VP Operations
+│  ├─ New access: All systems
+│  └─ Old access: Still has Finance + Sales access
+│
+└─ Result: User has access to systems they don't work with anymore
+   ├─ Risk 1: Accidentally changes finance data (not their job)
+   ├─ Risk 2: Old passwords written down, security issue
+   ├─ Risk 3: If credentials compromised, attacker has multiple system access
+   └─ Risk 4: Compliance nightmare (audit can't determine who has what)
+```
+
+**With Deprovisioning (Access Control):**
+
+```
+Same career timeline:
+├─ Year 1: Hired
+│  └─ Access: QB, ADP, Finance groups ONLY
+│
+├─ Year 2: Promoted
+│  ├─ Old access: Removed (not Finance AP Clerk anymore)
+│  ├─ New access: Finance_Manager role
+│  └─ Result: Finance_Manager access only
+│
+├─ Year 3: Transferred
+│  ├─ Old access: All Finance access removed
+│  ├─ New access: Salesforce, Sales role
+│  └─ Result: Salesforce access only
+│
+├─ Year 4: Promoted to VP
+│  ├─ Old access: Sales access removed
+│  ├─ New access: VP role (all systems as needed)
+│  └─ Result: VP access only
+│
+└─ Result: User always has access matching CURRENT role only
+   ├─ Clean: Only current systems accessible
+   ├─ Safe: Old passwords irrelevant
+   ├─ Auditable: Clear who has what when
+   └─ Compliant: Access always matches job function
+```
+
+---
+
+### Deprovisioning Strategies
+
+**Strategy 1: Disable (Don't Delete)**
+
+```
+When: User leaving company
+
+Process:
+├─ Find all accounts in all systems
+├─ For each account: Disable (not delete)
+├─ Keep: Historical record, audit trail
+├─ Delete: After retention period (e.g., 90 days)
+└─ Reason: Can recover if needed, complete audit history
+
+Example - QB:
+├─ Before: Account 'casey' active, can log in
+├─ Action: Disable account in QB
+├─ After: Account 'casey' disabled, cannot log in
+├─ Later (90 days): Delete account completely
+└─ Result: Historical record kept for audit
+```
+
+**Strategy 2: Remove From Role**
+
+```
+When: User role changed or department transferred
+
+Process:
+├─ Find all access granted via old role
+├─ Remove user from old role
+├─ ISC automatically removes related access
+├─ Add new role if role changed
+├─ ISC automatically provisions new access
+└─ Timing: Same day as role change
+
+Example - Department Transfer (Finance → Sales):
+├─ Remove: Finance_Manager role
+├─ ISC removes: QB access, Finance AD groups, ADP finance features
+├─ Add: Sales_Representative role
+├─ ISC adds: Salesforce access, Sales AD groups, ADP sales features
+├─ Result: User has only Sales access
+└─ Audit log: Shows what was removed and when
+```
+
+**Strategy 3: Revoke Specific Entitlement**
+
+```
+When: User needs one permission removed (rare)
+
+Process:
+├─ Keep role assignments unchanged
+├─ Remove only specific entitlement
+├─ Example: User has Engineer_Developer role but shouldn't have Git_Push
+├─ Action: Remove Git_Push entitlement from user only
+├─ User still in Engineer_Developer role but without one permission
+└─ Timing: Immediate
+
+Example - Emergency (compromised credentials):
+├─ Incident: User's laptop stolen with GitHub key
+├─ Temporary action: Revoke GitHub_Write entitlement
+├─ User can still use GitHub for read (view code)
+├─ User cannot push code (temporary)
+├─ Action: Regenerate key, re-grant entitlement
+└─ Timing: Same day as incident
+```
+
+---
+
+### Deprovisioning Workflows
+
+**Similar to Provisioning, but Opposite:**
+
+```
+Provisioning Workflow:
+├─ Trigger: User assigned to role
+├─ Actions: Create account, set permissions, add to groups
+└─ Result: User has access
+
+Deprovisioning Workflow:
+├─ Trigger: User role removed or changed
+├─ Actions: Remove from groups, disable permissions, disable account
+└─ Result: User loses access
+
+Deprovisioning actions:
+├─ Remove from security groups
+├─ Revoke entitlements/permissions
+├─ Disable (or delete) account
+├─ Remove from distribution lists
+├─ Alert: Notifications to system admins
+├─ Log: Complete audit trail
+└─ Archive: Keep record for compliance
+```
+
+---
+
+### Deprovisioning Risks & Mitigation
+
+**Risk 1: Accidental Data Loss**
+
+```
+Risk: Deprovisioning script deletes account before data backed up
+
+Mitigation:
+├─ Never delete immediately (disable first)
+├─ Retention period: Keep disabled accounts 90 days minimum
+├─ Backup: Auto-backup all user data before deprovisioning
+├─ Permission: Require approval before deletion
+└─ Audit: Alert on all deprovisioning actions
+```
+
+**Risk 2: Incomplete Deprovisioning**
+
+```
+Risk: Deprovisioning one system but forgetting another
+├─ User removed from QB but still has GitHub access
+├─ User leaves company but still can access production
+└─ Security breach possible
+
+Mitigation:
+├─ Centralized: ISC triggers deprovisioning for all systems
+├─ Checklist: Verify all systems before marking complete
+├─ Notification: Alert all system admins of deprovisioning
+├─ Testing: Practice deprovisioning before doing for real
+└─ Monitoring: Alert if user still accessing system post-deprovisioning
+```
+
+**Risk 3: Emergency Access Loss**
+
+```
+Risk: Accidentally deprovision user who's on call that night
+├─ User on-call for production (needs access)
+├─ Deprovisioning runs, removes all access
+├─ Production issue happens, on-call can't access systems
+└─ Outage worsens
+
+Mitigation:
+├─ Schedule: Don't deprovision during on-call windows
+├─ Exception: Keep "break glass" emergency access active
+├─ Approval: Manager must approve deprovisioning timing
+├─ Communication: Notify user before deprovisioning
+└─ Recovery: Have break glass access as backup
+```
+
+**Risk 4: Compliance Violation**
+
+```
+Risk: Deprovisioning removes audit trail too quickly
+├─ Deprovisioning deletes account immediately
+├─ Audit trail lost before audit period ends
+├─ Cannot prove access removal when audited
+└─ Compliance failure (SOX, HIPAA, etc.)
+
+Mitigation:
+├─ Retention: Keep disabled accounts minimum 7 years
+├─ Audit log: Maintain ISC audit trail regardless of account
+├─ Archive: Archive user data to compliance storage
+├─ Policy: Document retention period
+└─ Verification: Regular compliance audits
+```
+
+---
+
+## 🧠 KEY TAKEAWAYS
+
+- Deprovisioning = removing access when no longer needed
+- Without deprovisioning = access sprawl (user accumulates old access)
+- With deprovisioning = clean access (user has only current roles' access)
+- Deprovisioning must be: Automatic, comprehensive, and logged
+- Deprovisioning risks: Data loss, incomplete removal, emergency issues, compliance
+
+---
+
+## 🧪 TASK
+
+1. Understand deprovisioning purpose
+2. Know deprovisioning scenarios
+3. Understand deprovisioning strategies
+4. Recognize deprovisioning risks
+5. Ready to test deprovisioning (Module 6.14)
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Understand deprovisioning concept and importance
+- ☑️ Know difference between disable and delete strategies
+- ☑️ Understand access sprawl risks
+- ☑️ Know deprovisioning workflow triggers
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** What is the primary goal of deprovisioning?
+
+A) Delete all user data immediately
+B) ✅ Remove access when user no longer needs it, prevent access sprawl
+C) Punish users who leave
+D) Reduce cloud costs by removing accounts
+
+**Answer: B.** Deprovisioning = prevent access sprawl by removing old access.
+
+**Q:** User transferred from Finance to Sales. What should happen?
+
+A) Keep both Finance and Sales access (more secure)
+B) ✅ Remove Finance access, add Sales access (clean access)
+C) Manually manage both departments
+D) Delete Finance account, create new Sales account
+
+**Answer: B.** Role change = automatic deprovisioning (old) + provisioning (new).
+
+---
+
+## 📚 RESOURCES
+
+- [Module 6.12: Troubleshoot Provisioning Issues](/modules/6.12-troubleshoot-provisioning-issues)
+- [Next: 6.14 - Test Deprovisioning Workflow](/modules/6.14-test-deprovisioning-workflow)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Understand deprovisioning fundamentals
+2. Know deprovisioning risks and mitigation
+3. Proceed to 6.14 to test deprovisioning
+

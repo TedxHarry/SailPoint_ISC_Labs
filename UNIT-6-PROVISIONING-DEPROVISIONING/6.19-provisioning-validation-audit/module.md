@@ -1,0 +1,245 @@
+# 6.19 - Provisioning Validation Audit
+
+**Unit:** Provisioning & Deprovisioning | **Tier:** 2 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Comprehensive provisioning audit
+- Verify access consistency
+- Identify and document mismatches
+- Ensure compliance
+
+---
+
+## 📋 Prerequisites
+
+Module 6.18: Disaster Recovery Scenarios. DR understood.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Objective
+
+Comprehensive audit of all 13 users' provisioning to verify complete, correct, and consistent access.
+
+---
+
+### TASK 1: Access Matrix Audit
+
+**Verify every user's access matches their roles:**
+
+```
+Audit Format:
+
+User: Casey Kim
+├─ Assigned Role: Finance_Manager, Finance_Employee
+├─ Expected Access: QB (admin), AD (groups), ADP (payroll)
+├─
+├─ QB Account: EXISTS, Permission: admin ✓
+├─ AD Account: EXISTS, Groups: Finance, Finance_Manager ✓
+├─ ADP Account: EXISTS, Features: Payroll view ✓
+├─ GitHub: Should NOT exist... EXISTS (unexpected!) ✗
+├─ AWS: Should NOT exist... Does NOT exist ✓
+├─
+├─ Result: MISMATCH (unexpected GitHub access)
+├─ Action: Investigate why Casey has GitHub
+└─ Resolution: Deprovision GitHub if not needed
+
+(Repeat for all 13 users across all 5 systems)
+```
+
+---
+
+### TASK 2: Role-to-Access Mapping Validation
+
+**Verify every role provisioned correctly:**
+
+```
+Audit Format:
+
+Finance_Manager Role:
+├─ Assigned users: Casey Kim (1 user)
+├─ Expected provisions:
+│  ├─ QB: Admin level
+│  ├─ AD: Finance + Manager groups
+│  ├─ ADP: Payroll features
+│  └─ GitHub: Read-only (optional)
+├─
+├─ Actual provisions:
+│  ├─ QB: Admin ✓
+│  ├─ AD: Finance + Manager ✓
+│  ├─ ADP: Payroll view ✓
+│  └─ GitHub: Not provisioned ✓
+├─
+├─ Result: CORRECT
+└─ Status: Role provisioning accurate
+```
+
+---
+
+### TASK 3: Entitlement Coverage Audit
+
+**Verify no one is missing required entitlements:**
+
+```
+Finance_Manager should have:
+├─ QB: admin (can approve invoices) ✓
+├─ QB: reports (can view financial reports) ✓
+├─ ADP: payroll view (can see team payroll) ✓
+└─ All required: YES ✓
+
+Engineer_Developer should have:
+├─ GitHub: write (can push code) ✓
+├─ AWS: dev environment (can test) ✓
+├─ GitHub: not maintainer (cannot merge) ✓ (correct)
+└─ All required: YES ✓
+
+(Verify all 13 users have complete required access)
+```
+
+---
+
+### TASK 4: Compliance and SoD Verification
+
+**Verify no SoD violations:**
+
+```
+SoD Rule: Finance_Manager ↔ Finance_AP_Clerk = CONFLICT
+
+Audit:
+├─ Casey Kim: Finance_Manager ✓
+├─ Casey Kim: Finance_AP_Clerk? NO ✓ (correct, no conflict)
+└─ Result: SoD enforced ✓
+
+(Verify all 6+ SoD rules)
+```
+
+---
+
+### TASK 5: Audit Trail Completeness
+
+**Verify all provisioning logged:**
+
+```
+ISC Audit Log Check:
+
+Required entries for Casey Kim:
+1. QB provisioning: Logged ✓
+2. AD provisioning: Logged ✓
+3. ADP provisioning: Logged ✓
+4. Timestamp: [recorded] ✓
+5. Status: Success ✓
+6. Details: [complete] ✓
+
+(All 13 users × 5 systems = 65 entries minimum, verify all present)
+```
+
+---
+
+### TASK 6: Audit Report
+
+**Final comprehensive report:**
+
+```
+PROVISIONING VALIDATION AUDIT REPORT
+
+Date: 2026-03-15
+Auditor: Security Team
+Scope: All 13 Contoso users, all 5 target systems
+
+SUMMARY:
+├─ Users audited: 13/13 (100%)
+├─ System combinations: 65+ (13 × 5)
+├─ Fully compliant: 12/13 (92%)
+├─ Issues found: 1
+├─ Resolved: 1
+└─ Final status: COMPLIANT ✓
+
+FINDINGS:
+
+Issue #1 (RESOLVED):
+├─ User: Casey Kim
+├─ Problem: Had GitHub access (should not)
+├─ Root cause: Test account not deleted
+├─ Resolution: Deprovisioned from GitHub
+├─ Verification: Re-audited, corrected
+└─ Status: RESOLVED ✓
+
+(No other issues)
+
+COMPLIANCE:
+├─ SoD rules: 6/6 enforced ✓
+├─ Access audit trail: 100% logged ✓
+├─ Role mapping: 100% correct ✓
+├─ Dynamic rules: Evaluated correctly ✓
+└─ Overall: COMPLIANT ✓
+
+RECOMMENDATIONS:
+1. Quarterly audit (this report: Q1)
+2. Verify test accounts deleted properly
+3. Continue monitoring for drift
+4. Annual refresher training for admins
+
+APPROVAL:
+├─ Auditor: Security Manager
+├─ Date: 2026-03-15
+├─ Status: APPROVED
+└─ Next audit: 2026-06-15 (Q2)
+```
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+✅ All 13 users audited against all systems
+✅ Access matrices verified correct
+✅ Role-to-access mapping validated
+✅ SoD rules verified enforced
+✅ Audit trail completeness confirmed
+✅ Compliance report generated
+✅ Issues identified and resolved
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ All users audited
+- ☑️ All roles verified
+- ☑️ All access verified correct
+- ☑️ All SoD rules verified
+- ☑️ Audit trail complete
+- ☑️ Issues identified and fixed
+- ☑️ Report generated
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** Quarterly audit finds 1 issue. What happens?
+
+A) Ignore, too minor
+B) ✅ Document, fix, re-audit to verify
+C) Fail the audit
+D) Fine the user
+
+**Answer: B.** Issue found = document, fix, verify fix, continue.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 6.18: Disaster Recovery Scenarios](/modules/6.18-disaster-recovery-scenarios)
+- [Next: 6.20 - Provisioning & Deprovisioning Complete](/modules/6.20-provisioning-deprovisioning-complete)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Run comprehensive provisioning audit
+2. Verify all access correct
+3. Document findings in report
+4. Proceed to 6.20 for capstone
+

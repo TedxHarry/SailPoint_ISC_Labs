@@ -1,0 +1,217 @@
+# 6.17 - Reprovisioning Workflows
+
+**Unit:** Provisioning & Deprovisioning | **Tier:** 2 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Re-grant access after deprovisioning
+- Handle re-hiring scenarios
+- Fix accidental deprovisioning
+- Manage access restoration
+
+---
+
+## 📋 Prerequisites
+
+Module 6.16: Emergency Access Break Glass. Break glass understood.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Objective
+
+Handle reprovisioning scenarios: accidental deprovisioning, rehiring, and access restoration.
+
+---
+
+### TASK 1: Accidental Deprovisioning Fix
+
+**Scenario: User10 accidentally deprovisioned**
+
+```
+What happened:
+├─ IT_Administrator role removed by mistake
+├─ ISC deprovisioned: AD, GitHub, AWS access
+├─ User10: Cannot log in anywhere
+├─ Timeline: Discovered 15 minutes later
+
+Immediate action (< 5 minutes):
+├─ Restore from ISC: Re-assign IT_Administrator role
+├─ ISC detects: Role re-assigned
+├─ ISC triggers: Reprovisioning to all systems
+├─ Re-provisioning: QB, AD, GitHub, AWS
+├─ Timeline: < 3 minutes
+
+Result:
+├─ User10: Access restored
+├─ Audit: Shows removal then re-assignment
+├─ Action: Investigate why role removed
+└─ Prevention: Require approval for role removal
+```
+
+---
+
+### TASK 2: Rehiring Scenario
+
+**Scenario: User5 rehired after 6 months**
+
+```
+Before (6 months ago):
+├─ User5 status: Terminated
+├─ All accounts: Disabled
+├─ No access: Anywhere
+└─ Retention: 90-day period passed, accounts deleted
+
+Rehiring (today):
+├─ User5: Rehired into Finance_AP_Clerk role
+├─ Action: Create new user record in ISC
+├─ ISC: Treats as new employee
+├─ Provisioning: All systems fresh accounts
+├─ Timeline: < 10 minutes
+
+Result:
+├─ New QB account: Fresh start
+├─ New AD account: Fresh credentials
+├─ New ADP: New employee record
+└─ No access to old data: Clean separation
+```
+
+---
+
+### TASK 3: Failed Provisioning Recovery
+
+**Scenario: AWS provisioning failed, user not provisioned**
+
+```
+Discovery:
+├─ User created: AWS account should exist
+├─ Issue: Account not in AWS
+├─ Root cause: AWS API timeout during provisioning
+├─ User: Cannot access AWS (no account created)
+
+Fix approach:
+1. Check ISC audit: Shows provisioning failed
+2. Retry provisioning:
+   ├─ ISC > Provisioning > Retry
+   ├─ Select: Failed AWS provisioning
+   ├─ Action: Retry now
+   └─ Result: Should succeed this time
+
+3. Verify:
+   ├─ AWS: New account created
+   ├─ User: Can log in
+   └─ Status: Fixed ✓
+```
+
+---
+
+### TASK 4: Access Restoration After Outage
+
+**Scenario: GitHub outage, all GitHub accounts temporarily inaccessible**
+
+```
+Outage timeline:
+├─ 2:00 AM: GitHub goes down
+├─ 2:30 AM: ISC detects connection errors
+├─ 3:00 AM: GitHub restored
+├─ 3:15 AM: ISC reconnects
+
+Reprovisioning:
+├─ No action needed for GitHub (accounts still exist)
+├─ ISC: Automatically re-tests connection
+├─ Verification: All accounts accessible again
+└─ Result: Service restored ✓
+
+If accounts were affected:
+├─ ISC could: Re-push team memberships
+├─ ISC could: Re-grant repository access
+├─ ISC could: Force sync all permissions
+└─ Approach: Sync from source (ISC) to target (GitHub)
+```
+
+---
+
+### TASK 5: Reprovisioning Verification
+
+**Verify All Reprovisioning:**
+
+```
+Audit Trail for Reprovisioning:
+
+Entry 1 (Deprovisioning):
+├─ Timestamp: 2026-03-02 16:00:00
+├─ User: User10
+├─ Action: Role removed (by mistake)
+├─ Status: Deprovisioned from all systems
+└─ Duration: < 5 minutes
+
+Entry 2 (Discovery):
+├─ Timestamp: 2026-03-02 16:15:00
+├─ Notification: "User10 has no access, investigate"
+├─ Approver: IT Manager investigates
+└─ Finding: Role removed by mistake
+
+Entry 3 (Fix):
+├─ Timestamp: 2026-03-02 16:20:00
+├─ Action: Role re-assigned
+├─ Approver: IT Manager
+└─ Status: Re-provisioning initiated
+
+Entry 4 (Verification):
+├─ Timestamp: 2026-03-02 16:25:00
+├─ Verification: User10 can access all systems
+├─ Status: Access restored ✓
+└─ Result: Incident resolved
+```
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+✅ Accidental deprovisioning quickly recovered
+✅ Rehiring handled as new employee
+✅ Failed provisioning retried successfully
+✅ Outage recovery automated
+✅ All reprovisioning audited
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Understand accidental deprovisioning recovery
+- ☑️ Know rehiring process
+- ☑️ Know failed provisioning retry
+- ☑️ Know outage recovery procedures
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** User10 accidentally deprovisioned. What's the quickest fix?
+
+A) Manually recreate all accounts
+B) ✅ Re-assign role in ISC, automatically re-provisions
+C) Wait for backup restore (overnight)
+D) Call system admins to manually fix each system
+
+**Answer: B.** Role re-assignment = automatic reprovisioning.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 6.16: Emergency Access Break Glass](/modules/6.16-emergency-access-break-glass)
+- [Next: 6.18 - Disaster Recovery Scenarios](/modules/6.18-disaster-recovery-scenarios)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Test accidental deprovisioning recovery
+2. Practice rehiring workflows
+3. Test failed provisioning retry
+4. Proceed to 6.18 for disaster recovery
+

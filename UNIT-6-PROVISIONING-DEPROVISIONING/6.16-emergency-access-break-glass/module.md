@@ -1,0 +1,254 @@
+# 6.16 - Emergency Access Break Glass
+
+**Unit:** Provisioning & Deprovisioning | **Tier:** 2 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand emergency access requirements
+- Implement break glass accounts
+- Use emergency access safely and auditibly
+- Document emergency access usage
+
+---
+
+## 📋 Prerequisites
+
+Module 6.15: Offboarding Complete. Offboarding understood.
+
+---
+
+## 📚 CORE CONCEPTS
+
+### Break Glass Access
+
+**Definition:** Emergency account with full system access, used only when normal access unavailable (outage, emergency, deprovisioning accident).
+
+**Why Needed:**
+
+```
+Scenario 1: ISC Down
+├─ Identity system offline
+├─ Cannot provision new access
+├─ But production issue happening right now
+├─ Need: Someone to access production immediately
+└─ Solution: Break glass account (direct access, no ISC)
+
+Scenario 2: Normal Access Revoked Accidentally
+├─ User deprovisioned by mistake
+├─ User is on-call, production issue now
+├─ Cannot re-provision (would take 15 minutes, issue now)
+└─ Solution: Break glass (temporary, until re-provisioned)
+
+Scenario 3: 2 AM Production Outage
+├─ Time: 2:00 AM, on-call engineer on-call
+├─ Issue: Database down, need to fix NOW
+├─ Normal process: Request access, approval, ISC provision (~30 min)
+├─ Reality: Production down, losing $1000/minute
+└─ Solution: Break glass (immediate access, audit later)
+```
+
+---
+
+### Break Glass Account Design
+
+**For Each Critical System:**
+
+```
+System: Production AWS
+
+Account Details:
+├─ Username: aws-breakglass (or similar)
+├─ Password: Generated, stored offline (vault/safe)
+├─ Access: Full admin (not restricted)
+├─ MFA: Configured but phone in secure location
+├─ Audit: Highest level logging
+└─ Ownership: Operations manager + CTO (both required)
+
+Credential Storage:
+├─ Location: Physical safe (locked, guarded)
+├─ Backup: Offsite vault
+├─ Access: Two people required to open (dual control)
+├─ Rotation: Every 90 days (regular change)
+└─ Log: Every access attempt logged
+
+Activation Process:
+├─ Only when: Production down or critical emergency
+├─ Authorization: Operations manager OR CTO (one only, then escalate)
+├─ Verification: Is this truly an emergency? (alert other admins)
+├─ Usage: Limited to emergency, not routine
+└─ Logging: Audit every action taken
+```
+
+---
+
+### Using Break Glass Safely
+
+**Emergency Access Protocol:**
+
+```
+Step 1: Declare Emergency
+├─ Acknowledge: Production/critical system down
+├─ Notify: All team leads (email + Slack)
+├─ Document: What's wrong, why emergency?
+└─ Timeline: From now on, complete audit trail
+
+Step 2: Authorize Break Glass Use
+├─ Contact: Operations manager or CTO
+├─ Explain: Why can't use normal access?
+├─ Get approval: "Approved, use break glass"
+├─ Document: Approver name, timestamp, reason
+└─ Remember: Someone has to sign off
+
+Step 3: Retrieve Credentials
+├─ If locked in vault: Get person with key
+├─ Retrieve: Username, password (written on secure paper)
+├─ Verify: Credentials are current (not expired)
+└─ Timeline: Should take < 5 minutes
+
+Step 4: Use Credentials
+├─ Log in: To production system
+├─ Act immediately: Fix the emergency
+├─ Every action: Logged and audited
+├─ Do: Only what's necessary
+├─ Don't: Browse around, look at unrelated data
+└─ Goal: Restore service, nothing else
+
+Step 5: Complete Emergency
+├─ Verify: System restored, working normally
+├─ Notify: Team, customer (if applicable)
+├─ Log out: Break glass account
+├─ Return: Credentials to vault
+└─ Timeline: Emergency resolved
+
+Step 6: Audit & Report
+├─ Next day: Review all actions taken
+├─ Report: To security team
+├─ Justify: Each action taken (was it necessary?)
+├─ Learn: How to prevent next time?
+└─ Result: Documentation complete
+```
+
+---
+
+### Break Glass Audit Requirements
+
+**Every Break Glass Use Logged:**
+
+```
+Audit Entry:
+
+Timestamp: 2026-03-15 02:00:00 (middle of night - real emergency!)
+Account: aws-breakglass
+Action: Production database accessed
+Approver: Operations Manager (Jane Smith)
+Reason: Production DB down, customers impacted
+Emergency: YES
+Authorization: Approved by Jane Smith, 01:58 AM
+
+Actions taken:
+├─ 02:00 - Connected to production database
+├─ 02:02 - Checked database status: FAILED
+├─ 02:03 - Restarted database service
+├─ 02:04 - Verified: Database responding
+├─ 02:05 - Disconnected
+├─ Duration: 5 minutes
+├─ Issue: Resolved, customers can access again
+└─ Next steps: Investigate root cause in morning
+
+Follow-up:
+├─ Report filed: Yes
+├─ Security reviewed: Yes
+├─ Root cause found: Connection pool exhaustion
+├─ Fix implemented: Increase pool size
+├─ Ticket: PROD-12345 (documented)
+└─ Status: Complete
+```
+
+---
+
+### Break Glass Best Practices
+
+```
+DO:
+✅ Use only for genuine emergencies
+✅ Log every action taken
+✅ Notify security team immediately
+✅ Report usage within 24 hours
+✅ Rotate credentials regularly (every 90 days)
+✅ Store passwords in physical vault (secure)
+✅ Require dual control (two people, both required)
+✅ Audit every session (cannot be deleted)
+✅ Limit to minimal necessary access
+✅ Have written policy (everyone knows rules)
+
+DON'T:
+❌ Use for convenience (regular access too slow)
+❌ Use for routine administration (normal process instead)
+❌ Use without authorization (always get approval)
+❌ Use to bypass audit controls (audit everything)
+❌ Share credentials (one-time use per person)
+❌ Store passwords in email (secure vault only)
+❌ Keep same credentials > 90 days (rotate regularly)
+❌ Access unauthorized systems (only fix emergency)
+❌ Browse unrelated data (focus on emergency)
+❌ Hide usage (always audit)
+```
+
+---
+
+## 🧪 TASK
+
+1. Understand break glass concept
+2. Know when to use emergency access
+3. Understand audit requirements
+4. Document emergency access procedure
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Understand break glass purpose
+- ☑️ Know break glass design for each system
+- ☑️ Know emergency access protocol
+- ☑️ Know audit and reporting requirements
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** When should break glass account be used?
+
+A) When normal provisioning is too slow
+B) ✅ Only for genuine emergencies (production down, ISC unavailable)
+C) For convenience (faster than normal access)
+D) Never, it's too risky
+
+**Answer: B.** Break glass = emergencies only, not convenience.
+
+**Q:** After using break glass in emergency, what must happen?
+
+A) Nothing, emergency is over
+B) ✅ Audit report filed, security reviews, lessons learned documented
+C) Change the password secretly
+D) Pretend it didn't happen
+
+**Answer: B.** Every break glass use audited, reported, analyzed.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 6.15: Offboarding Complete](/modules/6.15-offboarding-complete)
+- [Next: 6.17 - Reprovisioning Workflows](/modules/6.17-reprovisioning-workflows)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Establish break glass accounts for critical systems
+2. Store credentials securely
+3. Document emergency access procedure
+4. Proceed to 6.17 for reprovisioning
+

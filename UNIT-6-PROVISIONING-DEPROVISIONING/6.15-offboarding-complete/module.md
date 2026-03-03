@@ -1,0 +1,369 @@
+# 6.15 - Offboarding Complete
+
+**Unit:** Provisioning & Deprovisioning | **Tier:** 2 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Execute complete employee offboarding
+- Deprovisioning from all systems
+- Verify all access removed
+- Document offboarding completion
+
+---
+
+## 📋 Prerequisites
+
+Module 6.14: Test Deprovisioning Workflow. Deprovisioning verified.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Objective
+
+Execute complete offboarding of departing employee, removing access from all 5 systems in coordinated, verifiable manner.
+
+---
+
+### TASK 1: Offboarding Scenario
+
+**Simulate: User5 (Finance AP Clerk) Leaving Contoso**
+
+```
+Departure Details:
+├─ Employee: User5 (Finance AP Clerk)
+├─ Department: Finance
+├─ Last day: 2026-03-15 (Friday)
+├─ Notice given: 2 weeks (standard)
+├─ Roles: Finance_AP_Clerk, Finance_Employee (dynamic)
+└─ Current access: QB, AD, ADP
+
+Offboarding Timeline:
+├─ T-14 days: Notice given, offboarding scheduled
+├─ T-7 days: Handover begins, access documented
+├─ T-1 days: Final day tomorrow, deprovisioning planned
+├─ T+0 days: Last day, deprovisioning executed
+└─ T+90 days: Accounts deleted (after retention period)
+```
+
+---
+
+### TASK 2: Pre-Offboarding Preparation
+
+**Before Last Day:**
+
+```
+Step 1: Backup all data
+├─ QB: Export User5's transaction history
+├─ AD: Export account metadata
+├─ ADP: Export payroll/benefits records
+├─ Emails: Archive User5's mailbox
+├─ Results: Stored securely for 7-year retention
+└─ Timeline: 1 week before last day
+
+Step 2: Document current access
+├─ Create: Access audit for User5
+├─ List: All systems, accounts, permissions
+├─ Purpose: Verify complete deprovisioning
+└─ Timeline: 3 days before last day
+
+Step 3: Notify system admins
+├─ QB Admin: "User5 departing, prepare to disable"
+├─ AD Admin: "Offboarding scheduled for 2026-03-15"
+├─ GitHub Admin: "User5 has read-only access, will remove"
+├─ AWS: "No AWS access, no action needed"
+├─ ADP: "Termination date set, benefits/payroll freeze"
+└─ Timeline: 1 week before last day
+
+Step 4: Prepare handover
+├─ Identify: User5's pending invoices (who will handle?)
+├─ Identify: User5's key responsibilities
+├─ Document: Procedures and notes
+├─ Train: Replacement or covering employee
+└─ Timeline: Throughout notice period
+
+Step 5: Collect equipment
+├─ Laptop: Schedule retrieval on last day
+├─ Badge: Schedule deactivation
+├─ Phone: Plan return or deactivation
+├─ Keys: Collect any physical access items
+└─ Timeline: Last day at end of business
+```
+
+---
+
+### TASK 3: Offboarding Execution (Last Day)
+
+**Deprovisioning Workflow:**
+
+```
+Morning of Last Day:
+├─ User5 starts work normally
+├─ Finish handover tasks
+├─ Retrieve laptop at end of day
+└─ Say goodbye to team
+
+End of Business (4:00 PM):
+├─ User5 leaves office with laptop
+└─ Offboarding begins
+
+Offboarding Actions (Automated):
+1. ISC marks: User5 status = "Terminated"
+   ├─ Effective date: Today (2026-03-15)
+   └─ ISC triggers: Deprovisioning workflows for all systems
+
+2. All roles removed:
+   ├─ Remove: Finance_AP_Clerk role
+   ├─ Remove: Finance_Employee role (dynamic)
+   └─ Trigger: Deprovisioning cascade
+
+3. QB Deprovisioning (< 5 minutes):
+   ├─ Disable: user5 QB account
+   ├─ Revoke: All QB access
+   ├─ Archive: User5's transactions (read-only)
+   ├─ Transfer: Pending invoices to User8 (other AP clerk)
+   └─ Result: User5 cannot log in, data preserved
+
+4. AD Deprovisioning (< 5 minutes):
+   ├─ Disable: user5 domain account
+   ├─ Remove: All security groups
+   ├─ Remove: Distribution lists
+   ├─ Move: To "Terminated Users" OU
+   └─ Result: User5 cannot access domain resources
+
+5. ADP Deprovisioning (immediate):
+   ├─ Mark: Employee status = Terminated
+   ├─ Disable: ADP login
+   ├─ Freeze: Payroll and benefits (final payment calculated)
+   ├─ Archive: All payroll records for tax filing
+   └─ Result: User5 cannot access self-service
+
+6. GitHub Deprovisioning:
+   ├─ Status: User5 only had read-only access
+   ├─ Action: Remove from organization (if applicable)
+   └─ Result: User5 cannot view any repos
+
+7. Audit Trail:
+   ├─ Timestamp: 2026-03-15 16:00:00
+   ├─ Action: Offboarding initiated
+   ├─ User: User5 (terminated)
+   ├─ Deprovisioning: All systems
+   ├─ Approver: HR Manager
+   └─ Status: Complete
+```
+
+---
+
+### TASK 4: Verify Complete Deprovisioning
+
+**Comprehensive Check (Same Day):**
+
+```
+QB Verification:
+├─ Account: user5 exists but DISABLED
+├─ Login test: FAILED (correct, access denied)
+├─ Data: All transactions preserved, read-only
+├─ Handover: Pending invoices transferred ✓
+└─ Status: Deprovisioned ✓
+
+AD Verification:
+├─ Account: user5 exists but DISABLED
+├─ OU: Moved to /Contoso/Terminated Users
+├─ Groups: Removed from all groups
+├─ Login test: FAILED (correct, cannot log in)
+├─ Email: Disabled, no new mail received
+└─ Status: Deprovisioned ✓
+
+ADP Verification:
+├─ Account: user5 exists but DISABLED
+├─ Status: Marked "Terminated"
+├─ Login test: FAILED (access denied)
+├─ Payroll: Final check calculated and ready
+├─ Benefits: Coverage ends at close of business
+└─ Status: Deprovisioned ✓
+
+GitHub Verification:
+├─ Organization: user5 removed from Contoso org
+├─ Repos: No access
+├─ Login test: FAILED (cannot access repos)
+└─ Status: Deprovisioned ✓
+
+AWS Verification:
+├─ Status: User5 never had AWS access
+├─ Action: No deprovisioning needed
+└─ Status: Not applicable ✓
+
+SUMMARY:
+✅ All 13 accounts checked
+✅ All access removed
+✅ No remaining access
+✅ Audit trail complete
+✅ Offboarding complete
+```
+
+---
+
+### TASK 5: Post-Offboarding Actions
+
+**After Deprovisioning (Days 1-7):**
+
+```
+IT Actions:
+├─ Retrieve laptop (if not done on last day)
+├─ Wipe: Hard drive securely (DBAN or similar)
+├─ Repurpose: For next employee
+└─ Timeline: Within 3 days
+
+Badge/Access:
+├─ Deactivate: Building badge
+├─ Verify: Cannot access building
+├─ Repurpose or destroy: Based on policy
+└─ Timeline: Immediately
+
+Phone/Equipment:
+├─ Retrieve: All company equipment
+├─ Wipe: Any company data from personal devices
+├─ Timeline: Before last day
+└─ Return: Personal items if any
+
+Documentation:
+├─ Update: Employee directory (remove or mark as terminated)
+├─ Notify: All service providers (insurance, benefits, etc.)
+├─ File: Termination documentation in HR system
+└─ Archive: Performance reviews and records
+
+Final Verification (Day 7):
+├─ Re-check: Can User5 access any system? (should be NO)
+├─ Verify: All data properly archived
+├─ Confirm: No access remaining (zero-trust verification)
+└─ Document: Offboarding successfully completed
+```
+
+**After Retention Period (Days 90+):**
+
+```
+Account Deletion:
+├─ QB: Delete user5 account (after 90 days)
+├─ AD: Delete user5 account (after 90 days)
+├─ ADP: Archive (keep longer for tax records)
+├─ Laptop: Repurposed or destroyed
+└─ Timeline: 90 days after last day
+
+Data Retention:
+├─ QB transactions: Archive to vault (7 years minimum)
+├─ AD audit log: Archive (7 years)
+├─ Email: Archive mailbox (7 years per eDiscovery)
+├─ ADP payroll: Keep (7 years per IRS)
+└─ Purpose: Compliance and audit trail
+```
+
+---
+
+### TASK 6: Offboarding Audit Trail
+
+**Complete Documentation:**
+
+```
+ISC Audit Log - User5 Offboarding:
+
+Entry 1 (2026-03-15 16:00:00):
+├─ User: User5
+├─ Action: Status changed to "Terminated"
+├─ Approver: HR Manager (User9)
+├─ Reason: Last day of employment
+├─ Effective: 2026-03-15
+└─ Deprovisioning: Initiated
+
+Entry 2 (2026-03-15 16:02:00):
+├─ User: User5
+├─ Action: Deprovisioning - QB
+├─ Status: Account disabled
+├─ Permissions: Revoked
+├─ Data: Preserved in archive
+└─ Audit trail: Complete
+
+Entry 3 (2026-03-15 16:04:00):
+├─ User: User5
+├─ Action: Deprovisioning - AD
+├─ Status: Account disabled
+├─ Groups: Removed from all
+├─ OU: Moved to Terminated Users
+└─ Audit trail: Complete
+
+(Additional entries for ADP, GitHub deprovisioning)
+
+Entry N (2026-03-15 16:10:00):
+├─ Action: Offboarding Complete
+├─ Total time: 10 minutes
+├─ Systems deprovisioned: 5/5
+├─ Data archived: Yes
+├─ Audit trail: Complete
+└─ Status: Offboarding successful
+```
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+After complete offboarding:
+
+✅ User5 deprovisioned from all 5 systems
+✅ All access completely removed
+✅ Zero remaining access
+✅ Data properly archived
+✅ Audit trail complete and documented
+✅ Retention periods configured
+✅ Ready for account deletion after 90 days
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ User5 deprovisioned from QB
+- ☑️ User5 deprovisioned from AD
+- ☑️ User5 deprovisioned from ADP
+- ☑️ User5 deprovisioned from all systems
+- ☑️ All access verified removed
+- ☑️ Data archived and accessible
+- ☑️ Audit trail complete
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** When should User5's account be permanently deleted?
+
+A) Immediately on last day
+B) ✅ 90 days after last day (after retention period)
+C) Never (keep forever)
+D) 30 days (quickly remove traces)
+
+**Answer: B.** Disable immediately, delete after 90-day retention (audit, compliance).
+
+**Q:** During offboarding, what happens to User5's pending invoices?
+
+A) ✅ Transferred to another AP clerk (User4 or Replacement)
+B) Automatically paid and deleted
+C) Left pending indefinitely
+D) Sent back to customers
+
+**Answer: A.** Handover = transfer work to qualified replacement, ensure continuity.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 6.14: Test Deprovisioning Workflow](/modules/6.14-test-deprovisioning-workflow)
+- [Next: 6.16 - Emergency Access Break Glass](/modules/6.16-emergency-access-break-glass)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Execute offboarding for departing employee
+2. Verify all access removed
+3. Archive all data for retention period
+4. Proceed to 6.16 for emergency access scenarios
+
