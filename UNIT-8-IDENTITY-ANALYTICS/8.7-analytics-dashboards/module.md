@@ -1,0 +1,257 @@
+# 8.7 - Analytics Dashboards
+
+**Unit:** Identity Analytics | **Tier:** 2 | **Duration:** ~10 hours
+
+Build analytics dashboards: Visualize access data, track metrics, enable insights.
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand dashboard design
+- Create access analytics dashboards
+- Set up metric tracking
+- Enable self-service analytics
+
+---
+
+## 📋 Prerequisites
+
+Module 8.6: Compliance Trending. Trending understood.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Dashboard Types
+
+```
+1. Executive Dashboard (Leadership)
+├─ Audience: C-suite, board
+├─ Metrics: Compliance score, risk summary, budget impact
+├─ Format: High-level KPIs, traffic light status
+├─ Refresh: Monthly
+├─ Example:
+│  ├─ Compliance: 96/100 (GREEN)
+│  ├─ High-risk users: 2 (YELLOW)
+│  ├─ SoD violations: 0 (GREEN)
+│  ├─ Annual cost: $45K (Blue)
+│  └─ Licenses unused: 12 (cost reduction opportunity)
+└─ Purpose: Board-level governance overview
+
+2. Operational Dashboard (Administrators)
+├─ Audience: ISC admins, governance team
+├─ Metrics: Access counts, request status, alerts
+├─ Format: Detailed charts, interactive filters
+├─ Refresh: Daily or real-time
+├─ Example:
+│  ├─ Pending requests: 3
+│  ├─ High-risk alerts: 1
+│  ├─ Review completion: 60%
+│  ├─ Provisioning failures: 0
+│  └─ Admin workload: On track
+└─ Purpose: Day-to-day operational visibility
+
+3. Risk Dashboard (Security Team)
+├─ Audience: Security, compliance, CISO
+├─ Metrics: Risk scores, anomalies, violations
+├─ Format: Risk heat maps, trend charts
+├─ Refresh: Real-time alerts, daily summaries
+├─ Example:
+│  ├─ Critical risks: 0 users
+│  ├─ High risks: 2 users (monitored)
+│  ├─ Anomalies this week: 2 (both explained)
+│  ├─ Trends: Risk declining (good)
+│  └─ Forecast: 99/100 compliance Q2
+└─ Purpose: Proactive risk management
+
+4. Compliance Dashboard (Auditors)
+├─ Audience: Internal/external auditors
+├─ Metrics: Audit trail, SoD, reviews, exceptions
+├─ Format: Compliance metrics, certifications
+├─ Refresh: Quarterly reporting, on-demand
+├─ Example:
+│  ├─ Audit trail completeness: 100%
+│  ├─ SoD rules enforced: 6/6 (100%)
+│  ├─ Reviews certified: 3/5 (60%, on track)
+│  ├─ Exceptions documented: 2/2 (100%)
+│  └─ Recent audit: EFFECTIVE
+└─ Purpose: Compliance evidence collection
+
+5. Manager Dashboard (Department Heads)
+├─ Audience: Department managers, team leads
+├─ Metrics: Team access, reviews, pending actions
+├─ Format: Customized by department
+├─ Refresh: Daily (personalized)
+├─ Example:
+│  ├─ My team members: 3 users
+│  ├─ Access needing review: 0
+│  ├─ Pending actions: 2 requests to approve
+│  ├─ SoD conflicts: 0
+│  └─ Review deadline: 2026-03-31
+└─ Purpose: Manager self-service governance
+```
+
+### Sample Executive Dashboard
+
+```
+ISC Governance Dashboard - Executive View
+
+┌─ COMPLIANCE STATUS ─────────────────────────┐
+│ Overall Score: 96/100 (GREEN)              │
+│ Trend: Improving (96→99 forecast Q2)       │
+├─────────────────────────────────────────────┤
+│ SoD Violations: 0 (GREEN)                  │
+│ Access Accuracy: 100% (GREEN)              │
+│ Reviews Completed: 60% (YELLOW - on track) │
+│ High-Risk Users: 2 (YELLOW - monitored)    │
+│ Audit Status: EFFECTIVE (GREEN)            │
+└─────────────────────────────────────────────┘
+
+┌─ ACCESS DISTRIBUTION ──────────────────────┐
+│ Total Users: 13                            │
+│ Finance: 3    Engineering: 3   IT: 2       │
+│ Sales: 2      HR: 2                        │
+├─────────────────────────────────────────────┤
+│ Privilege Levels:                          │
+│ ▓▓▓▓░░░░░░ Read-only: 4 (31%)            │
+│ ▓▓▓▓▓▓░░░░ Editor: 6 (46%)               │
+│ ▓▓▓░░░░░░░ Admin: 3 (23%)                │
+└─────────────────────────────────────────────┘
+
+┌─ FINANCIAL IMPACT ─────────────────────────┐
+│ Total Access Assignments: 65+              │
+│ Unnecessary Access Identified: 2           │
+│ Estimated Cost Savings: $8K/year           │
+│ Efficiency Gain: Admin time saved 10%     │
+└─────────────────────────────────────────────┘
+
+┌─ RISK TREND (Last 4 Quarters) ────────────┐
+│ Q2: ▲ ↓ ↓ ← Declining (GOOD)             │
+│ Q1: ▲ ↑ ↓                                  │
+│ Q4: ▲ ▲ ↑                                  │
+│ Q3: ▼ ▼ ↓                                  │
+└─────────────────────────────────────────────┘
+
+Status: GOVERNANCE EFFECTIVE
+Next Review: Q2 2026
+Approvals: CFO, CISO
+```
+
+### Dashboard Features
+
+```
+Real-Time Filtering:
+├─ By department (Finance, Engineering, etc.)
+├─ By system (QB, GitHub, AWS, AD, ADP)
+├─ By risk level (High, Medium, Low)
+├─ By user status (Active, Departing, Inactive)
+├─ By role (Admin, Editor, Standard)
+└─ By date range (Q1, Year-to-date, Custom)
+
+Drill-Down Capabilities:
+├─ Executive view → Department view
+├─ Risk summary → Individual user profile
+├─ Compliance score → Specific metric details
+├─ Trend chart → Historical detail records
+└─ Alert → Root cause + remediation
+
+Alert Configuration:
+├─ High-risk user detected (> 4.0 score)
+├─ SoD violation attempted (block + alert)
+├─ Anomaly detected (score > 2.5, investigate)
+├─ Compliance metric drops (< target, review)
+├─ Review deadline approaching (7 days, reminder)
+├─ Exception about to expire (30 days, renew?)
+└─ Access not used in 90 days (consider removal)
+
+Export Capabilities:
+├─ PDF reports (executive summary)
+├─ Excel data (detailed analysis)
+├─ CSV export (system integration)
+├─ Email scheduling (automated reports)
+├─ API access (system-to-system)
+└─ Archive (historical comparison)
+```
+
+### Dashboard Implementation
+
+```
+Technology Stack:
+
+Data Source: ISC Database
+├─ Access data (all user access)
+├─ Audit trail (all changes)
+├─ Review history (certifications)
+├─ Request data (submissions + decisions)
+└─ Risk scores (calculated)
+
+Analytics Engine:
+├─ Elasticsearch (search + visualization)
+├─ Kibana (dashboard creation)
+├─ Python (custom analytics calculations)
+└─ Scheduled jobs (daily refresh)
+
+Dashboard Delivery:
+├─ Web portal (authenticated access)
+├─ Mobile app (alerts on-the-go)
+├─ Email reports (scheduled delivery)
+├─ API (system integration)
+└─ Single Sign-On (Azure AD integration)
+
+Access Control:
+├─ Executive: See all data (governance)
+├─ Manager: See own department only
+├─ Admin: See all operational data
+├─ Auditor: See compliance data only
+├─ User: See own access only
+└─ Role-based access enforcement
+```
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+✅ Dashboards designed and built
+✅ All metrics visualized
+✅ Real-time data flowing
+✅ Alerts configured
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Dashboard types designed
+- ☑️ Key metrics displayed
+- ☑️ Real-time refresh working
+- ☑️ Alerts functioning
+- ☑️ Users can access dashboards
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** Manager needs to approve 2 pending requests. Where do they go?
+
+A) Executive dashboard
+B) Compliance dashboard
+C) ✅ Manager dashboard (customized for their team)
+D) Operational dashboard
+
+**Answer: C.** Each audience gets customized dashboard for their role.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 8.6: Compliance Trending](/modules/8.6-compliance-trending)
+- [Next: 8.8 - Advanced Reporting](/modules/8.8-advanced-reporting)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Design dashboard layouts
+2. Configure metrics
+3. Set up data feeds
+4. Proceed to 8.8
