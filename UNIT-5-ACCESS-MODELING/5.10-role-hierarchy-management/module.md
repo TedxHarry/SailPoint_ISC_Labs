@@ -1,0 +1,223 @@
+# 5.10 - Role Hierarchy & Management
+
+**Unit:** Access Modeling | **Tier:** 2 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand role hierarchies
+- Know parent-child role relationships
+- Understand role inheritance
+- Create role hierarchies
+
+---
+
+## 📋 Prerequisites
+
+Module 5.9: Assign Members to Roles. 13 users assigned to roles.
+
+---
+
+## 📚 CORE CONCEPTS
+
+### Role Hierarchy
+
+**Definition:** Organizing roles in parent-child relationships where child roles inherit access from parents.
+
+**Why useful:** Reduce redundancy, easier management, automatic inheritance.
+
+---
+
+### Example Hierarchy
+
+**Non-hierarchical (flat, repetitive):**
+```
+Finance_AP_Clerk: QB create invoice
+Finance_Senior: QB create + approve invoice + reports
+Finance_Manager: QB all + bank + reconcile + reports + GL access
+
+Problem: Lots of duplication
+- QB create invoice appears in 3 roles
+- QB reports in 2 roles
+```
+
+**With hierarchy (clean, DRY):**
+```
+Finance (parent role)
+├─ QB_FinanceBasic (create invoice, view reports)
+├─ Finance_AP_Clerk (inherits FinanceBasic)
+├─ Finance_Senior (inherits FinanceBasic + add: approvals)
+└─ Finance_Manager (inherits everything + add: reconcile, GL, bank)
+```
+
+**Result:** Each role only defines its ADDITIONAL access, inherits the rest.
+
+---
+
+### Parent-Child Relationships
+
+**Example: Engineering hierarchy**
+
+```
+Engineering_Role (parent - base for all engineers)
+├─ Access: GitHub dev access, Jenkins staging
+├─ Child: Engineer_Developer
+│  └─ Additional: None (just gets parent)
+├─ Child: Engineer_Senior
+│  └─ Additional: GitHub maintainer, Jenkins prod, AWS prod
+└─ Child: Engineer_DevOps
+   └─ Additional: Infrastructure, CI/CD, Kubernetes
+```
+
+**User assigned to:** Engineer_Developer
+**Gets access from:**
+- Engineer_Developer (own access)
+- Engineering_Role (parent access)
+- Result: GitHub dev + Jenkins staging access
+
+**User assigned to:** Engineer_Senior
+**Gets access from:**
+- Engineer_Senior (own access)
+- Engineering_Role (parent access)
+- Result: ALL engineering access + senior-specific access
+
+---
+
+### Inheritance Rules
+
+**How it works:**
+- Child role inherits ALL entitlements from parent
+- Child can add more entitlements (on top of parent)
+- Child cannot remove parent's entitlements
+- Multiple parents allowed (complex hierarchies)
+
+**Example:**
+```
+Parent: Engineering_Role
+└─ Entitlements: GitHub dev, Jenkins staging
+
+Child: Engineer_Senior
+├─ Inherits: GitHub dev, Jenkins staging (from parent)
+├─ Adds: GitHub maintainer, Jenkins prod
+└─ Result: All 4 entitlements
+```
+
+---
+
+### When to Use Hierarchies
+
+**Good use cases:**
+- Department roles (Engineering parent, then Developer/Senior/DevOps children)
+- Permission levels (User > Admin > Super Admin)
+- Scope-based (Site_A > Site_A_Manager)
+
+**Avoid for:**
+- Completely different jobs (Finance and Sales - don't share parent)
+- Conflicting access (Can't do both role A and role B)
+
+---
+
+### For Contoso
+
+**Recommended hierarchy:**
+
+**Finance Hierarchy:**
+```
+Finance_Base
+├─ Finance_AP_Clerk (base only)
+├─ Senior_Accountant (base + reports + GL)
+└─ Finance_Manager (base + all)
+```
+
+**Engineering Hierarchy:**
+```
+Engineering_Base
+├─ Engineer_Developer (base + dev)
+├─ Engineer_Senior (base + senior)
+└─ Engineer_DevOps (base + infrastructure)
+```
+
+**Other roles:** No hierarchy needed (Sales, HR, IT all independent)
+
+---
+
+### Implementation Notes
+
+**ISC hierarchy support:**
+- Check if ISC supports role inheritance
+- May require specific configuration
+- Alternative: Just keep roles flat (simpler for testing)
+
+**For Unit 5 labs:**
+- Hierarchies are OPTIONAL
+- Roles work fine without them
+- Can add later in production
+
+---
+
+## 🧠 KEY TAKEAWAYS
+
+- Role hierarchy = parent-child relationships
+- Child inherits all parent access
+- Child can add more access on top
+- Use for permission levels or department structures
+- Optional in ISC (can keep roles flat)
+
+---
+
+## 🧪 TASK
+
+1. Understand role hierarchy concept
+2. Know when to use hierarchies
+3. Understand inheritance
+4. Plan Contoso hierarchy (optional for testing)
+5. Ready for dynamic roles (Module 5.11)
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ Understand role hierarchy concept
+- ☑️ Know parent-child relationships
+- ☑️ Know inheritance rules
+- ☑️ Ready for dynamic roles and SoD
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** What does a child role inherit from parent?
+
+A) Only the name
+B) ✅ All parent's entitlements
+C) Random access
+D) Nothing (independent)
+
+**Answer: B.** Child role inherits ALL entitlements from parent, then can add more.
+
+**Q:** Which scenario is good for role hierarchy?
+
+A) Finance and Sales roles (different jobs)
+B) ✅ Developer and Senior_Developer (permission levels)
+C) Morning and Evening shifts
+D) Active and Inactive users
+
+**Answer: B.** Hierarchy good when roles are related (levels, departments). Bad for unrelated roles.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 5.9: Assign Members to Roles](/modules/5.9-assign-members-to-roles)
+- [Next: 5.11 - Dynamic Roles Fundamentals](/modules/5.11-dynamic-roles-fundamentals)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Understand hierarchy concept
+2. For now, focus on flat role structure
+3. Proceed to 5.11 for dynamic roles
+4. Later: add hierarchies if needed
+

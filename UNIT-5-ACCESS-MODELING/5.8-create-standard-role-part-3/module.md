@@ -1,0 +1,216 @@
+# 5.8 - Create Standard Role (Part 3)
+
+**Unit:** Access Modeling | **Tier:** 2 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Create remaining standard roles
+- Understand role prioritization
+- Know role coverage for all departments
+- Validate complete role structure
+
+---
+
+## 📋 Prerequisites
+
+Module 5.7: Create Standard Role (Part 2). Finance_Manager, HR_Specialist, Sales_Rep created.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Objective
+Create remaining roles: IT_Administrator, Security_Officer, and one more technical role.
+
+---
+
+### ROLE 1: IT_Administrator
+
+**Navigate:** ISC > Roles > Create Role
+
+**Role Definition:**
+- Name: IT_Administrator
+- Owner: IT Director
+- Description: Full IT system access for administration and user management
+
+**Access Profiles to Add:**
+- Active_Directory_Admin (user management)
+- Email_Admin (manage email accounts)
+- VPN_Admin (manage network access)
+- Okta_Admin (manage SSO)
+
+**Process:** (Standard from Module 5.6)
+1. Create Role
+2. Name: IT_Administrator
+3. Owner: IT Director
+4. Add 4 access profiles
+5. Save
+
+**Expected entitlements:**
+```
+IT_Administrator role
+├─ create_user
+├─ disable_user
+├─ reset_password
+├─ manage_groups
+├─ manage_email_accounts
+├─ manage_vpn_access
+├─ manage_sso_application
+└─ (system admin permissions)
+```
+
+---
+
+### ROLE 2: Security_Officer
+
+**Navigate:** ISC > Roles > Create Role
+
+**Role Definition:**
+- Name: Security_Officer
+- Owner: Security Director
+- Description: Security monitoring, audit, and incident response
+
+**Access Profiles to Add:**
+- Audit_Logs (view all logs)
+- Security_Monitoring (SIEM access)
+- Incident_Management (handle incidents)
+
+**Process:**
+1. Create Role
+2. Name: Security_Officer
+3. Owner: Security Director
+4. Add 3 access profiles
+5. Save
+
+**Expected entitlements:**
+```
+Security_Officer role
+├─ view_audit_logs
+├─ view_security_alerts
+├─ create_incident_ticket
+├─ view_user_activities
+└─ (security monitoring)
+```
+
+---
+
+### ROLE 3: Senior_Accountant (Optional, from Module 5.4)
+
+**If not created in Module 5.7:**
+
+**Role Definition:**
+- Name: Senior_Accountant
+- Owner: Finance Manager
+- Description: Advanced accounting and reporting
+
+**Access Profiles:**
+- QB_Accountant (advanced QB features)
+- GL_Reports (general ledger reporting)
+- Bank_Reconciliation (bank access)
+
+---
+
+## 🧪 EXPECTED RESULTS - FULL ROLE INVENTORY
+
+After Modules 5.6-5.8, you should have created:
+
+**Finance Department:**
+✅ Finance_Manager
+✅ Finance_AP_Clerk (Module 5.6 or 5.7)
+✅ Senior_Accountant (Module 5.7 or 5.8)
+
+**Engineering Department:**
+✅ Engineer_Senior (Module 5.7)
+✅ Engineer_Developer (Module 5.7)
+
+**IT Department:**
+✅ IT_Administrator (Module 5.8)
+✅ Security_Officer (Module 5.8)
+
+**Sales Department:**
+✅ Sales_Representative (Module 5.7)
+
+**HR Department:**
+✅ HR_Specialist (Module 5.7)
+✅ HR_Manager (optional)
+
+**Total: 10-11 standard roles created**
+
+---
+
+## 🧠 ROLE COVERAGE CHECKLIST
+
+**By Department:**
+- ☑️ Finance: 3 roles (Manager, AP_Clerk, Senior_Accountant)
+- ☑️ Engineering: 2 roles (Senior, Developer)
+- ☑️ HR: 1-2 roles (Specialist, optional Manager)
+- ☑️ Sales: 1 role (Representative)
+- ☑️ IT: 2 roles (Administrator, Security_Officer)
+
+**By Job Level:**
+- ☑️ Executive/Manager roles: Finance_Manager, HR_Manager (optional)
+- ☑️ Senior roles: Engineer_Senior, Senior_Accountant
+- ☑️ Individual contributor: Developer, Clerk, Specialist, Rep
+- ☑️ Admin roles: IT_Administrator, Security_Officer
+
+---
+
+## 🔧 ROLE DESIGN VALIDATION
+
+**Ask yourself:**
+- Does every department have at least one role? ✓
+- Does every Contoso job title have a matching role? ✓
+- Are entitlements appropriate for each role? ✓
+- Are roles properly owned? ✓
+- Is least privilege respected? ✓
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ IT_Administrator role created
+- ☑️ Security_Officer role created
+- ☑️ 10+ total standard roles created
+- ☑️ All roles visible in roles list
+- ☑️ All departments covered
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** IT_Administrator role should include which access profile?
+
+A) Salesforce_User
+B) ✅ Active_Directory_Admin
+C) Employee_Benefits
+D) CRM_Reporter
+
+**Answer: B.** IT admin needs AD access (user management), not sales tools.
+
+**Q:** How many total standard roles have we created?
+
+A) 5
+B) 8
+C) ✅ 10+
+D) 20
+
+**Answer: C.** Across 5 modules: Finance (3), Engineering (2), HR (1-2), Sales (1), IT (2) = 10+
+
+---
+
+## 📚 RESOURCES
+
+- [Module 5.7: Create Standard Role (Part 2)](/modules/5.7-create-standard-role-part-2)
+- [Next: 5.9 - Assign Members to Roles](/modules/5.9-assign-members-to-roles)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Verify all 10+ roles created
+2. All visible in ISC roles list
+3. Proceed to 5.9 to assign Contoso users to roles
+4. Then handle role hierarchy (5.10)
+

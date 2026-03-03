@@ -1,0 +1,190 @@
+# 5.7 - Create Standard Role (Part 2)
+
+**Unit:** Access Modeling | **Tier:** 2 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Create multiple standard roles
+- Configure role-specific access profiles
+- Handle role variations
+- Create HR and Sales roles
+
+---
+
+## 📋 Prerequisites
+
+Module 5.6: Create Standard Role (Part 1). Finance_Manager role already created.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Objective
+Create two more standard roles: HR_Specialist and Sales_Representative (in addition to Finance_Manager from 5.6).
+
+---
+
+### ROLE 1: HR_Specialist
+
+**Navigate:** ISC > Administration > Roles > Create Role
+
+**Role Definition:**
+- Name: HR_Specialist
+- Owner: HR Manager (your user for testing)
+- Description: HR team member access to employee records and benefits
+
+**Access Profiles to Add:**
+- HRIS_Employee_View (read employee records)
+- Benefits_Admin (manage employee benefits)
+- Payroll_View (view payroll reports)
+
+**Process (same as Module 5.6):**
+1. Click "Create Role"
+2. Enter name: HR_Specialist
+3. Select owner
+4. Add above 3 access profiles
+5. Review entitlements
+6. Save
+
+**Expected entitlements:**
+```
+HR_Specialist role
+├─ view_employee_records
+├─ view_benefits
+├─ update_benefits
+├─ view_payroll_reports
+└─ (others from HRIS)
+```
+
+**Save and verify** role appears in list
+
+---
+
+### ROLE 2: Sales_Representative
+
+**Navigate:** ISC > Administration > Roles > Create Role
+
+**Role Definition:**
+- Name: Sales_Representative
+- Owner: Sales Director
+- Description: Sales team access to CRM and pipeline tools
+
+**Access Profiles to Add:**
+- Salesforce_User (basic CRM access)
+- Pipeline_Reports (view sales pipeline)
+- Forecast_Read (view forecast data)
+
+**Process:**
+1. Click "Create Role"
+2. Enter name: Sales_Representative
+3. Select owner
+4. Add 3 access profiles
+5. Review entitlements
+6. Save
+
+**Expected entitlements:**
+```
+Sales_Representative role
+├─ create_opportunity
+├─ update_opportunity
+├─ view_pipeline
+├─ view_forecast
+└─ (CRM-related permissions)
+```
+
+**Save and verify**
+
+---
+
+### TASK 3: Create Engineering Roles
+
+**Continue with engineering-related roles (optional for this module, but good to create):**
+
+**Role: Engineer_Developer**
+- Access Profiles: GitHub_Developer, Jenkins_Dev, AWS_Dev
+- Entitlements: Push code, create PRs, deploy to staging
+
+**Role: Engineer_Senior**
+- Access Profiles: GitHub_Maintainer, Jenkins_Prod, AWS_Prod
+- Entitlements: Merge to main, deploy to production, architecture decisions
+
+**Steps:** Same as above (Create Role → Configure → Add Profiles → Save)
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+After this module, you should have created:
+
+✅ Finance_Manager (from 5.6)
+✅ HR_Specialist (this module)
+✅ Sales_Representative (this module)
+✅ Engineer_Developer (optional)
+✅ Engineer_Senior (optional)
+
+**All roles show in ISC > Roles list**
+
+---
+
+## 🔧 TROUBLESHOOTING
+
+**Issue: "Access profile not available for role"**
+- Not all systems aggregated
+- Solution: Only add available profiles
+- Alternative: Skip for now, add later
+
+**Issue: "Want to create more roles?"**
+- Create IT_Administrator role (same process)
+- Create Security_Officer role (same process)
+- This module only requires HR_Specialist and Sales_Rep
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ HR_Specialist role created with 3 profiles
+- ☑️ Sales_Representative role created with 3 profiles
+- ☑️ Both roles show in roles list
+- ☑️ Entitlements populated for both
+- ☑️ All roles enabled and ready
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** When creating HR_Specialist role, which access profile NOT needed?
+
+A) HRIS_Employee_View
+B) Benefits_Admin
+C) ✅ Salesforce_User (that's for sales)
+D) Payroll_View
+
+**Answer: C.** HR specialist needs HRIS, benefits, payroll - not Salesforce.
+
+**Q:** How many standard roles have we created so far?
+
+A) 1
+B) 2
+C) ✅ 3-5 (depending on including engineering)
+D) 10
+
+**Answer: C.** Finance_Manager, HR_Specialist, Sales_Rep = 3 minimum. Optional: Engineer_Developer, Engineer_Senior = 5 total.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 5.6: Create Standard Role (Part 1)](/modules/5.6-create-standard-role-part-1)
+- [Next: 5.8 - Create Standard Role (Part 3)](/modules/5.8-create-standard-role-part-3)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Verify all 3+ roles created
+2. All roles visible in ISC roles list
+3. Proceed to 5.8 for remaining roles (IT_Admin, Security_Officer)
+4. Then assign users to roles (5.9)
+
