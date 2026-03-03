@@ -1,7 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(git add UNIT-5-ACCESS-MODELING/5.16-define-sod-rules-part-1/ UNIT-5-ACCESS-MODELING/5.17-define-sod-rules-part-2/ UNIT-5-ACCESS-MODELING/5.18-test-sod-enforcement/ UNIT-5-ACCESS-MODELING/5.19-role-ownership-governance/ UNIT-5-ACCESS-MODELING/5.20-role-documentation-design/ UNIT-5-ACCESS-MODELING/5.21-access-model-validation/ UNIT-5-ACCESS-MODELING/5.22-contoso-access-model-complete/)"
-    ]
-  }
-}
