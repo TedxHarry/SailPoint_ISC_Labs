@@ -1,0 +1,520 @@
+# 6.9 - Provision Directory Services
+
+**Unit:** Provisioning & Deprovisioning | **Tier:** 2 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Provision all 13 users to Active Directory
+- Configure group memberships and OU placement
+- Set up domain policies
+- Test domain login and access
+
+---
+
+## 📋 Prerequisites
+
+Module 6.8: Provision AWS Access. AWS provisioning complete.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Objective
+
+Provision all 13 Contoso users to Active Directory with correct OU placement, group memberships, and domain policies.
+
+---
+
+### TASK 1: Pre-Provisioning Checklist
+
+**Verify AD Connector:**
+
+```
+☑ AD domain admin account available and valid
+☑ ISC IP whitelisted for AD access
+☑ Connection test successful
+☑ Organizational units (OUs) exist: Finance, Engineering, IT, Sales, HR
+☑ Security groups exist: [Department], [Department]_[Role], Technical_Staff, Managers
+☑ Distribution lists exist: all-finance@, all-engineering@, etc.
+☑ Group Policy Objects (GPOs) created for each department
+☑ Domain policies: Password, account lockout, login hours
+☑ AD backup completed
+```
+
+**Verify Workflows:**
+
+```
+☑ AD_User_Provisioning configured (main workflow)
+☑ Department/role routing configured (which OU/groups)
+☑ Password policy configured
+☑ Group membership automation configured
+☑ Notifications configured (send temp password)
+☑ Error handling configured
+☑ Logging configured (audit trail complete)
+```
+
+**Verify Users:**
+
+```
+☑ All 13 users in ISC with correct:
+   ├─ Name
+   ├─ Email
+   ├─ Department (Finance, Engineering, IT, Sales, HR)
+   ├─ Job Title
+   ├─ Manager (hierarchy)
+   └─ All required AD attributes
+```
+
+---
+
+### TASK 2: Execute AD Provisioning - Batch 1 (Finance)
+
+**Provision Finance Department (3 users):**
+
+```
+ISC > Identities > Casey Kim, Morgan Chen, User5
+├─ Trigger: AD_User_Provisioning workflow (automatic on first save or manual trigger)
+├─ Monitor: ISC > Provisioning > Status
+└─ Expected: 3 AD accounts created, < 5 minutes
+
+Step 1: Create Casey Kim AD Account
+├─ AD username: casey (email prefix)
+├─ Email: casey@contoso.com
+├─ Full name: Casey Kim
+├─ Phone: [from ISC]
+├─ OU placement: /Contoso/Finance
+├─ Manager: [set to CEO if exists, else None]
+├─ Initial password: Auto-generated, change on first login
+└─ Status: Account created ✓
+
+Step 2: Add Casey to Groups
+├─ Group 1: Finance (all finance staff)
+├─ Group 2: Finance_Manager (role-specific)
+├─ Group 3: Management (has manager role)
+├─ Distribution list: all-finance@contoso.com
+└─ Status: Groups added ✓
+
+Step 3: Apply Domain Policies
+├─ Password policy: 90-day expiration, complexity required
+├─ Account lockout: 5 failed attempts, 30-minute lockout
+├─ Login hours: 8 AM - 6 PM weekdays (if configured)
+└─ Status: Policies applied ✓
+
+Repeat for Morgan Chen and User5 (same OU, same groups, different usernames)
+```
+
+**Verify Finance Accounts Created:**
+
+```
+AD Users and Computers (ADUC):
+├─ Navigate to: Contoso > Finance OU
+├─ Look for: casey, mchen, user5
+├─ Casey properties:
+│  ├─ Username: casey ✓
+│  ├─ Email: casey@contoso.com ✓
+│  ├─ Display name: Casey Kim ✓
+│  ├─ OU: Contoso/Finance ✓
+│  ├─ Groups: Finance, Finance_Manager ✓
+│  ├─ Status: Enabled ✓
+│  └─ Created: [today] ✓
+│
+└─ Same for Morgan and User5 (with appropriate groups)
+```
+
+---
+
+### TASK 3: Execute AD Provisioning - Batch 2 (Engineering)
+
+**Provision Engineering Department (3 users):**
+
+```
+ISC > Identities > Alex Lee, User4, User12
+├─ Trigger: AD_User_Provisioning workflow
+├─ Monitor: Status
+└─ Expected: 3 AD accounts created
+
+Provisioning Details:
+├─ OU placement: /Contoso/Engineering
+├─ Groups:
+│  ├─ All: Engineering (all engineers)
+│  ├─ All: Technical_Staff (engineers + IT)
+│  ├─ Alex: Engineer_Senior, Managers
+│  ├─ User4: Engineer_Developer
+│  └─ User12: DevOps, Managers
+├─ Initial password: Auto-generated
+└─ Status: All 3 accounts created ✓
+```
+
+---
+
+### TASK 4: Execute AD Provisioning - Batch 3 (IT)
+
+**Provision IT Department (2 users):**
+
+```
+ISC > Identities > User10, User11
+├─ Trigger: AD_User_Provisioning workflow
+├─ Monitor: Status
+└─ Expected: 2 AD accounts created
+
+Provisioning Details:
+├─ OU placement: /Contoso/IT
+├─ Groups:
+│  ├─ All: IT (all IT staff)
+│  ├─ All: Technical_Staff (IT + engineering)
+│  ├─ User10: IT_Administrator (special privileges)
+│  └─ User11: Security_Officer, Audit
+├─ Initial password: Auto-generated
+└─ Status: All 2 accounts created ✓
+
+Special: User10 IT Admin
+├─ Make User10 domain admin (or elevate permissions)
+├─ User10 needs to manage AD/domain
+├─ Careful: Domain admin access very sensitive
+└─ Verify: User10 in Domain Admins group
+```
+
+---
+
+### TASK 5: Execute AD Provisioning - Batch 4 (Sales & HR)
+
+**Provision Sales Department (2 users):**
+
+```
+ISC > Identities > User6, User7
+├─ OU placement: /Contoso/Sales
+├─ Groups: Sales (all sales staff), Sales_Employee
+├─ Status: 2 accounts created ✓
+```
+
+**Provision HR Department (2 users):**
+
+```
+ISC > Identities > User8, User9
+├─ OU placement: /Contoso/HR
+├─ Groups:
+│  ├─ All: HR
+│  ├─ User8: HR_Specialist
+│  ├─ User9: HR_Manager, Managers
+│  └─ All: HR_Employee
+├─ Status: 2 accounts created ✓
+```
+
+---
+
+### TASK 6: Verify All AD Accounts Provisioned
+
+**Comprehensive Verification Table:**
+
+```
+Finance Department (3 users):
+├─ Casey Kim: AD account casey ✓
+│  ├─ OU: /Contoso/Finance
+│  ├─ Groups: Finance, Finance_Manager, Managers
+│  └─ Status: Enabled, can log in
+├─ Morgan Chen: AD account mchen ✓
+│  ├─ OU: /Contoso/Finance
+│  ├─ Groups: Finance, Senior_Accountant
+│  └─ Status: Enabled
+└─ User5: AD account user5 ✓
+   ├─ OU: /Contoso/Finance
+   ├─ Groups: Finance, Finance_AP_Clerk
+   └─ Status: Enabled
+
+Engineering Department (3 users):
+├─ Alex Lee: AD account alee ✓
+│  ├─ OU: /Contoso/Engineering
+│  ├─ Groups: Engineering, Engineer_Senior, Technical_Staff, Managers
+│  └─ Status: Enabled
+├─ User4: AD account user4 ✓
+│  ├─ OU: /Contoso/Engineering
+│  ├─ Groups: Engineering, Engineer_Developer, Technical_Staff
+│  └─ Status: Enabled
+└─ User12: AD account user12 ✓
+   ├─ OU: /Contoso/Engineering
+   ├─ Groups: Engineering, DevOps, Technical_Staff, Managers
+   └─ Status: Enabled
+
+IT Department (2 users):
+├─ User10: AD account user10 ✓
+│  ├─ OU: /Contoso/IT
+│  ├─ Groups: IT, IT_Administrator, Technical_Staff, Domain Admins
+│  └─ Status: Enabled (extra permissions for admin)
+└─ User11: AD account user11 ✓
+   ├─ OU: /Contoso/IT
+   ├─ Groups: IT, Security_Officer, Technical_Staff, Audit
+   └─ Status: Enabled
+
+Sales Department (2 users):
+├─ User6: AD account user6 ✓
+│  ├─ OU: /Contoso/Sales
+│  ├─ Groups: Sales, Sales_Representative, Sales_Employee
+│  └─ Status: Enabled
+└─ User7: AD account user7 ✓
+   ├─ OU: /Contoso/Sales
+   ├─ Groups: Sales, Sales_Representative, Sales_Employee
+   └─ Status: Enabled
+
+HR Department (2 users):
+├─ User8: AD account user8 ✓
+│  ├─ OU: /Contoso/HR
+│  ├─ Groups: HR, HR_Specialist, HR_Employee
+│  └─ Status: Enabled
+└─ User9: AD account user9 ✓
+   ├─ OU: /Contoso/HR
+   ├─ Groups: HR, HR_Manager, Managers, HR_Employee
+   └─ Status: Enabled
+
+Distribution Lists:
+├─ all-finance@: Casey, Morgan, User5
+├─ all-engineering@: Alex, User4, User12
+├─ all-it@: User10, User11
+├─ all-sales@: User6, User7
+├─ all-hr@: User8, User9
+├─ all-staff@: All 13 users
+└─ managers@: Casey, Alex, User9, User12
+
+Summary:
+✅ All 13 AD accounts created
+✅ All OUs correct
+✅ All group memberships correct
+✅ All distribution lists updated
+✅ Domain policies applied
+✅ Audit trails complete
+```
+
+---
+
+### TASK 7: Test Domain Functionality
+
+**Test 1: Domain Login**
+
+```
+Scenario: Casey logs into Windows workstation
+
+Process:
+1. Windows login screen
+2. Username: CONTOSO\casey
+3. Password: [temporary password from email]
+4. Windows: "Connecting to domain..."
+5. Successful login ✓
+
+On desktop:
+├─ Network drives mapped (if configured)
+├─ Printer access available (if shared)
+├─ Email client configured (via Group Policy)
+├─ Software installed (via Group Policy deployment)
+└─ All working ✓
+
+First login:
+├─ Windows forces password change: "Change password at next logon"
+├─ Casey enters: Old password
+├─ Casey enters: New password (user's choice)
+├─ Windows: "Password changed successfully"
+└─ Next login uses new password ✓
+```
+
+**Test 2: Email and Distribution Lists**
+
+```
+Scenario: CEO sends email to all-finance@
+
+Process:
+1. Email client (Outlook)
+2. To: all-finance@contoso.com
+3. Send
+4. Recipients:
+   ├─ casey@contoso.com ✓
+   ├─ morgan@contoso.com ✓
+   └─ user5@contoso.com ✓
+
+All three finance staff receive email ✓
+
+Verification: Distribution lists working ✓
+```
+
+**Test 3: Permission Restrictions**
+
+```
+Scenario: Finance_AP_Clerk (User5) tries to access IT shared drive
+
+Process:
+1. Windows File Manager
+2. Network drives
+3. Try to access: \\contoso\IT_Shared (IT department shared folder)
+4. Windows: "Access Denied"
+5. User5 sees: Finance shared folder only
+
+Result:
+├─ User5 in Finance group ✓
+├─ Finance group can access Finance shared folder ✓
+├─ Finance group cannot access IT shared folder ✓
+└─ Permissions working ✓
+```
+
+**Test 4: Group Policy Application**
+
+```
+Scenario: Finance_Manager (Casey) needs to change password
+
+Process:
+1. Casey on Windows workstation
+2. Press: Ctrl+Alt+Delete > Change password
+3. Enter old password
+4. Enter new password
+5. Windows enforces password policy:
+   ├─ Minimum 12 characters (configured)
+   ├─ Must include: uppercase, lowercase, number, special char
+   ├─ Cannot reuse last 5 passwords
+   └─ If policy not met: "Does not meet requirements"
+6. Casey enters policy-compliant password
+7. Success: "Password changed"
+
+Result:
+├─ Group Policy enforced ✓
+├─ Password complexity required ✓
+├─ Password history enforced ✓
+└─ Security policy working ✓
+```
+
+---
+
+### TASK 8: Troubleshooting
+
+**Issue 1: User Can't Log into Domain**
+
+```
+Error: "The username or password is incorrect"
+
+Cause:
+├─ AD account not created yet
+├─ Wrong password
+├─ AD account disabled
+└─ User trying wrong domain
+
+Solution:
+1. Verify account exists:
+   ├─ ADUC > Find user
+   ├─ If missing: Re-run provisioning
+   └─ If exists but disabled: Enable
+2. Verify password:
+   ├─ Reset password for user
+   ├─ Send new temp password
+   └─ User changes on first login
+3. Check domain:
+   ├─ Try: CONTOSO\casey (not casey alone)
+   ├─ Verify domain name correct
+   └─ Try again
+```
+
+**Issue 2: Group Membership Not Working**
+
+```
+Error: User in group but can't access shared folder
+
+Cause:
+├─ Group not replicated (AD replication delay)
+├─ Group membership cached
+└─ Shared folder permissions wrong
+
+Solution:
+1. Wait: AD replication can take 15 minutes
+2. Restart: User logs out and back in
+3. Clear cache: gpupdate /force
+4. Verify permissions:
+   ├─ Go to shared folder > Properties > Security
+   ├─ Check if Finance group has Read access
+   ├─ If missing: Add group and permissions
+   └─ User should now access folder
+```
+
+**Issue 3: Email Distribution List Not Receiving**
+
+```
+Error: Email sent to all-finance@ but User5 didn't receive
+
+Cause:
+├─ User not added to distribution list
+├─ Email sync not complete
+└─ User's email not configured
+
+Solution:
+1. Verify membership:
+   ├─ Active Directory Users and Computers
+   ├─ Find all-finance distribution group
+   ├─ Check members list
+   ├─ If user5 missing: Add to group
+   └─ Retry sending email
+
+2. Wait for sync:
+   ├─ Can take 15-30 minutes
+   ├─ Try again later
+   └─ Email should arrive
+```
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+After AD provisioning:
+
+✅ All 13 users have AD accounts
+✅ All OUs and group memberships correct
+✅ Domain login working for all users
+✅ Email distribution lists working
+✅ Group Policy applied correctly
+✅ Access control enforced (no cross-dept access without permission)
+✅ Audit trail complete
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ All 13 AD accounts created
+- ☑️ All in correct OUs (by department)
+- ☑️ All group memberships correct
+- ☑️ Domain login tested and verified
+- ☑️ Distribution lists working
+- ☑️ Group Policy applied
+- ☑️ Audit trails complete
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** User5 (Finance AP Clerk) is added to which groups?
+
+A) Finance, Finance_AP_Clerk, Managers
+B) ✅ Finance, Finance_AP_Clerk, Finance_Employee
+C) All-company, Finance, Technical_Staff
+D) Finance, IT (read-only), HR
+
+**Answer: B.** Finance_AP_Clerk gets: Finance (all staff), Finance_AP_Clerk (role), Finance_Employee (dynamic).
+
+**Q:** When Casey logs into Windows, what happens on first login?
+
+A) Nothing, can start work immediately
+B) ✅ Forced to change temporary password
+C) Must enable MFA
+D) Must configure email
+
+**Answer: B.** First login requires changing the auto-generated temporary password.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 6.8: Provision AWS Access](/modules/6.8-provision-aws-access)
+- [Next: 6.10 - Provision Remaining Systems](/modules/6.10-provision-remaining-systems)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Provision all 13 users to Active Directory
+2. Verify group memberships and OU placement
+3. Test domain login and distribution lists
+4. Proceed to 6.10 to provision remaining systems (HRIS, etc.)
+

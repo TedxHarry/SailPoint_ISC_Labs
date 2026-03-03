@@ -1,0 +1,486 @@
+# 6.7 - Provision GitHub Access
+
+**Unit:** Provisioning & Deprovisioning | **Tier:** 2 | **Duration:** ~10 hours
+
+---
+
+## 🎯 Learning Objectives
+
+- Provision engineering users to GitHub
+- Configure team memberships and permissions
+- Verify repository access
+- Test code access workflows
+
+---
+
+## 📋 Prerequisites
+
+Module 6.6: Provision QuickBooks Access. QB provisioning complete.
+
+---
+
+## 📚 HANDS-ON LAB
+
+### Objective
+
+Provision 3 engineering users to GitHub with correct team memberships and repository permissions.
+
+---
+
+### TASK 1: Pre-Provisioning Checklist
+
+**Verify GitHub Connector:**
+
+```
+☑ GitHub OAuth token valid (not revoked)
+☑ ISC IP whitelisted in GitHub (if applicable)
+☑ Connection test successful
+☑ Contoso organization exists in GitHub
+☑ Teams exist: Engineering, Infrastructure, Developers
+☑ Repositories available: main, staging, infrastructure, archived
+☑ GitHub permission levels: maintainer, contributor, member
+☑ Backup of GitHub org made
+```
+
+**Verify Workflows:**
+
+```
+☑ GitHub_Engineer_Senior_Provisioning configured
+☑ GitHub_Engineer_Developer_Provisioning configured
+☑ GitHub_DevOps_Provisioning configured
+☑ GitHub_Engineering_Employee_Provisioning configured
+☑ Notifications configured (team invitation emails)
+☑ Error handling configured (retry, alert admin)
+☑ Logging configured (audit trail complete)
+```
+
+**Verify Users:**
+
+```
+☑ Alex Lee assigned to Engineer_Senior role
+☑ User4 assigned to Engineer_Developer role
+☑ User12 assigned to DevOps role
+☑ All assigned to Engineering_Employee (dynamic)
+☑ Email addresses present for all
+☑ Department = Engineering for all
+```
+
+---
+
+### TASK 2: Execute GitHub Provisioning for Engineer Senior
+
+**Step 1: Initiate Provisioning for Alex Lee**
+
+```
+ISC > Identities > Alex Lee
+├─ Role: Engineer_Senior (already assigned)
+├─ Trigger: GitHub_Engineer_Senior_Provisioning workflow
+├─ Monitor: ISC > Provisioning > Status
+└─ Expected completion: 2-3 minutes
+```
+
+**Step 2: Verify GitHub Account Created**
+
+```
+GitHub Organization > Members
+├─ Look for: alex.lee (username)
+├─ Email: alex@contoso.com ✓
+├─ Status: Pending invitation (initial state)
+├─ After Alex accepts:
+│  ├─ Status: Active member
+│  └─ Join date: [today]
+│
+├─ Team memberships:
+│  ├─ Engineering team: Maintainer role ✓
+│  ├─ Technical_Staff team: Member role ✓
+│  └─ Managers team: Maintainer role ✓
+│
+├─ Repository access:
+│  ├─ main: Push access (can push code, review PRs)
+│  ├─ staging: Push access
+│  ├─ infrastructure: Push access
+│  └─ archived: Read-only
+│
+└─ Verification complete ✓
+```
+
+**Step 3: Alex Accepts GitHub Invitation**
+
+```
+Process:
+1. Alex receives email: "Join Contoso on GitHub"
+2. Alex clicks link in email
+3. GitHub shows invitation
+4. Alex accepts
+5. Alex joins organization as member
+
+After acceptance:
+├─ Alex can see all repositories
+├─ Alex can access team chat/discussions
+├─ Alex can push code to assigned repos
+└─ GitHub audit log shows: "alex.lee joined 2026-03-02 10:00"
+```
+
+**Step 4: Verify Code Access**
+
+```
+Test: Alex can push code to GitHub
+
+Alex's computer:
+1. Install Git
+2. Clone main repository: git clone https://github.com/contoso/main.git
+3. Create test branch: git checkout -b test-feature
+4. Make code change
+5. Commit: git commit -m "Test commit from Alex"
+6. Push: git push origin test-feature
+7. Result: Success ✓
+
+GitHub shows:
+├─ New branch: test-feature
+├─ Author: alex.lee
+├─ Commit: "Test commit from Alex"
+└─ Timestamp: [today, Alex's time]
+
+Verification: Alex can push code ✓
+```
+
+---
+
+### TASK 3: Execute GitHub Provisioning for Engineer Developer
+
+**Repeat for User4 (Engineer_Developer):**
+
+```
+ISC > Identities > User4
+├─ Role: Engineer_Developer
+├─ Trigger: GitHub_Engineer_Developer_Provisioning workflow
+├─ Monitor: Status
+└─ Expected: Account created
+
+GitHub verification:
+├─ Username: user4.contoso
+├─ Teams:
+│  ├─ Engineering: Contributor (not maintainer)
+│  └─ Technical_Staff: Member
+├─ Repository access:
+│  ├─ main: Push ✓
+│  ├─ staging: Push ✓
+│  ├─ infrastructure: Read-only ✗ (correct - dev doesn't manage infra)
+│  └─ archived: Read-only
+├─ Permissions: Can create PRs, push to dev/staging
+└─ Status: READY ✓
+
+Difference from Alex:
+├─ Alex = Maintainer (can merge/approve)
+├─ User4 = Contributor (can push, but not approve)
+└─ Result: Code review workflow enforced (user4 needs approval from alex)
+```
+
+---
+
+### TASK 4: Execute GitHub Provisioning for DevOps
+
+**Provision User12 (DevOps):**
+
+```
+ISC > Identities > User12
+├─ Role: DevOps
+├─ Trigger: GitHub_DevOps_Provisioning workflow
+├─ Monitor: Status
+└─ Expected: Account created
+
+GitHub verification:
+├─ Username: user12.devops
+├─ Teams:
+│  ├─ Infrastructure: Admin (can manage repos, teams, settings)
+│  ├─ Engineering: Member (read-only, collaboration)
+│  └─ Technical_Staff: Member
+├─ Repository access:
+│  ├─ main: Admin (can delete, force-push, manage)
+│  ├─ staging: Admin
+│  ├─ infrastructure: Admin (can manage webhooks, CI/CD)
+│  └─ archived: Read-only
+├─ Additional:
+│  ├─ Can manage organization webhooks
+│  ├─ Can configure CI/CD pipelines
+│  ├─ Can manage secrets/credentials
+│  └─ Can add/remove users from org
+└─ Status: READY ✓
+
+Verification: User12 can manage GitHub infrastructure ✓
+```
+
+---
+
+### TASK 5: Verify All Engineering Users Provisioned
+
+**Comprehensive Verification Table:**
+
+```
+User: Alex Lee
+├─ Role: Engineer_Senior (manual)
+├─ GitHub Account: alex.lee ✓
+├─ Teams: Engineering (maintainer), Technical_Staff (member), Managers (maintainer) ✓
+├─ Repositories: main (push), staging (push), infrastructure (push)
+├─ Can review/approve PRs: YES ✓
+├─ Can merge code: YES ✓
+├─ Can manage teams: YES (via maintainer role)
+├─ Audit log: Provisioned ✓
+└─ Status: PRODUCTION READY ✓
+
+User: User4
+├─ Role: Engineer_Developer (manual)
+├─ GitHub Account: user4.contoso ✓
+├─ Teams: Engineering (contributor), Technical_Staff (member) ✓
+├─ Repositories: main (push), staging (push), infrastructure (read-only)
+├─ Can create PRs: YES ✓
+├─ Can push code: YES ✓
+├─ Can approve PRs: NO ✗ (correct - not maintainer)
+├─ Audit log: Provisioned ✓
+└─ Status: PRODUCTION READY ✓
+
+User: User12
+├─ Role: DevOps (manual)
+├─ GitHub Account: user12.devops ✓
+├─ Teams: Infrastructure (admin), Engineering (member) ✓
+├─ Repositories: All (admin access)
+├─ Can manage CI/CD: YES ✓
+├─ Can configure webhooks: YES ✓
+├─ Can add/remove team members: YES ✓
+├─ Audit log: Provisioned ✓
+└─ Status: PRODUCTION READY ✓
+
+Summary:
+├─ All 3 engineering users provisioned ✓
+├─ All permissions correct per role ✓
+├─ Code workflow enforced (PR review required) ✓
+├─ Infrastructure management enabled (DevOps) ✓
+└─ Audit trails complete ✓
+```
+
+---
+
+### TASK 6: Test Engineering Workflows
+
+**Test 1: Code Review Workflow (PR Approval)**
+
+```
+Scenario: User4 writes code, Alex reviews & approves
+
+Steps:
+1. User4 creates feature branch: git checkout -b new-feature
+2. User4 makes changes and commits: git commit -m "New feature"
+3. User4 pushes: git push origin new-feature
+4. User4 creates Pull Request on GitHub
+   ├─ Base: main
+   ├─ Compare: new-feature
+   ├─ Title: "Add new feature"
+   └─ Description: Explanation
+
+5. GitHub shows:
+   ├─ PR created by user4.contoso
+   ├─ Status: Waiting for review
+   ├─ Assigned reviewers: [could be auto-assigned]
+
+6. Alex receives notification: "New PR from user4"
+7. Alex reviews code: Looks good
+8. Alex approves: Click "Approve" button
+9. Alex merges: Click "Merge PR"
+   ├─ Code merged to main
+   ├─ Merged by: alex.lee
+   ├─ Merged from: user4 (contributor)
+   └─ Merged to: main (protected branch)
+
+Result:
+├─ Two-person workflow enforced ✓
+├─ User4 can't merge own code ✗ (correct - needs approval)
+├─ Alex can approve and merge ✓
+├─ Audit trail: PR history, reviewer, merge author ✓
+```
+
+**Test 2: Infrastructure Management**
+
+```
+Scenario: User12 (DevOps) configures CI/CD pipeline
+
+Steps:
+1. User12 goes to infrastructure repo
+2. User12 navigates to: Settings > Webhooks
+3. User12 adds webhook:
+   ├─ Payload URL: https://ci.contoso.com/github
+   ├─ Trigger: On push to main
+   ├─ Events: Push, Pull Request
+   └─ Save
+
+4. GitHub shows:
+   ├─ Webhook created by user12.devops
+   ├─ Status: Sending (can verify delivery)
+   └─ Last delivery: [timestamp]
+
+5. User12 configures CI/CD:
+   ├─ Create: .github/workflows/deploy.yml
+   ├─ Commit: git add & git commit
+   ├─ Push: git push
+   ├─ CI/CD triggers automatically
+   └─ Deployment logs visible
+
+Result:
+├─ DevOps can manage infrastructure ✓
+├─ CI/CD pipeline automated ✓
+├─ Regular developers cannot modify CI/CD ✗ (correct)
+└─ Audit trail: All webhook/config changes logged ✓
+```
+
+**Test 3: Access Control**
+
+```
+Scenario: User5 (from Finance) tries to access GitHub engineering repo
+
+Steps:
+1. User5 tries to clone main: git clone https://github.com/contoso/main.git
+2. GitHub checks: Is user5 member of organization?
+3. Result: NO - user5 is not in GitHub org
+4. GitHub returns: 404 Not Found (pretend repo doesn't exist)
+5. User5 cannot see or access repo
+
+Result:
+├─ Finance user cannot access engineering repos ✓
+├─ Access control enforced ✓
+├─ No accidental information leakage ✓
+└─ Correct separation enforced ✓
+```
+
+---
+
+### TASK 7: Troubleshooting
+
+**Issue 1: GitHub Invitation Not Received**
+
+```
+Error: Alex doesn't receive GitHub invitation email
+
+Causes:
+├─ ISC email not configured
+├─ User's email wrong in ISC
+├─ Email in spam folder
+└─ GitHub invitation expired (7 days)
+
+Solution:
+1. Check ISC email configuration (same as QB module)
+2. Verify Alex's email in ISC > Identities > Alex Lee
+3. Resend invitation manually:
+   ├─ GitHub org > Members
+   ├─ Find alex.lee
+   ├─ Click "Resend invitation"
+   └─ Check email again
+4. If still not received: Call Alex, provide direct link
+```
+
+**Issue 2: User Can't Push Code**
+
+```
+Error: User4 tries to push but gets "Permission denied"
+
+Causes:
+├─ Repository access not granted
+├─ GitHub account not verified (email not confirmed)
+├─ SSH key not configured
+└─ Branch protection rules blocking push
+
+Solution:
+1. Verify GitHub permissions:
+   ├─ GitHub > Repository > Settings > Collaborators
+   ├─ user4.contoso should be listed with "Write" access
+   └─ If missing: Re-run provisioning
+2. Verify branch protection:
+   ├─ GitHub > Repository > Settings > Branches
+   ├─ Check if "Require pull request review" enforced
+   ├─ Developers should push to feature branches (not main)
+   └─ Then create PR for main
+3. Verify SSH key:
+   ├─ User4 SSH public key uploaded to GitHub
+   ├─ GitHub > Settings > SSH and GPG keys
+   └─ If missing: User4 must upload key
+```
+
+**Issue 3: Provisioning Failed (API Error)**
+
+```
+Error: "GitHub API error: Organization limit exceeded"
+
+Cause:
+├─ GitHub org has hit member limit
+├─ Or API rate limit reached
+└─ Or API token permissions insufficient
+
+Solution:
+1. Check GitHub API limits:
+   ├─ GitHub Settings > Developer settings > Personal access tokens
+   ├─ Check token scopes: admin:org, repo, etc.
+   └─ If insufficient: Regenerate token with full scopes
+2. Wait for rate limit reset (1 hour)
+3. Retry provisioning
+4. If org limit: Contact GitHub support to increase
+```
+
+---
+
+## 🧪 EXPECTED RESULTS
+
+After GitHub provisioning:
+
+✅ 3 engineering users provisioned to GitHub
+✅ All in correct teams with correct permissions
+✅ Code workflow verified (PR review enforced)
+✅ Infrastructure management enabled (DevOps)
+✅ Audit trail complete
+✅ Access control verified
+
+---
+
+## ✅ SUCCESS CRITERIA
+
+- ☑️ All 3 engineering users provisioned to GitHub
+- ☑️ Team memberships correct (Engineer, Technical_Staff, Managers)
+- ☑️ Repository permissions match roles
+- ☑️ Code review workflow enforced
+- ☑️ Infrastructure management enabled for DevOps
+- ☑️ Audit trails complete
+
+---
+
+## 🎓 CERTIFICATION
+
+**Q:** What GitHub team and role should Engineer_Developer have?
+
+A) Engineering team with Admin role
+B) ✅ Engineering team with Contributor role
+C) Infrastructure team with Member role
+D) All teams with Read-only access
+
+**Answer: B.** Engineer_Developer = Contributor (can push code but can't approve/merge).
+
+**Q:** Why is code review workflow important?
+
+A) It slows down development
+B) ✅ It ensures quality and prevents bad code merging
+C) It's just bureaucracy
+D) Only needed for large companies
+
+**Answer: B.** Two-person rule (write + approve) prevents bad code and enforces quality.
+
+---
+
+## 📚 RESOURCES
+
+- [Module 6.6: Provision QuickBooks Access](/modules/6.6-provision-quickbooks-access)
+- [Next: 6.8 - Provision AWS Access](/modules/6.8-provision-aws-access)
+
+---
+
+## ✅ NEXT STEPS
+
+1. Provision all 3 engineering users to GitHub
+2. Test code workflow and access control
+3. Proceed to 6.8 to provision AWS access
+
