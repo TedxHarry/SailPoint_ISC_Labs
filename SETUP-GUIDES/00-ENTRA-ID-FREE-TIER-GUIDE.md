@@ -28,7 +28,7 @@ By the end, you'll have:
 | **Test Application (1)** | ISC_Test_App | For provisioning practice |
 | **Additional Users** | 10 more test users | For realistic scenarios |
 
-**Total setup time:** 30-45 minutes
+**Total setup time:** 
 
 ---
 
@@ -38,9 +38,9 @@ By the end, you'll have:
 
 1. **Open browser** → Go to https://portal.azure.com
 2. **Sign in** with your account
-   - If prompted, enter your email address
-   - Enter your password
-   - Complete any MFA if required
+ - If prompted, enter your email address
+ - Enter your password
+ - Complete any MFA if required
 3. **You should see:** Azure Portal dashboard
 
 ### Step 1.2: Navigate to Entra ID
@@ -49,9 +49,9 @@ By the end, you'll have:
 2. **Type:** `Entra ID` or `Azure Active Directory`
 3. **Click** on "Microsoft Entra ID" (first result)
 4. **You'll see:** Entra ID overview page
-   - Shows your tenant name
-   - Shows number of users/groups
-   - Shows monitoring information
+ - Shows your tenant name
+ - Shows number of users/groups
+ - Shows monitoring information
 
 **If you see "Enterprise applications" instead, go back:**
 - Click "Microsoft Entra ID" in left sidebar
@@ -283,12 +283,12 @@ FIELD: Redirect URI
 **On the application details page, you'll see:**
 
 1. **Application (client) ID** - Copy this
-   - Format: `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
-   - **You'll need this for ISC**
+ - Format: `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
+ - **You'll need this for ISC**
 
 2. **Directory (tenant) ID** - Copy this
-   - Format: `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
-   - **You'll need this for ISC**
+ - Format: `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
+ - **You'll need this for ISC**
 
 **Store these somewhere safe** (notepad or password manager):
 ```
@@ -360,8 +360,8 @@ You must create and save a Client Secret. ISC will use this to prove it's author
 5. **You'll see:** "No client secrets created"
 6. **Click:** "+ New client secret" button
 7. **A box appears** asking for:
-   - **Description:** Type `ISC_Test_Secret` (just a name for you)
-   - **Expires:** Select `6 months` (recommended for testing)
+ - **Description:** Type `ISC_Test_Secret` (just a name for you)
+ - **Expires:** Select `` (recommended for testing)
 8. **Click:** "Add" button
 9. **⚠️ IMPORTANT:** You'll see the secret value displayed. **COPY IT IMMEDIATELY** - it will only show once!
 10. **Paste it** into your safe storage:
@@ -408,14 +408,14 @@ For ISC labs to be realistic, create ~10 test users. Instead of doing one-by-one
 **Steps for each:**
 1. Click "+ New user" → "Create new user"
 2. Fill in:
-   - **User principal name:** [username from table]
-   - **Display name:** [Firstname_Lastname]
-   - **Department:** [From table]
-   - **Job title:** [From table]
-   - **Usage location:** United States
+ - **User principal name:** [username from table]
+ - **Display name:** [Firstname_Lastname]
+ - **Department:** [From table]
+ - **Job title:** [From table]
+ - **Usage location:** United States
 3. Click "Create"
 
-**Time estimate:** 5 minutes for all 10
+**Time estimate:** for all 10
 
 ---
 
@@ -484,16 +484,16 @@ NOTES SAVED:
 ### Verification Steps
 
 1. **Check Users:**
-   - Go to Users
-   - Count should be ~13 (3 original + 10 test + 1 system account)
+ - Go to Users
+ - Count should be ~13 (3 original + 10 test + 1 system account)
 
 2. **Check Groups:**
-   - Go to Groups
-   - Should see: Finance_Team, Admin_Team, Finance_Dept, HR_Dept, Sales_Dept, Engineering_Dept, All_Employees
+ - Go to Groups
+ - Should see: Finance_Team, Admin_Team, Finance_Dept, HR_Dept, Sales_Dept, Engineering_Dept, All_Employees
 
 3. **Check Apps:**
-   - Go to App registrations
-   - Should see: ISC_Test_App with your Application ID noted
+ - Go to App registrations
+ - Should see: ISC_Test_App with your Application ID noted
 
 ---
 
@@ -547,7 +547,7 @@ ISC Configuration Information:
 ### Issue: Can't Add Members to Group
 **Problem:** "User not found"
 **Solution:**
-- Wait 5-10 minutes after creating user
+- Wait after creating user
 - Entra ID takes time to sync
 - Then try again
 
@@ -595,7 +595,7 @@ A: Yes, you can delete test users anytime.
 - ✅ Noted down application credentials
 - ✅ Ready for ISC connection
 
-**Time taken:** ~30-45 minutes
+**Time taken:** ~
 
 **Next:** Follow `SETUP-GUIDES/01-ISC-SANDBOX-ACCESS.md` to connect ISC
 

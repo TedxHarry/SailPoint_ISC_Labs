@@ -53,7 +53,7 @@ Scenario 3: User Leaves Company
 ├─ Exception: Disable not delete (keep audit history)
 ├─ Action: Disable in all systems same day
 ├─ Timing: Last day of employment
-└─ Cleanup: Delete after 90-day retention period
+└─ Cleanup: Delete after retention period
 
 Scenario 4: Contract Ends
 ├─ Access: Remove same as employee departure
@@ -68,56 +68,54 @@ Scenario 4: Contract Ends
 **Without Deprovisioning (Access Sprawl):**
 
 ```
-User's career timeline:
-├─ Year 1: Hired, Finance department
-│  └─ Access: QB, ADP, Finance AD groups
+User's career 
+│ └─ Access: QB, ADP, Finance AD groups
 │
 ├─ Year 2: Promoted to Finance Manager
-│  ├─ New access: Finance_Manager role
-│  └─ Old access: Never removed
+│ ├─ New access: Finance_Manager role
+│ └─ Old access: Never removed
 │
 ├─ Year 3: Transferred to Sales
-│  ├─ New access: Salesforce, Sales role
-│  └─ Old access: Still has Finance manager access
+│ ├─ New access: Salesforce, Sales role
+│ └─ Old access: Still has Finance manager access
 │
 ├─ Year 4: Promoted to VP Operations
-│  ├─ New access: All systems
-│  └─ Old access: Still has Finance + Sales access
+│ ├─ New access: All systems
+│ └─ Old access: Still has Finance + Sales access
 │
 └─ Result: User has access to systems they don't work with anymore
-   ├─ Risk 1: Accidentally changes finance data (not their job)
-   ├─ Risk 2: Old passwords written down, security issue
-   ├─ Risk 3: If credentials compromised, attacker has multiple system access
-   └─ Risk 4: Compliance nightmare (audit can't determine who has what)
+ ├─ Risk 1: Accidentally changes finance data (not their job)
+ ├─ Risk 2: Old passwords written down, security issue
+ ├─ Risk 3: If credentials compromised, attacker has multiple system access
+ └─ Risk 4: Compliance nightmare (audit can't determine who has what)
 ```
 
 **With Deprovisioning (Access Control):**
 
 ```
-Same career timeline:
-├─ Year 1: Hired
-│  └─ Access: QB, ADP, Finance groups ONLY
+Same career 
+│ └─ Access: QB, ADP, Finance groups ONLY
 │
 ├─ Year 2: Promoted
-│  ├─ Old access: Removed (not Finance AP Clerk anymore)
-│  ├─ New access: Finance_Manager role
-│  └─ Result: Finance_Manager access only
+│ ├─ Old access: Removed (not Finance AP Clerk anymore)
+│ ├─ New access: Finance_Manager role
+│ └─ Result: Finance_Manager access only
 │
 ├─ Year 3: Transferred
-│  ├─ Old access: All Finance access removed
-│  ├─ New access: Salesforce, Sales role
-│  └─ Result: Salesforce access only
+│ ├─ Old access: All Finance access removed
+│ ├─ New access: Salesforce, Sales role
+│ └─ Result: Salesforce access only
 │
 ├─ Year 4: Promoted to VP
-│  ├─ Old access: Sales access removed
-│  ├─ New access: VP role (all systems as needed)
-│  └─ Result: VP access only
+│ ├─ Old access: Sales access removed
+│ ├─ New access: VP role (all systems as needed)
+│ └─ Result: VP access only
 │
 └─ Result: User always has access matching CURRENT role only
-   ├─ Clean: Only current systems accessible
-   ├─ Safe: Old passwords irrelevant
-   ├─ Auditable: Clear who has what when
-   └─ Compliant: Access always matches job function
+ ├─ Clean: Only current systems accessible
+ ├─ Safe: Old passwords irrelevant
+ ├─ Auditable: Clear who has what when
+ └─ Compliant: Access always matches job function
 ```
 
 ---
@@ -133,14 +131,14 @@ Process:
 ├─ Find all accounts in all systems
 ├─ For each account: Disable (not delete)
 ├─ Keep: Historical record, audit trail
-├─ Delete: After retention period (e.g., 90 days)
+├─ Delete: After retention period (e.g., )
 └─ Reason: Can recover if needed, complete audit history
 
 Example - QB:
 ├─ Before: Account 'casey' active, can log in
 ├─ Action: Disable account in QB
 ├─ After: Account 'casey' disabled, cannot log in
-├─ Later (90 days): Delete account completely
+├─ Later (): Delete account completely
 └─ Result: Historical record kept for audit
 ```
 
@@ -226,7 +224,7 @@ Risk: Deprovisioning script deletes account before data backed up
 
 Mitigation:
 ├─ Never delete immediately (disable first)
-├─ Retention period: Keep disabled accounts 90 days minimum
+├─ Retention period: Keep disabled accounts minimum
 ├─ Backup: Auto-backup all user data before deprovisioning
 ├─ Permission: Require approval before deletion
 └─ Audit: Alert on all deprovisioning actions

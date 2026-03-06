@@ -69,13 +69,13 @@ Priority: [number field]
 ```
 
 3. **Fill in:**
-   - Rule Name: "Email Match Rule"
-   - Description: "Correlate Entra ID account by email to identity"
-   - Enabled: Check this box
-   - Operator: "EQUALS" (exact match)
-   - Account Attribute: "nativeIdentity" or "mail" (depends on how Entra ID stores it)
-   - Identity Attribute: "email"
-   - Priority: "1" (first rule to check)
+ - Rule Name: "Email Match Rule"
+ - Description: "Correlate Entra ID account by email to identity"
+ - Enabled: Check this box
+ - Operator: "EQUALS" (exact match)
+ - Account Attribute: "nativeIdentity" or "mail" (depends on how Entra ID stores it)
+ - Identity Attribute: "email"
+ - Priority: "1" (first rule to check)
 
 4. **Save:** Click "Save" or "Create Rule"
 
@@ -111,13 +111,13 @@ Priority: [number field]
 
 ```
 Priority 1: Email match (Entra ID)
-  IF account.mail == identity.email
+ IF account.mail == identity.email
 
 Priority 2: Employee ID match (Oracle)
-  IF account.employeeID == identity.employeeID
+ IF account.employeeID == identity.employeeID
 
 Priority 3: Username match (Active Directory)
-  IF account.sAMAccountName == identity.username
+ IF account.sAMAccountName == identity.username
 ```
 
 For Contoso single source, only 1 rule needed.
@@ -130,13 +130,13 @@ For Contoso single source, only 1 rule needed.
 
 ```
 Account from Entra ID:
-  nativeIdentity: "alex.lee@contoso.com"
-  displayName: "Alex Lee"
+ nativeIdentity: "alex.lee@contoso.com"
+ displayName: "Alex Lee"
 
 Identity in ISC:
-  email: "alex.lee@contoso.com"
-  firstName: "Alex"
-  lastName: "Lee"
+ email: "alex.lee@contoso.com"
+ firstName: "Alex"
+ lastName: "Lee"
 
 Rule: "IF account.nativeIdentity == identity.email"
 Check: "alex.lee@contoso.com" == "alex.lee@contoso.com" ?
@@ -149,10 +149,10 @@ Result: YES → CORRELATE
 
 ```
 Account from Entra ID:
-  nativeIdentity: "alexander.lee@contoso.com"  ← Different!
+ nativeIdentity: "alexander.lee@contoso.com" ← Different!
 
 Identity in ISC:
-  email: "alex.lee@contoso.com"
+ email: "alex.lee@contoso.com"
 
 Rule: "IF account.nativeIdentity == identity.email"
 Check: "alexander.lee@contoso.com" == "alex.lee@contoso.com" ?
@@ -188,9 +188,9 @@ Success rate: 100%
 ```
 
 5. **If any failures:**
-   - Shows which accounts didn't match
-   - Reason: "No identity with matching email"
-   - Fix: Check account data, check identity attributes, adjust rule
+ - Shows which accounts didn't match
+ - Reason: "No identity with matching email"
+ - Fix: Check account data, check identity attributes, adjust rule
 
 ---
 

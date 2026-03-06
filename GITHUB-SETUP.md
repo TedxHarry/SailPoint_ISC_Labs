@@ -6,11 +6,11 @@
 
 1. **Go to GitHub:** https://github.com/new
 2. **Create new repository:**
-   - Repository name: `SailPoint_ISC_Labs`
-   - Description: "Complete hands-on learning curriculum for SailPoint ISC from beginner to professional"
-   - Visibility: **Public**
-   - **DO NOT** initialize with README (we have our own)
-   - Click: **Create repository**
+ - Repository name: `SailPoint_ISC_Labs`
+ - Description: "Complete hands-on learning curriculum for SailPoint ISC from beginner to professional"
+ - Visibility: **Public**
+ - **DO NOT** initialize with README (we have our own)
+ - Click: **Create repository**
 
 3. **After creation, you'll see commands. Copy the HTTPS URL** (looks like `https://github.com/TedxHarry/SailPoint_ISC_Labs.git`)
 
@@ -23,8 +23,8 @@ git push -u origin main
 ```
 
 5. **When prompted for password:**
-   - If using HTTPS: Use your GitHub personal access token (not password)
-   - Generate token at: https://github.com/settings/tokens
+ - If using HTTPS: Use your GitHub personal access token (not password)
+ - Generate token at: https://github.com/settings/tokens
 
 ---
 
@@ -45,13 +45,13 @@ git push -u origin main
 
 1. Open browser → Go to https://github.com/new
 2. Fill in form:
-   - **Repository name:** `SailPoint_ISC_Labs`
-   - **Description:** "Complete hands-on learning curriculum for SailPoint ISC: beginner to professional level with labs, test data, and certification alignment"
-   - **Public or Private:** Select **Public**
-   - **Initialize this repository with:**
-     - ☐ DO NOT check "Add a README file" (we have one)
-     - ☐ DO NOT check ".gitignore"
-     - ☐ DO NOT check "Choose a license"
+ - **Repository name:** `SailPoint_ISC_Labs`
+ - **Description:** "Complete hands-on learning curriculum for SailPoint ISC: beginner to professional level with labs, test data, and certification alignment"
+ - **Public or Private:** Select **Public**
+ - **Initialize this repository with:**
+ - ☐ DO NOT check "Add a README file" (we have one)
+ - ☐ DO NOT check ".gitignore"
+ - ☐ DO NOT check "Choose a license"
 3. Click: **[Create repository]** button
 4. You'll see a success page with instructions
 
@@ -89,9 +89,9 @@ git push -u origin main
 If prompted for username/password:
 - **Username:** `TedxHarry`
 - **Password:** Use your GitHub Personal Access Token, NOT your password
-  - Create token at: https://github.com/settings/tokens
-  - Need: `repo` scope
-  - Copy token and paste when prompted
+ - Create token at: https://github.com/settings/tokens
+ - Need: `repo` scope
+ - Copy token and paste when prompted
 
 ### Step 5: Verify
 
@@ -132,18 +132,18 @@ You should see:
 Once successfully pushed:
 
 1. **Verify on GitHub:**
-   - Go to your repository URL
-   - All files should be visible
-   - README shows with proper formatting
+ - Go to your repository URL
+ - All files should be visible
+ - README shows with proper formatting
 
 2. **Update local tracking:**
-   - You're now tracking `main` branch
-   - Future commits: `git push` (no -u needed)
+ - You're now tracking `main` branch
+ - Future commits: `git push` (no -u needed)
 
 3. **Next steps:**
-   - Start writing Unit 1 modules
-   - Create branch for each unit or module
-   - Commit and push regularly
+ - Start writing Unit 1 modules
+ - Create branch for each unit or module
+ - Commit and push regularly
 
 ---
 

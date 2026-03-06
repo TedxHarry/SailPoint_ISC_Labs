@@ -45,16 +45,16 @@ These are four different account names. Correlation realizes they're all Morgan 
 ISC applies rules to match accounts. Common rules:
 
 1. **Email match:** Entra ID email = HRIS email → same person
-   - Morgan Chen: Entra ID email = morgan.chen@contoso.com, HRIS email = morgan.chen@contoso.com → MATCH
+ - Morgan Chen: Entra ID email = morgan.chen@contoso.com, HRIS email = morgan.chen@contoso.com → MATCH
 
 2. **Name + Department match:** First name + last name + department → same person
-   - Morgan Chen Finance (HRIS) + Morgan Chen (Entra ID with department=Finance) → MATCH
+ - Morgan Chen Finance (HRIS) + Morgan Chen (Entra ID with department=Finance) → MATCH
 
 3. **Employee ID match:** HRIS employee ID appears in other systems
-   - HRIS: E-00547 for Morgan Chen, Entra ID notes E-00547 → MATCH
+ - HRIS: E-00547 for Morgan Chen, Entra ID notes E-00547 → MATCH
 
 4. **Username + domain:** Username matches across systems
-   - mchen@finance.app + mchen@hris → MATCH (if configured)
+ - mchen@finance.app + mchen@hris → MATCH (if configured)
 
 **Precedence:** Rules applied in order. First match wins. If email matches, that's the correlation. If email fails, try name+dept, etc.
 
@@ -87,12 +87,12 @@ ISC applies rules to match accounts. Common rules:
 **Configure for each system:**
 
 1. **Priority:** Which system is authoritative for identities? (Usually HRIS)
-   - HRIS identity is primary → other systems match to it
+ - HRIS identity is primary → other systems match to it
 
 2. **Matching attributes:** What attributes define a match?
-   - Email: morgan.chen@contoso.com
-   - Name + Department: First + Last + Dept
-   - Employee ID: E-00547
+ - Email: morgan.chen@contoso.com
+ - Name + Department: First + Last + Dept
+ - Employee ID: E-00547
 
 3. **Correlation rule syntax:** "Match on: email. If email fails, match on: name + department"
 

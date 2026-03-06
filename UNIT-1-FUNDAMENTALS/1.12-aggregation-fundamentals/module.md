@@ -129,7 +129,7 @@ D) ISC does nothing until manual approval
 **Question 2:** HRIS aggregation runs at 2 AM daily. A new Finance AP Clerk is hired and added to HRIS at 3 PM. When is access provisioned?
 
 A) Immediately (real-time)
-B) Within 1 hour
+B) Within 
 C) ✅ Next day at 2 AM or shortly after (when aggregation runs)
 D) Never (manual request required)
 

@@ -35,43 +35,43 @@ Issue Identified:
 Remediation Steps:
 
 1. Approval:
-   ├─ Compliance team: Reviews and approves removal
-   ├─ Manager: Confirms no business need
-   ├─ Role owner: Authorizes access removal
-   └─ Status: APPROVED for remediation
+ ├─ Compliance team: Reviews and approves removal
+ ├─ Manager: Confirms no business need
+ ├─ Role owner: Authorizes access removal
+ └─ Status: APPROVED for remediation
 
 2. Pre-removal verification:
-   ├─ Current state: QB admin (verified)
-   ├─ Data check: Any pending work?
-   ├─ Notification: Inform user before removal
-   └─ Backup: Ensure data backed up
+ ├─ Current state: QB admin (verified)
+ ├─ Data check: Any pending work?
+ ├─ Notification: Inform user before removal
+ └─ Backup: Ensure data backed up
 
 3. Remove access:
-   ├─ ISC: Remove QB_Admin role
-   ├─ Systems: QB removes admin permissions
-   ├─ Verify: User logs in, no admin options
-   └─ Timestamp: Log removal at [time]
+ ├─ ISC: Remove QB_Admin role
+ ├─ Systems: QB removes admin permissions
+ ├─ Verify: User logs in, no admin options
+ └─ Timestamp: Log removal at [time]
 
 4. Add correct access (if needed):
-   ├─ ISC: Assign Finance_AP_Clerk role
-   ├─ Systems: QB gives clerk permissions
-   ├─ Verify: User can work as clerk
-   └─ Test: Confirm access working
+ ├─ ISC: Assign Finance_AP_Clerk role
+ ├─ Systems: QB gives clerk permissions
+ ├─ Verify: User can work as clerk
+ └─ Test: Confirm access working
 
 5. Notify:
-   ├─ User: "Your admin access removed, clerk access confirmed"
-   ├─ Manager: "Remediation complete for User5"
-   ├─ Compliance: "Violation resolved"
-   └─ Audit log: Complete record kept
+ ├─ User: "Your admin access removed, clerk access confirmed"
+ ├─ Manager: "Remediation complete for User5"
+ ├─ Compliance: "Violation resolved"
+ └─ Audit log: Complete record kept
 
 6. Documentation:
-   ├─ Issue: Description of problem
-   ├─ Root cause: Why it happened
-   ├─ Remediation: What was done
-   ├─ Approval: Who approved
-   ├─ Timestamp: When executed
-   ├─ Verification: How confirmed
-   └─ Prevention: How to prevent recurrence
+ ├─ Issue: Description of problem
+ ├─ Root cause: Why it happened
+ ├─ Remediation: What was done
+ ├─ Approval: Who approved
+ ├─ Timestamp: When executed
+ ├─ Verification: How confirmed
+ └─ Prevention: How to prevent recurrence
 ```
 
 ### Remediation Types
@@ -80,10 +80,10 @@ Remediation Steps:
 SoD Violation (Finance_Manager + AP_Clerk):
 ├─ Scope: Remove conflicting role
 ├─ Options:
-│  ├─ Remove Manager role (if not current)
-│  ├─ Remove Clerk role (if not current)
-│  └─ Remove both (if neither current)
-├─ Timeline: Immediate
+│ ├─ Remove Manager role (if not current)
+│ ├─ Remove Clerk role (if not current)
+│ └─ Remove both (if neither current)
+├─ 
 └─ Example: User has both roles from old assignments
 
 Access Creep (User has more than needed):
@@ -91,21 +91,21 @@ Access Creep (User has more than needed):
 ├─ Example: Finance user has GitHub access (unneeded)
 ├─ Action: Remove unnecessary access
 ├─ Verification: Check if access is still needed
-└─ Timeline: Immediate if confirmed unneeded
+└─ 
 
 Orphaned Access (User changed roles, old access remains):
 ├─ Issue: Role changed but old system access not removed
 ├─ Example: User was Developer, now Manager, still has GitHub
 ├─ Action: Remove old role's systems access
 ├─ Maintain: Manager-specific access only
-└─ Timeline: Within 48 hours
+└─ 
 
 Stale Exception (Temporary access not expired):
 ├─ Issue: Exception should have expired but didn't
 ├─ Root cause: Manual cleanup missed
 ├─ Action: Remove exception access
 ├─ Process: Auto-expire in future
-└─ Timeline: Immediate
+└─ 
 ```
 
 ### Remediation Tracking
@@ -121,11 +121,11 @@ Ticket #REM-001:
 ├─ Created: 2026-03-15
 ├─ Resolved: 2026-03-17
 ├─ Actions:
-│  ├─ Notify user
-│  ├─ Get approval
-│  ├─ Remove admin role
-│  ├─ Verify access changed
-│  └─ Document resolution
+│ ├─ Notify user
+│ ├─ Get approval
+│ ├─ Remove admin role
+│ ├─ Verify access changed
+│ └─ Document resolution
 └─ Notes: Access creep from old assignment
 
 Ticket #REM-002:
@@ -134,12 +134,10 @@ Ticket #REM-002:
 ├─ Severity: MEDIUM (unauthorized access)
 ├─ Status: RESOLVED
 ├─ Resolution: Removed ADP admin, kept standard access
-└─ Timeline: 24 hours
-
-Bulk Remediation:
+└─ 
 ├─ Scope: 12 users with expired access
 ├─ Approvals: Automated (all auto-expired)
-├─ Timeline: Run overnight
+├─ 
 ├─ Verification: Morning audit confirms all removed
 └─ Report: Remediation summary to management
 ```

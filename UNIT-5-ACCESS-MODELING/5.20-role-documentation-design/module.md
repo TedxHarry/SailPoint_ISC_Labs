@@ -35,44 +35,44 @@ Create comprehensive documentation for Contoso's access model.
 ROLE SPECIFICATION: [Role Name]
 
 1. PURPOSE
-   - What job function does this role support?
-   - What business need does it fulfill?
+ - What job function does this role support?
+ - What business need does it fulfill?
 
 2. OWNER
-   - Name: [Owner Name]
-   - Department: [Department]
-   - Contact: [Email, Phone]
+ - Name: [Owner Name]
+ - Department: [Department]
+ - Contact: [Email, Phone]
 
 3. MEMBERSHIP CRITERIA
-   - Who should get this role?
-   - What job titles?
-   - What departments?
-   - Any special conditions?
+ - Who should get this role?
+ - What job titles?
+ - What departments?
+ - Any special conditions?
 
 4. ACCESS PROFILES & ENTITLEMENTS
-   - Access Profile 1: [Profile] → [Entitlements]
-   - Access Profile 2: [Profile] → [Entitlements]
-   - Total entitlements: [count]
+ - Access Profile 1: [Profile] → [Entitlements]
+ - Access Profile 2: [Profile] → [Entitlements]
+ - Total entitlements: [count]
 
 5. SoD CONFLICTS
-   - Cannot combine with: [Role B]
-   - Reason: [Why conflict exists]
-   - Enforcement: [Prevent / Flag]
+ - Cannot combine with: [Role B]
+ - Reason: [Why conflict exists]
+ - Enforcement: [Prevent / Flag]
 
 6. USERS CURRENTLY IN ROLE
-   - [User1]
-   - [User2]
-   - Total: [count]
+ - [User1]
+ - [User2]
+ - Total: [count]
 
 7. CERTIFICATION SCHEDULE
-   - Frequency: [Quarterly / Annual]
-   - Last certified: [Date]
-   - Next certification: [Date]
+ - Frequency: [Quarterly / Annual]
+ - Last certified: [Date]
+ - Next certification: [Date]
 
 8. CHANGE HISTORY
-   - [Date]: Created
-   - [Date]: Added Entitlement X
-   - [Date]: Changed Owner
+ - [Date]: Created
+ - [Date]: Added Entitlement X
+ - [Date]: Changed Owner
 ```
 
 ---
@@ -85,42 +85,42 @@ ROLE SPECIFICATION: [Role Name]
 ROLE SPECIFICATION: Finance_Manager
 
 1. PURPOSE
-   Provides full financial management capabilities for Contoso finance department.
-   Supports invoice creation, approval, reconciliation, and reporting.
+ Provides full financial management capabilities for Contoso finance department.
+ Supports invoice creation, approval, reconciliation, and reporting.
 
 2. OWNER
-   Name: Casey Kim
-   Department: Finance
-   Contact: casey.kim@contoso.com
+ Name: Casey Kim
+ Department: Finance
+ Contact: casey.kim@contoso.com
 
 3. MEMBERSHIP CRITERIA
-   - Job Title: Finance Manager, Finance Director
-   - Department: Finance
-   - Condition: Must have accounting certification (preferred)
+ - Job Title: Finance Manager, Finance Director
+ - Department: Finance
+ - Condition: Must have accounting certification (preferred)
 
 4. ACCESS PROFILES & ENTITLEMENTS
-   - QB_Finance_Manager: create_invoice, approve_invoice, reconcile, report
-   - Bank_Reconciliation: view_accounts, initiate_transfer, reconcile_bank
-   - Excel_Reports: create_report, share_reports, schedule_reports
-   Total entitlements: 10
+ - QB_Finance_Manager: create_invoice, approve_invoice, reconcile, report
+ - Bank_Reconciliation: view_accounts, initiate_transfer, reconcile_bank
+ - Excel_Reports: create_report, share_reports, schedule_reports
+ Total entitlements: 10
 
 5. SoD CONFLICTS
-   - Cannot combine with: Finance_AP_Clerk
-     Reason: Manager role includes approve, clerk role creates invoices
-     Enforcement: Prevent
+ - Cannot combine with: Finance_AP_Clerk
+ Reason: Manager role includes approve, clerk role creates invoices
+ Enforcement: Prevent
 
 6. USERS CURRENTLY IN ROLE
-   - Casey Kim
-   Total: 1
+ - Casey Kim
+ Total: 1
 
 7. CERTIFICATION SCHEDULE
-   - Frequency: Quarterly
-   - Last certified: 2024-03-02
-   - Next certification: 2024-06-02
+ - Frequency: Quarterly
+ - Last certified: 2024-03-02
+ - Next certification: 2024-06-02
 
 8. CHANGE HISTORY
-   - 2024-03-02: Created
-   - Owner: Casey Kim
+ - 2024-03-02: Created
+ - Owner: Casey Kim
 ```
 
 ---
@@ -133,39 +133,39 @@ ROLE SPECIFICATION: Finance_Manager
 ROLE SPECIFICATION: Engineering_Employee
 
 1. PURPOSE
-   Automatically assigned to all engineering department employees.
-   Provides base engineering system access (GitHub dev, Jenkins staging).
+ Automatically assigned to all engineering department employees.
+ Provides base engineering system access (GitHub dev, Jenkins staging).
 
 2. OWNER
-   Name: Alex Lee (Engineering Lead)
-   Department: Engineering
+ Name: Alex Lee (Engineering Lead)
+ Department: Engineering
 
 3. MEMBERSHIP CRITERIA
-   - Automatic: IF department = "Engineering"
-   - Anyone in engineering dept automatically added
-   - Anyone leaving engineering automatically removed
+ - Automatic: IF department = "Engineering"
+ - Anyone in engineering dept automatically added
+ - Anyone leaving engineering automatically removed
 
 4. ACCESS PROFILES & ENTITLEMENTS
-   - Engineer_Developer: push_code, create_pr, review_pr, run_tests
-   Total entitlements: 4
+ - Engineer_Developer: push_code, create_pr, review_pr, run_tests
+ Total entitlements: 4
 
 5. SoD CONFLICTS
-   - None (base access, no approval authority)
+ - None (base access, no approval authority)
 
 6. USERS CURRENTLY IN ROLE
-   - Alex Lee
-   - User4
-   - User12
-   Total: 3 (auto-managed)
+ - Alex Lee
+ - User4
+ - User12
+ Total: 3 (auto-managed)
 
 7. CERTIFICATION SCHEDULE
-   - Frequency: Quarterly
-   - Last certified: 2024-03-02
-   - Next certification: 2024-06-02
+ - Frequency: Quarterly
+ - Last certified: 2024-03-02
+ - Next certification: 2024-06-02
 
 8. CHANGE HISTORY
-   - 2024-03-02: Created
-   - Rule: department == "Engineering"
+ - 2024-03-02: Created
+ - Rule: department == "Engineering"
 ```
 
 ---
@@ -179,27 +179,27 @@ SEPARATION OF DUTIES MATRIX
 
 FINANCE CONFLICTS:
 ┌─────────────────────────────┬──────────────┬───────────────────┐
-│ Conflict                    │ Roles/Entry  │ Enforcement       │
+│ Conflict │ Roles/Entry │ Enforcement │
 ├─────────────────────────────┼──────────────┼───────────────────┤
-│ Create + Approve Invoice    │ AP_Clerk ↔   │ Prevent           │
-│                             │ Manager      │                   │
+│ Create + Approve Invoice │ AP_Clerk ↔ │ Prevent │
+│ │ Manager │ │
 ├─────────────────────────────┼──────────────┼───────────────────┤
-│ Create + Delete Invoice     │ Entitlement  │ Prevent           │
-│                             │ Conflict     │                   │
+│ Create + Delete Invoice │ Entitlement │ Prevent │
+│ │ Conflict │ │
 ├─────────────────────────────┼──────────────┼───────────────────┤
-│ Post GL + Reconcile GL      │ Entitlement  │ Prevent           │
-│                             │ Conflict     │                   │
+│ Post GL + Reconcile GL │ Entitlement │ Prevent │
+│ │ Conflict │ │
 └─────────────────────────────┴──────────────┴───────────────────┘
 
 IT CONFLICTS:
 ┌─────────────────────────────┬──────────────┬───────────────────┐
-│ Conflict                    │ Roles/Entry  │ Enforcement       │
+│ Conflict │ Roles/Entry │ Enforcement │
 ├─────────────────────────────┼──────────────┼───────────────────┤
-│ Create User + Approve       │ IT_Admin ↔   │ Prevent           │
-│ Access Request              │ Access_Appr  │                   │
+│ Create User + Approve │ IT_Admin ↔ │ Prevent │
+│ Access Request │ Access_Appr │ │
 ├─────────────────────────────┼──────────────┼───────────────────┤
-│ Deploy Code + Approve       │ Entitlement  │ Prevent           │
-│ Deployment                  │ Conflict     │                   │
+│ Deploy Code + Approve │ Entitlement │ Prevent │
+│ Deployment │ Conflict │ │
 └─────────────────────────────┴──────────────┴───────────────────┘
 
 Total SoD Rules: 6+
@@ -215,25 +215,25 @@ Total SoD Rules: 6+
 CONTOSO ACCESS MODEL
 
 Users (13)
-    │
-    ├─ Finance (3)
-    │  ├─ Casey Kim → Finance_Manager → QB Full, Bank, Reports
-    │  ├─ Morgan Chen → Senior_Accountant → QB Accountant, Reports
-    │  └─ User5 → Finance_AP_Clerk → QB Create Invoice
-    │
-    ├─ Engineering (3)
-    │  ├─ Alex Lee → Engineer_Senior + Engineering_Employee → GitHub + Jenkins Prod
-    │  ├─ User4 → Engineer_Developer + Engineering_Employee → GitHub + Jenkins Dev
-    │  └─ User12 → Engineer_DevOps + Engineering_Employee → Infrastructure
-    │
-    ├─ Sales (2)
-    │  └─ Users6,7 → Sales_Representative + Sales_Employee → Salesforce
-    │
-    ├─ HR (2)
-    │  └─ Users8,9 → HR_Specialist/Manager + HR_Employee → HRIS, Benefits
-    │
-    └─ IT (2)
-       └─ Users10,11 → IT_Admin/Security + IT_Employee → Systems
+ │
+ ├─ Finance (3)
+ │ ├─ Casey Kim → Finance_Manager → QB Full, Bank, Reports
+ │ ├─ Morgan Chen → Senior_Accountant → QB Accountant, Reports
+ │ └─ User5 → Finance_AP_Clerk → QB Create Invoice
+ │
+ ├─ Engineering (3)
+ │ ├─ Alex Lee → Engineer_Senior + Engineering_Employee → GitHub + Jenkins Prod
+ │ ├─ User4 → Engineer_Developer + Engineering_Employee → GitHub + Jenkins Dev
+ │ └─ User12 → Engineer_DevOps + Engineering_Employee → Infrastructure
+ │
+ ├─ Sales (2)
+ │ └─ Users6,7 → Sales_Representative + Sales_Employee → Salesforce
+ │
+ ├─ HR (2)
+ │ └─ Users8,9 → HR_Specialist/Manager + HR_Employee → HRIS, Benefits
+ │
+ └─ IT (2)
+ └─ Users10,11 → IT_Admin/Security + IT_Employee → Systems
 ```
 
 ---

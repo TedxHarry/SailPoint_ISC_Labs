@@ -79,7 +79,7 @@ Module 1.1: What is Identity Management? Module 1.8: Identity Governance Framewo
 - Audit trail of access
 - Right to access: Audit trail of who accessed my data
 - Right to be forgotten: Ability to delete all my data
-- Breach notification: 72 hours
+- Breach notification: 
 
 **How ISC helps:**
 - Access Control: Restrict access to personal data

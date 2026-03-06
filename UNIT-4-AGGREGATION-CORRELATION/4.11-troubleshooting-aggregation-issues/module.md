@@ -73,7 +73,7 @@ Result: "Connection successful" (green) or "Connection failed" (red)
 - If network issue: Check firewall, ISC outbound connectivity
 - If timeout: Increase connector timeout (Administration > Connector settings)
 - If ISC server issue: Restart ISC server (requires admin)
-- Retry aggregation after waiting 5 minutes
+- Retry aggregation after waiting 
 
 ---
 
@@ -97,9 +97,9 @@ Error: "Authentication failed: Invalid credentials"
 ```
 Navigate: ISC > Sources > Contoso_Entra_ID > Edit
 Check:
-  - Tenant ID: Filled, correct format (UUID)
-  - App ID: Filled, correct format (UUID)
-  - Client Secret: Shows "****" (not actually shown, just indicator saved)
+ - Tenant ID: Filled, correct format (UUID)
+ - App ID: Filled, correct format (UUID)
+ - Client Secret: Shows "****" (not actually shown, just indicator saved)
 ```
 
 **Step 2:** Verify credentials in Azure
@@ -107,13 +107,13 @@ Check:
 1. Log in to Azure Portal
 2. Entra ID > App registrations > "ISC_Test_App"
 3. Check: "Authentication" page
-   - Redirect URI filled
-   - Client secret exists and not expired
+ - Redirect URI filled
+ - Client secret exists and not expired
 4. Check: "API permissions" page
-   - User.Read.All ✅
-   - Group.Read.All ✅
-   - Directory.Read.All ✅
-   - "Grant admin consent" shown as GRANTED
+ - User.Read.All ✅
+ - Group.Read.All ✅
+ - Directory.Read.All ✅
+ - "Grant admin consent" shown as GRANTED
 ```
 
 **Step 3:** Regenerate client secret (if expired)
@@ -159,22 +159,22 @@ Or: Run aggregation in debug mode (if available)
 Azure Portal > Entra ID > Users > Select a user (e.g., Alex Lee)
 View: Profile tab shows attributes
 Common attributes:
-  - givenName (first name)
-  - surname (last name)
-  - mail (email)
-  - department
-  - jobTitle
-  - manager
+ - givenName (first name)
+ - surname (last name)
+ - mail (email)
+ - department
+ - jobTitle
+ - manager
 ```
 
 **Step 3:** Check ISC mapping configuration
 ```
 ISC > Sources > Contoso_Entra_ID
 Check account mapping:
-  givenName → firstName (correct)
-  surname → lastName (correct)
-  mail → email (correct)
-  (Any others mapped?)
+ givenName → firstName (correct)
+ surname → lastName (correct)
+ mail → email (correct)
+ (Any others mapped?)
 ```
 
 **Fixes:**
@@ -203,11 +203,11 @@ Warning: "3 accounts could not be aggregated"
 ```
 Azure Portal > Entra ID > Users
 For each user, verify:
-  ✅ firstName (givenName) exists
-  ✅ lastName (surname) exists
-  ✅ Email exists
-  ✅ Department exists
-  ✅ JobTitle exists
+ ✅ firstName (givenName) exists
+ ✅ lastName (surname) exists
+ ✅ Email exists
+ ✅ Department exists
+ ✅ JobTitle exists
 ```
 
 **Step 2:** Check aggregation error log
@@ -272,10 +272,10 @@ If 13: Aggregation worked, log message was wrong
 **Symptoms:**
 ```
 Identity "Alex Lee" shows:
-  firstName: (blank)
-  lastName: (blank)
-  email: (blank)
-  department: (blank)
+ firstName: (blank)
+ lastName: (blank)
+ email: (blank)
+ department: (blank)
 ```
 
 **Cause:** Attribute mapping didn't populate, or source data missing.
@@ -299,14 +299,14 @@ Example: "givenName → firstName" should be defined
 ```
 ISC > Administration > Identity Profiles > Contoso_Entra_Profile
 Verify 8 attributes defined with correct names:
-  - firstName
-  - lastName
-  - email
-  - department
-  - jobTitle
-  - manager
-  - hireDate
-  - location
+ - firstName
+ - lastName
+ - email
+ - department
+ - jobTitle
+ - manager
+ - hireDate
+ - location
 ```
 
 **Fixes:**

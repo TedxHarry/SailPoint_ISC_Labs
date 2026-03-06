@@ -30,7 +30,7 @@ Person enters organization. System: HR records hire date, department, job title,
 
 ISC: Detects hire event → evaluates access rules based on department/title → provisions accounts and entitlements in all target systems.
 
-Manual process: 3-5 days (IT gets request, creates account in each system individually, misses some systems, delays affect new hire productivity)
+Manual process: (IT gets request, creates account in each system individually, misses some systems, delays affect new hire productivity)
 
 ISC process: Minutes (automatic)
 
@@ -144,10 +144,10 @@ ISC monitors these events (real-time or scheduled polling) and triggers provisio
 
 ## 🎓 CERTIFICATION ALIGNMENT
 
-**Question 1:** Contoso's current manual offboarding process takes 1-2 weeks. When someone terminates, what's the primary risk?
+**Question 1:** Contoso's current manual offboarding process takes . When someone terminates, what's the primary risk?
 
 A) New hire can't access systems
-B) ✅ Terminated employee still has access for 1-2 weeks (security/compliance risk)
+B) ✅ Terminated employee still has access for (security/compliance risk)
 C) Manager doesn't know employee left
 D) IT staff are overworked
 

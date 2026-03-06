@@ -29,68 +29,68 @@ Module 7.15: Identity Analytics. Analytics understood.
 Executive Summary (Monthly):
 ├─ Audience: Leadership, board
 ├─ Content:
-│  ├─ Access compliance status (%)
-│  ├─ SoD violations (count)
-│  ├─ High-risk users (list)
-│  ├─ Remediation completion rate (%)
-│  ├─ Request approval time (average)
-│  └─ Upcoming deadlines
+│ ├─ Access compliance status (%)
+│ ├─ SoD violations (count)
+│ ├─ High-risk users (list)
+│ ├─ Remediation completion rate (%)
+│ ├─ Request approval time (average)
+│ └─ Upcoming deadlines
 ├─ Length: 2 pages (summary + key metrics)
 └─ Format: PDF to leadership
 
 Compliance Status Report (Quarterly):
 ├─ Audience: Compliance team, auditors
 ├─ Content:
-│  ├─ Access review completion rate
-│  ├─ All SoD rules enforced
-│  ├─ Remediation actions taken
-│  ├─ Audit trail completeness
-│  ├─ Policy enforcement metrics
-│  └─ Regulatory alignment (SOX, HIPAA)
+│ ├─ Access review completion rate
+│ ├─ All SoD rules enforced
+│ ├─ Remediation actions taken
+│ ├─ Audit trail completeness
+│ ├─ Policy enforcement metrics
+│ └─ Regulatory alignment (SOX, HIPAA)
 ├─ Length: 10-15 pages (detailed analysis)
 └─ Format: PDF + Excel data
 
 Department Access Report (Monthly):
 ├─ Audience: Department managers
 ├─ Content:
-│  ├─ Team members + their access
-│  ├─ Roles assigned
-│  ├─ System access breakdown
-│  ├─ Access requests pending
-│  └─ Items needing manager action
+│ ├─ Team members + their access
+│ ├─ Roles assigned
+│ ├─ System access breakdown
+│ ├─ Access requests pending
+│ └─ Items needing manager action
 ├─ Length: 3-5 pages per department
 └─ Format: PDF, customized per dept
 
 System Access Report (Quarterly):
 ├─ Audience: System owners
 ├─ Content:
-│  ├─ All users with access (by system)
-│  ├─ Access level breakdown (admin vs editor)
-│  ├─ Accounts needing attention
-│  ├─ Failed provisioning attempts
-│  └─ Recommendations
+│ ├─ All users with access (by system)
+│ ├─ Access level breakdown (admin vs editor)
+│ ├─ Accounts needing attention
+│ ├─ Failed provisioning attempts
+│ └─ Recommendations
 ├─ Length: 5-10 pages per system
 └─ Format: PDF + linked Excel
 
 Audit Trail Report (On-demand):
 ├─ Audience: Security, auditors
 ├─ Content:
-│  ├─ All access changes in date range
-│  ├─ Who made each change
-│  ├─ Approval chain for each change
-│  ├─ Complete timeline
-│  └─ Search by user/action/date
+│ ├─ All access changes in date range
+│ ├─ Who made each change
+│ ├─ Approval chain for each change
+│ ├─ Complete timeline
+│ └─ Search by user/action/date
 ├─ Length: Variable
 └─ Format: Searchable database export
 
 High-Risk User Report (Monthly):
 ├─ Audience: Security team
 ├─ Content:
-│  ├─ All users scoring > 3.5 risk
-│  ├─ Risk factors breakdown
-│  ├─ Recommended actions
-│  ├─ Monitoring recommendations
-│  └─ Approval required for exceptions
+│ ├─ All users scoring > 3.5 risk
+│ ├─ Risk factors breakdown
+│ ├─ Recommended actions
+│ ├─ Monitoring recommendations
+│ └─ Approval required for exceptions
 ├─ Length: 2-5 pages
 └─ Format: PDF with action items
 ```
@@ -117,8 +117,8 @@ Request Status (This Quarter):
 ├─ Submitted: 12
 ├─ Approved: 11 (92%)
 ├─ Denied: 1 (8%)
-├─ Average approval: 1.5 days
-└─ Fastest: 2 hours
+├─ Average approval: 1.
+└─ Fastest: 
 
 Remediation Tracking:
 ├─ Issues found: 2

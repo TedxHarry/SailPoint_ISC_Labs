@@ -107,18 +107,18 @@ Step 1: Create ADP Accounts
 │
 Step 2: Assign HR Permissions
 ├─ User8 (HR_Specialist): Standard HR access
-│  ├─ Payroll: View only
-│  ├─ Benefits: Full access
-│  ├─ Recruiting: Full access
-│  └─ Compliance: Reports only
+│ ├─ Payroll: View only
+│ ├─ Benefits: Full access
+│ ├─ Recruiting: Full access
+│ └─ Compliance: Reports only
 │
 ├─ User9 (HR_Manager): Full ADP admin
-│  ├─ Payroll: Full access (can modify)
-│  ├─ Benefits: Full access
-│  ├─ Recruiting: Full access
-│  ├─ Compensation: Full access
-│  ├─ Compliance: Full access
-│  └─ Security: Can manage users
+│ ├─ Payroll: Full access (can modify)
+│ ├─ Benefits: Full access
+│ ├─ Recruiting: Full access
+│ ├─ Compensation: Full access
+│ ├─ Compliance: Full access
+│ └─ Security: Can manage users
 │
 Step 3: Configure Home Dashboard
 ├─ Customized view for HR staff
@@ -138,10 +138,10 @@ ISC > All 13 users
 
 Step 1: Create/Update ADP Employee Records
 ├─ For each user:
-│  ├─ Link to existing employee record (HR master data)
-│  ├─ Employee ID: Match to payroll system
-│  ├─ Name, email, department, manager
-│  └─ Effective date: Today
+│ ├─ Link to existing employee record (HR master data)
+│ ├─ Employee ID: Match to payroll system
+│ ├─ Name, email, department, manager
+│ └─ Effective date: Today
 │
 Step 2: Enable Self-Service Portal
 ├─ All users: View pay stub
@@ -299,23 +299,23 @@ Scenario: User4 (Engineer) writes code and deploys to staging
 
 User4 workflow:
 1. User4 logs into GitHub (via AD credentials)
-   ├─ GitHub SSO configured to use AD
-   ├─ User4 authenticated automatically
-   └─ Connected to engineering repo
+ ├─ GitHub SSO configured to use AD
+ ├─ User4 authenticated automatically
+ └─ Connected to engineering repo
 2. User4 develops in GitHub
-   ├─ Creates feature branch
-   ├─ Commits code
-   ├─ Pushes to staging branch
-   └─ GitHub triggers CI/CD webhook
+ ├─ Creates feature branch
+ ├─ Commits code
+ ├─ Pushes to staging branch
+ └─ GitHub triggers CI/CD webhook
 3. AWS CI/CD pipeline runs (via User12's webhook)
-   ├─ Pipeline builds code
-   ├─ Tests run automatically
-   ├─ If success: Deploys to AWS staging
-   └─ Logs added to CloudTrail
+ ├─ Pipeline builds code
+ ├─ Tests run automatically
+ ├─ If success: Deploys to AWS staging
+ └─ Logs added to CloudTrail
 4. User4 can view results
-   ├─ GitHub shows build status
-   ├─ AWS CloudWatch shows deployment
-   └─ Pipeline complete ✓
+ ├─ GitHub shows build status
+ ├─ AWS CloudWatch shows deployment
+ └─ Pipeline complete ✓
 
 Result: Cross-system workflow working ✓
 ```
@@ -327,26 +327,26 @@ Scenario: New employee joins, HR provisions immediately
 
 HR workflow:
 1. User9 (HR Manager) creates new employee in ADP
-   ├─ Employee data entered
-   ├─ Department: Finance
-   ├─ Job title: AP Clerk
-   └─ Effective date: Monday
+ ├─ Employee data entered
+ ├─ Department: Finance
+ ├─ Job title: AP Clerk
+ └─ Effective date: Monday
 2. ADP integrates with ISC (if configured)
-   ├─ New user created in ISC
-   ├─ Department = Finance (auto-assigned)
-   └─ Role suggestion: Finance_AP_Clerk
+ ├─ New user created in ISC
+ ├─ Department = Finance (auto-assigned)
+ └─ Role suggestion: Finance_AP_Clerk
 3. ISC provisions new user to all systems
-   ├─ QB account created
-   ├─ AD account created
-   ├─ GitHub account created (basic)
-   ├─ AWS account created (read-only)
-   └─ All by Monday morning
+ ├─ QB account created
+ ├─ AD account created
+ ├─ GitHub account created (basic)
+ ├─ AWS account created (read-only)
+ └─ All by Monday morning
 4. New employee starts Monday
-   ├─ Workstation ready (AD account)
-   ├─ QB access ready
-   ├─ Email working
-   ├─ Network drives accessible
-   └─ Can immediately work ✓
+ ├─ Workstation ready (AD account)
+ ├─ QB access ready
+ ├─ Email working
+ ├─ Network drives accessible
+ └─ Can immediately work ✓
 
 Result: Complete provisioning automation working ✓
 ```
@@ -358,33 +358,33 @@ Scenario: User4 promoted from Developer to Senior Engineer
 
 Process:
 1. Manager in ISC changes User4's role:
-   ├─ Old role: Engineer_Developer
-   ├─ New role: Engineer_Senior
-   └─ Save
+ ├─ Old role: Engineer_Developer
+ ├─ New role: Engineer_Senior
+ └─ Save
 
 2. ISC detects role change
-   ├─ Deprovisioning triggered for Engineer_Developer access
-   ├─ Provisioning triggered for Engineer_Senior access
+ ├─ Deprovisioning triggered for Engineer_Developer access
+ ├─ Provisioning triggered for Engineer_Senior access
 
 3. Deprovisioning (remove old access):
-   ├─ GitHub: Downgrade from Contributor to Maintainer (wait, that's up)
-   ├─ GitHub: Actually, remove from specific repos, add to new teams
-   ├─ AWS: Downgrade from StagingOnly to Prod access
-   ├─ Salesforce: Remove Sales_Rep (shouldn't have)
-   └─ All happens automatically
+ ├─ GitHub: Downgrade from Contributor to Maintainer (wait, that's up)
+ ├─ GitHub: Actually, remove from specific repos, add to new teams
+ ├─ AWS: Downgrade from StagingOnly to Prod access
+ ├─ Salesforce: Remove Sales_Rep (shouldn't have)
+ └─ All happens automatically
 
 4. Provisioning (add new access):
-   ├─ GitHub: Add to Maintainer team
-   ├─ GitHub: Add to additional repos
-   ├─ AWS: Add to Production group
-   ├─ Add to Managers group (if applicable)
-   └─ New permissions active
+ ├─ GitHub: Add to Maintainer team
+ ├─ GitHub: Add to additional repos
+ ├─ AWS: Add to Production group
+ ├─ Add to Managers group (if applicable)
+ └─ New permissions active
 
 5. User4 immediately has new access
-   ├─ Can approve PRs (GitHub maintainer)
-   ├─ Can access production (AWS)
-   ├─ New responsibilities active
-   └─ Deprovisioning prevents access sprawl ✓
+ ├─ Can approve PRs (GitHub maintainer)
+ ├─ Can access production (AWS)
+ ├─ New responsibilities active
+ └─ Deprovisioning prevents access sprawl ✓
 
 Result: Role change provisioning working ✓
 ```

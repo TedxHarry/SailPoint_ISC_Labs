@@ -17,7 +17,7 @@
 - **4 practice scenarios** (Contoso, RegionTech, GlobalBank)
 
 ### 2. ✅ Entra ID Setup Guide (SETUP-GUIDES/00-ENTRA-ID-FREE-TIER-GUIDE.md)
-- **45-minute setup guide** for Entra ID Free tier
+- ** setup guide** for Entra ID Free tier
 - **Step-by-step instructions** for complete beginners
 - Create 13 test users
 - Create 7 test groups
@@ -40,19 +40,19 @@
 
 ### 5. ✅ Sample Labs (SAMPLE-LABS/)
 - **Sample Lab 1:** Module 1.1 - Introduction to ISC (Fundamentals)
-  - 3,000+ words, complete walkthrough
-  - 6 major steps with troubleshooting
-  - Beginner-focused exploration
+ - 3,000+ words, complete walkthrough
+ - 6 major steps with troubleshooting
+ - Beginner-focused exploration
 
 - **Sample Lab 2:** Module 2.4 - Configure Entra ID Connector (Integration)
-  - Technical setup lab format
-  - Connector configuration with credentials
-  - Troubleshooting API/credential issues
+ - Technical setup lab format
+ - Connector configuration with credentials
+ - Troubleshooting API/credential issues
 
 - **Sample Lab 3:** Module 4.3 - Create Standard Role (Governance)
-  - Practical access modeling lab
-  - Business scenario focus (Finance controls)
-  - Validation and deliverables
+ - Practical access modeling lab
+ - Business scenario focus (Finance controls)
+ - Validation and deliverables
 
 ### 6. ✅ Documentation (README.md)
 - Project overview and quick start
@@ -72,24 +72,24 @@
 
 ```
 SailPoint_ISC_Labs/
-├── README.md                                    (Project overview)
-├── TABLE-OF-CONTENTS.md                         (86 modules curriculum)
-├── SERIES-PROMPT.md                             (Lab writing template)
-├── PROJECT-SUMMARY.md                           (This file)
-├── GITHUB-SETUP.md                              (GitHub instructions)
+├── README.md (Project overview)
+├── TABLE-OF-CONTENTS.md (86 modules curriculum)
+├── SERIES-PROMPT.md (Lab writing template)
+├── PROJECT-SUMMARY.md (This file)
+├── GITHUB-SETUP.md (GitHub instructions)
 │
 ├── SETUP-GUIDES/
-│   └── 00-ENTRA-ID-FREE-TIER-GUIDE.md          (45-min Entra ID setup)
+│ └── 00-ENTRA-ID-FREE-TIER-GUIDE.md (45-min Entra ID setup)
 │
 ├── TEST-DATA/
-│   ├── contoso-identities-100.csv              (100 employees)
-│   ├── contoso-finance-app.csv                 (Finance system)
-│   └── contoso-hris.csv                        (HRIS system)
+│ ├── contoso-identities-100.csv (100 employees)
+│ ├── contoso-finance-app.csv (Finance system)
+│ └── contoso-hris.csv (HRIS system)
 │
 └── SAMPLE-LABS/
-    ├── SAMPLE-LAB-1.md                          (1.1 - ISC Intro)
-    ├── SAMPLE-LAB-2.md                          (2.4 - Entra ID Connector)
-    └── SAMPLE-LAB-3.md                          (4.3 - Standard Role)
+ ├── SAMPLE-LAB-1.md (1.1 - ISC Intro)
+ ├── SAMPLE-LAB-2.md (2.4 - Entra ID Connector)
+ └── SAMPLE-LAB-3.md (4.3 - Standard Role)
 ```
 
 ---
@@ -148,17 +148,17 @@ SailPoint_ISC_Labs/
 
 **Phase 1: Unit 1 & 2 (Fundamentals + Setup)**
 - 11 modules to write
-- Expected: 4-6 weeks
+- Expected: 
 - Deliverable: Foundation knowledge + working Entra ID integration
 
 **Phase 2: Units 3-6 (Small Org Scenario)**
 - 23 modules to write
-- Expected: 8-12 weeks
+- Expected: 
 - Deliverable: Working Contoso deployment + Professional Credential ready
 
 **Phase 3: Units 7-9 (Mid-Market Scenario)**
 - 26 modules to write
-- Expected: 12-16 weeks
+- Expected: 
 - Deliverable: Advanced implementation + Engineer Certification ready
 
 **Phase 4: Unit 10 (Enterprise Scenarios)**
@@ -173,32 +173,32 @@ SailPoint_ISC_Labs/
 ### For You (Project Owner):
 
 1. **Review the structure:**
-   ```bash
-   cd "C:/Users/punna/Videos/Github Learning/SailPoint_ISC_Labs"
-   ```
-   - Look at each file
-   - Review SAMPLE-LABS to see format
-   - Read SERIES-PROMPT to understand template
+ ```bash
+ cd "C:/Users/punna/Videos/Github Learning/SailPoint_ISC_Labs"
+ ```
+ - Look at each file
+ - Review SAMPLE-LABS to see format
+ - Read SERIES-PROMPT to understand template
 
 2. **Follow GitHub Setup:**
-   ```bash
-   # Read GITHUB-SETUP.md
-   # Create repository: https://github.com/new
-   # Push: git remote add origin + git push
-   ```
+ ```bash
+ # Read GITHUB-SETUP.md
+ # Create repository: https://github.com/new
+ # Push: git remote add origin + git push
+ ```
 
 3. **Start Writing Unit 1:**
-   - Copy SERIES-PROMPT.md template
-   - Write Module 1.1 (intro)
-   - Follow sample lab format
-   - Commit and push to GitHub
+ - Copy SERIES-PROMPT.md template
+ - Write Module 1.1 (intro)
+ - Follow sample lab format
+ - Commit and push to GitHub
 
 ### For Future Contributors:
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/TedxHarry/SailPoint_ISC_Labs.git
-   ```
+ ```bash
+ git clone https://github.com/TedxHarry/SailPoint_ISC_Labs.git
+ ```
 
 2. Follow SERIES-PROMPT.md template exactly
 
@@ -215,7 +215,7 @@ SailPoint_ISC_Labs/
 | **Total Modules** | 86 |
 | **Total Units** | 10 |
 | **Total Learning Hours** | 130+ |
-| **Estimated Duration** | 12-18 months (full-time) |
+| **Estimated Duration** | (full-time) |
 | **Test Data Records** | 150+ identities |
 | **Certification Paths** | 2 (Professional + Engineer) |
 | **Exam Domains Covered** | 10+ |
@@ -230,29 +230,29 @@ SailPoint_ISC_Labs/
 ### What Makes This Curriculum Unique
 
 1. **Entra ID Integration**
-   - Uses real Entra ID Free tier (no cost)
-   - Not just theoryactual system integration
-   - Teaches both systems (Entra ID + ISC)
+ - Uses real Entra ID Free tier (no cost)
+ - Not just theoryactual system integration
+ - Teaches both systems (Entra ID + ISC)
 
 2. **Test Data First**
-   - CSV files provided for all scenarios
-   - No need to create fake data
-   - Realistic attributes (departments, managers, etc.)
+ - CSV files provided for all scenarios
+ - No need to create fake data
+ - Realistic attributes (departments, managers, etc.)
 
 3. **Beginner-to-Professional**
-   - Truly starts from zero
-   - Progressive complexity
-   - Real business scenarios (Finance, HR, Sales, etc.)
+ - Truly starts from zero
+ - Progressive complexity
+ - Real business scenarios (Finance, HR, Sales, etc.)
 
 4. **Certification-Ready**
-   - Aligned to official domains
-   - Practice questions included
-   - Exam-focused content
+ - Aligned to official domains
+ - Practice questions included
+ - Exam-focused content
 
 5. **Hands-On Emphasis**
-   - Every module has a 4-6 hour lab
-   - Step-by-step instructions
-   - Troubleshooting for real issues
+ - Every module has a lab
+ - Step-by-step instructions
+ - Troubleshooting for real issues
 
 ---
 
@@ -303,28 +303,28 @@ SailPoint_ISC_Labs/
 ## 💡 Tips for Success
 
 1. **Use Entra ID Setup Guide first**
-   - Create test users BEFORE writing labs
-   - This gives you realistic test scenarios
+ - Create test users BEFORE writing labs
+ - This gives you realistic test scenarios
 
 2. **Test every lab yourself**
-   - Before publishing, follow your own steps
-   - Fix any unclear instructions
-   - Note time required
+ - Before publishing, follow your own steps
+ - Fix any unclear instructions
+ - Note time required
 
 3. **Keep language simple**
-   - Action verbs: Click, Navigate, Enter
-   - Specific field names (not "the form")
-   - Always explain the "why"
+ - Action verbs: Click, Navigate, Enter
+ - Specific field names (not "the form")
+ - Always explain the "why"
 
 4. **Business context first**
-   - Every lab should answer: "Why do we do this?"
-   - Use Contoso company scenario
-   - Real-world compliance/governance focus
+ - Every lab should answer: "Why do we do this?"
+ - Use Contoso company scenario
+ - Real-world compliance/governance focus
 
 5. **Anticipate problems**
-   - List 3-5 common issues per lab
-   - Explain root causes, not just solutions
-   - Prevention tips for next time
+ - List 3-5 common issues per lab
+ - Explain root causes, not just solutions
+ - Prevention tips for next time
 
 ---
 

@@ -30,7 +30,7 @@ ISC will:
 3. Import data per Identity Profile mappings
 4. Store in ISC database
 
-Process may take 5-15 minutes depending on data size.
+Process may take depending on data size.
 
 ---
 

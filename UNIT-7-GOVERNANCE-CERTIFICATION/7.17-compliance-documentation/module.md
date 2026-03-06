@@ -46,12 +46,12 @@ Procedure Documents:
 
 Role Documents:
 ├─ Role Definition: Finance_Manager
-│  ├─ Purpose: Manage finance department
-│  ├─ Responsibilities: Approve invoices, budget oversight
-│  ├─ Access required: QB admin, ADP payroll
-│  ├─ Conflicts: Cannot be Finance_AP_Clerk
-│  ├─ Owner: Finance Director
-│  └─ Last reviewed: 2026-03-15
+│ ├─ Purpose: Manage finance department
+│ ├─ Responsibilities: Approve invoices, budget oversight
+│ ├─ Access required: QB admin, ADP payroll
+│ ├─ Conflicts: Cannot be Finance_AP_Clerk
+│ ├─ Owner: Finance Director
+│ └─ Last reviewed: 2026-03-15
 ├─ Role Definition: Engineer_Senior
 ├─ Role Definition: IT_Administrator
 └─ (All 11 standard roles documented)
@@ -71,44 +71,44 @@ Governance Records:
 SOX Compliance (Finance):
 ├─ Requirements: SoD, audit trail, quarterly reviews
 ├─ ISC Implementation:
-│  ├─ ✓ SoD rules enforced (Finance_Manager ↔ Clerk)
-│  ├─ ✓ Complete audit trail (all logged)
-│  ├─ ✓ Quarterly reviews (Q1, Q2, Q3, Q4)
-│  ├─ ✓ Management attestation (documented)
-│  └─ ✓ Annual compliance assessment (completed)
+│ ├─ ✓ SoD rules enforced (Finance_Manager ↔ Clerk)
+│ ├─ ✓ Complete audit trail (all logged)
+│ ├─ ✓ Quarterly reviews (Q1, Q2, Q3, Q4)
+│ ├─ ✓ Management attestation (documented)
+│ └─ ✓ Annual compliance assessment (completed)
 ├─ Evidence: Audit logs + review certifications
 └─ Status: COMPLIANT ✓
 
 HIPAA Compliance (If PII/PHI):
 ├─ Requirements: Access control, audit trail, role-based
 ├─ ISC Implementation:
-│  ├─ ✓ Role-based access (RBAC enforced)
-│  ├─ ✓ Least privilege (only needed access)
-│  ├─ ✓ Access logging (all actions logged)
-│  ├─ ✓ Quarterly reviews (compliance requirement)
-│  └─ ✓ Breach notification procedures (documented)
+│ ├─ ✓ Role-based access (RBAC enforced)
+│ ├─ ✓ Least privilege (only needed access)
+│ ├─ ✓ Access logging (all actions logged)
+│ ├─ ✓ Quarterly reviews (compliance requirement)
+│ └─ ✓ Breach notification procedures (documented)
 ├─ Evidence: Access policies + audit trails
 └─ Status: COMPLIANT ✓
 
 GDPR Compliance (If EU data):
 ├─ Requirements: Consent, right to access, data minimization
 ├─ ISC Implementation:
-│  ├─ ✓ Access consent (employee data stored)
-│  ├─ ✓ Data minimization (least privilege enforced)
-│  ├─ ✓ Right to audit (full audit trail)
-│  ├─ ✓ Deletion procedures (offboarding process)
-│  └─ ✓ Data retention (7+ years for audit)
+│ ├─ ✓ Access consent (employee data stored)
+│ ├─ ✓ Data minimization (least privilege enforced)
+│ ├─ ✓ Right to audit (full audit trail)
+│ ├─ ✓ Deletion procedures (offboarding process)
+│ └─ ✓ Data retention (7+ years for audit)
 ├─ Evidence: Data handling policies + audit records
 └─ Status: COMPLIANT ✓
 
 NIST Cybersecurity Framework:
 ├─ Requirements: Identity management, access control, monitoring
 ├─ ISC Implementation:
-│  ├─ ✓ Identity verification (user provisioning)
-│  ├─ ✓ Access control (role-based, SoD)
-│  ├─ ✓ Continuous monitoring (quarterly reviews)
-│  ├─ ✓ Incident response (remediation workflows)
-│  └─ ✓ Recovery (backup and restore procedures)
+│ ├─ ✓ Identity verification (user provisioning)
+│ ├─ ✓ Access control (role-based, SoD)
+│ ├─ ✓ Continuous monitoring (quarterly reviews)
+│ ├─ ✓ Incident response (remediation workflows)
+│ └─ ✓ Recovery (backup and restore procedures)
 ├─ Evidence: Governance procedures + audit logs
 └─ Status: COMPLIANT ✓
 ```
@@ -123,7 +123,7 @@ Quarterly Review Certifications:
 ├─ Q1 2026: Engineering review (signed by Eng Manager)
 ├─ Q1 2026: Sales review (signed by Sales Manager)
 ├─ Q2 2026: [Upcoming]
-└─ Archive: 90-day retention minimum, 7 years preferred
+└─ Archive: retention minimum, 7 years preferred
 
 SoD Violation Reports:
 ├─ Report date: 2026-03-15

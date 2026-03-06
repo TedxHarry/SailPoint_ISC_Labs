@@ -45,7 +45,7 @@ Step 2: Manager Review (manual)
 ├─ Manager: Reviews each team member's access
 ├─ Manager: Questions: "Still need? Still appropriate?"
 ├─ Manager: Notes: Any issues or changes needed
-└─ Timeline: 5 business days
+└─ 
 
 Step 3: Certification (ISC form)
 ├─ ISC Portal: Manager accesses certification form
@@ -56,13 +56,13 @@ Step 3: Certification (ISC form)
 
 Step 4: Exception Processing
 ├─ If changes needed:
-│  ├─ Manager identifies: Which users need access removed
-│  ├─ Manager specifies: Reason for removal
-│  └─ ISC creates: Remediation tickets
+│ ├─ Manager identifies: Which users need access removed
+│ ├─ Manager specifies: Reason for removal
+│ └─ ISC creates: Remediation tickets
 ├─ If exceptions needed:
-│  ├─ Manager requests: Formal exception
-│  ├─ Manager justifies: Business reason
-│  └─ ISC routes: To executive for approval
+│ ├─ Manager requests: Formal exception
+│ ├─ Manager justifies: Business reason
+│ └─ ISC routes: To executive for approval
 └─ Tracking: All documented
 
 Step 5: Remediation (automatic or manual)
@@ -116,9 +116,9 @@ Q4 Review (December 31):
 └─ Roles to certify: HR_Specialist, HR_Manager
 │
 ├─ ANNUAL FULL AUDIT:
-│  ├─ All users, all roles, all access
-│  ├─ Executive sign-off required
-│  └─ Compliance readiness
+│ ├─ All users, all roles, all access
+│ ├─ Executive sign-off required
+│ └─ Compliance readiness
 ```
 
 ---
@@ -128,18 +128,18 @@ Q4 Review (December 31):
 **Automated communications:**
 
 ```
-2 Weeks Before Review (Jan 17 for Q1):
+ Before Review (Jan 17 for Q1):
 ├─ Email to: Department manager
 ├─ Subject: "Quarterly Access Review - Action Required"
 ├─ Content: Due date, instructions, access report attached
 └─ Request: "Please review and certify by Jan 31"
 
-1 Week Before Deadline (Jan 24):
+ Before Deadline (Jan 24):
 ├─ Email to: Managers who haven't certified yet
 ├─ Subject: "Reminder: Quarterly Access Review Due Jan 31"
 └─ Request: "Please complete this week"
 
-1 Day After Deadline (Feb 1):
+ After Deadline (Feb 1):
 ├─ Email to: Managers who missed deadline
 ├─ Subject: "Urgent: Overdue Access Review"
 ├─ Escalation: Manager's director CC'd

@@ -107,7 +107,7 @@ Finance_Manager
 Finance_Manager
 ├─ Owner: (your user)
 ├─ Members: 1
-│  └─ Casey Kim
+│ └─ Casey Kim
 └─ Access Profiles: 3
 ```
 

@@ -173,7 +173,7 @@ After Module 5.17:
 **Issue: "Rule created but ISC not enforcing"**
 - Refresh ISC console
 - Check rule status is "Active"
-- Wait 1-2 minutes for ISC to apply
+- Wait for ISC to apply
 - Try assigning conflicting roles to test
 
 ---

@@ -50,8 +50,8 @@ Method 1: Peer Group Comparison
 ├─ User: Does individual match role baseline?
 ├─ If different: Why? Is it justified?
 ├─ Example: All 3 engineers have GitHub + AWS
-│  → User4 has GitHub + AWS + ADP
-│  → ANOMALY: Why has ADP (payroll)?
+│ → User4 has GitHub + AWS + ADP
+│ → ANOMALY: Why has ADP (payroll)?
 
 Method 2: Statistical Outliers
 ├─ Normal: Finance users have 2-3 roles
@@ -62,7 +62,7 @@ Method 2: Statistical Outliers
 
 Method 3: Access Velocity
 ├─ Normal: User gets access slowly (1-2 per month)
-├─ User7: Got 3 accesses in 1 day
+├─ User7: Got 3 accesses in 
 ├─ Finding: Rapid access grant (unusual)
 ├─ Cause: New project role assigned
 ├─ Status: Explained, not anomalous

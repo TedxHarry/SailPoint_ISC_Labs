@@ -50,8 +50,8 @@ Factor 3: Access Justification (0-5)
 └─ No justification: 5 (danger sign)
 
 Factor 4: User Tenure (0-5)
-├─ New (<30 days): 3 (not yet vetted)
-├─ Standard (30 days - 2 years): 1 (vetted)
+├─ New (<): 3 (not yet vetted)
+├─ Standard ( - 2 years): 1 (vetted)
 ├─ Long-term (>2 years): 0 (established)
 ├─ Departure notice: 5 (leaving soon)
 └─ Terminated: 5 (shouldn't have access)
@@ -75,40 +75,40 @@ User Risk Assessment:
 
 Low Risk Users:
 ├─ User6 (Sales Rep):
-│  ├─ Access: Salesforce, QB read
-│  ├─ Score: 0.8 (read-only, standard tenure)
-│  └─ Action: Standard monitoring
+│ ├─ Access: Salesforce, QB read
+│ ├─ Score: 0.8 (read-only, standard tenure)
+│ └─ Action: Standard monitoring
 ├─ User7 (Sales Rep):
-│  ├─ Score: 0.9
-│  └─ Action: Standard monitoring
+│ ├─ Score: 0.9
+│ └─ Action: Standard monitoring
 └─ User8 (HR Specialist):
-   ├─ Score: 1.2
-   └─ Action: Standard monitoring
+ ├─ Score: 1.2
+ └─ Action: Standard monitoring
 
 Medium Risk Users:
 ├─ Alex Lee (Engineer Senior):
-│  ├─ Access: GitHub maintainer, AWS prod
-│  ├─ Score: 2.4 (high privilege, ops system)
-│  └─ Action: Quarterly risk review
+│ ├─ Access: GitHub maintainer, AWS prod
+│ ├─ Score: 2.4 (high privilege, ops system)
+│ └─ Action: Quarterly risk review
 ├─ User4 (Engineer Developer):
-│  ├─ Score: 1.9
-│  └─ Action: Quarterly monitoring
+│ ├─ Score: 1.9
+│ └─ Action: Quarterly monitoring
 └─ Casey Kim (Finance Manager):
-   ├─ Score: 2.1 (QB admin, sensitive system)
-   └─ Action: Quarterly governance review
+ ├─ Score: 2.1 (QB admin, sensitive system)
+ └─ Action: Quarterly governance review
 
 High Risk Users:
 ├─ User10 (IT Administrator):
-│  ├─ Access: Domain admin, GitHub admin, AWS power
-│  ├─ Score: 3.8 (super-admin, 4 systems, highest)
-│  └─ Action: Monthly risk review + quarterly audit
+│ ├─ Access: Domain admin, GitHub admin, AWS power
+│ ├─ Score: 3.8 (super-admin, 4 systems, highest)
+│ └─ Action: Monthly risk review + quarterly audit
 ├─ User12 (DevOps):
-│  ├─ Access: AWS full admin
-│  ├─ Score: 3.5 (infrastructure admin)
-│  └─ Action: Monthly risk review
+│ ├─ Access: AWS full admin
+│ ├─ Score: 3.5 (infrastructure admin)
+│ └─ Action: Monthly risk review
 └─ User9 (HR Manager):
-   ├─ Score: 3.2 (was higher, remediated)
-   └─ Action: Quarterly governance review
+ ├─ Score: 3.2 (was higher, remediated)
+ └─ Action: Quarterly governance review
 
 Overall Risk Profile:
 ├─ Critical (4+): 0 users
@@ -149,9 +149,9 @@ Factors:
 
 Prediction Results:
 ├─ High risk: Finance department (all 3 users)
-│  └─ Reason: Multiple conflicting roles possible
+│ └─ Reason: Multiple conflicting roles possible
 ├─ Medium risk: Engineering (growing team)
-│  └─ Reason: New projects = new roles
+│ └─ Reason: New projects = new roles
 ├─ Low risk: Sales, HR
 └─ Preventive action: Pre-screen finance requests
 
@@ -225,7 +225,7 @@ Annual:
 
 Remediation Triggers:
 ├─ Score > 4.0: Investigate immediately
-├─ Score 2.5-4.0: Review within 2 weeks
+├─ Score 2.5-4.0: Review within 
 ├─ Score < 2.5: Standard monitoring
 └─ Score increase 1.0+: Investigate reason
 ```

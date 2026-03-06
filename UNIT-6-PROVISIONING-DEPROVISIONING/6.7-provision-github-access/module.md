@@ -76,7 +76,7 @@ ISC > Identities > Alex Lee
 ├─ Role: Engineer_Senior (already assigned)
 ├─ Trigger: GitHub_Engineer_Senior_Provisioning workflow
 ├─ Monitor: ISC > Provisioning > Status
-└─ Expected completion: 2-3 minutes
+└─ Expected completion: 
 ```
 
 **Step 2: Verify GitHub Account Created**
@@ -87,19 +87,19 @@ GitHub Organization > Members
 ├─ Email: alex@contoso.com ✓
 ├─ Status: Pending invitation (initial state)
 ├─ After Alex accepts:
-│  ├─ Status: Active member
-│  └─ Join date: [today]
+│ ├─ Status: Active member
+│ └─ Join date: [today]
 │
 ├─ Team memberships:
-│  ├─ Engineering team: Maintainer role ✓
-│  ├─ Technical_Staff team: Member role ✓
-│  └─ Managers team: Maintainer role ✓
+│ ├─ Engineering team: Maintainer role ✓
+│ ├─ Technical_Staff team: Member role ✓
+│ └─ Managers team: Maintainer role ✓
 │
 ├─ Repository access:
-│  ├─ main: Push access (can push code, review PRs)
-│  ├─ staging: Push access
-│  ├─ infrastructure: Push access
-│  └─ archived: Read-only
+│ ├─ main: Push access (can push code, review PRs)
+│ ├─ staging: Push access
+│ ├─ infrastructure: Push access
+│ └─ archived: Read-only
 │
 └─ Verification complete ✓
 ```
@@ -160,13 +160,13 @@ ISC > Identities > User4
 GitHub verification:
 ├─ Username: user4.contoso
 ├─ Teams:
-│  ├─ Engineering: Contributor (not maintainer)
-│  └─ Technical_Staff: Member
+│ ├─ Engineering: Contributor (not maintainer)
+│ └─ Technical_Staff: Member
 ├─ Repository access:
-│  ├─ main: Push ✓
-│  ├─ staging: Push ✓
-│  ├─ infrastructure: Read-only ✗ (correct - dev doesn't manage infra)
-│  └─ archived: Read-only
+│ ├─ main: Push ✓
+│ ├─ staging: Push ✓
+│ ├─ infrastructure: Read-only ✗ (correct - dev doesn't manage infra)
+│ └─ archived: Read-only
 ├─ Permissions: Can create PRs, push to dev/staging
 └─ Status: READY ✓
 
@@ -192,19 +192,19 @@ ISC > Identities > User12
 GitHub verification:
 ├─ Username: user12.devops
 ├─ Teams:
-│  ├─ Infrastructure: Admin (can manage repos, teams, settings)
-│  ├─ Engineering: Member (read-only, collaboration)
-│  └─ Technical_Staff: Member
+│ ├─ Infrastructure: Admin (can manage repos, teams, settings)
+│ ├─ Engineering: Member (read-only, collaboration)
+│ └─ Technical_Staff: Member
 ├─ Repository access:
-│  ├─ main: Admin (can delete, force-push, manage)
-│  ├─ staging: Admin
-│  ├─ infrastructure: Admin (can manage webhooks, CI/CD)
-│  └─ archived: Read-only
+│ ├─ main: Admin (can delete, force-push, manage)
+│ ├─ staging: Admin
+│ ├─ infrastructure: Admin (can manage webhooks, CI/CD)
+│ └─ archived: Read-only
 ├─ Additional:
-│  ├─ Can manage organization webhooks
-│  ├─ Can configure CI/CD pipelines
-│  ├─ Can manage secrets/credentials
-│  └─ Can add/remove users from org
+│ ├─ Can manage organization webhooks
+│ ├─ Can configure CI/CD pipelines
+│ ├─ Can manage secrets/credentials
+│ └─ Can add/remove users from org
 └─ Status: READY ✓
 
 Verification: User12 can manage GitHub infrastructure ✓
@@ -272,24 +272,24 @@ Steps:
 2. User4 makes changes and commits: git commit -m "New feature"
 3. User4 pushes: git push origin new-feature
 4. User4 creates Pull Request on GitHub
-   ├─ Base: main
-   ├─ Compare: new-feature
-   ├─ Title: "Add new feature"
-   └─ Description: Explanation
+ ├─ Base: main
+ ├─ Compare: new-feature
+ ├─ Title: "Add new feature"
+ └─ Description: Explanation
 
 5. GitHub shows:
-   ├─ PR created by user4.contoso
-   ├─ Status: Waiting for review
-   ├─ Assigned reviewers: [could be auto-assigned]
+ ├─ PR created by user4.contoso
+ ├─ Status: Waiting for review
+ ├─ Assigned reviewers: [could be auto-assigned]
 
 6. Alex receives notification: "New PR from user4"
 7. Alex reviews code: Looks good
 8. Alex approves: Click "Approve" button
 9. Alex merges: Click "Merge PR"
-   ├─ Code merged to main
-   ├─ Merged by: alex.lee
-   ├─ Merged from: user4 (contributor)
-   └─ Merged to: main (protected branch)
+ ├─ Code merged to main
+ ├─ Merged by: alex.lee
+ ├─ Merged from: user4 (contributor)
+ └─ Merged to: main (protected branch)
 
 Result:
 ├─ Two-person workflow enforced ✓
@@ -307,22 +307,22 @@ Steps:
 1. User12 goes to infrastructure repo
 2. User12 navigates to: Settings > Webhooks
 3. User12 adds webhook:
-   ├─ Payload URL: https://ci.contoso.com/github
-   ├─ Trigger: On push to main
-   ├─ Events: Push, Pull Request
-   └─ Save
+ ├─ Payload URL: https://ci.contoso.com/github
+ ├─ Trigger: On push to main
+ ├─ Events: Push, Pull Request
+ └─ Save
 
 4. GitHub shows:
-   ├─ Webhook created by user12.devops
-   ├─ Status: Sending (can verify delivery)
-   └─ Last delivery: [timestamp]
+ ├─ Webhook created by user12.devops
+ ├─ Status: Sending (can verify delivery)
+ └─ Last delivery: [timestamp]
 
 5. User12 configures CI/CD:
-   ├─ Create: .github/workflows/deploy.yml
-   ├─ Commit: git add & git commit
-   ├─ Push: git push
-   ├─ CI/CD triggers automatically
-   └─ Deployment logs visible
+ ├─ Create: .github/workflows/deploy.yml
+ ├─ Commit: git add & git commit
+ ├─ Push: git push
+ ├─ CI/CD triggers automatically
+ └─ Deployment logs visible
 
 Result:
 ├─ DevOps can manage infrastructure ✓
@@ -363,16 +363,16 @@ Causes:
 ├─ ISC email not configured
 ├─ User's email wrong in ISC
 ├─ Email in spam folder
-└─ GitHub invitation expired (7 days)
+└─ GitHub invitation expired ()
 
 Solution:
 1. Check ISC email configuration (same as QB module)
 2. Verify Alex's email in ISC > Identities > Alex Lee
 3. Resend invitation manually:
-   ├─ GitHub org > Members
-   ├─ Find alex.lee
-   ├─ Click "Resend invitation"
-   └─ Check email again
+ ├─ GitHub org > Members
+ ├─ Find alex.lee
+ ├─ Click "Resend invitation"
+ └─ Check email again
 4. If still not received: Call Alex, provide direct link
 ```
 
@@ -389,18 +389,18 @@ Causes:
 
 Solution:
 1. Verify GitHub permissions:
-   ├─ GitHub > Repository > Settings > Collaborators
-   ├─ user4.contoso should be listed with "Write" access
-   └─ If missing: Re-run provisioning
+ ├─ GitHub > Repository > Settings > Collaborators
+ ├─ user4.contoso should be listed with "Write" access
+ └─ If missing: Re-run provisioning
 2. Verify branch protection:
-   ├─ GitHub > Repository > Settings > Branches
-   ├─ Check if "Require pull request review" enforced
-   ├─ Developers should push to feature branches (not main)
-   └─ Then create PR for main
+ ├─ GitHub > Repository > Settings > Branches
+ ├─ Check if "Require pull request review" enforced
+ ├─ Developers should push to feature branches (not main)
+ └─ Then create PR for main
 3. Verify SSH key:
-   ├─ User4 SSH public key uploaded to GitHub
-   ├─ GitHub > Settings > SSH and GPG keys
-   └─ If missing: User4 must upload key
+ ├─ User4 SSH public key uploaded to GitHub
+ ├─ GitHub > Settings > SSH and GPG keys
+ └─ If missing: User4 must upload key
 ```
 
 **Issue 3: Provisioning Failed (API Error)**
@@ -415,10 +415,10 @@ Cause:
 
 Solution:
 1. Check GitHub API limits:
-   ├─ GitHub Settings > Developer settings > Personal access tokens
-   ├─ Check token scopes: admin:org, repo, etc.
-   └─ If insufficient: Regenerate token with full scopes
-2. Wait for rate limit reset (1 hour)
+ ├─ GitHub Settings > Developer settings > Personal access tokens
+ ├─ Check token scopes: admin:org, repo, etc.
+ └─ If insufficient: Regenerate token with full scopes
+2. Wait for rate limit reset ()
 3. Retry provisioning
 4. If org limit: Contact GitHub support to increase
 ```

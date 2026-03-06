@@ -64,9 +64,9 @@ ISC > Identities > User4
 ISC detects:
 ├─ Engineer_Developer role removed
 ├─ ISC evaluates: What access does Engineer_Developer provide?
-│  ├─ GitHub: Contributor access
-│  ├─ AWS: Dev/staging access
-│  └─ AD: Engineering groups
+│ ├─ GitHub: Contributor access
+│ ├─ AWS: Dev/staging access
+│ └─ AD: Engineering groups
 ├─ ISC triggers deprovisioning: For GitHub, AWS, AD
 └─ Expected: User4 loses Engineer access
 ```
@@ -85,9 +85,9 @@ ISC > Identities > User4
 ISC detects:
 ├─ Sales_Representative role added
 ├─ ISC evaluates: What access does Sales_Representative provide?
-│  ├─ Salesforce: Sales rep permission set
-│  ├─ ADP: Sales features
-│  └─ AD: Sales groups
+│ ├─ Salesforce: Sales rep permission set
+│ ├─ ADP: Sales features
+│ └─ AD: Sales groups
 ├─ ISC triggers provisioning: For Salesforce, ADP, AD
 └─ Expected: User4 gains Sales access
 ```
@@ -110,7 +110,7 @@ Deprovisioning Trigger:
 ├─ Engineer_Developer role removed
 ├─ ISC → GitHub Connector: Remove from Engineering team
 ├─ Connector action: Remove user4 from Engineering, Technical_Staff teams
-└─ Timing: < 5 minutes
+└─ Timing: < 
 
 After Deprovisioning:
 ├─ User4 in GitHub: Still exists (account not deleted)
@@ -144,7 +144,7 @@ Provisioning Trigger:
 ├─ Sales_Representative role added
 ├─ ISC → Salesforce Connector: Create account
 ├─ Connector action: Create Salesforce user, assign Sales_Rep permission set
-└─ Timing: < 3 minutes
+└─ Timing: < 
 
 After Provisioning:
 ├─ User4 in Salesforce: username user4.contoso
@@ -178,13 +178,13 @@ Before:
 
 Changes Triggered:
 ├─ Engineer_Developer role removed
-│  ├─ ISC removes: Engineer_Developer group, Engineering group (if applicable)
-│  └─ ISC removes: Technical_Staff group
+│ ├─ ISC removes: Engineer_Developer group, Engineering group (if applicable)
+│ └─ ISC removes: Technical_Staff group
 │
 ├─ Sales_Representative role added
-│  ├─ ISC adds: Sales, Sales_Representative groups
-│  └─ ISC adds: Sales_Employee group
-└─ Timing: < 2 minutes
+│ ├─ ISC adds: Sales, Sales_Representative groups
+│ └─ ISC adds: Sales_Employee group
+└─ Timing: < 
 
 After:
 ├─ User4 AD account: user4
@@ -200,10 +200,10 @@ Verify in AD:
 └─ Audit log: Group removal/addition recorded
 
 Replication wait:
-├─ AD changes take 15 minutes to replicate across domain
+├─ AD changes take to replicate across domain
 ├─ User4 will notice access changes after domain cache updates
 ├─ Can force update: gpupdate /force on user4's workstation
-└─ Or: Wait 15 minutes for automatic replication
+└─ Or: Wait for automatic replication
 ```
 
 ---
@@ -223,7 +223,7 @@ Deprovisioning Trigger:
 ├─ Engineer_Developer role removed
 ├─ ISC → AWS Connector: Remove from groups
 ├─ Connector action: Remove user4-dev from Developers, StagingOnly groups
-└─ Timing: < 2 minutes
+└─ Timing: < 
 
 After Deprovisioning:
 ├─ User4 IAM user: user4-dev still exists (disabled, not deleted)
@@ -307,10 +307,10 @@ Entry 1:
 ├─ Action: Role removed - Engineer_Developer
 ├─ System: All (triggered multiple connectors)
 ├─ Details:
-│  ├─ GitHub: Removed from Engineering team
-│  ├─ AWS: Removed from Developers group
-│  ├─ AD: Removed from Engineer_Developer group
-│  └─ All deprovisioning completed
+│ ├─ GitHub: Removed from Engineering team
+│ ├─ AWS: Removed from Developers group
+│ ├─ AD: Removed from Engineer_Developer group
+│ └─ All deprovisioning completed
 └─ Status: Success
 
 Entry 2:
@@ -319,10 +319,10 @@ Entry 2:
 ├─ Action: Role added - Sales_Representative
 ├─ System: All (triggered multiple connectors)
 ├─ Details:
-│  ├─ Salesforce: Created account, assigned Sales_Rep
-│  ├─ AD: Added to Sales groups
-│  ├─ ADP: Enabled sales features
-│  └─ All provisioning completed
+│ ├─ Salesforce: Created account, assigned Sales_Rep
+│ ├─ AD: Added to Sales groups
+│ ├─ ADP: Enabled sales features
+│ └─ All provisioning completed
 └─ Status: Success
 
 Result:

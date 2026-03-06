@@ -3,7 +3,7 @@
 
 **Target Audience:** Complete beginners (zero prior identity management or ISC experience)
 **Total Modules:** 226-260 modules across 14 units
-**Total Learning Hours:** 2,260-2,600 hours
+**Total Learning Hours:** 2,260-2,
 
 **Certifications:** SailPoint Identity Security Professional + SailPoint Certified Identity Security Engineer
 **Job-Ready:** Yes - comprehensive professional-level expertise
@@ -40,14 +40,14 @@
 
 **Certification Target:** SailPoint Identity Security Professional (Knowledge Credential)
 **Modules:** 70-80 modules
-**Hours:** 700-800 hours
+**Hours:** 
 
 ### **Tier 2: Small Organization Implementation (Units 5-8)**
 **Objective:** Deploy ISC for 50-100 person organization (Contoso Ltd)
 
 **Certification Prep:** Early phase for Engineer certification
 **Modules:** 68-76 modules
-**Hours:** 680-760 hours
+**Hours:** 
 **Deliverable:** Working Contoso deployment with roles, provisioning, lifecycle
 
 ### **Tier 3: Mid-Market to Advanced (Units 9-13)**
@@ -55,21 +55,21 @@
 
 **Certification Target:** SailPoint Certified Identity Security Engineer (Professional)
 **Modules:** 88-100 modules
-**Hours:** 880-1,000 hours
+**Hours:** 880-1,
 **Deliverable:** RegionTech implementation with governance, access request, automation
 
 ### **Tier 4: Enterprise Architecture (Unit 14)**
 **Objective:** Deploy for 5000+ users, multi-region, complex compliance
 
 **Modules:** 20-22 modules
-**Hours:** 200-220 hours
+**Hours:** 
 **Deliverable:** GlobalBank case studies, enterprise architecture, implementation strategy
 
 ---
 
 ## 📋 DETAILED MODULE BREAKDOWN BY UNIT
 
-### **UNIT 1: ISC FUNDAMENTALS & CONCEPTS (18-20 modules, 180-200 hours)**
+### **UNIT 1: ISC FUNDAMENTALS & CONCEPTS (18-20 modules, )**
 *Tier: 1 | Certification: Professional | Prerequisite: None*
 
 **Objective:** Build complete conceptual foundation before touching any system
@@ -102,7 +102,7 @@
 
 ---
 
-### **UNIT 2: ENTRA ID SETUP & ISC SANDBOX VERIFICATION (16-18 modules, 160-180 hours)**
+### **UNIT 2: ENTRA ID SETUP & ISC SANDBOX VERIFICATION (16-18 modules, )**
 *Tier: 1 | Certification: Professional | Prerequisite: Unit 1*
 
 **Objective:** Get both Entra ID and ISC sandbox properly configured for labs
@@ -131,7 +131,7 @@
 
 ---
 
-### **UNIT 3: IDENTITY PROFILES & SOURCES (18-20 modules, 180-200 hours)**
+### **UNIT 3: IDENTITY PROFILES & SOURCES (18-20 modules, )**
 *Tier: 1 | Certification: Professional | Prerequisite: Unit 2*
 
 **Objective:** Understand how ISC maps data from systems (CRITICAL concept)
@@ -162,7 +162,7 @@
 
 ---
 
-### **UNIT 4: AGGREGATION & CORRELATION (18-20 modules, 180-200 hours)**
+### **UNIT 4: AGGREGATION & CORRELATION (18-20 modules, )**
 *Tier: 1 | Certification: Professional | Prerequisite: Unit 3*
 
 **Objective:** Get data from Entra ID into ISC and properly linked
@@ -195,7 +195,7 @@
 
 ---
 
-### **UNIT 5: ACCESS MODELING (20-22 modules, 200-220 hours)**
+### **UNIT 5: ACCESS MODELING (20-22 modules, )**
 *Tier: 2 | Certification: Engineer | Prerequisite: Unit 4*
 
 **Objective:** Design role structure for Contoso Ltd (50-100 employees)
@@ -230,7 +230,7 @@
 
 ---
 
-### **UNIT 6: PROVISIONING & DEPROVISIONING (18-20 modules, 180-200 hours)**
+### **UNIT 6: PROVISIONING & DEPROVISIONING (18-20 modules, )**
 *Tier: 2 | Certification: Engineer | Prerequisite: Unit 5*
 
 **Objective:** Automate account creation and removal
@@ -263,7 +263,7 @@
 
 ---
 
-### **UNIT 7: LIFECYCLE MANAGEMENT - JOIN/MOVE/LEAVE (16-18 modules, 160-180 hours)**
+### **UNIT 7: LIFECYCLE MANAGEMENT - JOIN/MOVE/LEAVE (16-18 modules, )**
 *Tier: 2 | Certification: Engineer | Prerequisite: Unit 6*
 
 **Objective:** Automate employee onboarding, transfers, and offboarding
@@ -294,7 +294,7 @@
 
 ---
 
-### **UNIT 8: ACCESS REQUEST & USER PORTAL (14-16 modules, 140-160 hours)**
+### **UNIT 8: ACCESS REQUEST & USER PORTAL (14-16 modules, )**
 *Tier: 2 | Certification: Engineer | Prerequisite: Unit 7*
 
 **Objective:** Enable users to request access themselves
@@ -323,7 +323,7 @@
 
 ---
 
-### **UNIT 9: GOVERNANCE & CERTIFICATION (20-22 modules, 200-220 hours)**
+### **UNIT 9: GOVERNANCE & CERTIFICATION (20-22 modules, )**
 *Tier: 3 | Certification: Engineer | Prerequisite: Unit 8*
 
 **Objective:** Implement compliance and access review program
@@ -358,7 +358,7 @@
 
 ---
 
-### **UNIT 10: RULES, TRANSFORMS & LOGIC (18-20 modules, 180-200 hours)**
+### **UNIT 10: RULES, TRANSFORMS & LOGIC (18-20 modules, )**
 *Tier: 3 | Certification: Engineer | Prerequisite: Unit 9*
 
 **Objective:** Customize ISC with business logic and data transformation
@@ -391,7 +391,7 @@
 
 ---
 
-### **UNIT 11: WORKFLOWS & ORCHESTRATION (16-18 modules, 160-180 hours)**
+### **UNIT 11: WORKFLOWS & ORCHESTRATION (16-18 modules, )**
 *Tier: 3 | Certification: Engineer | Prerequisite: Unit 10*
 
 **Objective:** Automate multi-step business processes
@@ -422,7 +422,7 @@
 
 ---
 
-### **UNIT 12: ADVANCED TOPICS (18-20 modules, 180-200 hours)**
+### **UNIT 12: ADVANCED TOPICS (18-20 modules, )**
 *Tier: 3 | Certification: Engineer | Prerequisite: Unit 11*
 
 **Objective:** Master specialization areas
@@ -455,7 +455,7 @@
 
 ---
 
-### **UNIT 13: SEARCH, ANALYTICS & REPORTING (16-18 modules, 160-180 hours)**
+### **UNIT 13: SEARCH, ANALYTICS & REPORTING (16-18 modules, )**
 *Tier: 3 | Certification: Engineer | Prerequisite: Unit 12*
 
 **Objective:** Extract insights from ISC data
@@ -486,7 +486,7 @@
 
 ---
 
-### **UNIT 14: ENTERPRISE CASE STUDIES (20-22 modules, 200-220 hours)**
+### **UNIT 14: ENTERPRISE CASE STUDIES (20-22 modules, )**
 *Tier: 4 | Certification: Engineer | Prerequisite: Unit 13*
 
 **Objective:** Apply everything to real-world enterprise scenarios
@@ -521,7 +521,7 @@
 | 14.17 | GlobalBank Governance Model | Advanced controls, audit | Design (2 hrs) |
 | 14.18 | GlobalBank Risk Management | Enterprise-scale risk handling | Design (1.5 hrs) |
 | 14.19 | GlobalBank Migration Strategy | From legacy system to ISC | Planning (2 hrs) |
-| 14.20 | GlobalBank Implementation Roadmap | 18-month delivery plan | Planning (1.5 hrs) |
+| 14.20 | GlobalBank Implementation Roadmap | delivery plan | Planning (1.5 hrs) |
 
 #### **Final Capstone**
 | Module | Title | Key Topics | Lab Type |

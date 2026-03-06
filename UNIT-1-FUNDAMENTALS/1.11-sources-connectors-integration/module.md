@@ -109,21 +109,21 @@ How: REST API with authentication (API key, basic auth, custom).
 
 ```
 1. SOURCE CONNECTORS read:
-   Entra ID → reads users, groups
-   HRIS → reads employees, departments, job titles
-   ↓
+ Entra ID → reads users, groups
+ HRIS → reads employees, departments, job titles
+ ↓
 2. ISC PROCESSES:
-   Identity Engine ingests data
-   Correlates: Entra ID user "morgan.chen@contoso.com" + HRIS employee "Morgan Chen" = same identity
-   ↓
+ Identity Engine ingests data
+ Correlates: Entra ID user "morgan.chen@contoso.com" + HRIS employee "Morgan Chen" = same identity
+ ↓
 3. RULES EVALUATED:
-   Access Modeling rules: "IF department=Finance AND title=Manager THEN provision Finance app Manager role"
-   ↓
+ Access Modeling rules: "IF department=Finance AND title=Manager THEN provision Finance app Manager role"
+ ↓
 4. TARGET CONNECTORS write:
-   Finance App ← ISC creates account, assigns Manager role
-   QuickBooks ← ISC creates account, assigns permissions
-   Salesforce ← ISC creates account, assigns role
-   Email ← ISC creates mailbox, adds to Finance group
+ Finance App ← ISC creates account, assigns Manager role
+ QuickBooks ← ISC creates account, assigns permissions
+ Salesforce ← ISC creates account, assigns role
+ Email ← ISC creates mailbox, adds to Finance group
 ```
 
 ---

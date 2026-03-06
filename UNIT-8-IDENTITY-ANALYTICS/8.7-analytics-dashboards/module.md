@@ -32,11 +32,11 @@ Module 8.6: Compliance Trending. Trending understood.
 ├─ Format: High-level KPIs, traffic light status
 ├─ Refresh: Monthly
 ├─ Example:
-│  ├─ Compliance: 96/100 (GREEN)
-│  ├─ High-risk users: 2 (YELLOW)
-│  ├─ SoD violations: 0 (GREEN)
-│  ├─ Annual cost: $45K (Blue)
-│  └─ Licenses unused: 12 (cost reduction opportunity)
+│ ├─ Compliance: 96/100 (GREEN)
+│ ├─ High-risk users: 2 (YELLOW)
+│ ├─ SoD violations: 0 (GREEN)
+│ ├─ Annual cost: $45K (Blue)
+│ └─ Licenses unused: 12 (cost reduction opportunity)
 └─ Purpose: Board-level governance overview
 
 2. Operational Dashboard (Administrators)
@@ -45,11 +45,11 @@ Module 8.6: Compliance Trending. Trending understood.
 ├─ Format: Detailed charts, interactive filters
 ├─ Refresh: Daily or real-time
 ├─ Example:
-│  ├─ Pending requests: 3
-│  ├─ High-risk alerts: 1
-│  ├─ Review completion: 60%
-│  ├─ Provisioning failures: 0
-│  └─ Admin workload: On track
+│ ├─ Pending requests: 3
+│ ├─ High-risk alerts: 1
+│ ├─ Review completion: 60%
+│ ├─ Provisioning failures: 0
+│ └─ Admin workload: On track
 └─ Purpose: Day-to-day operational visibility
 
 3. Risk Dashboard (Security Team)
@@ -58,11 +58,11 @@ Module 8.6: Compliance Trending. Trending understood.
 ├─ Format: Risk heat maps, trend charts
 ├─ Refresh: Real-time alerts, daily summaries
 ├─ Example:
-│  ├─ Critical risks: 0 users
-│  ├─ High risks: 2 users (monitored)
-│  ├─ Anomalies this week: 2 (both explained)
-│  ├─ Trends: Risk declining (good)
-│  └─ Forecast: 99/100 compliance Q2
+│ ├─ Critical risks: 0 users
+│ ├─ High risks: 2 users (monitored)
+│ ├─ Anomalies this week: 2 (both explained)
+│ ├─ Trends: Risk declining (good)
+│ └─ Forecast: 99/100 compliance Q2
 └─ Purpose: Proactive risk management
 
 4. Compliance Dashboard (Auditors)
@@ -71,11 +71,11 @@ Module 8.6: Compliance Trending. Trending understood.
 ├─ Format: Compliance metrics, certifications
 ├─ Refresh: Quarterly reporting, on-demand
 ├─ Example:
-│  ├─ Audit trail completeness: 100%
-│  ├─ SoD rules enforced: 6/6 (100%)
-│  ├─ Reviews certified: 3/5 (60%, on track)
-│  ├─ Exceptions documented: 2/2 (100%)
-│  └─ Recent audit: EFFECTIVE
+│ ├─ Audit trail completeness: 100%
+│ ├─ SoD rules enforced: 6/6 (100%)
+│ ├─ Reviews certified: 3/5 (60%, on track)
+│ ├─ Exceptions documented: 2/2 (100%)
+│ └─ Recent audit: EFFECTIVE
 └─ Purpose: Compliance evidence collection
 
 5. Manager Dashboard (Department Heads)
@@ -84,11 +84,11 @@ Module 8.6: Compliance Trending. Trending understood.
 ├─ Format: Customized by department
 ├─ Refresh: Daily (personalized)
 ├─ Example:
-│  ├─ My team members: 3 users
-│  ├─ Access needing review: 0
-│  ├─ Pending actions: 2 requests to approve
-│  ├─ SoD conflicts: 0
-│  └─ Review deadline: 2026-03-31
+│ ├─ My team members: 3 users
+│ ├─ Access needing review: 0
+│ ├─ Pending actions: 2 requests to approve
+│ ├─ SoD conflicts: 0
+│ └─ Review deadline: 2026-03-31
 └─ Purpose: Manager self-service governance
 ```
 
@@ -98,39 +98,39 @@ Module 8.6: Compliance Trending. Trending understood.
 ISC Governance Dashboard - Executive View
 
 ┌─ COMPLIANCE STATUS ─────────────────────────┐
-│ Overall Score: 96/100 (GREEN)              │
-│ Trend: Improving (96→99 forecast Q2)       │
+│ Overall Score: 96/100 (GREEN) │
+│ Trend: Improving (96→99 forecast Q2) │
 ├─────────────────────────────────────────────┤
-│ SoD Violations: 0 (GREEN)                  │
-│ Access Accuracy: 100% (GREEN)              │
+│ SoD Violations: 0 (GREEN) │
+│ Access Accuracy: 100% (GREEN) │
 │ Reviews Completed: 60% (YELLOW - on track) │
-│ High-Risk Users: 2 (YELLOW - monitored)    │
-│ Audit Status: EFFECTIVE (GREEN)            │
+│ High-Risk Users: 2 (YELLOW - monitored) │
+│ Audit Status: EFFECTIVE (GREEN) │
 └─────────────────────────────────────────────┘
 
 ┌─ ACCESS DISTRIBUTION ──────────────────────┐
-│ Total Users: 13                            │
-│ Finance: 3    Engineering: 3   IT: 2       │
-│ Sales: 2      HR: 2                        │
+│ Total Users: 13 │
+│ Finance: 3 Engineering: 3 IT: 2 │
+│ Sales: 2 HR: 2 │
 ├─────────────────────────────────────────────┤
-│ Privilege Levels:                          │
-│ ▓▓▓▓░░░░░░ Read-only: 4 (31%)            │
-│ ▓▓▓▓▓▓░░░░ Editor: 6 (46%)               │
-│ ▓▓▓░░░░░░░ Admin: 3 (23%)                │
+│ Privilege Levels: │
+│ ▓▓▓▓░░░░░░ Read-only: 4 (31%) │
+│ ▓▓▓▓▓▓░░░░ Editor: 6 (46%) │
+│ ▓▓▓░░░░░░░ Admin: 3 (23%) │
 └─────────────────────────────────────────────┘
 
 ┌─ FINANCIAL IMPACT ─────────────────────────┐
-│ Total Access Assignments: 65+              │
-│ Unnecessary Access Identified: 2           │
-│ Estimated Cost Savings: $8K/year           │
-│ Efficiency Gain: Admin time saved 10%     │
+│ Total Access Assignments: 65+ │
+│ Unnecessary Access Identified: 2 │
+│ Estimated Cost Savings: $8K/year │
+│ Efficiency Gain: Admin time saved 10% │
 └─────────────────────────────────────────────┘
 
 ┌─ RISK TREND (Last 4 Quarters) ────────────┐
-│ Q2: ▲ ↓ ↓ ← Declining (GOOD)             │
-│ Q1: ▲ ↑ ↓                                  │
-│ Q4: ▲ ▲ ↑                                  │
-│ Q3: ▼ ▼ ↓                                  │
+│ Q2: ▲ ↓ ↓ ← Declining (GOOD) │
+│ Q1: ▲ ↑ ↓ │
+│ Q4: ▲ ▲ ↑ │
+│ Q3: ▼ ▼ ↓ │
 └─────────────────────────────────────────────┘
 
 Status: GOVERNANCE EFFECTIVE
@@ -161,9 +161,9 @@ Alert Configuration:
 ├─ SoD violation attempted (block + alert)
 ├─ Anomaly detected (score > 2.5, investigate)
 ├─ Compliance metric drops (< target, review)
-├─ Review deadline approaching (7 days, reminder)
-├─ Exception about to expire (30 days, renew?)
-└─ Access not used in 90 days (consider removal)
+├─ Review deadline approaching (, reminder)
+├─ Exception about to expire (, renew?)
+└─ Access not used in (consider removal)
 
 Export Capabilities:
 ├─ PDF reports (executive summary)

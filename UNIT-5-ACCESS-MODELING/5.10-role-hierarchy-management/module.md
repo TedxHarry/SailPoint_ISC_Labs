@@ -63,11 +63,11 @@ Finance (parent role)
 Engineering_Role (parent - base for all engineers)
 ├─ Access: GitHub dev access, Jenkins staging
 ├─ Child: Engineer_Developer
-│  └─ Additional: None (just gets parent)
+│ └─ Additional: None (just gets parent)
 ├─ Child: Engineer_Senior
-│  └─ Additional: GitHub maintainer, Jenkins prod, AWS prod
+│ └─ Additional: GitHub maintainer, Jenkins prod, AWS prod
 └─ Child: Engineer_DevOps
-   └─ Additional: Infrastructure, CI/CD, Kubernetes
+ └─ Additional: Infrastructure, CI/CD, Kubernetes
 ```
 
 **User assigned to:** Engineer_Developer

@@ -188,7 +188,7 @@ After creating SoD rules:
 **Issue: "Rule showing but not enforcing"**
 - Check rule status: should be "Active"
 - May need to refresh ISC
-- Try again after 1 minute
+- Try again after 
 
 **Issue: "Can't select Role B"**
 - Role may not exist

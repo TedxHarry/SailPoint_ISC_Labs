@@ -131,25 +131,25 @@ Setup:
 
 Test steps:
 1. Casey creates invoice:
-   ├─ Click: Create > Invoice
-   ├─ Customer: Test customer
-   ├─ Amount: $100
-   ├─ Description: Test invoice
-   ├─ Save
-   └─ Result: Invoice created ✓
+ ├─ Click: Create > Invoice
+ ├─ Customer: Test customer
+ ├─ Amount: $100
+ ├─ Description: Test invoice
+ ├─ Save
+ └─ Result: Invoice created ✓
 
 2. User5 cannot see the invoice (separate account)
-   └─ Correct: Different users, different access ✓
+ └─ Correct: Different users, different access ✓
 
 3. Casey approves invoice:
-   ├─ Find invoice in pending
-   ├─ Click: Approve
-   ├─ Reason: "Approved for test"
-   ├─ Save
-   └─ Result: Approved ✓
+ ├─ Find invoice in pending
+ ├─ Click: Approve
+ ├─ Reason: "Approved for test"
+ ├─ Save
+ └─ Result: Approved ✓
 
 4. Invoice status: Approved, can post to bank
-   └─ Workflow complete ✓
+ └─ Workflow complete ✓
 
 Result: QB provisioning working ✓
 ```
@@ -166,33 +166,33 @@ Setup:
 
 Test steps:
 1. User4 creates feature:
-   ├─ Clone main repo
-   ├─ Create branch: git checkout -b test-feature
-   ├─ Add code: echo "test code" > file.txt
-   ├─ Commit: git commit -m "Test feature"
-   ├─ Push: git push origin test-feature
-   └─ Result: Code pushed ✓
+ ├─ Clone main repo
+ ├─ Create branch: git checkout -b test-feature
+ ├─ Add code: echo "test code" > file.txt
+ ├─ Commit: git commit -m "Test feature"
+ ├─ Push: git push origin test-feature
+ └─ Result: Code pushed ✓
 
 2. User4 creates Pull Request:
-   ├─ GitHub: Create PR
-   ├─ Base: main
-   ├─ Compare: test-feature
-   ├─ Submit PR
-   └─ Result: PR created, awaiting review ✓
+ ├─ GitHub: Create PR
+ ├─ Base: main
+ ├─ Compare: test-feature
+ ├─ Submit PR
+ └─ Result: PR created, awaiting review ✓
 
 3. Alex reviews code:
-   ├─ GitHub notification: New PR from user4
-   ├─ Alex views PR
-   ├─ Alex approves: "Looks good"
-   ├─ Alex merges: Click merge button
-   └─ Result: Code merged to main ✓
+ ├─ GitHub notification: New PR from user4
+ ├─ Alex views PR
+ ├─ Alex approves: "Looks good"
+ ├─ Alex merges: Click merge button
+ └─ Result: Code merged to main ✓
 
 4. Verify merge:
-   ├─ main branch shows: new commit
-   ├─ Author: user4
-   ├─ Merged by: alex.lee
-   ├─ GitHub audit log updated
-   └─ Result: Two-person workflow verified ✓
+ ├─ main branch shows: new commit
+ ├─ Author: user4
+ ├─ Merged by: alex.lee
+ ├─ GitHub audit log updated
+ └─ Result: Two-person workflow verified ✓
 
 Result: GitHub provisioning and workflows working ✓
 ```
@@ -210,30 +210,30 @@ Setup:
 
 Test steps:
 1. User12 configures AWS CLI:
-   ├─ AWS configure
-   ├─ Access Key ID: (from email)
-   ├─ Secret Access Key: (from email)
-   ├─ Default region: us-east-1
-   └─ Configured
+ ├─ AWS configure
+ ├─ Access Key ID: (from email)
+ ├─ Secret Access Key: (from email)
+ ├─ Default region: us-east-1
+ └─ Configured
 
 2. User12 checks current infrastructure:
-   ├─ aws ec2 describe-instances
-   ├─ Result: Lists all EC2 instances ✓
-   └─ Verify: User12 has access ✓
+ ├─ aws ec2 describe-instances
+ ├─ Result: Lists all EC2 instances ✓
+ └─ Verify: User12 has access ✓
 
 3. User12 deploys test infrastructure:
-   ├─ Write Terraform file: main.tf
-   ├─ terraform init
-   ├─ terraform plan (preview changes)
-   ├─ terraform apply (create resources)
-   └─ Result: New infrastructure created ✓
+ ├─ Write Terraform file: main.tf
+ ├─ terraform init
+ ├─ terraform plan (preview changes)
+ ├─ terraform apply (create resources)
+ └─ Result: New infrastructure created ✓
 
 4. Verify in AWS Console:
-   ├─ Log into AWS
-   ├─ EC2 dashboard
-   ├─ New instance visible
-   ├─ CloudTrail shows: User12 created instance
-   └─ Result: Infrastructure management working ✓
+ ├─ Log into AWS
+ ├─ EC2 dashboard
+ ├─ New instance visible
+ ├─ CloudTrail shows: User12 created instance
+ └─ Result: Infrastructure management working ✓
 
 Result: AWS provisioning and permissions working ✓
 ```
@@ -250,31 +250,31 @@ Setup:
 
 Test steps:
 1. Casey logs into domain:
-   ├─ Username: CONTOSO\casey
-   ├─ Password: (new password after changing temp)
-   ├─ Result: Logged in successfully ✓
-   ├─ Desktop: Finance shared folder accessible ✓
-   ├─ Desktop: Finance network printer available ✓
-   └─ Verify: Domain admin permissions applied ✓
+ ├─ Username: CONTOSO\casey
+ ├─ Password: (new password after changing temp)
+ ├─ Result: Logged in successfully ✓
+ ├─ Desktop: Finance shared folder accessible ✓
+ ├─ Desktop: Finance network printer available ✓
+ └─ Verify: Domain admin permissions applied ✓
 
 2. Casey accesses Finance shared folder:
-   ├─ Open: File Manager > Network
-   ├─ Navigate: \\contoso\Finance\Shared
-   ├─ Verify: Casey can read/write files ✓
-   └─ Result: File access working ✓
+ ├─ Open: File Manager > Network
+ ├─ Navigate: \\contoso\Finance\Shared
+ ├─ Verify: Casey can read/write files ✓
+ └─ Result: File access working ✓
 
 3. Casey tries to access Engineering folder:
-   ├─ Navigate: \\contoso\Engineering\Shared
-   ├─ Result: Access Denied ✗ (correct)
-   ├─ Reason: Casey in Finance group, not Engineering
-   └─ Verify: Permissions enforced ✓
+ ├─ Navigate: \\contoso\Engineering\Shared
+ ├─ Result: Access Denied ✗ (correct)
+ ├─ Reason: Casey in Finance group, not Engineering
+ └─ Verify: Permissions enforced ✓
 
 4. Repeat for User4 (Engineer):
-   ├─ User4 logs in: SUCCESS ✓
-   ├─ Can access Engineering folder: YES ✓
-   ├─ Can access Finance folder: NO (correct) ✓
-   ├─ Can access IT folder: NO (correct) ✓
-   └─ Result: Cross-department access blocked ✓
+ ├─ User4 logs in: SUCCESS ✓
+ ├─ Can access Engineering folder: YES ✓
+ ├─ Can access Finance folder: NO (correct) ✓
+ ├─ Can access IT folder: NO (correct) ✓
+ └─ Result: Cross-department access blocked ✓
 
 Result: AD provisioning and permissions working ✓
 ```
@@ -286,7 +286,7 @@ Result: AD provisioning and permissions working ✓
 **Test Case 1: What if user logs in immediately after provisioning?**
 
 ```
-Scenario: Casey logs in to QB exactly 5 minutes after provisioning completed
+Scenario: Casey logs in to QB exactly after provisioning completed
 
 Expected: Account fully created and accessible
 Actual:
@@ -455,7 +455,7 @@ After comprehensive testing:
 
 A) Merge succeeds (User4 is senior dev)
 B) ✅ Merge blocked - User4 can only contribute, not approve
-C) Merge requires User4 to wait 24 hours
+C) Merge requires User4 to wait 
 D) Merge succeeds but requires ADP approval
 
 **Answer: B.** User4 = Contributor (can push), Alex = Maintainer (can approve/merge). Two-person rule enforced.

@@ -36,7 +36,7 @@ Request routed to approvers
 ├─ First: Direct manager (cost center)
 ├─ Second: Access owner (role owner)
 ├─ Third: Compliance (if sensitive)
-└─ Escalation: If no approval in 2 days
+└─ Escalation: If no approval in 
 
 Approval decision
 ├─ Approved: Provision immediately
@@ -66,28 +66,26 @@ New Role Request:
 ├─ Manager approval: Does user need this?
 ├─ Role owner approval: Does user fit role?
 ├─ Compliance: Any SoD conflicts?
-└─ Timeline: 2 days to provision
+└─ 
 
 Additional Access Request:
 ├─ User: Already has Developer role, needs AWS prod
 ├─ Current: Only has staging access
 ├─ Justification: New project requires prod
 ├─ Approval: Role owner + security team
-└─ Timeline: 1 day
-
-System Access Request:
+└─ 
 ├─ User: Has QB role, but no QB login yet
 ├─ Type: Self-service provisioning
 ├─ Approval: Automatic (role already approved)
 ├─ Provision: Immediate
-└─ Timeline: Minutes
+└─ 
 
 Shared Account Request:
 ├─ Type: Multiple users need same account
 ├─ Example: Service account for integration
 ├─ Approval: Security team only
 ├─ Tracking: Shared account log
-└─ Timeline: 3 days (security review)
+└─ 
 ```
 
 ### Approval Routing Rules
@@ -115,7 +113,7 @@ Sensitive Access (any department):
 ├─ Access owner approval
 ├─ Security team approval (always)
 ├─ If executive: CTO/CISO approval
-└─ Escalation: 24 hours max per approver
+└─ Escalation: max per approver
 ```
 
 ---
@@ -146,7 +144,7 @@ Sensitive Access (any department):
 A) Provision anyway (manager approved)
 B) ✅ Deny request (role owner approval required)
 C) Escalate to CFO
-D) Auto-provision in 3 days
+D) Auto-provision in 
 
 **Answer: B.** All approvers must approve. One "no" = denied request.
 

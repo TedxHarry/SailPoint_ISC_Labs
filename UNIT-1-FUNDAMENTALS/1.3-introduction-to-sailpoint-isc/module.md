@@ -133,12 +133,12 @@ These five use cases map to ISC's five core capabilities:
 - **Solution:** ISC discovers all access, displays it in one place, enforces rules so new access matches roles
 
 **Problem 2: Compliance Management**
-- Auditors ask "Prove that access is approved"  Contoso has no documentation
+- Auditors ask "Prove that access is approved" Contoso has no documentation
 - SOX compliance requires that financial system access is restricted and approved
 - **Solution:** ISC maintains audit logs, documents approvals, proves controls
 
 **Problem 3: User Provisioning**
-- Contoso's onboarding takes 3-5 days while IT creates accounts individually
+- Contoso's onboarding takes while IT creates accounts individually
 - New hires are unproductive during this time
 - **Solution:** ISC provisions all access in minutes (automatic)
 
@@ -197,7 +197,7 @@ Contoso chose ISC because it's comprehensive and works across all their systems 
 
 **Practice Exam Questions:**
 
-**Question 1:** Contoso Ltd needs to automate onboarding (currently 3-5 days), implement compliance governance, and ensure access across systems matches job roles. Which of the following best describes why ISC is appropriate for Contoso?
+**Question 1:** Contoso Ltd needs to automate onboarding (currently ), implement compliance governance, and ensure access across systems matches job roles. Which of the following best describes why ISC is appropriate for Contoso?
 
 A) ISC is only for complianceit cannot provision access automatically
 B) ✅ ISC is a comprehensive identity governance platform that handles provisioning, access governance, and compliance
@@ -230,9 +230,9 @@ D) is incorrectthey have different operational models and target different marke
 ## 📚 ADDITIONAL RESOURCES
 
 **Related Modules:**
-- [Previous: 1.2 - Identity vs Access vs Governance](/modules/1.2-identity-vs-access-vs-governance)  Conceptual foundation
-- [Next: 1.4 - ISC vs IdentityIQ vs IdentityNow](/modules/1.4-isc-vs-identityiq-vs-identitynow)  Deeper positioning
-- [Next: 1.5 - ISC Architecture Overview](/modules/1.5-isc-architecture-overview)  How ISC actually works
+- [Previous: 1.2 - Identity vs Access vs Governance](/modules/1.2-identity-vs-access-vs-governance) Conceptual foundation
+- [Next: 1.4 - ISC vs IdentityIQ vs IdentityNow](/modules/1.4-isc-vs-identityiq-vs-identitynow) Deeper positioning
+- [Next: 1.5 - ISC Architecture Overview](/modules/1.5-isc-architecture-overview) How ISC actually works
 
 **Official Documentation:**
 - [SailPoint ISC Product Overview](https://example.com)

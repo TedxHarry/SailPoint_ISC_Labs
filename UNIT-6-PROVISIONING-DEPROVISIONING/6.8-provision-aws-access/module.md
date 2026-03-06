@@ -75,7 +75,7 @@ ISC > Identities > User12
 ├─ Role: DevOps
 ├─ Trigger: AWS_DevOps_Provisioning workflow
 ├─ Monitor: ISC > Provisioning > Status
-└─ Expected completion: 3-5 minutes
+└─ Expected completion: 
 ```
 
 **Step 2: Verify IAM User Created**
@@ -90,11 +90,11 @@ AWS Management Console > IAM > Users
 ├─ MFA: Not yet enabled (enforcement pending)
 │
 └─ User details:
-   ├─ Username: user12-devops
-   ├─ Created: [today]
-   ├─ Console login: Disabled (use API keys, not console)
-   ├─ Permissions boundary: Applied (no privilege escalation)
-   └─ Last activity: None yet
+ ├─ Username: user12-devops
+ ├─ Created: [today]
+ ├─ Console login: Disabled (use API keys, not console)
+ ├─ Permissions boundary: Applied (no privilege escalation)
+ └─ Last activity: None yet
 ```
 
 **Step 3: Verify IAM Groups**
@@ -105,18 +105,18 @@ AWS > IAM > Groups
 DevOps_Admins group:
 ├─ Members: user12-devops ✓
 ├─ Policies:
-│  ├─ AdministratorAccess (full AWS permissions)
-│  └─ Boundary: Prevents deleting critical resources
+│ ├─ AdministratorAccess (full AWS permissions)
+│ └─ Boundary: Prevents deleting critical resources
 │
 ├─ Description: Infrastructure administration
 
 Infrastructure group:
 ├─ Members: user12-devops ✓
 ├─ Policies:
-│  ├─ AmazonEC2FullAccess
-│  ├─ AmazonRDSFullAccess
-│  ├─ CloudFormationFullAccess
-│  └─ Custom policy: Prevent security group deletion
+│ ├─ AmazonEC2FullAccess
+│ ├─ AmazonRDSFullAccess
+│ ├─ CloudFormationFullAccess
+│ └─ Custom policy: Prevent security group deletion
 │
 └─ Description: Infrastructure management
 ```
@@ -128,16 +128,16 @@ AWS > IAM > User > user12-devops
 
 MFA setting: Required
 ├─ User12 must enable MFA before full access
-├─ Grace period: 24 hours
+├─ Grace period: 
 ├─ Method: Virtual (Google Authenticator, Authy, etc.)
 ├─ Steps:
-│  1. User12 downloads authenticator app
-│  2. Go to AWS Console > MFA setup
-│  3. Scan QR code with app
-│  4. Enter 6-digit code twice
-│  5. MFA enabled, full access granted
+│ 1. User12 downloads authenticator app
+│ 2. Go to AWS Console > MFA setup
+│ 3. Scan QR code with app
+│ 4. Enter 6-digit code twice
+│ 5. MFA enabled, full access granted
 │
-└─ If not enabled after 24 hours: Access revoked
+└─ If not enabled after : Access revoked
 ```
 
 **Step 5: User12 Enables MFA**
@@ -145,19 +145,19 @@ MFA setting: Required
 ```
 Process:
 1. User12 receives email: "Your AWS access is ready"
-   ├─ Access Key: AKIA... (encrypted)
-   ├─ Secret: (encrypted, 1-time link)
-   └─ Setup instructions (enable MFA)
+ ├─ Access Key: AKIA... (encrypted)
+ ├─ Secret: (encrypted, 1-time link)
+ └─ Setup instructions (enable MFA)
 
 2. User12 sets up MFA:
-   ├─ Download: Google Authenticator app
-   ├─ Open AWS Console (using access key/secret from email)
-   ├─ Navigate to: Security credentials > MFA
-   ├─ Click "Activate MFA device"
-   ├─ Scan QR code with app
-   ├─ Enter 2 consecutive 6-digit codes
-   ├─ AWS: "MFA device activated"
-   └─ Full AWS access now enabled ✓
+ ├─ Download: Google Authenticator app
+ ├─ Open AWS Console (using access key/secret from email)
+ ├─ Navigate to: Security credentials > MFA
+ ├─ Click "Activate MFA device"
+ ├─ Scan QR code with app
+ ├─ Enter 2 consecutive 6-digit codes
+ ├─ AWS: "MFA device activated"
+ └─ Full AWS access now enabled ✓
 
 3. User12 can now access AWS
 ```
@@ -169,26 +169,26 @@ Test: User12 can access AWS infrastructure
 
 Method 1: AWS CLI (command line)
 1. User12 configures AWS CLI:
-   ├─ Command: aws configure
-   ├─ Enter Access Key: AKIA...
-   ├─ Enter Secret: (from email)
-   ├─ Default region: us-east-1
-   └─ Default format: json
+ ├─ Command: aws configure
+ ├─ Enter Access Key: AKIA...
+ ├─ Enter Secret: (from email)
+ ├─ Default region: us-east-1
+ └─ Default format: json
 
 2. User12 tests access:
-   ├─ Command: aws ec2 describe-instances
-   ├─ Result: Lists all EC2 instances ✓
-   ├─ Command: aws rds describe-db-instances
-   ├─ Result: Lists all RDS databases ✓
-   └─ Verification: Infrastructure access working ✓
+ ├─ Command: aws ec2 describe-instances
+ ├─ Result: Lists all EC2 instances ✓
+ ├─ Command: aws rds describe-db-instances
+ ├─ Result: Lists all RDS databases ✓
+ └─ Verification: Infrastructure access working ✓
 
 Method 2: Terraform/Infrastructure as Code
 1. User12 can deploy infrastructure:
-   ├─ Write: main.tf (create EC2, RDS, etc.)
-   ├─ Command: terraform init
-   ├─ Command: terraform apply
-   ├─ AWS creates resources
-   └─ Verification: Can manage infrastructure ✓
+ ├─ Write: main.tf (create EC2, RDS, etc.)
+ ├─ Command: terraform init
+ ├─ Command: terraform apply
+ ├─ AWS creates resources
+ └─ Verification: Can manage infrastructure ✓
 
 Audit Trail:
 ├─ AWS CloudTrail shows: User12 accessed resources
@@ -213,14 +213,14 @@ ISC > Identities > Alex Lee
 AWS verification:
 ├─ Username: alex-engineer ✓
 ├─ Groups:
-│  ├─ Developers: Can access dev/staging environment
-│  ├─ ProductionAccess: Can access prod (with restrictions)
-│  └─ ReadOnlyAccess: Fallback (safety net)
+│ ├─ Developers: Can access dev/staging environment
+│ ├─ ProductionAccess: Can access prod (with restrictions)
+│ └─ ReadOnlyAccess: Fallback (safety net)
 ├─ Policies:
-│  ├─ PowerUser: Full access except IAM/billing
-│  ├─ Environment boundary: Can't access other dept resources
-│  └─ Prod access: Requires approval workflow (separate)
-├─ MFA: Required (24-hour setup grace period)
+│ ├─ PowerUser: Full access except IAM/billing
+│ ├─ Environment boundary: Can't access other dept resources
+│ └─ Prod access: Requires approval workflow (separate)
+├─ MFA: Required ( setup grace period)
 └─ Status: READY FOR MFA SETUP ✓
 
 Permissions:
@@ -246,13 +246,13 @@ ISC > Identities > User4
 AWS verification:
 ├─ Username: user4-dev ✓
 ├─ Groups:
-│  ├─ Developers: Development environment access only
-│  ├─ StagingOnly: Staging environment access only
-│  └─ ReadOnlyAccess: (safety fallback)
+│ ├─ Developers: Development environment access only
+│ ├─ StagingOnly: Staging environment access only
+│ └─ ReadOnlyAccess: (safety fallback)
 ├─ Policies:
-│  ├─ Developer: EC2, RDS, CloudWatch (dev only)
-│  ├─ Environment boundary: No production access
-│  └─ Explicit deny: Cannot access prod resources
+│ ├─ Developer: EC2, RDS, CloudWatch (dev only)
+│ ├─ Environment boundary: No production access
+│ └─ Explicit deny: Cannot access prod resources
 ├─ MFA: Required
 └─ Status: READY FOR MFA SETUP ✓
 
@@ -351,20 +351,20 @@ Alex's workflow:
 1. Alex creates change request: "Deploy v2.0 to production"
 2. Alex attaches: Terraform plan, testing results
 3. Approval workflow triggered:
-   ├─ Notification: Sent to DevOps (User12)
-   ├─ DevOps: Reviews change
-   ├─ DevOps: Approves (or denies)
-   └─ If approved: Temporary prod access granted to Alex
+ ├─ Notification: Sent to DevOps (User12)
+ ├─ DevOps: Reviews change
+ ├─ DevOps: Approves (or denies)
+ └─ If approved: Temporary prod access granted to Alex
 
 4. Alex applies Terraform: terraform apply
-   ├─ AWS: Deploys to production
-   ├─ CloudTrail: Logs "Alex deployed v2.0"
-   ├─ Timestamp: [exact time]
-   └─ Success ✓
+ ├─ AWS: Deploys to production
+ ├─ CloudTrail: Logs "Alex deployed v2.0"
+ ├─ Timestamp: [exact time]
+ └─ Success ✓
 
 5. Approval expired: Temporary access revoked
-   ├─ Alex can no longer modify prod
-   ├─ Next deployment: Must request approval again
+ ├─ Alex can no longer modify prod
+ ├─ Next deployment: Must request approval again
 
 Verification:
 ├─ Single person cannot modify prod without approval ✓
@@ -409,25 +409,25 @@ Cause:
 
 Solution:
 1. Download authenticator app:
-   ├─ Google Authenticator (iOS/Android)
-   ├─ Authy (iOS/Android)
-   ├─ Microsoft Authenticator (iOS/Android)
-   └─ Any TOTP app
+ ├─ Google Authenticator (iOS/Android)
+ ├─ Authy (iOS/Android)
+ ├─ Microsoft Authenticator (iOS/Android)
+ └─ Any TOTP app
 
 2. Time sync:
-   ├─ Check phone time is correct
-   ├─ Enable automatic time sync on phone
-   └─ Try again
+ ├─ Check phone time is correct
+ ├─ Enable automatic time sync on phone
+ └─ Try again
 
 3. Reset MFA:
-   ├─ AWS admin: Go to User12 > Security
-   ├─ Delete old MFA device
-   ├─ User12: Retry setup
-   └─ Should succeed
+ ├─ AWS admin: Go to User12 > Security
+ ├─ Delete old MFA device
+ ├─ User12: Retry setup
+ └─ Should succeed
 
 4. If still failing:
-   ├─ Contact AWS support
-   ├─ Or: Admin manually set MFA
+ ├─ Contact AWS support
+ ├─ Or: Admin manually set MFA
 ```
 
 **Issue 2: IAM User Can't Assume Role**
@@ -442,10 +442,10 @@ Cause:
 
 Solution:
 1. Check role trust policy:
-   ├─ AWS > IAM > Roles > [RoleName]
-   ├─ Trust policy should include: user12-devops principal
-   ├─ If missing: Add user to trust policy
-   └─ Save
+ ├─ AWS > IAM > Roles > [RoleName]
+ ├─ Trust policy should include: user12-devops principal
+ ├─ If missing: Add user to trust policy
+ └─ Save
 
 2. Retry: User12 can now assume role ✓
 ```
@@ -461,7 +461,7 @@ Cause:
 └─ Network connectivity issue
 
 Solution:
-1. Wait 5 minutes, retry
+1. Wait , retry
 2. Increase provisioning timeout
 3. Contact AWS support if API errors continue
 ```

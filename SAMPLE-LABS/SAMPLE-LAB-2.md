@@ -25,7 +25,7 @@ By the end of this module, you will:
 - ✅ Have: Test users created in Entra ID (minimum 10 users)
 - ✅ Have: Application registered in Entra ID (ISC_Test_App with credentials noted)
 
-**Difficulty:** Intermediate | **Time:** ~12 hours
+**Difficulty:** Intermediate | **Time:** ~
 
 ---
 
@@ -54,7 +54,7 @@ Without a connector, ISC has no data. Connectors are how ISC stays synchronized 
 Each system (Entra ID, Salesforce, Finance app, HRIS, etc.) needs its own connector definition.
 
 **Example:**
-The Entra ID connector tells ISC: "Connect to our Entra ID tenant using Microsoft Graph API, read all users and groups, and sync them every 4 hours."
+The Entra ID connector tells ISC: "Connect to our Entra ID tenant using Microsoft Graph API, read all users and groups, and sync them every ."
 
 ### Core Concept 2: Microsoft Graph API
 
@@ -144,9 +144,9 @@ Create a connector in ISC that connects to Entra ID, test the connection, and pe
 
 1. Look for: "Authentication" or "API Credentials" section
 2. Enter fields:
-   - **Tenant ID:** [Paste from your ISC_Test_App details]
-   - **Application ID (Client ID):** [Paste from ISC_Test_App]
-   - **Client Secret:** [You may need to generate this in Entra ID if not already created]
+ - **Tenant ID:** [Paste from your ISC_Test_App details]
+ - **Application ID (Client ID):** [Paste from ISC_Test_App]
+ - **Client Secret:** [You may need to generate this in Entra ID if not already created]
 3. Click: **Test Connection** button
 4. Expected: Shows "Connection successful" ✓
 
@@ -154,9 +154,9 @@ Create a connector in ISC that connects to Entra ID, test the connection, and pe
 
 1. ISC shows: Account attributes and where they map from Entra ID
 2. Verify these mappings (defaults are usually fine):
-   - Display Name → displayName
-   - Email → mail
-   - Department → department
+ - Display Name → displayName
+ - Email → mail
+ - Department → department
 3. Click: **Save** or **Next**
 
 ### STEP 6: Perform Initial Aggregation
@@ -164,7 +164,7 @@ Create a connector in ISC that connects to Entra ID, test the connection, and pe
 1. ISC shows: Option to "Aggregate now" or "Schedule aggregation"
 2. Click: **Aggregate Now**
 3. Expected: Progress bar appears, "Importing data..."
-4. Wait: 1-3 minutes for aggregation to complete
+4. Wait: for aggregation to complete
 5. Expected: Success message "X identities imported, Y accounts correlated"
 
 ### STEP 7: Verify Data in ISC
@@ -202,7 +202,7 @@ Create a connector in ISC that connects to Entra ID, test the connection, and pe
 
 **Solution:**
 1. This is normal for first aggregation (depends on user count)
-2. Wait up to 5 minutes
+2. Wait up to 
 3. If still not done, check ISC logs for errors
 4. Try aggregating again
 
@@ -211,7 +211,7 @@ Create a connector in ISC that connects to Entra ID, test the connection, and pe
 **Solution:**
 1. Verify attributes are mapped correctly in step 5
 2. Check if Entra ID users actually have those attributes filled in
-3. Wait 10-15 minutes (ISC may still be processing)
+3. Wait (ISC may still be processing)
 4. Refresh search results
 
 ---

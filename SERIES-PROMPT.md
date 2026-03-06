@@ -10,12 +10,12 @@ This is the **template and guidelines** for writing all lab modules in this seri
 ```
 UNIT [N] - [NAME]/
 ├── [module-slug]/
-│   ├── module.md (main lab content - THIS FILE)
-│   ├── lab-data/ (optional)
-│   │   ├── sample-data.csv
-│   │   └── templates.json
-│   └── solutions/ (optional)
-│       └── expected-output.md
+│ ├── module.md (main lab content - THIS FILE)
+│ ├── lab-data/ (optional)
+│ │ ├── sample-data.csv
+│ │ └── templates.json
+│ └── solutions/ (optional)
+│ └── expected-output.md
 ```
 
 **File naming:**
@@ -143,44 +143,44 @@ Example: "ISC is configured, audit logs are enabled, and you understand the main
 
 **Actions:**
 1. [Numbered action 1]
-   - Text box: Enter "[value]"
-   - Click: [Button/Link name]
-   - Expected: You see "[X]"
+ - Text box: Enter "[value]"
+ - Click: [Button/Link name]
+ - Expected: You see "[X]"
 
 2. [Numbered action 2]
-   - Navigate to: [Location in menu]
-   - Look for: [Element name/icon]
-   - Click: [Button/Link]
+ - Navigate to: [Location in menu]
+ - Look for: [Element name/icon]
+ - Click: [Button/Link]
 
 3. [Numbered action 3]
-   - Verify: [What you should see]
-   - Note: Any important details
+ - Verify: [What you should see]
+ - Note: Any important details
 
 **Detailed Example Format:**
 ```
 1. Log into ISC sandbox
-   - Go to: https://[your-sandbox-url]
-   - Enter: Your username (same as ISC onboarding email)
-   - Enter: Your temporary password
-   - Click: [Sign In] button
-   - Expected: You see ISC dashboard with "Welcome [Your Name]"
+ - Go to: https://[your-sandbox-url]
+ - Enter: Your username (same as ISC onboarding email)
+ - Enter: Your temporary password
+ - Click: [Sign In] button
+ - Expected: You see ISC dashboard with "Welcome [Your Name]"
 
 2. Navigate to Administration area
-   - Look for: Left sidebar with navigation menu
-   - Find: "Administration" section (third section down)
-   - Click: "Administration"
-   - Expected: Admin panel opens showing "Tenants", "Users", etc.
+ - Look for: Left sidebar with navigation menu
+ - Find: "Administration" section (third section down)
+ - Click: "Administration"
+ - Expected: Admin panel opens showing "Tenants", "Users", etc.
 
 3. Verify audit logging is enabled
-   - Click: "Audit Configuration" or similar
-   - Look for: Toggle/checkbox for "Enable Audit Logging"
-   - Verify: It shows "On" or "Enabled"
-   - If not: Click toggle to enable, wait for confirmation
+ - Click: "Audit Configuration" or similar
+ - Look for: Toggle/checkbox for "Enable Audit Logging"
+ - Verify: It shows "On" or "Enabled"
+ - If not: Click toggle to enable, wait for confirmation
 ```
 
 **Troubleshooting (for this step):**
 - **If:** [Problem description] → **Then:** [Solution]
-  - Example: If you can't find the Administration menu → Then scroll down in left sidebar or search for "Admin" in top search
+ - Example: If you can't find the Administration menu → Then scroll down in left sidebar or search for "Admin" in top search
 - **If:** [Problem 2] → **Then:** [Solution 2]
 
 ### STEP 2: [Next action]
@@ -258,19 +258,19 @@ You have successfully completed this lab if:
 **For This Module, Create:**
 
 1. **Lab Completion Checklist:**
-   - [ ] Completed all 5 steps
-   - [ ] Verified all expected results
-   - [ ] No errors or warnings remaining
-   - [ ] Took screenshot of final state (optional)
+ - [ ] Completed all 5 steps
+ - [ ] Verified all expected results
+ - [ ] No errors or warnings remaining
+ - [ ] Took screenshot of final state (optional)
 
 2. **Notes for Your Own Reference:**
-   - What was the hardest part?
-   - What would you do differently next time?
-   - Any shortcuts you discovered?
+ - What was the hardest part?
+ - What would you do differently next time?
+ - Any shortcuts you discovered?
 
 3. **Save ISC Configuration:**
-   - [If applicable] Export any configurations created
-   - [If applicable] Note down any IDs or names for future reference
+ - [If applicable] Export any configurations created
+ - [If applicable] Note down any IDs or names for future reference
 
 ---
 
@@ -288,8 +288,8 @@ You have successfully completed this lab if:
 
 **Certification Domain(s) Covered:**
 - Domain: [Certification domain]
-  - Exam focus: [What exam will test]
-  - Coverage level: [Basic/Intermediate/Advanced]
+ - Exam focus: [What exam will test]
+ - Coverage level: [Basic/Intermediate/Advanced]
 
 **Practice Exam Questions:**
 
@@ -328,14 +328,14 @@ If you finish early and want more practice:
 - [Extended task 1]
 - [Extended task 2]
 
-**Expected Time:** +30 minutes
+**
 
 ### Challenge 2: [Advanced Extension]
 For those wanting deeper understanding:
 - [Advanced task 1]
 - [Advanced task 2]
 
-**Expected Time:** +1 hour
+**
 
 ---
 
@@ -428,7 +428,7 @@ Both are acceptable if they achieve the same objectives.
 - ❌ DON'T: Skip the "why" - always explain context
 
 ### 2. STEP STRUCTURE
-- ✅ Each step should be completable in 2-5 minutes
+- ✅ Each step should be completable in 
 - ✅ Include "Expected" results after each action
 - ✅ Use nested bullets for related actions
 - ✅ Include screenshots/descriptions of what appears
@@ -450,11 +450,11 @@ Both are acceptable if they achieve the same objectives.
 - ❌ DON'T: Skip the business context
 
 ### 5. ESTIMATED TIME
-- Each module should be ~10-12 hours of effort:
-  - Conceptual foundation: 2-3 hours
-  - Lab execution: 4-6 hours
-  - Troubleshooting/experimentation: 2-3 hours
-  - Documentation/reflection: 1 hour
+- Each module should be ~ of effort:
+ - Conceptual foundation: 
+ - Lab execution: 
+ - Troubleshooting/experimentation: 
+ - Documentation/reflection: 
 
 ### 6. TESTING
 - Write lab as if you're doing it for first time

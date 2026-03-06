@@ -34,9 +34,9 @@ Initial curriculum review identified **7 critical issues, 8 important issues, an
 - **What was missing:** Steps to grant ISC_Test_App permissions to read Entra ID data
 - **Why it mattered:** WITHOUT these permissions, ISC cannot read ANY data from Entra ID; connector fails 100%
 - **Solution:** Added **Step 4.4** to Entra ID guide with detailed instructions to grant:
-  - `User.Read.All` (read users)
-  - `Group.Read.All` (read groups)
-  - `Directory.Read.All` (read directory)
+ - `User.Read.All` (read users)
+ - `Group.Read.All` (read groups)
+ - `Directory.Read.All` (read directory)
 - **Action Taken:** Complete walkthrough added with warnings about critical importance
 
 ### ✅ Issue 4: Missing Client Secret Generation
@@ -44,18 +44,18 @@ Initial curriculum review identified **7 critical issues, 8 important issues, an
 - **What was missing:** Steps to create and save the Client Secret
 - **Why it mattered:** Client Secret is how ISC authenticates to Entra ID; without it, connection fails
 - **Solution:** Added **Step 4.5** to Entra ID guide with:
-  - Clear warnings (⚠️) about only showing once
-  - Where to store it safely
-  - How to regenerate if missed
+ - Clear warnings (⚠️) about only showing once
+ - Where to store it safely
+ - How to regenerate if missed
 - **Action Taken:** Step-by-step guide with security warnings
 
 ### ✅ Issue 5: Identity Profiles Missing from Curriculum
 **Status:** CRITICAL - NOW FIXED IN CURRICULUM v2.0
 - **What was missing:** Identity Profiles (how ISC maps data from sources) was not covered
 - **Why it mattered:** Without Identity Profiles configured, ISC cannot properly aggregate data; beginners would see data but wouldn't understand why it's "orphaned"
-- **Solution:** Created **Unit 3: Identity Profiles & Sources** (18-20 modules, 180-200 hours)
-  - Module 3.1-3.6: Identity Profiles fundamentals
-  - Module 3.7-3.18: Connector configuration
+- **Solution:** Created **Unit 3: Identity Profiles & Sources** (18-20 modules, )
+ - Module 3.1-3.6: Identity Profiles fundamentals
+ - Module 3.7-3.18: Connector configuration
 - **Action Taken:** Entire unit added with proper sequencing before aggregation labs
 
 ### ✅ Issue 6: ISC UI Navigation Is Guessed, Not Verified
@@ -69,10 +69,10 @@ Initial curriculum review identified **7 critical issues, 8 important issues, an
 **Status:** CRITICAL - NOW FIXED IN CURRICULUM v2.0
 - **What was missing:** Self-service Access Request portal (user-facing feature) was not in original 86-module curriculum
 - **Why it mattered:** Access Request is one of the most-used ISC features in real organizations; beginners need to master it
-- **Solution:** Created **Unit 8: Access Request & User Portal** (14-16 modules, 140-160 hours)
-  - Modules 8.1-8.5: Portal configuration
-  - Modules 8.6-8.8: Approval workflows
-  - Modules 8.9-8.16: Testing, optimization, troubleshooting
+- **Solution:** Created **Unit 8: Access Request & User Portal** (14-16 modules, )
+ - Modules 8.1-8.5: Portal configuration
+ - Modules 8.6-8.8: Approval workflows
+ - Modules 8.9-8.16: Testing, optimization, troubleshooting
 - **Action Taken:** Entire unit added with practical hands-on labs
 
 ---
@@ -82,7 +82,7 @@ Initial curriculum review identified **7 critical issues, 8 important issues, an
 | Issue | Original Problem | Solution Implemented |
 |-------|------------------|----------------------|
 | **Transforms timing** | Introduced too late (Unit 8); needed earlier for source configuration | Moved to Unit 10, part 1; introduced in context of BeanShell & rules |
-| **Module hour estimates** | Inconsistent (some 10 hrs for 30-min tasks) | Recalibrated: 10-12 hours per module across all units for consistency |
+| **Module hour estimates** | Inconsistent (some 10 hrs for 30-min tasks) | Recalibrated: per module across all units for consistency |
 | **Missing RegionTech/GlobalBank CSVs** | Referenced but didn't exist | Added to TODO for next phase; structure documented in v2 TOC |
 | **BeanShell vs Velocity confusion** | Not clearly distinguished | Module 10.13-10.15 now clearly separates: BeanShell (rules), Velocity (templates), Transforms (JSON) |
 | **No ISC Glossary** | Beginners constantly confused by terminology | Created **GLOSSARY.md** with 40+ terms, examples, and comparisons |
@@ -99,8 +99,8 @@ Initial curriculum review identified **7 critical issues, 8 important issues, an
 |--------|------|------|------------|
 | **Units** | 10 | 14 | +4 units for specialization |
 | **Modules** | 86 | 226-260 | +140-174 modules |
-| **Hours** | 130 | 2,260-2,600 | +2,130-2,470 hours |
-| **Duration (FT)** | 18-24 months | More realistic for true mastery |
+| **Hours** | 130 | 2,260-2,600 | +2,130-2, |
+| **Duration (FT)** | | More realistic for true mastery |
 | **Case Studies** | 1 (Contoso) | 3 (Contoso, RegionTech, GlobalBank) | Real enterprise scenarios |
 
 ### New Units Added
@@ -148,7 +148,7 @@ Initial curriculum review identified **7 critical issues, 8 important issues, an
 - [ ] Test lab with actual ISC sandbox
 - [ ] Verify all navigation paths match actual ISC UI
 - [ ] Have someone else test lab without help
-- [ ] Time the lab (should be ~10-12 hours of learning)
+- [ ] Time the lab (should be ~ of learning)
 - [ ] Verify all troubleshooting tips are accurate
 - [ ] Create 2+ practice exam questions
 - [ ] Verify prerequisites are all covered in earlier modules
@@ -209,7 +209,7 @@ After completing all 226-260 modules across 14 units:
 - Can troubleshoot and optimize ISC deployments
 
 ✅ **Professional Expertise:**
-- 2,260-2,600 hours of hands-on learning
+- 2,260-2, of hands-on learning
 - 3 complete case study implementations
 - Real-world scenario experience
 - Advanced specializations (SoD, ARM, CIEM, machine identity)

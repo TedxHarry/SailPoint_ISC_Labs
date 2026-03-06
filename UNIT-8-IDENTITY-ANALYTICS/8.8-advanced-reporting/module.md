@@ -31,33 +31,33 @@ Module 8.7: Analytics Dashboards. Dashboards understood.
 Report: "Department Access Comparison (Q1 2026)"
 ├─ Compare: Finance vs Engineering vs Sales
 ├─ Metrics:
-│  ├─ Users per department
-│  ├─ Average access per user
-│  ├─ Privilege distribution
-│  ├─ System coverage
-│  └─ Risk scores
+│ ├─ Users per department
+│ ├─ Average access per user
+│ ├─ Privilege distribution
+│ ├─ System coverage
+│ └─ Risk scores
 ├─ Findings:
-│  ├─ IT has highest access (expected)
-│  ├─ Sales has lowest (expected)
-│  ├─ Finance concentration appropriate
-│  └─ Engineering growing (new projects)
+│ ├─ IT has highest access (expected)
+│ ├─ Sales has lowest (expected)
+│ ├─ Finance concentration appropriate
+│ └─ Engineering growing (new projects)
 ├─ Insights:
-│  ├─ IT concentration 40% above average (justify?)
-│  ├─ Sales could benefit from self-service access
-│  └─ Engineering team scaling well
+│ ├─ IT concentration 40% above average (justify?)
+│ ├─ Sales could benefit from self-service access
+│ └─ Engineering team scaling well
 └─ Recommendations: Review IT role necessity
 
 Report: "User Cohort Comparison (By Tenure)"
-├─ Compare: New users (< 3 months) vs Established (> 2 years)
+├─ Compare: New users (< ) vs Established (> 2 years)
 ├─ Metrics:
-│  ├─ Access assignment time
-│  ├─ Review participation
-│  ├─ Violations during first 90 days
-│  └─ Final access vs initial
+│ ├─ Access assignment time
+│ ├─ Review participation
+│ ├─ Violations during first 
+│ └─ Final access vs initial
 ├─ Findings:
-│  ├─ New users: Appropriate onboarding time
-│  ├─ Established users: Stable access (good)
-│  └─ No violations (excellent control)
+│ ├─ New users: Appropriate onboarding time
+│ ├─ Established users: Stable access (good)
+│ └─ No violations (excellent control)
 └─ Insights: Process working well across tenure levels
 ```
 
@@ -102,7 +102,7 @@ Recommendations:
 ### 3. Predictive Insight Reports
 
 ```
-Report: "High-Risk User Forecast (Next 30 Days)"
+Report: "High-Risk User Forecast (Next )"
 
 Analysis:
 ├─ Current high-risk users: 2 (User10, User12)
@@ -136,16 +136,16 @@ Question: Which users are likely to accumulate unnecessary access?
 Analysis:
 ├─ Historical creep: User9 had major creep (remediated)
 ├─ Creep risk factors:
-│  ├─ Multiple role changes (higher risk)
-│  ├─ Old role access not cleaned up (risk factor)
-│  └─ Project assignments without end dates (risk)
+│ ├─ Multiple role changes (higher risk)
+│ ├─ Old role access not cleaned up (risk factor)
+│ └─ Project assignments without end dates (risk)
 ├─ Users flagged:
-│  ├─ User4: 3 role changes in 18 months (HIGH)
-│  ├─ User6: Requested project access (MEDIUM)
-│  └─ User7: Stable, no flag (LOW)
+│ ├─ User4: 3 role changes in (HIGH)
+│ ├─ User6: Requested project access (MEDIUM)
+│ └─ User7: Stable, no flag (LOW)
 └─ Current creep: 2 users minor, 0 major
 
-Forecast (6 months):
+Forecast ():
 ├─ Likely creep growth: 1-2 additional users
 ├─ Severity: Minor (junior staff)
 ├─ Detection method: Quarterly review
@@ -155,7 +155,7 @@ Prevention Measures:
 ├─ Automate access cleanup after role change
 ├─ Set project access auto-expiration
 ├─ Add creep monitoring to monthly audit
-└─ Track "accessed in 90 days" metric
+└─ Track "accessed in " metric
 ```
 
 ### 4. Executive Summary Reports
@@ -232,7 +232,7 @@ Signed: CIO & CISO
 
 ## 🎓 CERTIFICATION
 
-**Q:** Analytics predict User4 access creep in 6 months. What happens now?
+**Q:** Analytics predict User4 access creep in . What happens now?
 
 A) Wait until it happens
 B) ✅ Implement preventive measures (auto-cleanup, monitoring)

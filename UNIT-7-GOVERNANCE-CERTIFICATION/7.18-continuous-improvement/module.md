@@ -33,7 +33,7 @@ Q1 2026 Review Complete:
 └─ Improvements planned
 
 Issues Found:
-├─ Approval delays (average 2.5 days, target 1 day)
+├─ Approval delays (average 2., target )
 ├─ One manager missed review deadline
 ├─ Exceptions not tracked well
 └─ Dashboard needs more visibility
@@ -41,32 +41,32 @@ Issues Found:
 Improvements Planned for Q2:
 
 1. Speed up approvals:
-   ├─ Issue: Role owners slow to approve
-   ├─ Solution: Pre-populate approval with recommendation
-   ├─ Measurement: Track approval time trend
-   ├─ Target: < 1 day average
-   └─ Implementation: Update workflow
+ ├─ Issue: Role owners slow to approve
+ ├─ Solution: Pre-populate approval with recommendation
+ ├─ Measurement: Track approval time trend
+ ├─ Target: < average
+ └─ Implementation: Update workflow
 
 2. Improve tracking:
-   ├─ Issue: Exceptions scattered across systems
-   ├─ Solution: Centralized exception tracker
-   ├─ Measurement: Exception audit trail
-   ├─ Target: 100% tracked
-   └─ Implementation: New ISC view
+ ├─ Issue: Exceptions scattered across systems
+ ├─ Solution: Centralized exception tracker
+ ├─ Measurement: Exception audit trail
+ ├─ Target: 100% tracked
+ └─ Implementation: New ISC view
 
 3. Better visibility:
-   ├─ Issue: Managers don't see pending actions
-   ├─ Solution: Manager dashboard with alerts
-   ├─ Measurement: Manager portal usage
-   ├─ Target: 90% engagement
-   └─ Implementation: New portal feature
+ ├─ Issue: Managers don't see pending actions
+ ├─ Solution: Manager dashboard with alerts
+ ├─ Measurement: Manager portal usage
+ ├─ Target: 90% engagement
+ └─ Implementation: New portal feature
 
 4. Reduce exceptions:
-   ├─ Issue: Too many exceptions requested
-   ├─ Solution: Review if SoD rules too restrictive
-   ├─ Measurement: Exception frequency
-   ├─ Target: Reduce exceptions 20%
-   └─ Implementation: Policy review
+ ├─ Issue: Too many exceptions requested
+ ├─ Solution: Review if SoD rules too restrictive
+ ├─ Measurement: Exception frequency
+ ├─ Target: Reduce exceptions 20%
+ └─ Implementation: Policy review
 ```
 
 ### Metrics Framework
@@ -79,16 +79,16 @@ Governance Effectiveness Metrics:
 ├─ Remediation completion rate (target: 100%)
 ├─ SoD violation prevention (target: 0)
 ├─ Unauthorized access discovered (target: minimal)
-├─ Approval time average (target: < 2 days)
+├─ Approval time average (target: < )
 └─ Manager compliance with review (target: 100%)
 
 Process Efficiency Metrics:
 ├─ Provisioning time per user (target: < 5 min)
 ├─ Deprovisioning time per user (target: < 10 min)
-├─ Approval cycle time (target: < 2 days)
-├─ Exception processing time (target: < 4 hours)
-├─ Review processing time (target: < 3 hours per manager)
-└─ Report generation time (target: < 1 hour)
+├─ Approval cycle time (target: < )
+├─ Exception processing time (target: < )
+├─ Review processing time (target: < per manager)
+└─ Report generation time (target: < )
 
 Quality Metrics:
 ├─ Access accuracy rate (target: 100%)
@@ -105,8 +105,8 @@ Compliance Metrics:
 └─ Regulatory requirements met (target: 100%)
 
 Cost Metrics:
-├─ Admin hours per review (benchmark: 8 hours)
-├─ Admin hours per request (benchmark: 1 hour)
+├─ Admin hours per review (benchmark: )
+├─ Admin hours per request (benchmark: )
 ├─ System uptime (target: > 99.5%)
 └─ Support tickets (track trend)
 ```
@@ -136,7 +136,7 @@ Q1 Results Summary:
 ├─ 0 SoD violations found (100% enforcement)
 ├─ 2 issues remediated (100% completion)
 ├─ 12 requests processed (92% approval rate)
-├─ Average approval time: 1.5 days (target: 2 days ✓)
+├─ Average approval time: 1. (target: ✓)
 ├─ Overall compliance: 98% (target: > 95% ✓)
 └─ Manager satisfaction: 8.5/10 (target: > 8 ✓)
 
@@ -158,7 +158,7 @@ Q2 Priorities:
 ├─ Complete pending reviews (Sales, Engineering)
 ├─ Deploy approval improvements
 ├─ Train managers on new tools
-├─ Reduce average approval time to < 1 day
+├─ Reduce average approval time to < 
 └─ Achieve 100% review completion
 ```
 
@@ -219,11 +219,11 @@ Improvement #4 (Q3 2026):
 
 ## 🎓 CERTIFICATION
 
-**Q:** Q1 review shows 2-day approval average. Target is 1 day. What happens?
+**Q:** Q1 review shows approval average. Target is . What happens?
 
 A) Keep as-is (close enough)
 B) ✅ Plan improvement, measure, adjust
-C) Increase target to 2 days
+C) Increase target to 
 D) Add more approvers
 
 **Answer: B.** Continuous improvement cycle = analyze, improve, measure.

@@ -59,12 +59,12 @@ Provision all 13 Contoso users to Active Directory with correct OU placement, gr
 
 ```
 ☑ All 13 users in ISC with correct:
-   ├─ Name
-   ├─ Email
-   ├─ Department (Finance, Engineering, IT, Sales, HR)
-   ├─ Job Title
-   ├─ Manager (hierarchy)
-   └─ All required AD attributes
+ ├─ Name
+ ├─ Email
+ ├─ Department (Finance, Engineering, IT, Sales, HR)
+ ├─ Job Title
+ ├─ Manager (hierarchy)
+ └─ All required AD attributes
 ```
 
 ---
@@ -77,7 +77,7 @@ Provision all 13 Contoso users to Active Directory with correct OU placement, gr
 ISC > Identities > Casey Kim, Morgan Chen, User5
 ├─ Trigger: AD_User_Provisioning workflow (automatic on first save or manual trigger)
 ├─ Monitor: ISC > Provisioning > Status
-└─ Expected: 3 AD accounts created, < 5 minutes
+└─ Expected: 3 AD accounts created, < 
 
 Step 1: Create Casey Kim AD Account
 ├─ AD username: casey (email prefix)
@@ -97,8 +97,8 @@ Step 2: Add Casey to Groups
 └─ Status: Groups added ✓
 
 Step 3: Apply Domain Policies
-├─ Password policy: 90-day expiration, complexity required
-├─ Account lockout: 5 failed attempts, 30-minute lockout
+├─ Password policy: expiration, complexity required
+├─ Account lockout: 5 failed attempts, lockout
 ├─ Login hours: 8 AM - 6 PM weekdays (if configured)
 └─ Status: Policies applied ✓
 
@@ -112,13 +112,13 @@ AD Users and Computers (ADUC):
 ├─ Navigate to: Contoso > Finance OU
 ├─ Look for: casey, mchen, user5
 ├─ Casey properties:
-│  ├─ Username: casey ✓
-│  ├─ Email: casey@contoso.com ✓
-│  ├─ Display name: Casey Kim ✓
-│  ├─ OU: Contoso/Finance ✓
-│  ├─ Groups: Finance, Finance_Manager ✓
-│  ├─ Status: Enabled ✓
-│  └─ Created: [today] ✓
+│ ├─ Username: casey ✓
+│ ├─ Email: casey@contoso.com ✓
+│ ├─ Display name: Casey Kim ✓
+│ ├─ OU: Contoso/Finance ✓
+│ ├─ Groups: Finance, Finance_Manager ✓
+│ ├─ Status: Enabled ✓
+│ └─ Created: [today] ✓
 │
 └─ Same for Morgan and User5 (with appropriate groups)
 ```
@@ -138,11 +138,11 @@ ISC > Identities > Alex Lee, User4, User12
 Provisioning Details:
 ├─ OU placement: /Contoso/Engineering
 ├─ Groups:
-│  ├─ All: Engineering (all engineers)
-│  ├─ All: Technical_Staff (engineers + IT)
-│  ├─ Alex: Engineer_Senior, Managers
-│  ├─ User4: Engineer_Developer
-│  └─ User12: DevOps, Managers
+│ ├─ All: Engineering (all engineers)
+│ ├─ All: Technical_Staff (engineers + IT)
+│ ├─ Alex: Engineer_Senior, Managers
+│ ├─ User4: Engineer_Developer
+│ └─ User12: DevOps, Managers
 ├─ Initial password: Auto-generated
 └─ Status: All 3 accounts created ✓
 ```
@@ -162,10 +162,10 @@ ISC > Identities > User10, User11
 Provisioning Details:
 ├─ OU placement: /Contoso/IT
 ├─ Groups:
-│  ├─ All: IT (all IT staff)
-│  ├─ All: Technical_Staff (IT + engineering)
-│  ├─ User10: IT_Administrator (special privileges)
-│  └─ User11: Security_Officer, Audit
+│ ├─ All: IT (all IT staff)
+│ ├─ All: Technical_Staff (IT + engineering)
+│ ├─ User10: IT_Administrator (special privileges)
+│ └─ User11: Security_Officer, Audit
 ├─ Initial password: Auto-generated
 └─ Status: All 2 accounts created ✓
 
@@ -195,10 +195,10 @@ ISC > Identities > User6, User7
 ISC > Identities > User8, User9
 ├─ OU placement: /Contoso/HR
 ├─ Groups:
-│  ├─ All: HR
-│  ├─ User8: HR_Specialist
-│  ├─ User9: HR_Manager, Managers
-│  └─ All: HR_Employee
+│ ├─ All: HR
+│ ├─ User8: HR_Specialist
+│ ├─ User9: HR_Manager, Managers
+│ └─ All: HR_Employee
 ├─ Status: 2 accounts created ✓
 ```
 
@@ -211,61 +211,61 @@ ISC > Identities > User8, User9
 ```
 Finance Department (3 users):
 ├─ Casey Kim: AD account casey ✓
-│  ├─ OU: /Contoso/Finance
-│  ├─ Groups: Finance, Finance_Manager, Managers
-│  └─ Status: Enabled, can log in
+│ ├─ OU: /Contoso/Finance
+│ ├─ Groups: Finance, Finance_Manager, Managers
+│ └─ Status: Enabled, can log in
 ├─ Morgan Chen: AD account mchen ✓
-│  ├─ OU: /Contoso/Finance
-│  ├─ Groups: Finance, Senior_Accountant
-│  └─ Status: Enabled
+│ ├─ OU: /Contoso/Finance
+│ ├─ Groups: Finance, Senior_Accountant
+│ └─ Status: Enabled
 └─ User5: AD account user5 ✓
-   ├─ OU: /Contoso/Finance
-   ├─ Groups: Finance, Finance_AP_Clerk
-   └─ Status: Enabled
+ ├─ OU: /Contoso/Finance
+ ├─ Groups: Finance, Finance_AP_Clerk
+ └─ Status: Enabled
 
 Engineering Department (3 users):
 ├─ Alex Lee: AD account alee ✓
-│  ├─ OU: /Contoso/Engineering
-│  ├─ Groups: Engineering, Engineer_Senior, Technical_Staff, Managers
-│  └─ Status: Enabled
+│ ├─ OU: /Contoso/Engineering
+│ ├─ Groups: Engineering, Engineer_Senior, Technical_Staff, Managers
+│ └─ Status: Enabled
 ├─ User4: AD account user4 ✓
-│  ├─ OU: /Contoso/Engineering
-│  ├─ Groups: Engineering, Engineer_Developer, Technical_Staff
-│  └─ Status: Enabled
+│ ├─ OU: /Contoso/Engineering
+│ ├─ Groups: Engineering, Engineer_Developer, Technical_Staff
+│ └─ Status: Enabled
 └─ User12: AD account user12 ✓
-   ├─ OU: /Contoso/Engineering
-   ├─ Groups: Engineering, DevOps, Technical_Staff, Managers
-   └─ Status: Enabled
+ ├─ OU: /Contoso/Engineering
+ ├─ Groups: Engineering, DevOps, Technical_Staff, Managers
+ └─ Status: Enabled
 
 IT Department (2 users):
 ├─ User10: AD account user10 ✓
-│  ├─ OU: /Contoso/IT
-│  ├─ Groups: IT, IT_Administrator, Technical_Staff, Domain Admins
-│  └─ Status: Enabled (extra permissions for admin)
+│ ├─ OU: /Contoso/IT
+│ ├─ Groups: IT, IT_Administrator, Technical_Staff, Domain Admins
+│ └─ Status: Enabled (extra permissions for admin)
 └─ User11: AD account user11 ✓
-   ├─ OU: /Contoso/IT
-   ├─ Groups: IT, Security_Officer, Technical_Staff, Audit
-   └─ Status: Enabled
+ ├─ OU: /Contoso/IT
+ ├─ Groups: IT, Security_Officer, Technical_Staff, Audit
+ └─ Status: Enabled
 
 Sales Department (2 users):
 ├─ User6: AD account user6 ✓
-│  ├─ OU: /Contoso/Sales
-│  ├─ Groups: Sales, Sales_Representative, Sales_Employee
-│  └─ Status: Enabled
+│ ├─ OU: /Contoso/Sales
+│ ├─ Groups: Sales, Sales_Representative, Sales_Employee
+│ └─ Status: Enabled
 └─ User7: AD account user7 ✓
-   ├─ OU: /Contoso/Sales
-   ├─ Groups: Sales, Sales_Representative, Sales_Employee
-   └─ Status: Enabled
+ ├─ OU: /Contoso/Sales
+ ├─ Groups: Sales, Sales_Representative, Sales_Employee
+ └─ Status: Enabled
 
 HR Department (2 users):
 ├─ User8: AD account user8 ✓
-│  ├─ OU: /Contoso/HR
-│  ├─ Groups: HR, HR_Specialist, HR_Employee
-│  └─ Status: Enabled
+│ ├─ OU: /Contoso/HR
+│ ├─ Groups: HR, HR_Specialist, HR_Employee
+│ └─ Status: Enabled
 └─ User9: AD account user9 ✓
-   ├─ OU: /Contoso/HR
-   ├─ Groups: HR, HR_Manager, Managers, HR_Employee
-   └─ Status: Enabled
+ ├─ OU: /Contoso/HR
+ ├─ Groups: HR, HR_Manager, Managers, HR_Employee
+ └─ Status: Enabled
 
 Distribution Lists:
 ├─ all-finance@: Casey, Morgan, User5
@@ -326,9 +326,9 @@ Process:
 2. To: all-finance@contoso.com
 3. Send
 4. Recipients:
-   ├─ casey@contoso.com ✓
-   ├─ morgan@contoso.com ✓
-   └─ user5@contoso.com ✓
+ ├─ casey@contoso.com ✓
+ ├─ morgan@contoso.com ✓
+ └─ user5@contoso.com ✓
 
 All three finance staff receive email ✓
 
@@ -365,10 +365,10 @@ Process:
 3. Enter old password
 4. Enter new password
 5. Windows enforces password policy:
-   ├─ Minimum 12 characters (configured)
-   ├─ Must include: uppercase, lowercase, number, special char
-   ├─ Cannot reuse last 5 passwords
-   └─ If policy not met: "Does not meet requirements"
+ ├─ Minimum 12 characters (configured)
+ ├─ Must include: uppercase, lowercase, number, special char
+ ├─ Cannot reuse last 5 passwords
+ └─ If policy not met: "Does not meet requirements"
 6. Casey enters policy-compliant password
 7. Success: "Password changed"
 
@@ -396,17 +396,17 @@ Cause:
 
 Solution:
 1. Verify account exists:
-   ├─ ADUC > Find user
-   ├─ If missing: Re-run provisioning
-   └─ If exists but disabled: Enable
+ ├─ ADUC > Find user
+ ├─ If missing: Re-run provisioning
+ └─ If exists but disabled: Enable
 2. Verify password:
-   ├─ Reset password for user
-   ├─ Send new temp password
-   └─ User changes on first login
+ ├─ Reset password for user
+ ├─ Send new temp password
+ └─ User changes on first login
 3. Check domain:
-   ├─ Try: CONTOSO\casey (not casey alone)
-   ├─ Verify domain name correct
-   └─ Try again
+ ├─ Try: CONTOSO\casey (not casey alone)
+ ├─ Verify domain name correct
+ └─ Try again
 ```
 
 **Issue 2: Group Membership Not Working**
@@ -420,14 +420,14 @@ Cause:
 └─ Shared folder permissions wrong
 
 Solution:
-1. Wait: AD replication can take 15 minutes
+1. Wait: AD replication can take 
 2. Restart: User logs out and back in
 3. Clear cache: gpupdate /force
 4. Verify permissions:
-   ├─ Go to shared folder > Properties > Security
-   ├─ Check if Finance group has Read access
-   ├─ If missing: Add group and permissions
-   └─ User should now access folder
+ ├─ Go to shared folder > Properties > Security
+ ├─ Check if Finance group has Read access
+ ├─ If missing: Add group and permissions
+ └─ User should now access folder
 ```
 
 **Issue 3: Email Distribution List Not Receiving**
@@ -442,16 +442,16 @@ Cause:
 
 Solution:
 1. Verify membership:
-   ├─ Active Directory Users and Computers
-   ├─ Find all-finance distribution group
-   ├─ Check members list
-   ├─ If user5 missing: Add to group
-   └─ Retry sending email
+ ├─ Active Directory Users and Computers
+ ├─ Find all-finance distribution group
+ ├─ Check members list
+ ├─ If user5 missing: Add to group
+ └─ Retry sending email
 
 2. Wait for sync:
-   ├─ Can take 15-30 minutes
-   ├─ Try again later
-   └─ Email should arrive
+ ├─ Can take 
+ ├─ Try again later
+ └─ Email should arrive
 ```
 
 ---

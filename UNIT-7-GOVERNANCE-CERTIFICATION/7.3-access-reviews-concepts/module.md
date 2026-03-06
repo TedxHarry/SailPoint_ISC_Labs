@@ -27,7 +27,7 @@ Module 7.2: Identity Governance Frameworks. Frameworks understood.
 
 ```
 Who: Department managers
-When: Every 3 months (Q1, Q2, Q3, Q4)
+When: Every (Q1, Q2, Q3, Q4)
 Scope: Their department's team members
 Task: "Does everyone still have the right access for their current job?"
 
@@ -223,7 +223,7 @@ ISC audit log records:
 **Q:** How often should departments review their team's access?
 
 A) Annually
-B) ✅ Quarterly (every 3 months)
+B) ✅ Quarterly (every )
 C) Monthly
 D) Never (one-time)
 

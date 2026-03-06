@@ -78,9 +78,9 @@ Establish governance for Contoso roles with defined owners and approval workflow
 2. Selects role (e.g., Finance_Employee)
 3. Request goes to Role Owner (Finance Manager)
 4. Manager reviews request:
-   - [ ] Is this person supposed to be in this role?
-   - [ ] Do they have SoD conflicts?
-   - [ ] Is there business justification?
+ - [ ] Is this person supposed to be in this role?
+ - [ ] Do they have SoD conflicts?
+ - [ ] Is there business justification?
 5. Manager approves or denies
 6. If approved: Role assigned automatically
 7. If denied: Request closed, user notified
@@ -115,7 +115,7 @@ Quarterly Role Certification:
 1. Access: ISC > Governance > Role Certification
 2. Set frequency: Quarterly, Semi-annual, Annual
 3. Set reviewers: Role Owners
-4. Set reminder: 30 days before certification due
+4. Set reminder: before certification due
 5. Save
 
 ---
@@ -128,33 +128,33 @@ Quarterly Role Certification:
 CONTOSO ROLE GOVERNANCE POLICY
 
 1. Role Owner Responsibilities
-   - Approve/deny role assignment requests
-   - Quarterly certification of members
-   - Update role documentation
-   - Monitor SoD violations
+ - Approve/deny role assignment requests
+ - Quarterly certification of members
+ - Update role documentation
+ - Monitor SoD violations
 
 2. Role Assignment Process
-   - User requests role from ISC
-   - Role owner approves
-   - System assigns automatically
-   - Audit trail created
+ - User requests role from ISC
+ - Role owner approves
+ - System assigns automatically
+ - Audit trail created
 
 3. Role Certification
-   - Quarterly reviews conducted
-   - Role owners validate members
-   - Removals processed within 48 hours
-   - Audit trail maintained
+ - Quarterly reviews conducted
+ - Role owners validate members
+ - Removals processed within 
+ - Audit trail maintained
 
 4. SoD Compliance
-   - System prevents SoD violations
-   - Exceptions documented
-   - Annual audit of exceptions
-   - Violations escalated to security
+ - System prevents SoD violations
+ - Exceptions documented
+ - Annual audit of exceptions
+ - Violations escalated to security
 
 5. Changes
-   - New roles: Executive approval required
-   - Role changes: Role owner approves
-   - Entitlement updates: Reviewed for SoD
+ - New roles: Executive approval required
+ - Role changes: Role owner approves
+ - Entitlement updates: Reviewed for SoD
 ```
 
 ---

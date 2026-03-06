@@ -75,10 +75,10 @@ Access Modeling in ISC includes:
 
 Finance Manager Role at Contoso:
 - **Permissions needed:**
-  - QuickBooks: Full accounting module access, approval authority
-  - Finance App: Payment approval (>$10,000), expense approval
-  - HRIS: Payroll report access (read-only)
-  - Email: Finance Manager distribution list
+ - QuickBooks: Full accounting module access, approval authority
+ - Finance App: Payment approval (>$10,000), expense approval
+ - HRIS: Payroll report access (read-only)
+ - Email: Finance Manager distribution list
 - **Rule:** If title = "Accounting Manager" AND reports_to = "Finance Director", provision all of the above
 - **Policy:** Access approved by Finance Director
 
@@ -112,7 +112,7 @@ Lifecycle Management in ISC includes:
 2. Lifecycle Management detects hire event
 3. Lifecycle Management evaluates rules: "Finance AP Clerk needs Finance app, QuickBooks, HRIS"
 4. Lifecycle Management triggers provisioning: Creates Finance app account, QuickBooks login, adds to HRIS system
-5. Result: Casey has all access on Day 1 (vs. manual 3-5 day process)
+5. Result: Casey has all access on Day 1 (vs. manual process)
 
 **Termination:**
 1. HR records "Casey Kim terminated"
@@ -179,15 +179,15 @@ Analytics in ISC includes:
 
 | Metric | Value | Trend | Action |
 |--------|-------|-------|--------|
-| **Finance Team Members** | 8 |  |  |
+| **Finance Team Members** | 8 | | |
 | **Avg Access Per Person** | 4.2 systems | ↑ 2% | Monitor |
 | **Users with Excessive Access** | 2 | ↑↑ | Review immediately |
 | **Policy Violations** | 1 (SoD) | ↓ | Good |
 | **Q1 Certification Completion** | 100% | ✅ | Compliant |
-| **Last Access Review Date** | 2024-01-15 |  | Next due 2024-04-15 |
+| **Last Access Review Date** | 2024-01-15 | | Next due 2024-04-15 |
 
 Insights:
-- "Morgan Chen's access score: 8.2/10 (high risk)  has access to Approve Payments AND Process Payments (Separation of Duties violation)"
+- "Morgan Chen's access score: 8.2/10 (high risk) has access to Approve Payments AND Process Payments (Separation of Duties violation)"
 - "Alex Torres has access to 6 systems (average is 4)recommend review"
 
 Result: Finance Director immediately sees which areas need attention and can proactively address risks.
@@ -212,28 +212,28 @@ Understanding this integration helps you grasp ISC's complete value and how to c
 
 ```
 1. DESIGN (Access Modeling)
-   - Define roles and rules
-   - Example: "Finance AP Clerk needs Finance app + QuickBooks"
+ - Define roles and rules
+ - Example: "Finance AP Clerk needs Finance app + QuickBooks"
 
 2. AUTOMATE (Lifecycle Management)
-   - Watch for events
-   - Apply rules automatically
-   - Example: "New hire = Finance AP Clerk? Provision both systems"
+ - Watch for events
+ - Apply rules automatically
+ - Example: "New hire = Finance AP Clerk? Provision both systems"
 
 3. MONITOR (Governance)
-   - Review access regularly
-   - Enforce policies
-   - Example: "Q1 CertificationIs everyone's access still appropriate?"
+ - Review access regularly
+ - Enforce policies
+ - Example: "Q1 CertificationIs everyone's access still appropriate?"
 
 4. MEASURE (Analytics)
-   - Provide dashboards and insights
-   - Identify risks
-   - Example: "This person has excessive accessflag for review"
+ - Provide dashboards and insights
+ - Identify risks
+ - Example: "This person has excessive accessflag for review"
 
 5. IMPROVE
-   - Insights feed back into design
-   - Refine rules based on data
-   - Cycle repeats
+ - Insights feed back into design
+ - Refine rules based on data
+ - Cycle repeats
 ```
 
 ---
@@ -289,10 +289,10 @@ D) is incorrectModern governance systems automatically detect violations, not ju
 ## 📚 ADDITIONAL RESOURCES
 
 **Related Modules:**
-- [Next: 1.7 - ISC Data Model Fundamentals](/modules/1.7-isc-data-model-fundamentals)  Data structures behind these modules
-- [Next: 1.9 - The Identity Lifecycle (JML)](/modules/1.9-the-identity-lifecycle-jml)  Deep dive into Lifecycle Management
-- [Unit 5: Access Modeling](/units/unit-5-access-modeling)  Detailed module design (future unit)
-- [Unit 9: Governance & Certification](/units/unit-9-governance-certification)  Governance deep dive (future unit)
+- [Next: 1.7 - ISC Data Model Fundamentals](/modules/1.7-isc-data-model-fundamentals) Data structures behind these modules
+- [Next: 1.9 - The Identity Lifecycle (JML)](/modules/1.9-the-identity-lifecycle-jml) Deep dive into Lifecycle Management
+- [Unit 5: Access Modeling](/units/unit-5-access-modeling) Detailed module design (future unit)
+- [Unit 9: Governance & Certification](/units/unit-9-governance-certification) Governance deep dive (future unit)
 
 **Official Documentation:**
 - [SailPoint ISC Modules Overview](https://example.com)

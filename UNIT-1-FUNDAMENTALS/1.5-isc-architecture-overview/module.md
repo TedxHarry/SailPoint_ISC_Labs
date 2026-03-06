@@ -170,29 +170,29 @@ This flow happens continuously, triggered by scheduled jobs and real-time events
 
 ```
 1. READ
-   - Connectors/VAs read from source systems (Entra ID, HRIS, apps)
-   - Data: identities, accounts, entitlements, group memberships
-   - Frequency: Real-time (events) or scheduled (batch jobs)
+ - Connectors/VAs read from source systems (Entra ID, HRIS, apps)
+ - Data: identities, accounts, entitlements, group memberships
+ - Frequency: Real-time (events) or scheduled (batch jobs)
 
 2. CORRELATE
-   - Identity Engine matches accounts across systems to same person
-   - Example: Entra ID user "morgan.chen@contoso.com" + HRIS employee "Morgan Chen" = same identity
-   - Result: Unified identity with attributes from all sources
+ - Identity Engine matches accounts across systems to same person
+ - Example: Entra ID user "morgan.chen@contoso.com" + HRIS employee "Morgan Chen" = same identity
+ - Result: Unified identity with attributes from all sources
 
 3. PROVISION
-   - Provisioning Service evaluates rules based on identity
-   - Determines: "What access should Morgan have based on job title?"
-   - Creates/updates/removes accounts via Connectors/VAs
-   - Updates target systems: "Morgan needs Finance app access"
+ - Provisioning Service evaluates rules based on identity
+ - Determines: "What access should Morgan have based on job title?"
+ - Creates/updates/removes accounts via Connectors/VAs
+ - Updates target systems: "Morgan needs Finance app access"
 
 4. GOVERN
-   - Governance Service monitors all access
-   - Stores audit trail: "Morgan provisioned access on 2024-01-15"
-   - Triggers reviews: "Quarterly: Does Morgan still need this access?"
-   - Detects violations: "Morgan has conflicting accessshould be flagged"
+ - Governance Service monitors all access
+ - Stores audit trail: "Morgan provisioned access on 2024-01-15"
+ - Triggers reviews: "Quarterly: Does Morgan still need this access?"
+ - Detects violations: "Morgan has conflicting accessshould be flagged"
 
 5. REPEAT
-   - Continuous cycle: identity changes → provisioning updates → governance monitors
+ - Continuous cycle: identity changes → provisioning updates → governance monitors
 ```
 
 **Example (Full Cycle for Casey Kim):**
@@ -203,13 +203,13 @@ This flow happens continuously, triggered by scheduled jobs and real-time events
 3. Provision: ISC sees "AP Clerk" → provisions Finance app access, email group, QuickBooks access
 4. Govern: ISC records "Casey provisioned Finance app access on 2024-01-15 by Finance Manager request"
 
-**T=6 months (Promotion):**
+**T= (Promotion):**
 1. Read: HR system shows "Casey Kim promoted to Accounting Manager"
 2. Correlate: ISC updates identity attributes (title changes from AP Clerk to Manager)
 3. Provision: ISC sees "Manager" → revokes AP Clerk access, grants Manager approval permissions
 4. Govern: ISC records "Casey's access updated on 2024-07-15 due to promotion"
 
-**T=18 months (Offboard):**
+**T= (Offboard):**
 1. Read: HR system shows "Casey Kim terminated"
 2. Correlate: ISC marks Casey's identity as terminated
 3. Provision: ISC revokes all accessFinance app disabled, email suspended, QuickBooks access removed
@@ -268,8 +268,8 @@ D) is incorrectAPI Gateway provides extensibility, not source system integration
 ## 📚 ADDITIONAL RESOURCES
 
 **Related Modules:**
-- [Next: 1.6 - ISC Four Core Modules](/modules/1.6-isc-four-core-modules)  How architecture components deliver business value
-- [Next: 1.7 - ISC Data Model Fundamentals](/modules/1.7-isc-data-model-fundamentals)  Identity, Account, Entitlement data structures
+- [Next: 1.6 - ISC Four Core Modules](/modules/1.6-isc-four-core-modules) How architecture components deliver business value
+- [Next: 1.7 - ISC Data Model Fundamentals](/modules/1.7-isc-data-model-fundamentals) Identity, Account, Entitlement data structures
 
 **Official Documentation:**
 - [SailPoint ISC Architecture Overview](https://example.com)

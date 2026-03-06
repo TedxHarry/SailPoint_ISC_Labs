@@ -26,21 +26,21 @@ Module 4.4: Run Aggregation in ISC (aggregation working).
 **Metrics to track:**
 
 1. **Total Time:** How long aggregation takes end-to-end
-   - Target: < 5 minutes for 13 users
-   - Large sources: Can take 1-2 hours
+ - Target: < for 13 users
+ - Large sources: Can take 
 
 2. **Objects Read:** Users, groups, accounts processed
-   - Entra ID: 13 users, 7 groups = 20 objects minimum
+ - Entra ID: 13 users, 7 groups = 20 objects minimum
 
 3. **Objects Stored:** How many got saved to ISC
-   - Target: 100% (all read objects stored)
+ - Target: 100% (all read objects stored)
 
 4. **Errors:** How many failed
-   - Target: 0
+ - Target: 0
 
 5. **Throughput:** Objects per second
-   - Entra ID small: 5-10 objects/sec typical
-   - Large sources: 100-500 objects/sec
+ - Entra ID small: 5-10 objects/sec typical
+ - Large sources: 100-500 objects/sec
 
 ---
 
@@ -126,9 +126,9 @@ Module 4.4: Run Aggregation in ISC (aggregation working).
 
 ```
 Schedule:
-  Monday 2am: Full aggregation (all users)
-  Tue-Sun 2am: Partial aggregation (changes only)
-  Result: Most days fast, accuracy maintained by weekly full
+ Monday 2am: Full aggregation (all users)
+ Tue-Sun 2am: Partial aggregation (changes only)
+ Result: Most days fast, accuracy maintained by weekly full
 ```
 
 **Benefits:** 2x-10x faster than full, catches daily changes
@@ -169,14 +169,14 @@ ISC server must have resources (CPU, memory)
 
 ```
 Schedule aggregation during:
-  - Late night (2-4am) when users not working
-  - Weekends
-  - Planned maintenance windows
+ - Late night (2-4am) when users not working
+ - Weekends
+ - Planned maintenance windows
 
 Avoid:
-  - Business hours (9am-5pm)
-  - End of month (heavy reporting)
-  - Known peak times for source system
+ - Business hours (9am-5pm)
+ - End of month (heavy reporting)
+ - Known peak times for source system
 ```
 
 **Benefits:** No user impact, source system has capacity
@@ -247,7 +247,7 @@ Status: SUCCESSFUL
 
 ## 🎓 CERTIFICATION
 
-**Q:** If aggregation takes 1 hour to complete for 13 users (expected ~1 min), what is the first thing to check?
+**Q:** If aggregation takes to complete for 13 users (expected ~1 min), what is the first thing to check?
 
 A) ISC database corruption
 B) ✅ Network connectivity and latency between ISC and source

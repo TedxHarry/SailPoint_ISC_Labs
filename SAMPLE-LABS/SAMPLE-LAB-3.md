@@ -24,7 +24,7 @@ By the end of this module, you will:
 - ✅ Have: ISC sandbox with Entra ID data imported
 - ✅ Have: Contoso identities and groups loaded from Entra ID
 
-**Difficulty:** Intermediate | **Time:** ~10 hours
+**Difficulty:** Intermediate | **Time:** ~
 
 ---
 
@@ -152,14 +152,14 @@ Create Finance_AP_Clerk role with proper entitlements and ownership
 2. Click: **+ Add Entitlements**
 3. You'll see a search/selection dialog
 4. Search for and select (Contoso test data):
-   - `Finance_Team` (Entra ID group - from when you created it)
-   - `Finance_Dept` (HRIS group)
-   - Any application roles you set up
+ - `Finance_Team` (Entra ID group - from when you created it)
+ - `Finance_Dept` (HRIS group)
+ - Any application roles you set up
 
 5. **If you don't see real entitlements**, use test names:
-   - Add: "AP_Module_Access"
-   - Add: "Finance_Reports_Group"
-   - Add: "HRIS_Read_Access"
+ - Add: "AP_Module_Access"
+ - Add: "Finance_Reports_Group"
+ - Add: "HRIS_Read_Access"
 
 6. Click: **Save** or **Add Selected**
 7. Expected: Entitlements appear in the role definition
@@ -167,9 +167,9 @@ Create Finance_AP_Clerk role with proper entitlements and ownership
 ### STEP 4: Set Role Parameters (Optional)
 
 1. Look for additional sections:
-   - **Provisioning Rules:** (Set how this role is provisioned)
-   - **Risk Settings:** (Define any SoD conflicts)
-   - **Expiration:** (Set access duration - optional)
+ - **Provisioning Rules:** (Set how this role is provisioned)
+ - **Risk Settings:** (Define any SoD conflicts)
+ - **Expiration:** (Set access duration - optional)
 
 2. For now, keep defaults (these are advanced)
 
@@ -178,9 +178,9 @@ Create Finance_AP_Clerk role with proper entitlements and ownership
 ### STEP 5: Review and Save Role
 
 1. Review all entries:
-   - Name: `Finance_AP_Clerk` ✓
-   - Owner: `finance_mgr@contoso.com` ✓
-   - Entitlements: 3 items listed ✓
+ - Name: `Finance_AP_Clerk` ✓
+ - Owner: `finance_mgr@contoso.com` ✓
+ - Entitlements: 3 items listed ✓
 
 2. Click: **Save** or **Create Role** button
 
@@ -193,9 +193,9 @@ Create Finance_AP_Clerk role with proper entitlements and ownership
 1. You're either automatically taken to role details, or you click the role from the list
 2. Click: **Assign Members** or **Add Users**
 3. Search for test users:
-   - Select: `finance_user1`
-   - Select: `finance_user2`
-   - Select: `finance_user3`
+ - Select: `finance_user1`
+ - Select: `finance_user2`
+ - Select: `finance_user3`
 4. Click: **Save** or **Assign**
 5. Expected: Users are added to the role
 
@@ -236,7 +236,7 @@ Create Finance_AP_Clerk role with proper entitlements and ownership
 **Solution:**
 1. Entitlements come from integrated sources
 2. If Entra ID groups not showing, aggregation may not be complete
-3. Wait 10 minutes and refresh
+3. Wait and refresh
 4. Use test entitlement names instead
 
 ### Issue: Can't select finance_mgr as owner

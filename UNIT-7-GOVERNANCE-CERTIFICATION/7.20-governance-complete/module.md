@@ -44,7 +44,7 @@ Unit 7 Objective (Modules 7.1-7.20):
 
 Result: Production-ready governance system
 
-Total: 20 modules, 200 hours of governance instruction
+Total: 20 modules, of governance instruction
 ```
 
 ### GOVERNANCE COMPLETENESS
@@ -123,9 +123,9 @@ Request Processing:
 ├─ Q1 requests submitted: 12
 ├─ Approved: 11 (92%)
 ├─ Denied: 1 (8%, due to SoD conflict)
-├─ Average approval time: 1.5 days
-├─ Fastest: 2 hours (manager pre-approved)
-└─ Slowest: 3 days (required executive approval)
+├─ Average approval time: 1.
+├─ Fastest: (manager pre-approved)
+└─ Slowest: (required executive approval)
 
 Violations & Remediation:
 ├─ SoD violations prevented: 0 (automatic block)
@@ -165,11 +165,11 @@ Effectiveness Metrics:
 └─ Overall governance health: 95/100
 
 Efficiency Metrics:
-├─ Request approval time: 1.5 days avg (target: < 2 days ✓)
-├─ Review processing: 3-4 hours per manager
-├─ Remediation time: < 1 day (average 4 hours)
-├─ Report generation: 30 minutes (automated)
-└─ Admin effort: 40 hours/quarter (reasonable)
+├─ Request approval time: 1. avg (target: < ✓)
+├─ Review processing: per manager
+├─ Remediation time: < (average )
+├─ Report generation: (automated)
+└─ Admin effort: /quarter (reasonable)
 
 Quality Metrics:
 ├─ Access accuracy: 100% (all access correct)

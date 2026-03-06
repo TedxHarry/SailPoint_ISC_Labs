@@ -27,10 +27,10 @@ Unit 5: Access Modeling complete. All roles and governance in place.
 
 **Simple View:**
 ```
-Access Model (Unit 5):         Provisioning (Unit 6):
-"Casey should have QB_Admin"  "Give Casey admin access in QB"
+Access Model (Unit 5): Provisioning (Unit 6):
+"Casey should have QB_Admin" "Give Casey admin access in QB"
 
-Design Phase                  Implementation Phase
+Design Phase Implementation Phase
 ```
 
 **Reality:**
@@ -95,19 +95,19 @@ Risk: Eliminated (access always matches roles)
 
 ```
 User Role Assignment
-        ↓
+ ↓
 ISC recognizes: "Casey is now Finance_Manager"
-        ↓
+ ↓
 ISC evaluates: "Finance_Manager role has QB_Admin entitlement"
-        ↓
+ ↓
 ISC determines: "QB_Admin means create account in QB with admin settings"
-        ↓
+ ↓
 ISC connects: To QuickBooks via Connector
-        ↓
+ ↓
 Connector executes: Create QB account, set permissions
-        ↓
+ ↓
 ISC logs: "Successfully provisioned Casey to QB"
-        ↓
+ ↓
 Verification: Casey logs into QB, has admin access
 ```
 
@@ -115,30 +115,30 @@ Verification: Casey logs into QB, has admin access
 
 ```
 1. Role Assignment (Unit 5 result)
-   └─ User is now member of Finance_Manager role
+ └─ User is now member of Finance_Manager role
 
 2. Access Profile → Entitlement Mapping
-   └─ Finance_Manager role includes QB_Admin entitlement
+ └─ Finance_Manager role includes QB_Admin entitlement
 
 3. ISC Provisioning Engine
-   └─ Reads role membership change
-   └─ Evaluates entitlements
-   └─ Determines actions needed
+ └─ Reads role membership change
+ └─ Evaluates entitlements
+ └─ Determines actions needed
 
 4. Connector (Target System Integration)
-   └─ QB Connector (QuickBooks)
-   └─ GitHub Connector (GitHub)
-   └─ AWS Connector (Amazon Web Services)
-   └─ AD Connector (Active Directory)
-   └─ Etc.
+ └─ QB Connector (QuickBooks)
+ └─ GitHub Connector (GitHub)
+ └─ AWS Connector (Amazon Web Services)
+ └─ AD Connector (Active Directory)
+ └─ Etc.
 
 5. Provisioning Workflows
-   └─ Define: "When someone gets QB_Admin entitlement, do X, Y, Z"
-   └─ Templates: Pre-built workflows for common systems
+ └─ Define: "When someone gets QB_Admin entitlement, do X, Y, Z"
+ └─ Templates: Pre-built workflows for common systems
 
 6. Audit Trail
-   └─ Logs every provisioning action
-   └─ Documents: What was provisioned, when, by who, result
+ └─ Logs every provisioning action
+ └─ Documents: What was provisioned, when, by who, result
 ```
 
 ---
@@ -192,11 +192,11 @@ Starting Point (Unit 5 deliverable):
 Unit 6 Objective:
 ├─ Provision 13 users to their assigned roles
 ├─ Connect to 5 target systems:
-│  ├─ QuickBooks (finance)
-│  ├─ GitHub (engineering)
-│  ├─ AWS (infrastructure)
-│  ├─ Active Directory (user accounts)
-│  └─ HRIS/ADP (HR system)
+│ ├─ QuickBooks (finance)
+│ ├─ GitHub (engineering)
+│ ├─ AWS (infrastructure)
+│ ├─ Active Directory (user accounts)
+│ └─ HRIS/ADP (HR system)
 ├─ Create accounts in each system
 ├─ Set permissions matching roles
 ├─ Verify all users have correct access
@@ -232,14 +232,14 @@ Solution:
 ```
 User assigned role at 9:00 AM
 ISC tries to provision immediately
-System takes 2 hours to create account
+System takes to create account
 User logs in at 9:15 AM = account doesn't exist yet = access denied
 
 Solution:
 ├─ Async provisioning: ISC queues request, system handles later
 ├─ Pre-provisioning: Create accounts before user start date
 ├─ Workflow approval: Manager approves, account created in parallel
-└─ SLA monitoring: Alert if not provisioned within 4 hours
+└─ SLA monitoring: Alert if not provisioned within 
 ```
 
 **Challenge 3: Permission Levels Don't Match**

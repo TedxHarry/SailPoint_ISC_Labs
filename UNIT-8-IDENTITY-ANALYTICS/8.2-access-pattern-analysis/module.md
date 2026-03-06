@@ -30,30 +30,30 @@ Contoso Access Snapshot (Q1 2026):
 
 By Department:
 ┌─ Finance (3 users)
-│  ├─ Total roles: 7
-│  ├─ Total systems: 3 (QB, AD, ADP)
-│  ├─ Admin users: 1 (Casey - Finance_Manager)
-│  └─ Avg access per user: 2.3 roles
+│ ├─ Total roles: 7
+│ ├─ Total systems: 3 (QB, AD, ADP)
+│ ├─ Admin users: 1 (Casey - Finance_Manager)
+│ └─ Avg access per user: 2.3 roles
 ├─ Engineering (3 users)
-│  ├─ Total roles: 8
-│  ├─ Total systems: 3 (GitHub, AWS, AD)
-│  ├─ Admin users: 2 (Alex, User12)
-│  └─ Avg access per user: 2.7 roles
+│ ├─ Total roles: 8
+│ ├─ Total systems: 3 (GitHub, AWS, AD)
+│ ├─ Admin users: 2 (Alex, User12)
+│ └─ Avg access per user: 2.7 roles
 ├─ IT (2 users)
-│  ├─ Total roles: 6
-│  ├─ Total systems: 4 (AD, GitHub, AWS, ADP)
-│  ├─ Admin users: 2 (User10, User11)
-│  └─ Avg access per user: 3.0 roles
+│ ├─ Total roles: 6
+│ ├─ Total systems: 4 (AD, GitHub, AWS, ADP)
+│ ├─ Admin users: 2 (User10, User11)
+│ └─ Avg access per user: 3.0 roles
 ├─ Sales (2 users)
-│  ├─ Total roles: 3
-│  ├─ Total systems: 3 (Salesforce, AD, QB)
-│  ├─ Admin users: 0
-│  └─ Avg access per user: 1.5 roles
+│ ├─ Total roles: 3
+│ ├─ Total systems: 3 (Salesforce, AD, QB)
+│ ├─ Admin users: 0
+│ └─ Avg access per user: 1.5 roles
 └─ HR (2 users)
-   ├─ Total roles: 4
-   ├─ Total systems: 2 (ADP, AD)
-   ├─ Admin users: 1 (User9)
-   └─ Avg access per user: 2.0 roles
+ ├─ Total roles: 4
+ ├─ Total systems: 2 (ADP, AD)
+ ├─ Admin users: 1 (User9)
+ └─ Avg access per user: 2.0 roles
 
 Pattern: IT/Engineering have highest access, Sales lowest (expected)
 Observation: IT has higher admin concentration (2/2) vs others

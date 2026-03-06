@@ -56,13 +56,13 @@ ISC models business role. When provisioning, creates/assigns corresponding syste
 ```
 Access Profile: Finance_Manager_Profile
 ├── System: Finance App
-│   └── Entitlements: Finance_Manager_Role, Approval_Authority, Approve_Expenses
+│ └── Entitlements: Finance_Manager_Role, Approval_Authority, Approve_Expenses
 ├── System: QuickBooks
-│   └── Entitlements: Manager_Access, GL_Access
+│ └── Entitlements: Manager_Access, GL_Access
 ├── System: HRIS
-│   └── Entitlements: Payroll_Reports, Manager_Dashboard
+│ └── Entitlements: Payroll_Reports, Manager_Dashboard
 └── System: Email
-    └── Entitlements: Finance_Manager_Group
+ └── Entitlements: Finance_Manager_Group
 ```
 
 When Morgan assigned to Finance_Manager business role, ISC provisions the entire Finance_Manager_Profile in all systems.
@@ -76,9 +76,9 @@ When Morgan assigned to Finance_Manager business role, ISC provisions the entire
 **Example:**
 ```
 Staff (base) - can view reports, submit expenses
-  ↓
+ ↓
 Manager - inherits Staff, plus approval authority, can manage team
-  ↓
+ ↓
 Director - inherits Manager, plus budgeting authority, can hire
 ```
 

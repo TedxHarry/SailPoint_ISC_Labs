@@ -205,14 +205,14 @@ Identity: Morgan Chen
 ├── Attributes: department=Finance, title=Senior_Accountant, manager=Alex_Lee
 │
 └── Rules: IF department=Finance AND title contains "Accountant" THEN provision:
-    ├── Finance App Account
-    │   └── Entitlements: Senior_Accountant_Role, View_General_Ledger
-    ├── QuickBooks Account
-    │   └── Entitlements: Accounting_Module_Access
-    ├── HRIS Account
-    │   └── Entitlements: Financial_Reports
-    └── Email Account
-        └── Entitlements: Finance_Team distribution list
+ ├── Finance App Account
+ │ └── Entitlements: Senior_Accountant_Role, View_General_Ledger
+ ├── QuickBooks Account
+ │ └── Entitlements: Accounting_Module_Access
+ ├── HRIS Account
+ │ └── Entitlements: Financial_Reports
+ └── Email Account
+ └── Entitlements: Finance_Team distribution list
 ```
 
 When Morgan's identity changes (promoted to Manager), the rules re-evaluate, and new entitlements are provisioned.
@@ -317,10 +317,10 @@ D) is incorrectthese are attributes used to determine entitlements, not current 
 ## 📚 ADDITIONAL RESOURCES
 
 **Related Modules:**
-- [Previous: 1.6 - ISC Four Core Modules](/modules/1.6-isc-four-core-modules)  How modules work with this data model
-- [Next: 1.8 - Identity Governance Frameworks](/modules/1.8-identity-governance-frameworks)  Using this data for governance
-- [Unit 3: Identity Profiles & Sources](/units/unit-3-identity-profiles)  Deep dive into Identity Profiles (future unit)
-- [Unit 5: Access Modeling](/units/unit-5-access-modeling)  Using entitlements in role design (future unit)
+- [Previous: 1.6 - ISC Four Core Modules](/modules/1.6-isc-four-core-modules) How modules work with this data model
+- [Next: 1.8 - Identity Governance Frameworks](/modules/1.8-identity-governance-frameworks) Using this data for governance
+- [Unit 3: Identity Profiles & Sources](/units/unit-3-identity-profiles) Deep dive into Identity Profiles (future unit)
+- [Unit 5: Access Modeling](/units/unit-5-access-modeling) Using entitlements in role design (future unit)
 
 **Official Documentation:**
 - [SailPoint ISC Data Model Overview](https://example.com)

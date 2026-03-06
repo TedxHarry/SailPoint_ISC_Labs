@@ -34,7 +34,7 @@ ISC indexes all identity data for fast searching:
 **Accounts:** Find system accounts by username, system, status.
 - "Find all inactive accounts in QuickBooks"
 - "Find duplicate accounts in Salesforce"
-- "Find all accounts created by ISC in last 30 days"
+- "Find all accounts created by ISC in last "
 
 **Entitlements:** Find permissions and access.
 - "Find all Finance App Admin access"
@@ -103,12 +103,12 @@ Find Finance or Accounting Managers hired before 2018.
 **Manager queries:**
 - "Show my team members and their access"
 - "Find all AP Clerks"
-- "Show people in my department transferred last 6 months"
+- "Show people in my department transferred last "
 
 **Governance queries:**
 - "Find all incomplete access reviews"
 - "Find SoD violations"
-- "Find accounts not reviewed in 6 months"
+- "Find accounts not reviewed in "
 
 **Troubleshooting queries:**
 - "Find failed provisioning requests for new user Casey"
@@ -130,7 +130,7 @@ Find Finance or Accounting Managers hired before 2018.
 - **Search indexes all identity data** for fast querying
 - **Search syntax is SQL-like:** Conditions, AND/OR, comparisons
 - **Common uses:** Audits, compliance, troubleshooting, governance
-- **Slight lag:** Data takes minutes to appear in search after creation
+- **Slight lag:** Data occurs to appear in search after creation
 - **Powerful but not real-time**
 
 ---

@@ -112,19 +112,19 @@ Check each user for conflicts:
 Casey Kim:
 ├─ Roles: Finance_Manager, Finance_Employee
 ├─ Check: Finance_Manager + Finance_AP_Clerk conflict rule
-│         Casey only has Manager, not AP_Clerk
+│ Casey only has Manager, not AP_Clerk
 ├─ Result: COMPLIANT ✓
 
 User5 (AP_Clerk):
 ├─ Roles: Finance_AP_Clerk, Finance_Employee
 ├─ Check: Finance_AP_Clerk + Manager conflict rule
-│         User5 only has Clerk, not Manager
+│ User5 only has Clerk, not Manager
 ├─ Result: COMPLIANT ✓
 
 User10 (IT_Admin):
 ├─ Roles: IT_Administrator, IT_Employee
 ├─ Check: Create User + Approve Access conflict rule
-│         User10 has Create but not Approve
+│ User10 has Create but not Approve
 ├─ Result: COMPLIANT ✓
 
 (Repeat for all 13 users)

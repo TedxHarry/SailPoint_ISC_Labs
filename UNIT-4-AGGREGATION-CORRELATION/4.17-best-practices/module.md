@@ -34,14 +34,14 @@ Module 4.16: Aggregation Scheduling & Automation.
 **Example:**
 ```
 ✅ CORRECT:
-  Week 1: Entra ID set up (13 users, 7 groups)
-  Week 2: Attribute mapping, aggregation working
-  Week 3: Add second source (Okta) with new users
+ Week 1: Entra ID set up (13 users, 7 groups)
+ Week 2: Attribute mapping, aggregation working
+ Week 3: Add second source (Okta) with new users
 
 ❌ WRONG:
-  Create profile trying to support multiple sources at once
-  Aggregate multiple sources before profile complete
-  Result: Schema mismatch, data quality poor
+ Create profile trying to support multiple sources at once
+ Aggregate multiple sources before profile complete
+ Result: Schema mismatch, data quality poor
 ```
 
 ---
@@ -55,12 +55,12 @@ Module 4.16: Aggregation Scheduling & Automation.
 **Example (Contoso):**
 ```
 1. Seed aggregation: Alex Lee, Morgan Chen, Casey Kim (3 test users)
-   → Verify: All 8 attributes populated
-   → Verify: All 3 accounts correlated
-   → Verify: Groups assigned correctly
+ → Verify: All 8 attributes populated
+ → Verify: All 3 accounts correlated
+ → Verify: Groups assigned correctly
 
 2. Full aggregation: All 13 users
-   → All verified, ready for production
+ → All verified, ready for production
 ```
 
 ---
@@ -73,16 +73,16 @@ Module 4.16: Aggregation Scheduling & Automation.
 
 **Format:**
 ```
-Entra ID Attribute       | ISC Attribute | Transformation    | Required?
+Entra ID Attribute | ISC Attribute | Transformation | Required?
 ---|---|---|---
-givenName                | firstName     | (direct)          | Yes
-surname                  | lastName      | (direct)          | Yes
-mail                     | email         | (direct)          | Yes
-department               | department    | (direct)          | Yes
-jobTitle                 | jobTitle      | (direct)          | Yes
-manager                  | manager       | (lookup)          | No
-extensionAttribute1      | hireDate      | (parse date)      | No
-officeLocation           | location      | (direct)          | No
+givenName | firstName | (direct) | Yes
+surname | lastName | (direct) | Yes
+mail | email | (direct) | Yes
+department | department | (direct) | Yes
+jobTitle | jobTitle | (direct) | Yes
+manager | manager | (lookup) | No
+extensionAttribute1 | hireDate | (parse date) | No
+officeLocation | location | (direct) | No
 ```
 
 ---
@@ -136,12 +136,12 @@ officeLocation           | location      | (direct)          | No
 **Example:**
 ```
 ✅ GOOD:
-  Rule: IF account.email == identity.email
-  Rule: IF account.employeeID == identity.employeeID
+ Rule: IF account.email == identity.email
+ Rule: IF account.employeeID == identity.employeeID
 
 ❌ POOR:
-  Rule: IF account.firstName + account.lastName == identity.firstName + identity.lastName
-  (Will fail: "Alex" vs "Alexander", case mismatches, etc.)
+ Rule: IF account.firstName + account.lastName == identity.firstName + identity.lastName
+ (Will fail: "Alex" vs "Alexander", case mismatches, etc.)
 ```
 
 ---
@@ -261,10 +261,10 @@ If any ❌: Fix in source first, THEN aggregate
 **Example:**
 ```
 ✅ SIMPLE:
-  Entra ID.givenName → ISC.firstName (direct)
+ Entra ID.givenName → ISC.firstName (direct)
 
 ❌ COMPLEX (avoid unless necessary):
-  CONCAT(Entra ID.givenName, Entra ID.surname, Entra ID.department) → displayName
+ CONCAT(Entra ID.givenName, Entra ID.surname, Entra ID.department) → displayName
 ```
 
 ---

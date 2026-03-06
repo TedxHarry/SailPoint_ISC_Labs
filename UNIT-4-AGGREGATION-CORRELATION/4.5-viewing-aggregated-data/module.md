@@ -28,11 +28,11 @@ Module 4.4: Run Aggregation in ISC (aggregation must be complete).
 **Page shows:** Table of all 13 identities imported from Entra ID
 
 ```
-Name               | Email                    | Department    | Source
+Name | Email | Department | Source
 ---|---|---|---
-Alex Lee           | alex.lee@contoso.com     | Engineering   | Contoso_Entra_ID
-Morgan Chen        | morgan.chen@contoso.com  | Engineering   | Contoso_Entra_ID
-Casey Kim          | casey.kim@contoso.com    | Finance       | Contoso_Entra_ID
+Alex Lee | alex.lee@contoso.com | Engineering | Contoso_Entra_ID
+Morgan Chen | morgan.chen@contoso.com | Engineering | Contoso_Entra_ID
+Casey Kim | casey.kim@contoso.com | Finance | Contoso_Entra_ID
 (10 more rows)
 ```
 
@@ -72,20 +72,20 @@ location: San Francisco
 **Accounts tab:**
 Shows all accounts linked to this identity across all sources
 ```
-Account Type    | Source ID          | Account Name      | Status
+Account Type | Source ID | Account Name | Status
 ---|---|---|---
-Entra ID        | Contoso_Entra_ID   | alex.lee@contoso.com | Active
-(If Okta added)| Okta                | alex.lee           | Active
-(If Oracle)    | Oracle DB           | alee               | Active
+Entra ID | Contoso_Entra_ID | alex.lee@contoso.com | Active
+(If Okta added)| Okta | alex.lee | Active
+(If Oracle) | Oracle DB | alee | Active
 ```
 
 **Groups tab:**
 Shows all group memberships
 ```
-Group Name                | Source
+Group Name | Source
 ---|---
-Engineering_Department   | Contoso_Entra_ID
-All_Employees           | Contoso_Entra_ID
+Engineering_Department | Contoso_Entra_ID
+All_Employees | Contoso_Entra_ID
 Managers (if applicable) | Contoso_Entra_ID
 ```
 
@@ -101,11 +101,11 @@ Shows all permissions/roles the identity has (populated after governance configu
 **Page shows:** All accounts from all sources (just one source if only Entra ID aggregated)
 
 ```
-Account ID              | Source             | Identity      | Status
+Account ID | Source | Identity | Status
 ---|---|---|---
-alex.lee@contoso.com    | Contoso_Entra_ID   | Alex Lee      | Active
-morgan.chen@contoso.com | Contoso_Entra_ID   | Morgan Chen   | Active
-casey.kim@contoso.com   | Contoso_Entra_ID   | Casey Kim     | Active
+alex.lee@contoso.com | Contoso_Entra_ID | Alex Lee | Active
+morgan.chen@contoso.com | Contoso_Entra_ID | Morgan Chen | Active
+casey.kim@contoso.com | Contoso_Entra_ID | Casey Kim | Active
 (10 more Entra accounts)
 ```
 
@@ -119,9 +119,9 @@ Identity linked: Alex Lee (UUID: 12345)
 Status: Active
 Last aggregated: [timestamp from Module 4.4]
 Attributes:
-  - displayName: Alex Lee
-  - mail: alex.lee@contoso.com
-  - (other source attributes)
+ - displayName: Alex Lee
+ - mail: alex.lee@contoso.com
+ - (other source attributes)
 ```
 
 ---
@@ -133,15 +133,15 @@ Attributes:
 **Page shows:** 7 groups imported from Entra ID
 
 ```
-Group Name              | Source             | Member Count | Status
+Group Name | Source | Member Count | Status
 ---|---|---|---
-Engineering_Department  | Contoso_Entra_ID   | 4            | Active
-Engineering_Managers    | Contoso_Entra_ID   | 2            | Active
-Finance_Department      | Contoso_Entra_ID   | 3            | Active
-Finance_Managers        | Contoso_Entra_ID   | 1            | Active
-Sales_Department        | Contoso_Entra_ID   | 2            | Active
-HR_Department           | Contoso_Entra_ID   | 1            | Active
-All_Employees           | Contoso_Entra_ID   | 13           | Active
+Engineering_Department | Contoso_Entra_ID | 4 | Active
+Engineering_Managers | Contoso_Entra_ID | 2 | Active
+Finance_Department | Contoso_Entra_ID | 3 | Active
+Finance_Managers | Contoso_Entra_ID | 1 | Active
+Sales_Department | Contoso_Entra_ID | 2 | Active
+HR_Department | Contoso_Entra_ID | 1 | Active
+All_Employees | Contoso_Entra_ID | 13 | Active
 ```
 
 **Click group:** Shows members

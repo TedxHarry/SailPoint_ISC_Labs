@@ -37,19 +37,19 @@ Module 1.6: ISC Four Core Modules. Module 1.13: Correlation Concepts.
 
 ```
 1. IDENTITY: Morgan Chen (department=Finance, title=Manager)
-   ↓
+ ↓
 2. RULES EVALUATED: "If dept=Finance AND title=Manager, provision Manager role in Finance app"
-   ↓
+ ↓
 3. RULE MATCHES: Morgan should have Finance app Manager access
-   ↓
+ ↓
 4. ACCOUNT CHECK: Does Morgan already have Finance app account?
-   - No → CREATE new account
-   - Yes → UPDATE existing account with new permissions
-   ↓
+ - No → CREATE new account
+ - Yes → UPDATE existing account with new permissions
+ ↓
 5. PROVISIONING REQUEST: Send to target connector
-   ↓
+ ↓
 6. TARGET SYSTEM: Finance app creates account, assigns Manager role
-   ↓
+ ↓
 7. CONFIRMATION: ISC logs provisioning event (audit trail)
 ```
 

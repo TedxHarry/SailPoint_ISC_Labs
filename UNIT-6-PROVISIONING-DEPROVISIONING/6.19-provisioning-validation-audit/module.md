@@ -63,16 +63,16 @@ Audit Format:
 Finance_Manager Role:
 ├─ Assigned users: Casey Kim (1 user)
 ├─ Expected provisions:
-│  ├─ QB: Admin level
-│  ├─ AD: Finance + Manager groups
-│  ├─ ADP: Payroll features
-│  └─ GitHub: Read-only (optional)
+│ ├─ QB: Admin level
+│ ├─ AD: Finance + Manager groups
+│ ├─ ADP: Payroll features
+│ └─ GitHub: Read-only (optional)
 ├─
 ├─ Actual provisions:
-│  ├─ QB: Admin ✓
-│  ├─ AD: Finance + Manager ✓
-│  ├─ ADP: Payroll view ✓
-│  └─ GitHub: Not provisioned ✓
+│ ├─ QB: Admin ✓
+│ ├─ AD: Finance + Manager ✓
+│ ├─ ADP: Payroll view ✓
+│ └─ GitHub: Not provisioned ✓
 ├─
 ├─ Result: CORRECT
 └─ Status: Role provisioning accurate

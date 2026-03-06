@@ -169,7 +169,7 @@ You can use this matrix to explain ISC positioning to stakeholders, understand m
 | **Deployment** | On-premises | Cloud SaaS | Cloud SaaS |
 | **Infrastructure Cost** | $500K-$2M+ | $50K-$200K | $50K-$200K |
 | **Customization** | Extensive (code) | Limited (config) | Extensive (APIs, config) |
-| **Time to Deploy** | 2-4 months |
+| **Time to Deploy** | |
 | **Maintenance Burden** | High (customer) | Low (SailPoint) | Low (SailPoint) |
 | **Scalability** | Limited by hardware | Automatic | Automatic |
 | **Update Frequency** | Quarterly (customer applies) | Monthly (automatic) | Frequent (automatic) |
@@ -185,8 +185,8 @@ You can use this matrix to explain ISC positioning to stakeholders, understand m
 - **IdentityIQ is the legacy on-premises standard** that has proven itself for 15+ years but carries operational overhead
 - **IdentityNow was the bridge** to cloud-native but is being consolidated into ISC
 - **ISC is the modern strategic direction** and the platform you should master
-- **ISC combines IdentityIQ's power with cloud simplicity**  powerful customization without operational overhead
-- **For new deployments, ISC is the clear choice**  for legacy environments, migration paths vary
+- **ISC combines IdentityIQ's power with cloud simplicity** powerful customization without operational overhead
+- **For new deployments, ISC is the clear choice** for legacy environments, migration paths vary
 
 ---
 
@@ -231,8 +231,8 @@ D) is incorrectISC is not replacing IdentityNow; ISC is the evolution that Ident
 ## 📚 ADDITIONAL RESOURCES
 
 **Related Modules:**
-- [Previous: 1.3 - Introduction to SailPoint ISC](/modules/1.3-introduction-to-sailpoint-isc)  ISC fundamentals
-- [Next: 1.5 - ISC Architecture Overview](/modules/1.5-isc-architecture-overview)  How ISC works internally
+- [Previous: 1.3 - Introduction to SailPoint ISC](/modules/1.3-introduction-to-sailpoint-isc) ISC fundamentals
+- [Next: 1.5 - ISC Architecture Overview](/modules/1.5-isc-architecture-overview) How ISC works internally
 
 **Official Documentation:**
 - [SailPoint Product Portfolio Overview](https://example.com)

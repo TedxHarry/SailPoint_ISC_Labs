@@ -33,12 +33,12 @@ Configure provisioning workflows in ISC for each target system (QB, GitHub, AWS,
 
 ```
 ISC > Administration > Provisioning > Workflows
-    └─ This is where you configure provisioning actions
+ └─ This is where you configure provisioning actions
 
 Or:
 
 ISC > Administration > Connectors > [Select Connector] > Provisioning
-    └─ Configure provisioning at connector level
+ └─ Configure provisioning at connector level
 ```
 
 **Workflow Interface:**
@@ -47,7 +47,7 @@ ISC > Administration > Connectors > [Select Connector] > Provisioning
 Create New Provisioning Workflow:
 ├─ Name: "QB Finance Manager Provisioning"
 ├─ Trigger: Role assignment
-│   └─ Specific role: Finance_Manager
+│ └─ Specific role: Finance_Manager
 ├─ Target system: QuickBooks connector
 ├─ Actions: (define below)
 └─ Save
@@ -72,45 +72,45 @@ Step 2: Define Trigger
 
 Step 3: Define Provisioning Actions
 ├─ Action 1: Create QB Account
-│  ├─ Action: Create Account in QB
-│  ├─ Username: [ISC: email.prefix] (casey → casey)
-│  ├─ Email: [ISC: email]
-│  ├─ Password: Generate random 16 chars, send via secure email
-│  └─ Full Name: [ISC: name]
+│ ├─ Action: Create Account in QB
+│ ├─ Username: [ISC: email.prefix] (casey → casey)
+│ ├─ Email: [ISC: email]
+│ ├─ Password: Generate random 16 chars, send via secure email
+│ └─ Full Name: [ISC: name]
 │
 ├─ Action 2: Set QB Permissions
-│  ├─ Action: Add to QB permission group
-│  ├─ Permission level: "admin"
-│  ├─ QB groups: ["Accounting", "Management", "Reports"]
-│  └─ GL access: enabled
+│ ├─ Action: Add to QB permission group
+│ ├─ Permission level: "admin"
+│ ├─ QB groups: ["Accounting", "Management", "Reports"]
+│ └─ GL access: enabled
 │
 ├─ Action 3: Send Notification
-│  ├─ Recipient: User email
-│  ├─ Subject: "Your QuickBooks Admin Access is Ready"
-│  ├─ Body: "Casey, your QB account is active. Temp password: [password]. Please change on first login."
-│  └─ Send: Secure email
+│ ├─ Recipient: User email
+│ ├─ Subject: "Your QuickBooks Admin Access is Ready"
+│ ├─ Body: "Casey, your QB account is active. Temp password: [password]. Please change on first login."
+│ └─ Send: Secure email
 │
 ├─ Action 4: Log Provisioning
-│  ├─ Log: "User [Casey] provisioned to QB [admin], Date: [today], Result: Success"
-│  └─ Audit trail: Complete
+│ ├─ Log: "User [Casey] provisioned to QB [admin], Date: [today], Result: Success"
+│ └─ Audit trail: Complete
 
 Step 4: Error Handling
 ├─ If QB account already exists:
-│  └─ Action: Use existing account, set permissions (don't create duplicate)
+│ └─ Action: Use existing account, set permissions (don't create duplicate)
 ├─ If QB API timeout:
-│  ├─ Action: Retry 3 times
-│  ├─ Wait: 30 seconds between retries
-│  └─ Alert: Notify admin if all retries fail
+│ ├─ Action: Retry 3 times
+│ ├─ Wait: 30 seconds between retries
+│ └─ Alert: Notify admin if all retries fail
 ├─ If user missing required attributes (email):
-│  └─ Action: Fail and alert admin
+│ └─ Action: Fail and alert admin
 └─ Result: Documented, admin can manually fix
 
 Step 5: Verification
 ├─ After provisioning, verify:
-│  ├─ Account created in QB ✓
-│  ├─ Permission level set to admin ✓
-│  ├─ User can log in ✓
-│  └─ Audit logged ✓
+│ ├─ Account created in QB ✓
+│ ├─ Permission level set to admin ✓
+│ ├─ User can log in ✓
+│ └─ Audit logged ✓
 ```
 
 **Workflow 2: QB Senior Accountant Provisioning**
@@ -155,58 +155,58 @@ Step 2: Define Trigger
 
 Step 3: Define Provisioning Actions
 ├─ Action 1: Create GitHub Account
-│  ├─ Action: Create user in GitHub
-│  ├─ Username: [ISC: firstname.lastname] (alex.lee)
-│  ├─ Email: [ISC: email]
-│  ├─ Display name: [ISC: name]
-│  └─ Password: Generate random, email to user
+│ ├─ Action: Create user in GitHub
+│ ├─ Username: [ISC: firstname.lastname] (alex.lee)
+│ ├─ Email: [ISC: email]
+│ ├─ Display name: [ISC: name]
+│ └─ Password: Generate random, email to user
 │
 ├─ Action 2: Add to GitHub Organization
-│  ├─ Action: Add user to organization "contoso"
-│  ├─ Organization: contoso
-│  ├─ Invitation: Sent via email
-│  └─ Status: Pending acceptance
+│ ├─ Action: Add user to organization "contoso"
+│ ├─ Organization: contoso
+│ ├─ Invitation: Sent via email
+│ └─ Status: Pending acceptance
 │
 ├─ Action 3: Add to GitHub Teams
-│  ├─ Team 1: Engineering (role: maintainer)
-│  ├─ Team 2: Technical_Staff (role: member)
-│  └─ Team 3: Managers (role: maintainer)
+│ ├─ Team 1: Engineering (role: maintainer)
+│ ├─ Team 2: Technical_Staff (role: member)
+│ └─ Team 3: Managers (role: maintainer)
 │
 ├─ Action 4: Grant Repository Access
-│  ├─ Repository 1: main
-│  │  ├─ Permission: Push (write)
-│  │  └─ Includes: Code review, merge PRs
-│  ├─ Repository 2: staging
-│  │  └─ Permission: Push (write)
-│  ├─ Repository 3: infrastructure
-│  │  └─ Permission: Push (write)
-│  └─ Repository 4: archived (if needed)
-│      └─ Permission: Read-only
+│ ├─ Repository 1: main
+│ │ ├─ Permission: Push (write)
+│ │ └─ Includes: Code review, merge PRs
+│ ├─ Repository 2: staging
+│ │ └─ Permission: Push (write)
+│ ├─ Repository 3: infrastructure
+│ │ └─ Permission: Push (write)
+│ └─ Repository 4: archived (if needed)
+│ └─ Permission: Read-only
 │
 ├─ Action 5: Send Notification
-│  ├─ Recipient: User email
-│  ├─ Subject: "Welcome to Contoso GitHub"
-│  ├─ Body: "Alex, you're now part of the Engineering team. Set your GitHub password and accept invitation."
-│  └─ Link: GitHub org invitation
+│ ├─ Recipient: User email
+│ ├─ Subject: "Welcome to Contoso GitHub"
+│ ├─ Body: "Alex, you're now part of the Engineering team. Set your GitHub password and accept invitation."
+│ └─ Link: GitHub org invitation
 │
 ├─ Action 6: Log Provisioning
-│  ├─ Log: User [Alex] provisioned to GitHub, teams/permissions set
-│  └─ Audit trail: Complete
+│ ├─ Log: User [Alex] provisioned to GitHub, teams/permissions set
+│ └─ Audit trail: Complete
 
 Step 4: Error Handling
 ├─ If GitHub account exists:
-│  └─ Action: Update team membership and permissions
-├─ If user doesn't accept invitation within 7 days:
-│  └─ Alert: Resend invitation
+│ └─ Action: Update team membership and permissions
+├─ If user doesn't accept invitation within :
+│ └─ Alert: Resend invitation
 └─ If API fails:
-   └─ Retry 3 times, alert admin
+ └─ Retry 3 times, alert admin
 
 Step 5: Verification
 ├─ After provisioning:
-│  ├─ Account created in GitHub ✓
-│  ├─ Teams correct ✓
-│  ├─ Repository access correct ✓
-│  └─ User can clone repos ✓
+│ ├─ Account created in GitHub ✓
+│ ├─ Teams correct ✓
+│ ├─ Repository access correct ✓
+│ └─ User can clone repos ✓
 ```
 
 **Workflow 2: GitHub Engineer Developer Provisioning**
@@ -244,66 +244,66 @@ Step 2: Define Trigger
 
 Step 3: Define Provisioning Actions
 ├─ Action 1: Create IAM User
-│  ├─ Action: Create AWS IAM user
-│  ├─ Username: [ISC: firstname.lastname.role] (user12.devops)
-│  ├─ Access Key: Auto-generate
-│  ├─ Secret Key: Generate and encrypt
-│  └─ Send securely to user email
+│ ├─ Action: Create AWS IAM user
+│ ├─ Username: [ISC: firstname.lastname.role] (user12.devops)
+│ ├─ Access Key: Auto-generate
+│ ├─ Secret Key: Generate and encrypt
+│ └─ Send securely to user email
 │
 ├─ Action 2: Add to IAM Groups (based on role)
-│  ├─ If Engineer_Senior:
-│  │  ├─ Group: Developers
-│  │  ├─ Group: Production (with restrictions)
-│  │  └─ Group: ReadOnlyAccess (safety fallback)
-│  ├─ If Engineer_Developer:
-│  │  ├─ Group: Developers
-│  │  └─ Group: StagingOnly (no prod access)
-│  └─ If DevOps:
-│      ├─ Group: DevOps_Admins
-│      └─ Group: Infrastructure
+│ ├─ If Engineer_Senior:
+│ │ ├─ Group: Developers
+│ │ ├─ Group: Production (with restrictions)
+│ │ └─ Group: ReadOnlyAccess (safety fallback)
+│ ├─ If Engineer_Developer:
+│ │ ├─ Group: Developers
+│ │ └─ Group: StagingOnly (no prod access)
+│ └─ If DevOps:
+│ ├─ Group: DevOps_Admins
+│ └─ Group: Infrastructure
 │
 ├─ Action 3: Enforce MFA Requirement
-│  ├─ Requirement: MFA must be enabled before use
-│  ├─ Grace period: 24 hours
-│  ├─ Method: Virtual (Google Authenticator, etc.)
-│  └─ If not enabled: Access revoked
+│ ├─ Requirement: MFA must be enabled before use
+│ ├─ Grace period: 
+│ ├─ Method: Virtual (Google Authenticator, etc.)
+│ └─ If not enabled: Access revoked
 │
 ├─ Action 4: Attach Policies
-│  ├─ Managed policy: PowerUserAccess or ReadOnlyAccess
-│  ├─ Custom policies: Environment-specific
-│  └─ Boundary: Prevent privilege escalation
+│ ├─ Managed policy: PowerUserAccess or ReadOnlyAccess
+│ ├─ Custom policies: Environment-specific
+│ └─ Boundary: Prevent privilege escalation
 │
 ├─ Action 5: Configure Permissions
-│  ├─ For DevOps: Full infrastructure access
-│  ├─ For Engineer_Senior: Production with approval
-│  ├─ For Engineer_Developer: Staging and dev only
-│  └─ Verify: CLI can assume roles
+│ ├─ For DevOps: Full infrastructure access
+│ ├─ For Engineer_Senior: Production with approval
+│ ├─ For Engineer_Developer: Staging and dev only
+│ └─ Verify: CLI can assume roles
 │
 ├─ Action 6: Send Notification
-│  ├─ Email to user: "Your AWS access is ready"
-│  ├─ Include: Access Key (encrypted), setup instructions
-│  ├─ Attach: MFA setup guide
-│  └─ Link: AWS console login
+│ ├─ Email to user: "Your AWS access is ready"
+│ ├─ Include: Access Key (encrypted), setup instructions
+│ ├─ Attach: MFA setup guide
+│ └─ Link: AWS console login
 │
 ├─ Action 7: Log Provisioning
-│  ├─ Log: User provisioned to AWS, IAM user created
-│  └─ Audit: Complete
+│ ├─ Log: User provisioned to AWS, IAM user created
+│ └─ Audit: Complete
 
 Step 4: Error Handling
 ├─ If IAM user exists:
-│  └─ Action: Update groups and permissions
-├─ If MFA not enabled within 24 hours:
-│  └─ Alert: Admin, disable access until MFA set
+│ └─ Action: Update groups and permissions
+├─ If MFA not enabled within :
+│ └─ Alert: Admin, disable access until MFA set
 └─ If API fails:
-   └─ Retry, alert on failure
+ └─ Retry, alert on failure
 
 Step 5: Verification
 ├─ After provisioning:
-│  ├─ IAM user created ✓
-│  ├─ Groups assigned ✓
-│  ├─ MFA requirement enforced ✓
-│  ├─ User can generate access keys ✓
-│  └─ User can switch roles (if applicable) ✓
+│ ├─ IAM user created ✓
+│ ├─ Groups assigned ✓
+│ ├─ MFA requirement enforced ✓
+│ ├─ User can generate access keys ✓
+│ └─ User can switch roles (if applicable) ✓
 ```
 
 ---
@@ -324,65 +324,65 @@ Step 2: Define Trigger
 
 Step 3: Define Provisioning Actions
 ├─ Action 1: Create AD Account
-│  ├─ Action: Create user in AD
-│  ├─ Username: [ISC: email.prefix]
-│  ├─ Email: [ISC: email]
-│  ├─ Password: Auto-generate, force change on first login
-│  ├─ Full Name: [ISC: name]
-│  ├─ Office: [ISC: office location]
-│  └─ Phone: [ISC: phone number]
+│ ├─ Action: Create user in AD
+│ ├─ Username: [ISC: email.prefix]
+│ ├─ Email: [ISC: email]
+│ ├─ Password: Auto-generate, force change on first login
+│ ├─ Full Name: [ISC: name]
+│ ├─ Office: [ISC: office location]
+│ └─ Phone: [ISC: phone number]
 │
 ├─ Action 2: Place in Organizational Unit
-│  ├─ OU: /Contoso/[ISC: department]
-│  ├─ Example OUs:
-│  │  ├─ /Contoso/Finance
-│  │  ├─ /Contoso/Engineering
-│  │  ├─ /Contoso/IT
-│  │  ├─ /Contoso/Sales
-│  │  └─ /Contoso/HR
-│  └─ Manager: Set from ISC manager field
+│ ├─ OU: /Contoso/[ISC: department]
+│ ├─ Example OUs:
+│ │ ├─ /Contoso/Finance
+│ │ ├─ /Contoso/Engineering
+│ │ ├─ /Contoso/IT
+│ │ ├─ /Contoso/Sales
+│ │ └─ /Contoso/HR
+│ └─ Manager: Set from ISC manager field
 │
 ├─ Action 3: Add to Security Groups
-│  ├─ Department group: [Department] (Finance, Engineering, etc.)
-│  ├─ Role groups: [Department]_[Role] (Finance_Manager, etc.)
-│  ├─ Function groups: Technical_Staff (if applicable)
-│  └─ Management groups: Managers (if applicable)
+│ ├─ Department group: [Department] (Finance, Engineering, etc.)
+│ ├─ Role groups: [Department]_[Role] (Finance_Manager, etc.)
+│ ├─ Function groups: Technical_Staff (if applicable)
+│ └─ Management groups: Managers (if applicable)
 │
 ├─ Action 4: Add to Distribution Lists
-│  ├─ Distribution list: [Department] (all-finance@contoso.com, etc.)
-│  └─ All-company list: all-staff@contoso.com
+│ ├─ Distribution list: [Department] (all-finance@contoso.com, etc.)
+│ └─ All-company list: all-staff@contoso.com
 │
 ├─ Action 5: Apply Group Policies
-│  ├─ Policy 1: Domain user policy (password, login hours)
-│  ├─ Policy 2: Department-specific policy (software, permissions)
-│  └─ Policy 3: Role-specific policy (admin rights, restrictions)
+│ ├─ Policy 1: Domain user policy (password, login hours)
+│ ├─ Policy 2: Department-specific policy (software, permissions)
+│ └─ Policy 3: Role-specific policy (admin rights, restrictions)
 │
 ├─ Action 6: Send Notification
-│  ├─ To user: "Your AD account created, initial password: [pass]"
-│  ├─ To manager: "Your team member [name] account is active"
-│  └─ To IT: "AD account created for [name], ready for provisioning"
+│ ├─ To user: "Your AD account created, initial password: [pass]"
+│ ├─ To manager: "Your team member [name] account is active"
+│ └─ To IT: "AD account created for [name], ready for provisioning"
 │
 ├─ Action 7: Log Provisioning
-│  ├─ Log: User [name] created in AD with groups [list]
-│  └─ Audit: Complete
+│ ├─ Log: User [name] created in AD with groups [list]
+│ └─ Audit: Complete
 
 Step 4: Error Handling
 ├─ If user exists in AD:
-│  └─ Action: Update groups and attributes
+│ └─ Action: Update groups and attributes
 ├─ If OU doesn't exist:
-│  └─ Create OU first
+│ └─ Create OU first
 ├─ If group doesn't exist:
-│  └─ Alert admin
+│ └─ Alert admin
 └─ If API fails:
-   └─ Retry, alert on failure
+ └─ Retry, alert on failure
 
 Step 5: Verification
 ├─ After provisioning:
-│  ├─ Account created in AD ✓
-│  ├─ OU placement correct ✓
-│  ├─ Security groups assigned ✓
-│  ├─ Distribution lists updated ✓
-│  └─ User can log in to domain ✓
+│ ├─ Account created in AD ✓
+│ ├─ OU placement correct ✓
+│ ├─ Security groups assigned ✓
+│ ├─ Distribution lists updated ✓
+│ └─ User can log in to domain ✓
 ```
 
 ---
@@ -408,20 +408,20 @@ Phase 2: Integration Testing (role → multiple systems)
 
 Phase 3: Error Testing (what if things fail)
 ├─ Test: QB API timeout
-│  ├─ Expected: Retry logic works, alert if all fail
-│  └─ Verify: No partial/duplicate accounts
+│ ├─ Expected: Retry logic works, alert if all fail
+│ └─ Verify: No partial/duplicate accounts
 ├─ Test: Missing required attributes
-│  ├─ Expected: Fail gracefully, alert admin
-│  └─ Verify: User not left in undefined state
+│ ├─ Expected: Fail gracefully, alert admin
+│ └─ Verify: User not left in undefined state
 └─ Test: System already has account
-   ├─ Expected: Use existing, set permissions
-   └─ Verify: No duplicate accounts created
+ ├─ Expected: Use existing, set permissions
+ └─ Verify: No duplicate accounts created
 
 Phase 4: Scale Testing (multiple users)
 ├─ Create 5 test users
 ├─ Assign various roles
 ├─ Run all workflows simultaneously
-├─ Verify: All provisioned correctly in < 10 minutes
+├─ Verify: All provisioned correctly in < 
 └─ Check: No race conditions or conflicts
 ```
 

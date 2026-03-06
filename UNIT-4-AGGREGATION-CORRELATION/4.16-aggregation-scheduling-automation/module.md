@@ -104,11 +104,11 @@ Next run: 2024-03-03 02:00 UTC
 
 **Shows:**
 ```
-Scheduled Run Date/Time       | Status      | Objects | Next Run
+Scheduled Run Date/Time | Status | Objects | Next Run
 ---|---|---|---|---
-2024-03-02 02:00 UTC          | SUCCESSFUL  | 47 sec   | 20      | 2024-03-03
-2024-03-01 02:00 UTC          | SUCCESSFUL  | 45 sec   | 20      | 2024-03-02
-2024-02-28 02:01 UTC          | SUCCESSFUL  | 52 sec   | 20      | 2024-03-01
+2024-03-02 02:00 UTC | SUCCESSFUL | 47 sec | 20 | 2024-03-03
+2024-03-01 02:00 UTC | SUCCESSFUL | 45 sec | 20 | 2024-03-02
+2024-02-28 02:01 UTC | SUCCESSFUL | 52 sec | 20 | 2024-03-01
 ```
 
 ---
@@ -121,7 +121,7 @@ Scheduled Run Date/Time       | Status      | Objects | Next Run
 
 **Make changes:**
 - Change time from 02:00 to 03:00
-- Change frequency from Daily to Every 6 hours
+- Change frequency from Daily to Every 
 - Enable/disable auto-correlation
 - Enable/disable notifications
 
@@ -166,15 +166,15 @@ Cons: Slow (reads all data), low frequency (changes discovered only daily)
 
 ```
 Schedule 1 - Daily Partial:
-  Frequency: Daily, 02:00 AM
-  Type: Partial aggregation
-  Speed: Fast, catches daily changes
+ Frequency: Daily, 02:00 AM
+ Type: Partial aggregation
+ Speed: Fast, catches daily changes
 
 Schedule 2 - Weekly Full:
-  Frequency: Weekly (Monday)
-  Type: Full aggregation
-  Time: 00:00 AM
-  Speed: Slow but consistent, catches any deletions
+ Frequency: Weekly (Monday)
+ Type: Full aggregation
+ Time: 00:00 AM
+ Speed: Slow but consistent, catches any deletions
 
 Result: Weekly reset + daily updates, best of both
 Pros: Good balance of speed and accuracy
@@ -183,10 +183,10 @@ Cons: More complex, more storage operations
 
 ---
 
-**Strategy 3: High-Frequency (Every 6 Hours)**
+**Strategy 3: High-Frequency (Every )**
 
 ```
-Frequency: Every 6 hours (every 4, 6, 8, 12 hours)
+Frequency: Every (every 4, 6, 8, )
 Times: 00:00, 06:00, 12:00, 18:00
 Type: Partial aggregation (not full, too intensive)
 

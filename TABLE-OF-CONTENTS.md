@@ -3,7 +3,7 @@
 
 **Target Audience:** Complete beginners (no ISC or Entra ID experience)
 **Total Modules:** 86 modules across 10 units
-**Total Learning Hours:** ~130 hours (10-12 hours per module average)
+**Total Learning Hours:** ~ ( per module average)
 
 **Certification:** Professional Credential + Identity Security Engineer
 **Practice Environment:** ISC Sandbox + Entra ID Free Tier + CSV Simulations
@@ -17,14 +17,14 @@
 - Entry-level credential
 - Unproctored exam
 - Covers: Fundamentals, Setup, Search, Access Modeling, Lifecycle Basics
-- **Time to Cert:** 8-12 weeks
+- **Time to Cert:** 
 
 ### Path 2: SailPoint Certified Identity Security Engineer (Professional)
 **Tier 1-3 Complete (Units 1-9)**
 - Industry-recognized certification
 - Proctored exam (requires 1+ year experience)
 - Covers: Full implementation, integration, governance
-- **Time to Cert:** 18-24 weeks
+- **Time to Cert:** 
 
 ---
 
@@ -33,7 +33,7 @@
 ```
 TIER 1: FOUNDATIONS (Units 1-3)
 ├─ What: Core ISC knowledge
-├─ When: First 8-12 weeks
+├─ When: First 
 ├─ Who: All learners
 └─ Outcome: Understand ISC fundamentals
 
@@ -60,7 +60,7 @@ TIER 4: ENTERPRISE DEPLOYMENT (Unit 10)
 
 ## DETAILED MODULE BREAKDOWN
 
-### **UNIT 1: ISC FUNDAMENTALS (5 modules, ~50 hours)**
+### **UNIT 1: ISC FUNDAMENTALS (5 modules, ~)**
 *Tier: 1 | Certification: Both | Prerequisite: None*
 
 **Unit Objective:** Understand what ISC is, how it works, and how it fits into identity governance
@@ -75,7 +75,7 @@ TIER 4: ENTERPRISE DEPLOYMENT (Unit 10)
 
 ---
 
-### **UNIT 2: SETUP, CONFIGURATION & ADMINISTRATION (6 modules, ~60 hours)**
+### **UNIT 2: SETUP, CONFIGURATION & ADMINISTRATION (6 modules, ~)**
 *Tier: 1 | Certification: Professional | Prerequisite: Unit 1*
 
 **Unit Objective:** Configure ISC and connect to Entra ID (your first real system)
@@ -91,7 +91,7 @@ TIER 4: ENTERPRISE DEPLOYMENT (Unit 10)
 
 ---
 
-### **UNIT 3: SEARCH, QUERY & ANALYTICS (5 modules, ~50 hours)**
+### **UNIT 3: SEARCH, QUERY & ANALYTICS (5 modules, ~)**
 *Tier: 1 | Certification: Professional | Prerequisite: Unit 2*
 
 **Unit Objective:** Learn to search identity data and understand ISC analytics
@@ -106,7 +106,7 @@ TIER 4: ENTERPRISE DEPLOYMENT (Unit 10)
 
 ---
 
-### **UNIT 4: ACCESS MODELING (6 modules, ~60 hours)**
+### **UNIT 4: ACCESS MODELING (6 modules, ~)**
 *Tier: 2 | Certification: Both | Prerequisite: Unit 3*
 
 **Unit Objective:** Design and build access models for Contoso Ltd (Small deployment)
@@ -122,7 +122,7 @@ TIER 4: ENTERPRISE DEPLOYMENT (Unit 10)
 
 ---
 
-### **UNIT 5: LIFECYCLE MANAGEMENT & PROVISIONING BASICS (6 modules, ~60 hours)**
+### **UNIT 5: LIFECYCLE MANAGEMENT & PROVISIONING BASICS (6 modules, ~)**
 *Tier: 2 | Certification: Professional | Prerequisite: Unit 4*
 
 **Unit Objective:** Automate user join/move/leave processes for Contoso
@@ -138,7 +138,7 @@ TIER 4: ENTERPRISE DEPLOYMENT (Unit 10)
 
 ---
 
-### **UNIT 6: PROVISIONING & ACCOUNT MANAGEMENT (6 modules, ~60 hours)**
+### **UNIT 6: PROVISIONING & ACCOUNT MANAGEMENT (6 modules, ~)**
 *Tier: 2 | Certification: Engineer | Prerequisite: Unit 5*
 
 **Unit Objective:** Provision users to multiple systems (real Entra ID + simulated systems)
@@ -154,7 +154,7 @@ TIER 4: ENTERPRISE DEPLOYMENT (Unit 10)
 
 ---
 
-### **UNIT 7: CONNECTORS & SYSTEM INTEGRATION (7 modules, ~70 hours)**
+### **UNIT 7: CONNECTORS & SYSTEM INTEGRATION (7 modules, ~)**
 *Tier: 3 | Certification: Engineer | Prerequisite: Unit 6*
 
 **Unit Objective:** Master connector framework and integrate multiple systems for RegionTech
@@ -171,7 +171,7 @@ TIER 4: ENTERPRISE DEPLOYMENT (Unit 10)
 
 ---
 
-### **UNIT 8: GOVERNANCE & ADVANCED WORKFLOWS (7 modules, ~70 hours)**
+### **UNIT 8: GOVERNANCE & ADVANCED WORKFLOWS (7 modules, ~)**
 *Tier: 3 | Certification: Engineer | Prerequisite: Unit 7*
 
 **Unit Objective:** Implement compliance, policies, and automation for RegionTech governance
@@ -188,7 +188,7 @@ TIER 4: ENTERPRISE DEPLOYMENT (Unit 10)
 
 ---
 
-### **UNIT 9: ADVANCED TOPICS & SPECIALIZATIONS (5 modules, ~50 hours)**
+### **UNIT 9: ADVANCED TOPICS & SPECIALIZATIONS (5 modules, ~)**
 *Tier: 4 | Certification: Engineer | Prerequisite: Unit 8*
 
 **Unit Objective:** Master advanced features and specializations
@@ -203,7 +203,7 @@ TIER 4: ENTERPRISE DEPLOYMENT (Unit 10)
 
 ---
 
-### **UNIT 10: ENTERPRISE ARCHITECTURE & STRATEGY (6 modules, ~60 hours)**
+### **UNIT 10: ENTERPRISE ARCHITECTURE & STRATEGY (6 modules, ~)**
 *Tier: 4 | Certification: Engineer | Prerequisite: Unit 9*
 
 **Unit Objective:** Design enterprise-scale deployments and migration strategies
@@ -351,5 +351,5 @@ TIER 4: ENTERPRISE DEPLOYMENT (Unit 10)
 **Document Version:** 2.0 (Revised for Entra ID Free + CSV Sims)
 **Last Updated:** March 2, 2026
 **Total Modules:** 86
-**Total Hours:** ~130 hours
+**Total Hours:** ~
 **Certification Paths:** 2 (Professional + Engineer)

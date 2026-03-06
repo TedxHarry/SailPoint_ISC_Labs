@@ -27,12 +27,12 @@ Module 4.9: Identity Correlation.
 
 ```
 Entra ID:
-  name: "Alex Smith"
-  email: "alex.smith@contoso.com"
+ name: "Alex Smith"
+ email: "alex.smith@contoso.com"
 
 Oracle:
-  name: "Alex Johnson"  ← different last name
-  email: "alex.smith@contoso.com"  ← same email
+ name: "Alex Johnson" ← different last name
+ email: "alex.smith@contoso.com" ← same email
 ```
 
 **Correlation challenge:** Name doesn't match, email does.
@@ -51,13 +51,13 @@ Oracle:
 
 ```
 Entra ID:
-  email: "alex.lee@contoso.com"
+ email: "alex.lee@contoso.com"
 
 Okta:
-  email: "ALEX.LEE@CONTOSO.COM"  ← uppercase
+ email: "ALEX.LEE@CONTOSO.COM" ← uppercase
 
 Oracle:
-  email: "alee@contoso.com"  ← shortened
+ email: "alee@contoso.com" ← shortened
 ```
 
 **Correlation challenge:** Strings don't match exactly.
@@ -84,12 +84,12 @@ Rule: IF account.email CONTAINS identity.firstName + identity.lastName
 
 ```
 Identity 1: "Alex Lee" (from Entra ID)
-  email: alex.lee@contoso.com
-  Account: alex.lee@contoso.com (Entra ID)
+ email: alex.lee@contoso.com
+ Account: alex.lee@contoso.com (Entra ID)
 
 Identity 2: "A Lee" (from manual import or error)
-  email: alex.lee@contoso.com  ← same email!
-  Account: None
+ email: alex.lee@contoso.com ← same email!
+ Account: None
 ```
 
 **Correlation challenge:** Different identities, same core data.
@@ -109,11 +109,11 @@ Identity 2: "A Lee" (from manual import or error)
 
 ```
 Okta:
-  account: casey.kim@contoso.com
-  email: casey.kim@contoso.com
+ account: casey.kim@contoso.com
+ email: casey.kim@contoso.com
 
 Entra ID:
-  (Casey doesn't exist yet)
+ (Casey doesn't exist yet)
 
 Result: Okta account exists but can't correlate
 ```
@@ -135,12 +135,12 @@ Result: Okta account exists but can't correlate
 Rule: IF firstName+lastName match
 
 Account from new source:
-  firstName: "Alex"
-  lastName: "Lee"
+ firstName: "Alex"
+ lastName: "Lee"
 
 ISC identities with same name:
-  1. "Alex Lee" (engineer, Entra ID)
-  2. "Alex Lee" (different person, contractor, from spreadsheet import)  ← Name collision!
+ 1. "Alex Lee" (engineer, Entra ID)
+ 2. "Alex Lee" (different person, contractor, from spreadsheet import) ← Name collision!
 
 Correlation result: AMBIGUOUS - which Alex Lee?
 ```
@@ -163,13 +163,13 @@ Correlation result: AMBIGUOUS - which Alex Lee?
 ```
 T=Day 1: Identity "Alex Lee" active, account in Entra ID
 T=Day 365: Alex leaves
-  - ISC deletes identity "Alex Lee"
-  - But Entra ID account alex.lee@contoso.com still active
+ - ISC deletes identity "Alex Lee"
+ - But Entra ID account alex.lee@contoso.com still active
 
 T=Day 366: Next aggregation
-  - Entra ID still has alex.lee@contoso.com
-  - ISC reads account but no matching identity
-  - Account is "orphaned"
+ - Entra ID still has alex.lee@contoso.com
+ - ISC reads account but no matching identity
+ - Account is "orphaned"
 
 Result: ISC has account without identity
 ```
@@ -208,12 +208,12 @@ Result: Account doesn't correlate anymore (orphaned)
 
 ```
 Identity: Alex Lee
-  manager: morgan.chen@contoso.com  ← manager's email
+ manager: morgan.chen@contoso.com ← manager's email
 
 Correlation check:
-  Is there an identity with email = morgan.chen@contoso.com?
-  YES → Link manager relationship
-  NO → Manager reference broken
+ Is there an identity with email = morgan.chen@contoso.com?
+ YES → Link manager relationship
+ NO → Manager reference broken
 ```
 
 **Issue:** If Morgan's identity doesn't exist yet (late aggregation).

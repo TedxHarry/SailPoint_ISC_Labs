@@ -215,19 +215,19 @@ Required Information:
 
 For each user assigned QB role:
 ├─ Create account
-│  ├─ Username: email prefix (casey → casey)
-│  ├─ Email: user@contoso.com
-│  ├─ Password: auto-generate, send via secure channel
-│  └─ Full Name: from ISC user profile
+│ ├─ Username: email prefix (casey → casey)
+│ ├─ Email: user@contoso.com
+│ ├─ Password: auto-generate, send via secure channel
+│ └─ Full Name: from ISC user profile
 ├─ Set permission level
-│  ├─ Admin: Finance_Manager
-│  ├─ Editor: Senior_Accountant
-│  ├─ Data Entry: AP_Clerk
-│  └─ User: Finance_Employee members
+│ ├─ Admin: Finance_Manager
+│ ├─ Editor: Senior_Accountant
+│ ├─ Data Entry: AP_Clerk
+│ └─ User: Finance_Employee members
 ├─ Add to groups
-│  ├─ Accounting: All finance
-│  ├─ Reports: Finance_Manager
-│  └─ Approvals: Finance_Manager
+│ ├─ Accounting: All finance
+│ ├─ Reports: Finance_Manager
+│ └─ Approvals: Finance_Manager
 └─ Log action in ISC audit trail
 
 Success Criteria:
@@ -248,19 +248,19 @@ Required Information:
 
 For each user assigned GitHub role:
 ├─ Create GitHub account
-│  ├─ Username: firstname.lastname (alex.lee)
-│  ├─ Email: user@contoso.com
-│  └─ Name: from ISC user profile
+│ ├─ Username: firstname.lastname (alex.lee)
+│ ├─ Email: user@contoso.com
+│ └─ Name: from ISC user profile
 ├─ Add to Contoso organization
-│  ├─ Team: Engineering, Infrastructure, or both
-│  └─ Role: Maintainer (senior), Contributor (developer), Member (employee)
+│ ├─ Team: Engineering, Infrastructure, or both
+│ └─ Role: Maintainer (senior), Contributor (developer), Member (employee)
 ├─ Grant repository access
-│  ├─ Engineering_Senior: All repos, push rights
-│  ├─ Engineer_Developer: Dev/staging repos, push rights, no prod
-│  ├─ DevOps: Infrastructure repos, full access
-│  └─ Engineering_Employee: Org access, follow-only
+│ ├─ Engineering_Senior: All repos, push rights
+│ ├─ Engineer_Developer: Dev/staging repos, push rights, no prod
+│ ├─ DevOps: Infrastructure repos, full access
+│ └─ Engineering_Employee: Org access, follow-only
 ├─ Configure webhooks/integrations
-│  └─ ISC integration webhook (for role changes)
+│ └─ ISC integration webhook (for role changes)
 └─ Log action in ISC audit trail
 
 Success Criteria:
@@ -281,22 +281,22 @@ Required Information:
 
 For each user assigned AWS role:
 ├─ Create IAM user
-│  ├─ Username: firstname.lastname (user4.dev)
-│  ├─ Access Key: auto-generate
-│  └─ Secret: encrypt and send securely
+│ ├─ Username: firstname.lastname (user4.dev)
+│ ├─ Access Key: auto-generate
+│ └─ Secret: encrypt and send securely
 ├─ Assign to IAM groups
-│  ├─ DevOps: DevOps_Admins, Infrastructure (User12)
-│  ├─ Engineer_Senior: Developers, Production (Alex)
-│  ├─ Engineer_Developer: Developers, Staging only (User4)
-│  └─ Engineering_Employee: ReadOnlyAccess
+│ ├─ DevOps: DevOps_Admins, Infrastructure (User12)
+│ ├─ Engineer_Senior: Developers, Production (Alex)
+│ ├─ Engineer_Developer: Developers, Staging only (User4)
+│ └─ Engineering_Employee: ReadOnlyAccess
 ├─ Enforce MFA
-│  ├─ Requirement: User must set up MFA before use
-│  ├─ Method: Virtual (Google Authenticator, etc.)
-│  └─ Grace period: 24 hours to enable
+│ ├─ Requirement: User must set up MFA before use
+│ ├─ Method: Virtual (Google Authenticator, etc.)
+│ └─ Grace period: to enable
 ├─ Attach policies
-│  ├─ Managed policies (PowerUser, ReadOnly)
-│  ├─ Custom policies (production-restricted)
-│  └─ Permission boundaries (prevent privilege escalation)
+│ ├─ Managed policies (PowerUser, ReadOnly)
+│ ├─ Custom policies (production-restricted)
+│ └─ Permission boundaries (prevent privilege escalation)
 └─ Log action in ISC audit trail
 
 Success Criteria:
@@ -318,25 +318,25 @@ Required Information:
 
 For each user:
 ├─ Create AD account
-│  ├─ Username: email prefix (casey → casey)
-│  ├─ Email: user@contoso.com
-│  ├─ Password: auto-generate, force change on first login
-│  └─ Display Name: from ISC user profile
+│ ├─ Username: email prefix (casey → casey)
+│ ├─ Email: user@contoso.com
+│ ├─ Password: auto-generate, force change on first login
+│ └─ Display Name: from ISC user profile
 ├─ Configure account settings
-│  ├─ OU: /Contoso/[Department] (Finance, Engineering, IT, Sales, HR)
-│  ├─ Office: From ISC (if available)
-│  ├─ Phone: From ISC (if available)
-│  └─ Manager: From ISC user hierarchy
+│ ├─ OU: /Contoso/[Department] (Finance, Engineering, IT, Sales, HR)
+│ ├─ Office: From ISC (if available)
+│ ├─ Phone: From ISC (if available)
+│ └─ Manager: From ISC user hierarchy
 ├─ Add to security groups
-│  ├─ Department group: Finance, Engineering, IT, Sales, HR
-│  ├─ Role groups: [Department]_[Role] (Finance_Manager, etc.)
-│  ├─ Technical groups: Technical_Staff, Management (if applicable)
-│  └─ Distribution lists: Email groups for departments
+│ ├─ Department group: Finance, Engineering, IT, Sales, HR
+│ ├─ Role groups: [Department]_[Role] (Finance_Manager, etc.)
+│ ├─ Technical groups: Technical_Staff, Management (if applicable)
+│ └─ Distribution lists: Email groups for departments
 ├─ Set policies
-│  ├─ Group Policy Objects (GPOs) for dept role
-│  ├─ Password policy: 90-day expiration
-│  ├─ Account lockout: 5 failed attempts
-│  └─ Login hours: Normal business hours (optional)
+│ ├─ Group Policy Objects (GPOs) for dept role
+│ ├─ Password policy: expiration
+│ ├─ Account lockout: 5 failed attempts
+│ └─ Login hours: Normal business hours (optional)
 └─ Log action in ISC audit trail
 
 Success Criteria:
@@ -357,18 +357,18 @@ Required Information:
 
 For each user:
 ├─ Create ADP account
-│  ├─ Employee ID: from Contoso HR system
-│  ├─ Name, email: from ISC
-│  └─ Department: from ISC
+│ ├─ Employee ID: from Contoso HR system
+│ ├─ Name, email: from ISC
+│ └─ Department: from ISC
 ├─ Enable features by role
-│  ├─ HR Roles: Full benefits, payroll, admin access
-│  ├─ Management Roles: Reports, team management
-│  ├─ All Users: Self-service (view pay stub, update address, benefits)
-│  └─ Finance: Payroll view (read-only)
+│ ├─ HR Roles: Full benefits, payroll, admin access
+│ ├─ Management Roles: Reports, team management
+│ ├─ All Users: Self-service (view pay stub, update address, benefits)
+│ └─ Finance: Payroll view (read-only)
 ├─ Configure permissions
-│  ├─ HR_Manager: System admin access
-│  ├─ HR_Specialist: HR operations access
-│  └─ All users: Self-service portal access
+│ ├─ HR_Manager: System admin access
+│ ├─ HR_Specialist: HR operations access
+│ └─ All users: Self-service portal access
 └─ Log action in ISC audit trail
 
 Success Criteria:
@@ -386,88 +386,88 @@ Success Criteria:
 
 ```
 1. Configure connectors
-   ├─ Test QB connector (API key valid, connection works)
-   ├─ Test GitHub connector (OAuth token valid)
-   ├─ Test AWS connector (IAM credentials valid)
-   ├─ Test AD connector (domain admin account)
-   ├─ Test ADP connector (API credentials valid)
-   └─ Action: Click "Test Connection" for each
+ ├─ Test QB connector (API key valid, connection works)
+ ├─ Test GitHub connector (OAuth token valid)
+ ├─ Test AWS connector (IAM credentials valid)
+ ├─ Test AD connector (domain admin account)
+ ├─ Test ADP connector (API credentials valid)
+ └─ Action: Click "Test Connection" for each
 
 2. Create provisioning workflows (templates)
-   ├─ QB provisioning workflow
-   ├─ GitHub provisioning workflow
-   ├─ AWS provisioning workflow
-   ├─ AD provisioning workflow
-   ├─ ADP provisioning workflow
-   └─ Action: Configure templates, customize for Contoso
+ ├─ QB provisioning workflow
+ ├─ GitHub provisioning workflow
+ ├─ AWS provisioning workflow
+ ├─ AD provisioning workflow
+ ├─ ADP provisioning workflow
+ └─ Action: Configure templates, customize for Contoso
 
 3. Create deprovisioning workflows
-   ├─ QB deprovisioning
-   ├─ GitHub deprovisioning
-   ├─ AWS deprovisioning
-   ├─ AD deprovisioning
-   ├─ ADP deprovisioning
-   └─ Action: Mirror of provisioning workflows
+ ├─ QB deprovisioning
+ ├─ GitHub deprovisioning
+ ├─ AWS deprovisioning
+ ├─ AD deprovisioning
+ ├─ ADP deprovisioning
+ └─ Action: Mirror of provisioning workflows
 ```
 
 **Phase 2: Testing (Days 3-5)**
 
 ```
 1. Test QB provisioning
-   ├─ Create test user (TestUser1)
-   ├─ Assign test role (Finance_Manager)
-   ├─ Run provisioning workflow
-   ├─ Verify: Account created in QB with correct permissions
-   └─ Action: Check QB audit log
+ ├─ Create test user (TestUser1)
+ ├─ Assign test role (Finance_Manager)
+ ├─ Run provisioning workflow
+ ├─ Verify: Account created in QB with correct permissions
+ └─ Action: Check QB audit log
 
 2. Test GitHub provisioning
-   ├─ Create test user (TestUser2)
-   ├─ Assign test role (Engineer_Developer)
-   ├─ Run provisioning workflow
-   ├─ Verify: Account created in GitHub, added to Engineering team
-   └─ Action: Try to access GitHub with credentials
+ ├─ Create test user (TestUser2)
+ ├─ Assign test role (Engineer_Developer)
+ ├─ Run provisioning workflow
+ ├─ Verify: Account created in GitHub, added to Engineering team
+ └─ Action: Try to access GitHub with credentials
 
 3. Test AWS provisioning
-   ├─ Create test user (TestUser3)
-   ├─ Assign test role (Engineer_Developer)
-   ├─ Run provisioning workflow
-   ├─ Verify: IAM user created with dev environment access
-   └─ Action: Log in to AWS console, verify permissions
+ ├─ Create test user (TestUser3)
+ ├─ Assign test role (Engineer_Developer)
+ ├─ Run provisioning workflow
+ ├─ Verify: IAM user created with dev environment access
+ └─ Action: Log in to AWS console, verify permissions
 
 4. Test deprovisioning
-   ├─ Remove test users from all roles
-   ├─ Run deprovisioning workflow
-   ├─ Verify: Accounts disabled in all systems
-   ├─ Verify: No longer can log in
-   └─ Action: Check audit logs for deprovisioning records
+ ├─ Remove test users from all roles
+ ├─ Run deprovisioning workflow
+ ├─ Verify: Accounts disabled in all systems
+ ├─ Verify: No longer can log in
+ └─ Action: Check audit logs for deprovisioning records
 ```
 
 **Phase 3: Production Rollout (Days 6-8)**
 
 ```
 1. Provision Finance users (Day 6)
-   ├─ Provision to QB: Casey, Morgan, User5
-   ├─ Provision to AD: Casey, Morgan, User5
-   ├─ Provision to ADP: Casey, Morgan, User5
-   └─ Action: Run provisioning workflows
+ ├─ Provision to QB: Casey, Morgan, User5
+ ├─ Provision to AD: Casey, Morgan, User5
+ ├─ Provision to ADP: Casey, Morgan, User5
+ └─ Action: Run provisioning workflows
 
 2. Provision Engineering users (Day 7)
-   ├─ Provision to GitHub: Alex, User4, User12
-   ├─ Provision to AWS: Alex, User4, User12
-   ├─ Provision to AD: (already done if combined with Finance)
-   └─ Action: Run provisioning workflows
+ ├─ Provision to GitHub: Alex, User4, User12
+ ├─ Provision to AWS: Alex, User4, User12
+ ├─ Provision to AD: (already done if combined with Finance)
+ └─ Action: Run provisioning workflows
 
 3. Provision remaining users (Day 8)
-   ├─ Provision IT users to GitHub/AD
-   ├─ Provision Sales users to Salesforce/AD
-   ├─ Provision HR users to ADP/AD
-   └─ Action: Run provisioning workflows
+ ├─ Provision IT users to GitHub/AD
+ ├─ Provision Sales users to Salesforce/AD
+ ├─ Provision HR users to ADP/AD
+ └─ Action: Run provisioning workflows
 
 4. Verification & Notification (End of day 8)
-   ├─ Verify all 13 users have expected access
-   ├─ Send access instructions to users
-   ├─ Monitor for issues/alerts
-   └─ Action: Complete validation audit
+ ├─ Verify all 13 users have expected access
+ ├─ Send access instructions to users
+ ├─ Monitor for issues/alerts
+ └─ Action: Complete validation audit
 ```
 
 ---
@@ -491,8 +491,8 @@ Success Criteria:
 **Performance Metrics:**
 
 ```
-├─ Provisioning time: < 2 minutes per user per system
-├─ Deprovisioning time: < 2 minutes per user per system
+├─ Provisioning time: < per user per system
+├─ Deprovisioning time: < per user per system
 ├─ Connector reliability: > 99% success rate
 └─ Manual intervention: < 5% of provisioning actions
 ```

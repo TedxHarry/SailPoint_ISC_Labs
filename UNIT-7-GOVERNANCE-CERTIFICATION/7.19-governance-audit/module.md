@@ -37,8 +37,7 @@ Audit Objectives:
 ├─ Assess SoD compliance
 └─ Provide recommendations for 2027
 
-Audit Timeline:
-├─ Planning: Week 1
+Audit 
 ├─ Fieldwork: Weeks 2-4
 ├─ Findings: Week 5
 ├─ Management review: Week 6
@@ -60,10 +59,10 @@ Test 1: Access Matrix Verification
 ├─ Check: Access matches assigned roles
 ├─ Verify: No unauthorized access
 ├─ Results:
-│  ├─ User1: COMPLIANT ✓
-│  ├─ User5: COMPLIANT ✓
-│  ├─ User10: COMPLIANT ✓
-│  └─ Overall: 100% compliant
+│ ├─ User1: COMPLIANT ✓
+│ ├─ User5: COMPLIANT ✓
+│ ├─ User10: COMPLIANT ✓
+│ └─ Overall: 100% compliant
 └─ Evidence: Access reports + screenshots
 
 Test 2: SoD Rule Enforcement
@@ -80,12 +79,12 @@ Test 3: Review Process Completion
 ├─ Check: Certifications signed
 ├─ Review: Process followed correctly
 ├─ Results:
-│  ├─ Finance review: COMPLETE ✓
-│  ├─ Engineering review: COMPLETE ✓
-│  ├─ Sales review: COMPLETE ✓
-│  ├─ IT review: PENDING → COMPLETE ✓
-│  ├─ HR review: PENDING → COMPLETE ✓
-│  └─ Overall: 100% completion
+│ ├─ Finance review: COMPLETE ✓
+│ ├─ Engineering review: COMPLETE ✓
+│ ├─ Sales review: COMPLETE ✓
+│ ├─ IT review: PENDING → COMPLETE ✓
+│ ├─ HR review: PENDING → COMPLETE ✓
+│ └─ Overall: 100% completion
 └─ Evidence: Signed certifications
 
 Test 4: Request Approval Workflow
@@ -93,10 +92,10 @@ Test 4: Request Approval Workflow
 ├─ Verify: Approval routing correct
 ├─ Check: No requests approved without review
 ├─ Results:
-│  ├─ Correct approvers: 12/12 (100%)
-│  ├─ Denied requests: 1 (SoD conflict detected)
-│  ├─ Average time: 1.5 days
-│  └─ Escalations triggered: 0
+│ ├─ Correct approvers: 12/12 (100%)
+│ ├─ Denied requests: 1 (SoD conflict detected)
+│ ├─ Average time: 1.
+│ └─ Escalations triggered: 0
 ├─ Conclusion: Workflow functioning correctly
 └─ Evidence: Request tickets + approval trails
 
@@ -105,9 +104,9 @@ Test 5: Remediation Effectiveness
 ├─ Verify: All remediation actions completed
 ├─ Check: Issues actually resolved
 ├─ Results:
-│  ├─ Issue #1: Removed unauthorized access ✓
-│  ├─ Issue #2: Escalated and documented ✓
-│  └─ Re-audit: Both issues confirmed resolved
+│ ├─ Issue #1: Removed unauthorized access ✓
+│ ├─ Issue #2: Escalated and documented ✓
+│ └─ Re-audit: Both issues confirmed resolved
 ├─ Conclusion: Remediation process working
 └─ Evidence: Remediation tickets + verification
 
@@ -115,12 +114,12 @@ Test 6: Audit Trail Completeness
 ├─ Check: All access changes logged
 ├─ Sample: 20 random provisioning events
 ├─ Verify: Each has:
-│  ├─ User ID
-│  ├─ Action taken
-│  ├─ Timestamp
-│  ├─ Approver
-│  ├─ Result
-│  └─ Complete details
+│ ├─ User ID
+│ ├─ Action taken
+│ ├─ Timestamp
+│ ├─ Approver
+│ ├─ Result
+│ └─ Complete details
 ├─ Results: 20/20 complete (100%)
 └─ Evidence: Audit log export
 ```
@@ -137,7 +136,7 @@ Control Effectiveness Rating: 95/100
 Finding #1 (Minor):
 ├─ Area: Review deadline tracking
 ├─ Issue: Two managers requested extensions
-├─ Impact: Low (only 1-2 weeks late)
+├─ Impact: Low (only late)
 ├─ Recommendation: Automated reminder system
 ├─ Priority: Medium
 └─ Remediation: Implement in Q1 2027
@@ -197,7 +196,7 @@ by end of Q1 2027. Current governance processes are strong."
 
 ## 🎓 CERTIFICATION
 
-**Q:** Audit finds review process mostly works but 2 weeks late sometimes. What rating?
+**Q:** Audit finds review process mostly works but late sometimes. What rating?
 
 A) Fail (not perfect)
 B) ✅ Effective with minor findings (works but needs improvement)

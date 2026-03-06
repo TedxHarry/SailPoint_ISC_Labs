@@ -36,14 +36,14 @@ What happened:
 ├─ IT_Administrator role removed by mistake
 ├─ ISC deprovisioned: AD, GitHub, AWS access
 ├─ User10: Cannot log in anywhere
-├─ Timeline: Discovered 15 minutes later
+├─ 
 
-Immediate action (< 5 minutes):
+Immediate action (< ):
 ├─ Restore from ISC: Re-assign IT_Administrator role
 ├─ ISC detects: Role re-assigned
 ├─ ISC triggers: Reprovisioning to all systems
 ├─ Re-provisioning: QB, AD, GitHub, AWS
-├─ Timeline: < 3 minutes
+├─ 
 
 Result:
 ├─ User10: Access restored
@@ -56,21 +56,21 @@ Result:
 
 ### TASK 2: Rehiring Scenario
 
-**Scenario: User5 rehired after 6 months**
+**Scenario: User5 rehired after **
 
 ```
-Before (6 months ago):
+Before ( ago):
 ├─ User5 status: Terminated
 ├─ All accounts: Disabled
 ├─ No access: Anywhere
-└─ Retention: 90-day period passed, accounts deleted
+└─ Retention: period passed, accounts deleted
 
 Rehiring (today):
 ├─ User5: Rehired into Finance_AP_Clerk role
 ├─ Action: Create new user record in ISC
 ├─ ISC: Treats as new employee
 ├─ Provisioning: All systems fresh accounts
-├─ Timeline: < 10 minutes
+├─ 
 
 Result:
 ├─ New QB account: Fresh start
@@ -95,15 +95,15 @@ Discovery:
 Fix approach:
 1. Check ISC audit: Shows provisioning failed
 2. Retry provisioning:
-   ├─ ISC > Provisioning > Retry
-   ├─ Select: Failed AWS provisioning
-   ├─ Action: Retry now
-   └─ Result: Should succeed this time
+ ├─ ISC > Provisioning > Retry
+ ├─ Select: Failed AWS provisioning
+ ├─ Action: Retry now
+ └─ Result: Should succeed this time
 
 3. Verify:
-   ├─ AWS: New account created
-   ├─ User: Can log in
-   └─ Status: Fixed ✓
+ ├─ AWS: New account created
+ ├─ User: Can log in
+ └─ Status: Fixed ✓
 ```
 
 ---
@@ -113,8 +113,7 @@ Fix approach:
 **Scenario: GitHub outage, all GitHub accounts temporarily inaccessible**
 
 ```
-Outage timeline:
-├─ 2:00 AM: GitHub goes down
+Outage 
 ├─ 2:30 AM: ISC detects connection errors
 ├─ 3:00 AM: GitHub restored
 ├─ 3:15 AM: ISC reconnects

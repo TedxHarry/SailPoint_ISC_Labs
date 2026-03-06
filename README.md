@@ -17,33 +17,33 @@ SailPoint_ISC_Labs/
 ├── SERIES-PROMPT.md (lab writing template)
 ├──
 ├── 📁 SETUP-GUIDES/
-│   ├── 00-ENTRA-ID-FREE-TIER-GUIDE.md (Complete step-by-step)
-│   ├── 01-ISC-SANDBOX-ACCESS.md
-│   └── 02-REPOSITORY-USAGE.md
+│ ├── 00-ENTRA-ID-FREE-TIER-GUIDE.md (Complete step-by-step)
+│ ├── 01-ISC-SANDBOX-ACCESS.md
+│ └── 02-REPOSITORY-USAGE.md
 │
 ├── 📁 TEST-DATA/
-│   ├── contoso-identities-100.csv (Small deployment: 100 users)
-│   ├── contoso-finance-app.csv
-│   ├── contoso-hris.csv
-│   ├── regiontech-identities-300.csv (Mid-market: 300 users)
-│   ├── regiontech-finance.csv
-│   ├── regiontech-hris.csv
-│   ├── regiontech-salesforce.csv
-│   ├── globalbank-identities-500.csv (Enterprise: 500 users)
-│   ├── globalbank-finance.csv
-│   ├── globalbank-hris.csv
-│   ├── globalbank-salesforce.csv
-│   └── globalbank-crm.csv
+│ ├── contoso-identities-100.csv (Small deployment: 100 users)
+│ ├── contoso-finance-app.csv
+│ ├── contoso-hris.csv
+│ ├── regiontech-identities-300.csv (Mid-market: 300 users)
+│ ├── regiontech-finance.csv
+│ ├── regiontech-hris.csv
+│ ├── regiontech-salesforce.csv
+│ ├── globalbank-identities-500.csv (Enterprise: 500 users)
+│ ├── globalbank-finance.csv
+│ ├── globalbank-hris.csv
+│ ├── globalbank-salesforce.csv
+│ └── globalbank-crm.csv
 │
 ├── 📁 SAMPLE-LABS/
-│   ├── SAMPLE-LAB-1-fundamentals.md
-│   ├── SAMPLE-LAB-2-small-deployment.md
-│   └── SAMPLE-LAB-3-governance.md
+│ ├── SAMPLE-LAB-1-fundamentals.md
+│ ├── SAMPLE-LAB-2-small-deployment.md
+│ └── SAMPLE-LAB-3-governance.md
 │
 ├── 📁 UNIT 1 - FUNDAMENTALS/
-│   ├── 1.1-intro-to-isc/
-│   ├── 1.2-architecture/
-│   └── ...
+│ ├── 1.1-intro-to-isc/
+│ ├── 1.2-architecture/
+│ └── ...
 │
 ├── 📁 UNIT 2 - SETUP & CONFIG/
 ├── 📁 UNIT 3 - SEARCH & ANALYTICS/
@@ -88,10 +88,10 @@ Begin with `UNIT 1 - FUNDAMENTALS` → complete all 5 modules in order
 UNIT X - MODULE-NAME/
 ├── module.md (main content + lab instructions)
 ├── data-files/
-│   ├── sample-data.csv
-│   └── templates.json
+│ ├── sample-data.csv
+│ └── templates.json
 └── solutions/ (optional)
-    └── expected-output.md
+ └── expected-output.md
 ```
 
 ### Lab Format:

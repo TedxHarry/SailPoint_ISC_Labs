@@ -42,7 +42,7 @@ Unit 6 Objective (Modules 6.1-6.20):
 ├─ Audit and validate all provisioning
 └─ Result: Production-ready system
 
-Total: 20 modules, 200 hours of comprehensive instruction
+Total: 20 modules, of comprehensive instruction
 ```
 
 ---
@@ -109,13 +109,13 @@ Employee Offboarding:
 ├─ User5: Complete deprovisioning
 ├─ All access: Removed from all 5 systems
 ├─ Data: Archived for retention
-├─ Timeline: 10 minutes (fully automated)
+├─ 
 └─ Result: Complete access removal ✓
 
 Accidental Deprovisioning:
 ├─ User accidentally deprovisioned
 ├─ Recovery: Re-assign role, auto-reprovision
-├─ Timeline: < 5 minutes
+├─ 
 └─ Result: Quick recovery ✓
 
 ALL DEPROVISIONING TESTED & VERIFIED ✓
@@ -149,8 +149,8 @@ Disaster Recovery:
 ✅ Failover capabilities (if ISC down)
 ✅ Break glass access (emergency procedures)
 ✅ Data retention policies (7+ years)
-✅ Recovery time objectives (RTO: 1 hour)
-✅ Recovery point objectives (RPO: 1 hour)
+✅ Recovery time objectives (RTO: )
+✅ Recovery point objectives (RPO: )
 
 Compliance:
 ✅ SoD rules prevent fraud (finance especially)
@@ -169,39 +169,39 @@ Compliance:
 
 ```
 1. QuickBooks (Finance)
-   ├─ 3 users provisioned (Finance_Manager, Senior_Accountant, AP_Clerk)
-   ├─ Permissions: Admin, Editor, Data Entry
-   ├─ SoD enforced: Manager ↔ Clerk separation
-   ├─ Audit trail: Complete provisioning history
-   └─ Status: PRODUCTION READY ✓
+ ├─ 3 users provisioned (Finance_Manager, Senior_Accountant, AP_Clerk)
+ ├─ Permissions: Admin, Editor, Data Entry
+ ├─ SoD enforced: Manager ↔ Clerk separation
+ ├─ Audit trail: Complete provisioning history
+ └─ Status: PRODUCTION READY ✓
 
 2. GitHub (Engineering + IT)
-   ├─ 6 users provisioned (3 engineers + 2 IT + 1 DevOps)
-   ├─ Teams: Engineering, Infrastructure, Technical_Staff
-   ├─ Permissions: Maintainer (senior), Contributor (dev), Member/Admin
-   ├─ CI/CD integration: Webhooks, automated deployments
-   └─ Status: PRODUCTION READY ✓
+ ├─ 6 users provisioned (3 engineers + 2 IT + 1 DevOps)
+ ├─ Teams: Engineering, Infrastructure, Technical_Staff
+ ├─ Permissions: Maintainer (senior), Contributor (dev), Member/Admin
+ ├─ CI/CD integration: Webhooks, automated deployments
+ └─ Status: PRODUCTION READY ✓
 
 3. AWS (Infrastructure)
-   ├─ 3 users provisioned (DevOps + 2 Engineers)
-   ├─ IAM groups: DevOps_Admins, Developers, StagingOnly
-   ├─ MFA: Enforced for all users
-   ├─ Environment separation: Dev/Staging vs Prod (approval workflow)
-   └─ Status: PRODUCTION READY ✓
+ ├─ 3 users provisioned (DevOps + 2 Engineers)
+ ├─ IAM groups: DevOps_Admins, Developers, StagingOnly
+ ├─ MFA: Enforced for all users
+ ├─ Environment separation: Dev/Staging vs Prod (approval workflow)
+ └─ Status: PRODUCTION READY ✓
 
 4. Active Directory (All Users)
-   ├─ 13 users provisioned with domain accounts
-   ├─ OU placement: By department
-   ├─ Group memberships: Department + role-specific + distribution lists
-   ├─ Policies: Password, account lockout, login hours
-   └─ Status: PRODUCTION READY ✓
+ ├─ 13 users provisioned with domain accounts
+ ├─ OU placement: By department
+ ├─ Group memberships: Department + role-specific + distribution lists
+ ├─ Policies: Password, account lockout, login hours
+ └─ Status: PRODUCTION READY ✓
 
 5. ADP/HRIS (HR + All Employees)
-   ├─ 13 users provisioned (self-service for all)
-   ├─ HR staff: Full admin access (User8, User9)
-   ├─ Features: Payroll, benefits, recruiting, compliance
-   ├─ Employee self-service: Access to pay stubs, benefits info
-   └─ Status: PRODUCTION READY ✓
+ ├─ 13 users provisioned (self-service for all)
+ ├─ HR staff: Full admin access (User8, User9)
+ ├─ Features: Payroll, benefits, recruiting, compliance
+ ├─ Employee self-service: Access to pay stubs, benefits info
+ └─ Status: PRODUCTION READY ✓
 ```
 
 ---

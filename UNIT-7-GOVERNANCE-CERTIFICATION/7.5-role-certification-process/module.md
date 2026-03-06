@@ -70,9 +70,9 @@ Role Owner: Alex Lee
 
 Members to certify:
 ├─ Alex Lee (Engineer_Senior)
-│  └─ Justification: "Yes, need this for team leadership"
+│ └─ Justification: "Yes, need this for team leadership"
 ├─ Should anyone else be Engineer_Senior?
-│  └─ Decision: No, only Alex
+│ └─ Decision: No, only Alex
 └─ Certification: APPROVED for Alex only
 
 Result:
@@ -92,26 +92,26 @@ Issue: User4 is Engineer_Developer but manager wants to add Engineer_Senior acce
 
 Process:
 1. Manager submits: Exception request
-   ├─ User: User4
-   ├─ Role: Engineer_Senior (currently not assigned)
-   ├─ Reason: "Promoted to senior engineer, handling advanced projects"
-   └─ 
+ ├─ User: User4
+ ├─ Role: Engineer_Senior (currently not assigned)
+ ├─ Reason: "Promoted to senior engineer, handling advanced projects"
+ └─ 
 
 2. Route to: Alex Lee (Engineer_Senior role owner)
-   ├─ Alex reviews: "Is User4 ready for senior role?"
-   ├─ Alex decides: "Yes, worthy of promotion"
-   └─ Alex approves: Exception granted
+ ├─ Alex reviews: "Is User4 ready for senior role?"
+ ├─ Alex decides: "Yes, worthy of promotion"
+ └─ Alex approves: Exception granted
 
 3. ISC executes:
-   ├─ Add: Engineer_Senior role to User4
-   ├─ Provision: Senior engineer access (GitHub maintainer, AWS prod)
-   └─ Document: Promotion and date
+ ├─ Add: Engineer_Senior role to User4
+ ├─ Provision: Senior engineer access (GitHub maintainer, AWS prod)
+ └─ Document: Promotion and date
 
 4. Certification updated:
-   ├─ Role: Engineer_Senior
-   ├─ Members: Alex Lee, User4 (now 2 members)
-   ├─ Next review: Certify both still need role
-   └─ Documented: User4 added Q2 2026
+ ├─ Role: Engineer_Senior
+ ├─ Members: Alex Lee, User4 (now 2 members)
+ ├─ Next review: Certify both still need role
+ └─ Documented: User4 added Q2 2026
 ```
 
 ---

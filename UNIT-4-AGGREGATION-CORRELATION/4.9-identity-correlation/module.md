@@ -38,15 +38,15 @@ Module 4.8: Test Correlation (account correlation must be working).
 **Without identity correlation:**
 ```
 Entra ID account: alex.lee@contoso.com
-  ↓
+ ↓
 Identity: "alex.lee@contoso.com" (from Entra ID)
 
 Okta account: alex.lee
-  ↓
+ ↓
 Identity: "alex.lee" (from Okta)
 
 Oracle account: alee
-  ↓
+ ↓
 Identity: "alee" (from Oracle)
 
 RESULT: ISC thinks 3 different people exist (same person, 3 identities)
@@ -56,9 +56,9 @@ Provisioning: Creates same role 3 times, removes access 3 times
 
 **With identity correlation:**
 ```
-Entra ID account: alex.lee@contoso.com  ↘
-Okta account: alex.lee                  → Identity: Alex Lee
-Oracle account: alee                    ↙
+Entra ID account: alex.lee@contoso.com ↘
+Okta account: alex.lee → Identity: Alex Lee
+Oracle account: alee ↙
 
 RESULT: ISC knows 1 person has 3 accounts
 Governance: One policy covers all 3 accounts
@@ -72,17 +72,17 @@ Provisioning: Creates role once per system, consistent across all
 **When multiple sources aggregated (Unit 4+, hypothetical):**
 
 1. **Aggregation 1:** Entra ID connector reads 13 users
-   - Creates Identity "alex.lee@contoso.com" (from nativeIdentity)
-   - Account: alex.lee@contoso.com (Entra ID)
+ - Creates Identity "alex.lee@contoso.com" (from nativeIdentity)
+ - Account: alex.lee@contoso.com (Entra ID)
 
 2. **Aggregation 2:** Okta connector reads 12 users (Alex is in Okta too)
-   - Account: alex.lee (Okta)
-   - ISC needs to match: "This Okta account is same person as alex.lee@contoso.com"
+ - Account: alex.lee (Okta)
+ - ISC needs to match: "This Okta account is same person as alex.lee@contoso.com"
 
 3. **Identity correlation rule:** "IF okta.email MATCHES entra.email, consolidate into ONE identity"
-   - Okta email: alex.lee@contoso.com
-   - Entra email: alex.lee@contoso.com
-   - MATCH: Merge. One identity now has 2 accounts.
+ - Okta email: alex.lee@contoso.com
+ - Entra email: alex.lee@contoso.com
+ - MATCH: Merge. One identity now has 2 accounts.
 
 ---
 
@@ -120,22 +120,22 @@ Identity: "Alex Lee" (consolidated)
 **Example:**
 ```
 Identity 1 (Entra ID) attributes:
-  firstName: Alex
-  lastName: Lee
-  email: alex.lee@contoso.com
-  department: Engineering
+ firstName: Alex
+ lastName: Lee
+ email: alex.lee@contoso.com
+ department: Engineering
 
 Identity 2 (Okta) attributes:
-  firstName: Alexander
-  lastName: Lee
-  email: alex.lee
-  department: (none)
+ firstName: Alexander
+ lastName: Lee
+ email: alex.lee
+ department: (none)
 
 After consolidation:
-  firstName: Alex (from identity 1)
-  lastName: Lee (from both)
-  email: alex.lee@contoso.com (from identity 1, more complete)
-  department: Engineering (from identity 1, Okta had none)
+ firstName: Alex (from identity 1)
+ lastName: Lee (from both)
+ email: alex.lee@contoso.com (from identity 1, more complete)
+ department: Engineering (from identity 1, Okta had none)
 ```
 
 **Key:** ISC picks "most complete" attribute value (not null, more recent timestamp, etc.)

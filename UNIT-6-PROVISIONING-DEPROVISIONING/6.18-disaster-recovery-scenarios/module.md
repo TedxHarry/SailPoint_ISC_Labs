@@ -40,30 +40,28 @@ What happens:
 └─ Impact: High (access management stopped)
 
 Recovery approach:
-1. Restore ISC from backup (within 1 hour)
-   ├─ IT: Brings ISC back online
-   ├─ ISC: Restores from previous night's backup
-   ├─ Data: All users, roles, workflows intact
-   └─ Timeline: 30-60 minutes
-
-2. Replay missed provisioning (after restore)
-   ├─ ISC: Compares local db vs what's in systems
-   ├─ Detects: What didn't get provisioned (new hires)
-   ├─ Triggers: Automatic re-provisioning for missed
-   └─ Timeline: < 10 minutes
+1. Restore ISC from backup (within )
+ ├─ IT: Brings ISC back online
+ ├─ ISC: Restores from previous night's backup
+ ├─ Data: All users, roles, workflows intact
+ └─ 
+ ├─ ISC: Compares local db vs what's in systems
+ ├─ Detects: What didn't get provisioned (new hires)
+ ├─ Triggers: Automatic re-provisioning for missed
+ └─ 
 
 3. Verify all access restored
-   ├─ Check: New hires now have access
-   ├─ Check: Role changes applied
-   ├─ Status: Back to normal
-   └─ Timeline: < 15 minutes from restore
+ ├─ Check: New hires now have access
+ ├─ Check: Role changes applied
+ ├─ Status: Back to normal
+ └─ 
 
 Backup strategy:
 ├─ Daily backups: Every night at 11:00 PM
 ├─ Offsite backup: Copied to secure location
 ├─ Test restore: Monthly (verify backup works)
-├─ Retention: 30 days of backups maintained
-└─ RTO (Recovery Time Objective): 1 hour maximum
+├─ Retention: of backups maintained
+└─ RTO (Recovery Time Objective): maximum
 ```
 
 ---
@@ -78,7 +76,7 @@ What happens:
 ├─ Error: Cannot connect to QB
 ├─ Impact: New finance hires cannot access QB
 ├─ Existing: Still have access (not affected)
-└─ Timeline: Discovered after 2 hours
+└─ 
 
 Root cause:
 ├─ QB API key: Expired
@@ -88,26 +86,24 @@ Root cause:
 
 Recovery:
 1. Fix connector:
-   ├─ QB: Generate new API key
-   ├─ ISC: Update connector with new key
-   ├─ Test: Click "Test Connection" → Success
-   └─ Timeline: 10 minutes
-
-2. Retry failed provisioning:
-   ├─ ISC: Finds failed QB provisioning attempts
-   ├─ Action: Retry all failed attempts
-   ├─ Result: Finance users now provisioned
-   └─ Timeline: < 5 minutes
+ ├─ QB: Generate new API key
+ ├─ ISC: Update connector with new key
+ ├─ Test: Click "Test Connection" → Success
+ └─ 
+ ├─ ISC: Finds failed QB provisioning attempts
+ ├─ Action: Retry all failed attempts
+ ├─ Result: Finance users now provisioned
+ └─ 
 
 3. Monitor:
-   ├─ Check: All QB accounts created correctly
-   ├─ Verify: Users can log in
-   └─ Status: Back to normal
+ ├─ Check: All QB accounts created correctly
+ ├─ Verify: Users can log in
+ └─ Status: Back to normal
 
 Prevention:
 ├─ Alerts: When API key expires soon
 ├─ Monitoring: Automatic re-test of connections
-├─ Rotation: Auto-rotate keys every 90 days
+├─ Rotation: Auto-rotate keys every 
 └─ Redundancy: Backup API keys configured
 ```
 
@@ -126,26 +122,20 @@ What happened:
 
 Recovery:
 1. Identify duplicates:
-   ├─ QB: Find accounts with multiple copies
-   ├─ Documentation: List all duplicates
-   └─ Timeline: 30 minutes
-
-2. Clean up:
-   ├─ Keep: Most recent account (casey-final)
-   ├─ Delete: Old duplicates (casey, casey2, etc.)
-   ├─ Verify: Transfer any data (if any created)
-   └─ Timeline: 1 hour
-
-3. Fix workflow:
-   ├─ Bug: Workflow doesn't check existing accounts
-   ├─ Fix: Add "check if exists" logic
-   ├─ Deploy: Updated workflow
-   └─ Timeline: 30 minutes
-
-4. Re-test:
-   ├─ Test: Provision same user twice
-   ├─ Result: Should use existing account (no duplicate)
-   └─ Status: Bug fixed
+ ├─ QB: Find accounts with multiple copies
+ ├─ Documentation: List all duplicates
+ └─ 
+ ├─ Keep: Most recent account (casey-final)
+ ├─ Delete: Old duplicates (casey, casey2, etc.)
+ ├─ Verify: Transfer any data (if any created)
+ └─ 
+ ├─ Bug: Workflow doesn't check existing accounts
+ ├─ Fix: Add "check if exists" logic
+ ├─ Deploy: Updated workflow
+ └─ 
+ ├─ Test: Provision same user twice
+ ├─ Result: Should use existing account (no duplicate)
+ └─ Status: Bug fixed
 ```
 
 ---
@@ -161,25 +151,23 @@ What happened:
 ├─ Impact: Everyone has NO access
 ├─ Discovery: Immediate (users report cannot log in)
 
-Response (< 5 minutes):
+Response (< ):
 1. STOP: Kill running workflow
-   ├─ Identify: Runaway workflow
-   ├─ Action: Terminate immediately
-   └─ Timeline: < 1 minute
+ ├─ Identify: Runaway workflow
+ ├─ Action: Terminate immediately
+ └─ 
 
 2. Restore from ISC backup:
-   ├─ Backup: From 1 hour ago (before accident)
-   ├─ Restore: Role assignments
-   ├─ All users: Back in their proper roles
-   └─ Timeline: 10 minutes
+ ├─ Backup: From ago (before accident)
+ ├─ Restore: Role assignments
+ ├─ All users: Back in their proper roles
+ └─ 
+ ├─ All users: Roles restored
+ ├─ ISC: Re-provisions to all systems
+ ├─ Users: Regain access
+ └─ 
 
-3. Trigger re-provisioning:
-   ├─ All users: Roles restored
-   ├─ ISC: Re-provisions to all systems
-   ├─ Users: Regain access
-   └─ Timeline: < 10 minutes
-
-Total downtime: 20 minutes (acceptable for critical incident)
+Total downtime: (acceptable for critical incident)
 
 Prevention:
 ├─ Approval: Workflow changes require code review
@@ -198,39 +186,39 @@ Prevention:
 ```
 ISC Provisioning Disaster Recovery Plan:
 
-RPO (Recovery Point Objective): 1 hour
-└─ Acceptable data loss: Up to 1 hour of changes
+RPO (Recovery Point Objective): 
+└─ Acceptable data loss: Up to of changes
 
-RTO (Recovery Time Objective): 1 hour
-└─ Must be back online within 1 hour
+RTO (Recovery Time Objective): 
+└─ Must be back online within 
 
 Backup strategy:
 ├─ Daily: Nightly full backup (11:00 PM)
 ├─ Offsite: Copied to secure location
 ├─ Test: Monthly restore test (verify works)
-└─ Retention: 30 days of backups
+└─ Retention: of backups
 
 Disaster scenarios:
 
 1. ISC Hardware Failure:
-   ├─ Response: Restore from backup to new hardware
-   ├─ Time: < 1 hour
-   └─ Skill: 2-3 IT staff trained
+ ├─ Response: Restore from backup to new hardware
+ ├─ Time: < 
+ └─ Skill: 2-3 IT staff trained
 
 2. Connector API Credential Failure:
-   ├─ Response: Regenerate credentials, update connector
-   ├─ Time: < 15 minutes
-   └─ Skill: Admin with target system access
+ ├─ Response: Regenerate credentials, update connector
+ ├─ Time: < 
+ └─ Skill: Admin with target system access
 
 3. Data Corruption:
-   ├─ Response: Identify, isolate, clean up, re-provision
-   ├─ Time: 1-2 hours (depends on scope)
-   └─ Skill: Database admin, provisioning specialist
+ ├─ Response: Identify, isolate, clean up, re-provision
+ ├─ Time: (depends on scope)
+ └─ Skill: Database admin, provisioning specialist
 
 4. Workflow Bug (mass deprovisioning):
-   ├─ Response: Kill workflow, restore backup, re-provision
-   ├─ Time: 30 minutes
-   └─ Skill: ISC admin, on-call engineer
+ ├─ Response: Kill workflow, restore backup, re-provision
+ ├─ Time: 
+ └─ Skill: ISC admin, on-call engineer
 
 Testing:
 ├─ Quarterly: Full DR exercise (restore backup, verify)
@@ -278,11 +266,11 @@ Communication:
 **Q:** ISC appliance crashes. How quickly should it be back online?
 
 A) By next morning
-B) ✅ Within 1 hour (RTO)
+B) ✅ Within (RTO)
 C) By end of week
 D) Not critical
 
-**Answer: B.** RTO = 1 hour maximum (critical system).
+**Answer: B.** RTO = maximum (critical system).
 
 ---
 

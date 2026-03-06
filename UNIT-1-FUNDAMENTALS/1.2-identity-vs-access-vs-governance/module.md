@@ -171,9 +171,9 @@ SailPoint ISC is built on this three-pillar model. The three core modules are:
 
 ## 🧠 KEY CONCEPTS TO REMEMBER
 
-- **Identity answers "Who?"**  It's the data describing a person (name, email, department, job title, manager)
-- **Access answers "What?"**  It's the permissions in systems based on identity attributes
-- **Governance answers "Should?"**  It's the ongoing verification that access is still appropriate
+- **Identity answers "Who?"** It's the data describing a person (name, email, department, job title, manager)
+- **Access answers "What?"** It's the permissions in systems based on identity attributes
+- **Governance answers "Should?"** It's the ongoing verification that access is still appropriate
 - **They work together as a cycle:** Identity determines access; access is granted; governance verifies; identity changes trigger new access cycles
 - **ISC does all three:** Identity aggregation → provisioning (access) → governance (certification)
 
@@ -220,9 +220,9 @@ D) is incorrectboth identity and access change, not just governance.
 ## 📚 ADDITIONAL RESOURCES
 
 **Related Modules:**
-- [Previous: 1.1 - What is Identity Management?](/modules/1.1-what-is-identity-management)  Foundational context
-- [Next: 1.3 - Introduction to SailPoint ISC](/modules/1.3-introduction-to-sailpoint-isc)  See these concepts in action
-- [Reference: 1.19 - ISC Glossary & Terminology](/modules/1.19-isc-glossary-terminology)  Look up identity, access, governance definitions
+- [Previous: 1.1 - What is Identity Management?](/modules/1.1-what-is-identity-management) Foundational context
+- [Next: 1.3 - Introduction to SailPoint ISC](/modules/1.3-introduction-to-sailpoint-isc) See these concepts in action
+- [Reference: 1.19 - ISC Glossary & Terminology](/modules/1.19-isc-glossary-terminology) Look up identity, access, governance definitions
 
 **Official Documentation:**
 - SailPoint ISC: [Identity and Access Management Basics](https://example.com)

@@ -28,8 +28,8 @@ Module 7.11: Access Request Approval. Request process understood.
 ```
 Scenario 1: Standard Approval Flow
 ├─ User4 (Developer) requests: Engineer_Senior role
-├─ Manager approval: 1 hour
-├─ Role owner approval: 2 hours
+├─ Manager approval: 
+├─ Role owner approval: 
 ├─ Expected: Auto-provisioned to GitHub + AWS
 └─ Verify: Access appears in systems within 5 min
 
@@ -41,18 +41,18 @@ Scenario 2: Denial Test
 
 Scenario 3: Escalation
 ├─ User6 requests: QB_Admin role
-├─ Manager: No response for 12 hours
+├─ Manager: No response for 
 ├─ Escalation: Sent to manager's manager
-├─ Manager (2nd level): Approves in 2 hours
+├─ Manager (2nd level): Approves in 
 └─ Verify: Access provisioned after 2nd approval
 
 Scenario 4: Multi-Approver Request
 ├─ User10 (IT Admin) requests: AWS_PowerUser role
 ├─ Approvers needed:
-│  ├─ Manager: APPROVE ✓
-│  ├─ Role owner: APPROVE ✓
-│  ├─ Security: DENY (too privileged)
-│  └─ Result: REQUEST DENIED
+│ ├─ Manager: APPROVE ✓
+│ ├─ Role owner: APPROVE ✓
+│ ├─ Security: DENY (too privileged)
+│ └─ Result: REQUEST DENIED
 └─ Verify: Not provisioned, audit shows security denial
 
 Scenario 5: Bulk Request
@@ -77,7 +77,7 @@ Notification Tests:
 ☐ Manager gets approval request
 ☐ Role owner gets approval request
 ☐ Compliance gets flagged requests
-☐ Escalation email sent after 24 hours
+☐ Escalation email sent after 
 ☐ Approval notifications timestamped
 
 Routing Tests:
@@ -163,7 +163,7 @@ Approval: Access Manager
 A) Provision (2 out of 3 approved)
 B) ✅ Deny (all must approve, one veto works)
 C) Escalate to executive
-D) Hold for 30 days
+D) Hold for 
 
 **Answer: B.** Approval workflow = ALL must approve, one "no" = denied.
 

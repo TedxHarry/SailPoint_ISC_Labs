@@ -92,11 +92,11 @@ Module 4.5: Viewing Aggregated Data.
 - Source: Contoso_Entra_ID
 - Object type: Users, Groups, or All
 - Attributes to verify: (select which attributes to check)
-  - nativeIdentity
-  - email
-  - firstName
-  - lastName
-  - department
+ - nativeIdentity
+ - email
+ - firstName
+ - lastName
+ - department
 
 ---
 
@@ -109,7 +109,7 @@ Module 4.5: Viewing Aggregated Data.
 2. Compare to ISC database
 3. Generate report of discrepancies
 
-**Expected time:** 1-5 minutes for small dataset
+**
 
 ---
 
@@ -130,20 +130,20 @@ Discrepancies found: 3
 DISCREPANCIES:
 
 1. Attribute Mismatch: Alex Lee (Identity)
-   Field: department
-   Source value: Engineering
-   ISC value: null (blank)
-   Action: Update ISC attribute or re-aggregate
+ Field: department
+ Source value: Engineering
+ ISC value: null (blank)
+ Action: Update ISC attribute or re-aggregate
 
 2. Orphaned Account: john.doe@contoso.com
-   Found in: ISC
-   Not found in: Entra ID (deleted from source)
-   Action: Delete from ISC
+ Found in: ISC
+ Not found in: Entra ID (deleted from source)
+ Action: Delete from ISC
 
 3. Uncorrelated Account: sam.smith@contoso.com
-   Status in ISC: Unlinked
-   Status in Source: Exists in Entra ID
-   Action: Run correlation rule to link
+ Status in ISC: Unlinked
+ Status in Source: Exists in Entra ID
+ Action: Run correlation rule to link
 ```
 
 ---
@@ -211,19 +211,19 @@ DISCREPANCIES:
 
 ```
 After every aggregation: Quick manual spot-check
-  - ISC > Sources > Status green?
-  - ISC > Accounts > Any unlinked?
-  - ISC > Identities > Random sample populated?
+ - ISC > Sources > Status green?
+ - ISC > Accounts > Any unlinked?
+ - ISC > Identities > Random sample populated?
 
 Weekly: Full reconciliation report
-  - Run reconciliation tool
-  - Review report
-  - Fix any discrepancies
+ - Run reconciliation tool
+ - Review report
+ - Fix any discrepancies
 
 Monthly: Deep audit
-  - Compare sample of ISC records to source
-  - Check attribute completeness
-  - Verify no data quality issues
+ - Compare sample of ISC records to source
+ - Check attribute completeness
+ - Verify no data quality issues
 ```
 
 ---

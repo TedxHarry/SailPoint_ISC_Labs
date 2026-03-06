@@ -159,13 +159,13 @@ Verify system health and logs:
 
 **Aggregation Logs:**
 - [ ] ISC > Administration > Logs shows recent aggregation
-- [ ] No ERROR level entries in last 24 hours
+- [ ] No ERROR level entries in last 
 - [ ] No WARNING entries indicating data issues
 - [ ] Last aggregation completed successfully
 
 **Source Status:**
 - [ ] ISC > Sources > Contoso_Entra_ID shows green status
-- [ ] Last aggregation timestamp recent (within 24 hours)
+- [ ] Last aggregation timestamp recent (within )
 - [ ] Connection test passes
 
 **Correlation Status:**
@@ -232,7 +232,7 @@ Verify security controls in place:
 Verify aggregation performance acceptable:
 
 **Aggregation 
-- [ ] Full aggregation completes in <5 minutes (target for 13 users)
+- [ ] Full aggregation completes in < (target for 13 users)
 - [ ] No timeouts or stuck processes
 - [ ] Throughput: >5 objects/second
 
@@ -242,7 +242,7 @@ Verify aggregation performance acceptable:
 - [ ] Database disk space sufficient (>20% free)
 
 **Correlation Performance:**
-- [ ] Correlation completes in <1 minute (target for 13 accounts)
+- [ ] Correlation completes in < (target for 13 accounts)
 - [ ] Batch correlation shows high success rate
 
 ---
@@ -254,16 +254,16 @@ Verify aggregation performance acceptable:
 ```
 ISC Status:
 ├─ Identities: 13 total
-│  ├─ Alex Lee: ✅ All attributes, linked account
-│  ├─ Morgan Chen: ✅ All attributes, linked account
-│  ├─ Casey Kim: ✅ All attributes, linked account
-│  └─ (10 more identities): ✅ All complete
+│ ├─ Alex Lee: ✅ All attributes, linked account
+│ ├─ Morgan Chen: ✅ All attributes, linked account
+│ ├─ Casey Kim: ✅ All attributes, linked account
+│ └─ (10 more identities): ✅ All complete
 ├─ Accounts: 13 total
-│  └─ All 13: ✅ Linked to identities
+│ └─ All 13: ✅ Linked to identities
 ├─ Groups: 7 total
-│  ├─ Engineering_Department: 4 members ✅
-│  ├─ Finance_Department: 3 members ✅
-│  └─ (5 more groups): ✅ Complete
+│ ├─ Engineering_Department: 4 members ✅
+│ ├─ Finance_Department: 3 members ✅
+│ └─ (5 more groups): ✅ Complete
 └─ Data Quality: ✅ No nulls, 100% complete
 
 Source Status: 🟢 Green

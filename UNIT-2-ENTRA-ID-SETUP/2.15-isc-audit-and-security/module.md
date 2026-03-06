@@ -26,7 +26,7 @@ In ISC > Administration > Audit:
 
 **Verify:**
 - [ ] Audit logging enabled
-- [ ] Audit retention set (default: 90 days)
+- [ ] Audit retention set (default: )
 - [ ] Log entries show recent activity
 
 **View Audit Trail:**

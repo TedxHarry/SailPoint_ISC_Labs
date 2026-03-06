@@ -38,7 +38,7 @@ Scenario 1: ISC Down
 Scenario 2: Normal Access Revoked Accidentally
 ├─ User deprovisioned by mistake
 ├─ User is on-call, production issue now
-├─ Cannot re-provision (would take 15 minutes, issue now)
+├─ Cannot re-provision (would take , issue now)
 └─ Solution: Break glass (temporary, until re-provisioned)
 
 Scenario 3: 2 AM Production Outage
@@ -70,7 +70,7 @@ Credential Storage:
 ├─ Location: Physical safe (locked, guarded)
 ├─ Backup: Offsite vault
 ├─ Access: Two people required to open (dual control)
-├─ Rotation: Every 90 days (regular change)
+├─ Rotation: Every (regular change)
 └─ Log: Every access attempt logged
 
 Activation Process:
@@ -92,7 +92,7 @@ Step 1: Declare Emergency
 ├─ Acknowledge: Production/critical system down
 ├─ Notify: All team leads (email + Slack)
 ├─ Document: What's wrong, why emergency?
-└─ Timeline: From now on, complete audit trail
+└─ 
 
 Step 2: Authorize Break Glass Use
 ├─ Contact: Operations manager or CTO
@@ -105,7 +105,7 @@ Step 3: Retrieve Credentials
 ├─ If locked in vault: Get person with key
 ├─ Retrieve: Username, password (written on secure paper)
 ├─ Verify: Credentials are current (not expired)
-└─ Timeline: Should take < 5 minutes
+└─ 
 
 Step 4: Use Credentials
 ├─ Log in: To production system
@@ -120,7 +120,7 @@ Step 5: Complete Emergency
 ├─ Notify: Team, customer (if applicable)
 ├─ Log out: Break glass account
 ├─ Return: Credentials to vault
-└─ Timeline: Emergency resolved
+└─ 
 
 Step 6: Audit & Report
 ├─ Next day: Review all actions taken
@@ -175,8 +175,8 @@ DO:
 ✅ Use only for genuine emergencies
 ✅ Log every action taken
 ✅ Notify security team immediately
-✅ Report usage within 24 hours
-✅ Rotate credentials regularly (every 90 days)
+✅ Report usage within 
+✅ Rotate credentials regularly (every )
 ✅ Store passwords in physical vault (secure)
 ✅ Require dual control (two people, both required)
 ✅ Audit every session (cannot be deleted)
@@ -190,7 +190,7 @@ DON'T:
 ❌ Use to bypass audit controls (audit everything)
 ❌ Share credentials (one-time use per person)
 ❌ Store passwords in email (secure vault only)
-❌ Keep same credentials > 90 days (rotate regularly)
+❌ Keep same credentials > (rotate regularly)
 ❌ Access unauthorized systems (only fix emergency)
 ❌ Browse unrelated data (focus on emergency)
 ❌ Hide usage (always audit)

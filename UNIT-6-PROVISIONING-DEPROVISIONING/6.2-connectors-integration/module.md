@@ -112,24 +112,24 @@ ISC > Administration > Connectors
 ```
 Connector Configuration:
 ├─ Target System Details:
-│  ├─ API endpoint/URL
-│  ├─ Authentication (API key, username/password, OAuth)
-│  └─ Connection parameters (org name, region, etc.)
+│ ├─ API endpoint/URL
+│ ├─ Authentication (API key, username/password, OAuth)
+│ └─ Connection parameters (org name, region, etc.)
 │
 ├─ Test Connection:
-│  ├─ Click "Test" button
-│  ├─ ISC attempts to connect
-│  └─ Result: Connected ✓ or Error
+│ ├─ Click "Test" button
+│ ├─ ISC attempts to connect
+│ └─ Result: Connected ✓ or Error
 │
 ├─ Map Attributes:
-│  ├─ ISC attribute → Target system field
-│  ├─ Example: ISC.username → GitHub.login
-│  └─ Example: ISC.email → GitHub.email
+│ ├─ ISC attribute → Target system field
+│ ├─ Example: ISC.username → GitHub.login
+│ └─ Example: ISC.email → GitHub.email
 │
 └─ Define Actions:
-   ├─ What to do when user assigned to role
-   ├─ What to do when user removed from role
-   └─ What to do for exception scenarios
+ ├─ What to do when user assigned to role
+ ├─ What to do when user removed from role
+ └─ What to do for exception scenarios
 ```
 
 **Step 3: Create Provisioning Workflows**
@@ -212,9 +212,9 @@ Connector returns: Full account list
 ISC compares: "QB accounts" vs. "Who SHOULD have access per roles"
 ↓
 Result:
-  ├─ Match: Casey has QB access, Casey should have access ✓
-  ├─ Missing: Jordan doesn't have access, Jordan should ✗ (alert)
-  └─ Extra: Pat has access, Pat shouldn't (alert)
+ ├─ Match: Casey has QB access, Casey should have access ✓
+ ├─ Missing: Jordan doesn't have access, Jordan should ✗ (alert)
+ └─ Extra: Pat has access, Pat shouldn't (alert)
 ↓
 ISC alerts: "Access mismatch detected, investigate"
 ```
@@ -342,9 +342,9 @@ Solution:
 ├─ Map ISC roles to actual system permissions (document!)
 ├─ Test with real permission names
 ├─ Example mapping:
-│  ├─ ISC "Finance_Manager" → QB "owner"
-│  ├─ ISC "Senior_Accountant" → QB "editor"
-│  └─ ISC "AP_Clerk" → QB "data entry"
+│ ├─ ISC "Finance_Manager" → QB "owner"
+│ ├─ ISC "Senior_Accountant" → QB "editor"
+│ └─ ISC "AP_Clerk" → QB "data entry"
 └─ Update workflows to use correct permission names
 ```
 

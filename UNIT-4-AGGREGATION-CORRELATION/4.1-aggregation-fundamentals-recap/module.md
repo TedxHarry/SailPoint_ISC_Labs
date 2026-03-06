@@ -30,7 +30,7 @@ Unit 3: Identity Profiles & Sources complete.
 **Data flow:**
 ```
 Source System → Connector reads → ISC validates against Profile → ISC stores
-(Entra ID)     (REST API calls)   (attributes match schema)    (Identity, Account tables)
+(Entra ID) (REST API calls) (attributes match schema) (Identity, Account tables)
 ```
 
 **Example - Contoso scenario:**

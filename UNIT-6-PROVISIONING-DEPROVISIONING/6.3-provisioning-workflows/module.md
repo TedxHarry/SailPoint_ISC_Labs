@@ -191,19 +191,19 @@ Conditions:
 
 Actions:
 1. Create QB account
-   ├─ Username: email prefix (casey → casey@contoso)
-   ├─ Password: Generate secure random
-   └─ Email: Send to user
+ ├─ Username: email prefix (casey → casey@contoso)
+ ├─ Password: Generate secure random
+ └─ Email: Send to user
 2. Set QB permissions
-   ├─ Permission level: admin
-   ├─ Add to groups: "Accounting", "Management"
-   └─ GL access: enabled
+ ├─ Permission level: admin
+ ├─ Add to groups: "Accounting", "Management"
+ └─ GL access: enabled
 3. Send notifications
-   ├─ User: "Your QB account is ready, temporary password: xxxxx"
-   ├─ Manager: "Casey provisioned to QB as admin"
-   └─ IT: "QB provisioning complete, user: casey"
+ ├─ User: "Your QB account is ready, temporary password: xxxxx"
+ ├─ Manager: "Casey provisioned to QB as admin"
+ └─ IT: "QB provisioning complete, user: casey"
 4. Log action
-   └─ "Provisioned Casey to QB (admin level), success"
+ └─ "Provisioned Casey to QB (admin level), success"
 
 Result: Casey can log into QB with admin access
 ```
@@ -220,23 +220,23 @@ Conditions:
 
 Actions:
 1. Create GitHub account
-   ├─ Username: user4.contoso
-   ├─ Email: user4@contoso.com
-   └─ Name: User 4
+ ├─ Username: user4.contoso
+ ├─ Email: user4@contoso.com
+ └─ Name: User 4
 2. Add to GitHub organization
-   ├─ Organization: contoso
-   ├─ Team: "Engineering"
-   └─ Role: "Developer" (not admin)
+ ├─ Organization: contoso
+ ├─ Team: "Engineering"
+ └─ Role: "Developer" (not admin)
 3. Grant repository access
-   ├─ Repositories: [main repo, staging repo]
-   ├─ Permission: write (can push code, create PRs)
-   └─ Admin repo: No access
+ ├─ Repositories: [main repo, staging repo]
+ ├─ Permission: write (can push code, create PRs)
+ └─ Admin repo: No access
 4. Send notifications
-   ├─ User: "Welcome to Contoso GitHub, set your password"
-   ├─ Engineering Manager: "User4 provisioned to GitHub"
-   └─ GitHub admin: GitHub account created"
+ ├─ User: "Welcome to Contoso GitHub, set your password"
+ ├─ Engineering Manager: "User4 provisioned to GitHub"
+ └─ GitHub admin: GitHub account created"
 5. Log action
-   └─ "Provisioned User4 to GitHub (developer), success"
+ └─ "Provisioned User4 to GitHub (developer), success"
 
 Result: User4 can write code to engineering repos
 ```
@@ -253,23 +253,23 @@ Conditions:
 
 Actions:
 1. Create AWS IAM user
-   ├─ Username: user12-devops
-   ├─ Access Key: auto-generated
-   └─ Secret: send via secure channel
+ ├─ Username: user12-devops
+ ├─ Access Key: auto-generated
+ └─ Secret: send via secure channel
 2. Add to IAM groups
-   ├─ Group: "DevOps_Admins"
-   ├─ Group: "Infrastructure"
-   └─ Permissions: Full AWS access
+ ├─ Group: "DevOps_Admins"
+ ├─ Group: "Infrastructure"
+ └─ Permissions: Full AWS access
 3. Enable MFA (multi-factor auth)
-   ├─ Requirement: User12 must set up MFA
-   ├─ Until MFA: Access limited
-   └─ QR code: Send to user
+ ├─ Requirement: User12 must set up MFA
+ ├─ Until MFA: Access limited
+ └─ QR code: Send to user
 4. Assign policies
-   ├─ Policy: PowerUser (except IAM)
-   ├─ Policy: Infrastructure management
-   └─ Restriction: Cannot modify billing
+ ├─ Policy: PowerUser (except IAM)
+ ├─ Policy: Infrastructure management
+ └─ Restriction: Cannot modify billing
 5. Log action
-   └─ "Provisioned User12 to AWS (DevOps admin), MFA required"
+ └─ "Provisioned User12 to AWS (DevOps admin), MFA required"
 
 Result: User12 can manage infrastructure on AWS
 ```
@@ -286,26 +286,26 @@ Conditions:
 
 Actions:
 1. Disable AD account
-   ├─ Status: Disabled (don't delete)
-   ├─ Password: Reset
-   └─ Group memberships: Remove all
+ ├─ Status: Disabled (don't delete)
+ ├─ Password: Reset
+ └─ Group memberships: Remove all
 2. Remove from all groups
-   ├─ Distribution lists: Removed
-   ├─ Security groups: Removed
-   └─ Department groups: Removed
+ ├─ Distribution lists: Removed
+ ├─ Security groups: Removed
+ └─ Department groups: Removed
 3. Move AD object
-   ├─ Organizational unit: "Terminated Users"
-   ├─ Reason: "Employee departed 2026-03-02"
-   └─ Retention: 90 days before deletion
+ ├─ Organizational unit: "Terminated Users"
+ ├─ Reason: "Employee departed 2026-03-02"
+ └─ Retention: before deletion
 4. Notify system admins
-   ├─ AD admin: "User account disabled"
-   ├─ QB admin: "Deprovisioning User5 from QB"
-   ├─ GitHub admin: "Deprovisioning from GitHub"
-   └─ AWS admin: "Deprovisioning from AWS"
+ ├─ AD admin: "User account disabled"
+ ├─ QB admin: "Deprovisioning User5 from QB"
+ ├─ GitHub admin: "Deprovisioning from GitHub"
+ └─ AWS admin: "Deprovisioning from AWS"
 5. Revoke access everywhere
-   ├─ Deprovisioning workflows triggered for all systems
-   ├─ Each system removes user's access
-   └─ See below for each system deprovisioning
+ ├─ Deprovisioning workflows triggered for all systems
+ ├─ Each system removes user's access
+ └─ See below for each system deprovisioning
 ```
 
 ---
@@ -359,7 +359,7 @@ Step 3: Test rollback
 
 Step 4: Test at scale
 ├─ Provision 10 test users at once
-├─ Check performance (< 1 minute per user acceptable)
+├─ Check performance (< per user acceptable)
 ├─ Check for race conditions
 └─ Result: Ready for production
 ```

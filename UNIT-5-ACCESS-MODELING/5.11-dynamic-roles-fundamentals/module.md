@@ -32,13 +32,13 @@ Module 5.10: Role Hierarchy & Management. Standard roles created and assigned.
 **Example:**
 ```
 Standard Role (Manual):
-  Finance_Manager role
-  └─ Members: Casey Kim (manually added)
+ Finance_Manager role
+ └─ Members: Casey Kim (manually added)
 
 Dynamic Role (Automatic):
-  Engineering_Employee role
-  └─ Rule: IF department = "Engineering" THEN auto-add
-  └─ Members: (all engineering dept users, automatically)
+ Engineering_Employee role
+ └─ Rule: IF department = "Engineering" THEN auto-add
+ └─ Members: (all engineering dept users, automatically)
 ```
 
 ---
@@ -51,7 +51,7 @@ Dynamic Role (Automatic):
 ```
 New engineer joins Contoso
 → Admin must manually add to Engineer role
-→ Delays access (1-3 days)
+→ Delays access ()
 → Easy to forget
 → Manual error-prone
 
@@ -84,7 +84,7 @@ Engineer leaves/department changes
 ```
 Role: Engineering_Employee
 Rule: IF department = "Engineering"
-      THEN auto-add to Engineering_Employee role
+ THEN auto-add to Engineering_Employee role
 ```
 
 **Step 2: ISC evaluates rule for all users**
@@ -99,9 +99,9 @@ Check Morgan Chen: department = "Finance"? NO → don't add
 ```
 Engineering_Employee role
 └─ Members (auto-managed):
-   ├─ Alex Lee (matches rule)
-   ├─ User4 (matches rule)
-   └─ (anyone with dept=Engineering)
+ ├─ Alex Lee (matches rule)
+ ├─ User4 (matches rule)
+ └─ (anyone with dept=Engineering)
 ```
 
 **Step 4: Ongoing re-evaluation**
@@ -158,7 +158,7 @@ THEN Technical_Staff role
 | Aspect | Standard Role | Dynamic Role |
 |--------|---|---|
 | **Manual work** | High (add/remove each person) | Low (rule-based) |
-| **Onboarding speed** | Slow (1-3 days) | Fast (instant) |
+| **Onboarding speed** | Slow () | Fast (instant) |
 | **Accuracy** | Error-prone | Consistent |
 | **Scaling** | Doesn't scale (10 people OK, 1000 people = problem) | Scales perfectly |
 | **Maintenance** | High (update as org changes) | Low (rule handles it) |

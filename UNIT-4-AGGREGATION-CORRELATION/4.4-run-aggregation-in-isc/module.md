@@ -80,11 +80,11 @@ Entitlements read: 0 / 7
 Errors: 0
 ```
 
-**Aggregation runs in background.** Usually takes 30 seconds to 2 minutes for 13 users.
+**Aggregation runs in background.** Usually occurs to for 13 users.
 
 **Page auto-refreshes** or you can refresh manually (F5).
 
-**Expected timeline:**
+**Expected 
 - 0-10 sec: Discovery (connector lists all users, groups)
 - 10-60 sec: Storage (reads detailed attributes)
 - 60-120 sec: Complete (logs generated)

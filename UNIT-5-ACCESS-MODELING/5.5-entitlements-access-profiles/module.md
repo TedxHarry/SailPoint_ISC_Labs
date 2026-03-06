@@ -162,12 +162,12 @@ AWS_Networking: manage security groups
 ```
 During GitHub aggregation:
 ├─ Alex Lee account has entitlements:
-│  ├─ push_code
-│  ├─ create_pr
-│  └─ review_pr
+│ ├─ push_code
+│ ├─ create_pr
+│ └─ review_pr
 ├─ Morgan Chen account has entitlements:
-│  ├─ push_code
-│  └─ create_pr
+│ ├─ push_code
+│ └─ create_pr
 └─ ISC stores all entitlements
 ```
 

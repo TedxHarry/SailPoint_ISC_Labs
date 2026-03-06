@@ -30,33 +30,33 @@ Scenario: User needs temporary access outside normal role
 
 Request: Casey Kim (Finance_Manager) needs AWS access for audit
 ├─ Normal: Finance_Manager does NOT have AWS
-├─ Reason: Special audit project, 3 months
+├─ Reason: Special audit project, 
 ├─ Justification: Required for compliance review
 └─ Process: Submit exception request
 
 Steps:
 1. User submits request with:
-   ├─ What access needed: AWS (audit role)
-   ├─ Why needed: Compliance audit project
-   ├─ How long: Until 2026-06-30
-   └─ Approval chain: Manager → Compliance Lead
+ ├─ What access needed: AWS (audit role)
+ ├─ Why needed: Compliance audit project
+ ├─ How long: Until 2026-06-30
+ └─ Approval chain: Manager → Compliance Lead
 
 2. Approvers review:
-   ├─ Manager: Is work legitimate? YES ✓
-   ├─ Compliance: Is it documented? YES ✓
-   └─ Status: APPROVED
+ ├─ Manager: Is work legitimate? YES ✓
+ ├─ Compliance: Is it documented? YES ✓
+ └─ Status: APPROVED
 
 3. ISC provisions exception:
-   ├─ Add Casey to: AWS_Audit_Read role (temporary)
-   ├─ Set expiration: 2026-06-30
-   ├─ Log: Exception reason + approvers
-   └─ Notify: User has new access
+ ├─ Add Casey to: AWS_Audit_Read role (temporary)
+ ├─ Set expiration: 2026-06-30
+ ├─ Log: Exception reason + approvers
+ └─ Notify: User has new access
 
 4. Track and expire:
-   ├─ Before expiration: Notify approvers "Review needed"
-   ├─ At expiration: Automatically remove access
-   ├─ Record: Exception completed in audit trail
-   └─ Archive: Documentation for compliance
+ ├─ Before expiration: Notify approvers "Review needed"
+ ├─ At expiration: Automatically remove access
+ ├─ Record: Exception completed in audit trail
+ └─ Archive: Documentation for compliance
 ```
 
 ### Exception Types
@@ -64,7 +64,7 @@ Steps:
 ```
 Time-Bound Exception:
 ├─ 
-├─ Example: 3-month project access
+├─ Example: project access
 ├─ Auto-expiration: Remove on date
 └─ Review before removal
 
@@ -83,26 +83,26 @@ Permanent Exception:
 Emergency Exception:
 ├─ Fast track: Reduced approval time
 ├─ Example: Security incident requires fast access
-├─ Timeline: 15 min approval vs normal 2 days
+├─ 
 ├─ Restriction: CTO pre-approval limit
-└─ Review: Audit within 48 hours
+└─ Review: Audit within 
 ```
 
 ### Exception Approval Workflow
 
 ```
 Submitter creates exception request
-     ↓
-Manager approval (2 hours)
-     ↓
-Policy owner approval (4 hours)
-     ↓
-Compliance lead approval (6 hours)
-     ↓
+ ↓
+Manager approval ()
+ ↓
+Policy owner approval ()
+ ↓
+Compliance lead approval ()
+ ↓
 ISC provisions access
-     ↓
+ ↓
 Notify submitter + approvers
-     ↓
+ ↓
 Track expiration (set calendar reminder)
 ```
 

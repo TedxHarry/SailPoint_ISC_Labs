@@ -28,9 +28,9 @@ Module 5.14: Test Dynamic Role Membership. All roles created and tested.
 **Example conflict:**
 ```
 Person with both:
-  ├─ Can create invoice (Accounts Payable)
-  ├─ AND can approve invoice (Manager)
-  └─ Result: Can pay themselves fraudulently
+ ├─ Can create invoice (Accounts Payable)
+ ├─ AND can approve invoice (Manager)
+ └─ Result: Can pay themselves fraudulently
 ```
 
 **Solution:** Prevent same person from having both permissions.
@@ -116,28 +116,28 @@ Create_Invoice entitlement CANNOT combine with Approve_Invoice
 
 ```
 Rule 1: Cannot have both:
-  ├─ Finance_AP_Clerk (can create invoices)
-  └─ Finance_Manager (can approve invoices)
+ ├─ Finance_AP_Clerk (can create invoices)
+ └─ Finance_Manager (can approve invoices)
 
 Rule 2: Cannot have both:
-  ├─ Create_GL_Entry
-  └─ Reconcile_GL
+ ├─ Create_GL_Entry
+ └─ Reconcile_GL
 
 Rule 3: Cannot have both:
-  ├─ Delete_Invoice
-  └─ Create_Invoice
+ ├─ Delete_Invoice
+ └─ Create_Invoice
 ```
 
 **IT SoD Rules:**
 
 ```
 Rule 1: Cannot have both:
-  ├─ Create_User (can create accounts)
-  └─ Approve_Access_Request (can approve own requests)
+ ├─ Create_User (can create accounts)
+ └─ Approve_Access_Request (can approve own requests)
 
 Rule 2: Cannot have both:
-  ├─ Deploy_Production
-  └─ Approve_Deployment
+ ├─ Deploy_Production
+ └─ Approve_Deployment
 ```
 
 ---

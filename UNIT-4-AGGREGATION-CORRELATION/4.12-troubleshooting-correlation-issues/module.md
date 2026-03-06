@@ -46,16 +46,16 @@ If none shown: No rule created (go to Module 4.7)
 **Step 2:** Check rule definition
 ```
 Select rule, view details:
-  Rule: "IF account.nativeIdentity EQUALS identity.email"
-  Enabled: Check this is YES
-  Priority: Check this rule is priority 1 (first to evaluate)
+ Rule: "IF account.nativeIdentity EQUALS identity.email"
+ Enabled: Check this is YES
+ Priority: Check this rule is priority 1 (first to evaluate)
 ```
 
 **Step 3:** Check account has required attribute
 ```
 ISC > Accounts > Select "alex.lee@contoso.com"
 View attributes:
-  nativeIdentity: "alex.lee@contoso.com" (should match rule source)
+ nativeIdentity: "alex.lee@contoso.com" (should match rule source)
 ```
 
 **Step 4:** Check identity exists with matching attribute
@@ -120,9 +120,9 @@ Watch status: Should show count of matched accounts
 **Step 4:** Check results page
 ```
 After batch correlation:
-  Shows: "13 accounts successfully correlated"
-  Or: "0 accounts correlated, 13 failed"
-  If failed, shows which accounts and why
+ Shows: "13 accounts successfully correlated"
+ Or: "0 accounts correlated, 13 failed"
+ If failed, shows which accounts and why
 ```
 
 **Fixes:**
@@ -148,7 +148,7 @@ or
 **Example:**
 ```
 Rule created: "IF account.nativeIdentityXXX EQUALS identity.email"
-                          ↑ typo: should be "nativeIdentity"
+ ↑ typo: should be "nativeIdentity"
 ISC shows error
 ```
 
@@ -189,9 +189,9 @@ Invalid: "IF nativeIdentity == email" (missing "account." and "identity." prefix
 ```
 Identity: "Alex Lee"
 Accounts:
-  ├─ alex.lee@contoso.com ✅ (Entra ID)
-  ├─ alex.lee@contoso.com (Okta) ← Duplicate nativeIdentity!
-  └─ alex.lee (Oracle)
+ ├─ alex.lee@contoso.com ✅ (Entra ID)
+ ├─ alex.lee@contoso.com (Okta) ← Duplicate nativeIdentity!
+ └─ alex.lee (Oracle)
 ```
 
 **Cause:** Two different sources have same nativeIdentity (shouldn't happen normally).
@@ -210,10 +210,10 @@ Oracle: alex.lee (different format)
 **Step 2:** Verify both are same person
 ```
 Check other attributes:
-  First name: All say "Alex" ✅
-  Last name: All say "Lee" ✅
-  Department: All say "Engineering" ✅
-  Conclusion: Yes, same person
+ First name: All say "Alex" ✅
+ Last name: All say "Lee" ✅
+ Department: All say "Engineering" ✅
+ Conclusion: Yes, same person
 ```
 
 **Fixes:**
@@ -277,8 +277,8 @@ Shows: "No linked identity" or blank identity field
 ```
 Rule test: 13/13 match
 After batch correlation:
-  ✅ 10 accounts correlated
-  ❌ 3 accounts failed
+ ✅ 10 accounts correlated
+ ❌ 3 accounts failed
 (alex.lee, morgan.chen, casey.kim linked, but others aren't)
 ```
 
@@ -329,7 +329,7 @@ Does identity exist? Does it have matching email attribute?
 ```
 Identity: Alex Lee
 Attributes:
-  manager: (shows ID but no name, or blank)
+ manager: (shows ID but no name, or blank)
 ```
 
 **Cause:** Manager identity doesn't exist or correlation happened before manager was aggregated.

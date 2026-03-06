@@ -96,7 +96,7 @@ Audit Data:
 ├─ Question: "How many users have admin access?"
 ├─ Answer: "12 users have admin role"
 ├─ Data: Count of users by role/privilege
-├─ Timeline: Point-in-time snapshot
+├─ 
 ├─ Use: Understand current access state
 └─ Example: "Finance has 3 users, 7 roles, 3 systems"
 
@@ -104,7 +104,7 @@ Audit Data:
 ├─ Question: "Why does User7 have AWS access?"
 ├─ Answer: "Assigned to Sales Engineer project role"
 ├─ Data: Role definition + project assignment
-├─ Timeline: Historical role assignment
+├─ 
 ├─ Use: Understand reasons for access
 └─ Example: "User4 has GitHub because Engineer role"
 
@@ -112,7 +112,7 @@ Audit Data:
 ├─ Question: "What users might have SoD conflicts?"
 ├─ Answer: "User6 requesting Manager + Analyst roles"
 ├─ Data: Role definitions + SoD rules
-├─ Timeline: Before assignment happens
+├─ 
 ├─ Use: Prevent problems before they occur
 └─ Example: "Alert: Request would create SoD conflict"
 
@@ -120,7 +120,7 @@ Audit Data:
 ├─ Question: "What access should User5 have?"
 ├─ Answer: "Only QB clerk access (current role)"
 ├─ Data: Role definition + job requirements
-├─ Timeline: Current vs needed
+├─ 
 ├─ Use: Identify access to remove
 └─ Example: "Remove User5's ADP access (not needed)"
 
@@ -128,7 +128,7 @@ Audit Data:
 ├─ Question: "Is access increasing or decreasing?"
 ├─ Answer: "Access growing 10% per month"
 ├─ Data: Access count over time
-├─ Timeline: Multiple snapshots (quarterly)
+├─ 
 ├─ Use: Understand growth patterns
 └─ Example: "Request volume up 25% vs last year"
 
@@ -136,7 +136,7 @@ Audit Data:
 ├─ Question: "Do admins vs regular users differ?"
 ├─ Answer: "Admins have 10x more access"
 ├─ Data: Grouped by role/department
-├─ Timeline: Compare similar time periods
+├─ 
 ├─ Use: Find outliers and unusual patterns
 └─ Example: "Engineering has 2x access vs Sales"
 ```

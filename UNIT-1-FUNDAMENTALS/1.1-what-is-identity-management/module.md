@@ -38,7 +38,7 @@ By the end of this module, you will be able to:
 Contoso Ltd is a growing professional services company with departments in Finance, Engineering, HR, Sales, and Operations. For years, their IT operations were chaotic. When new employees joined, managers had to manually request access to systems. When employees moved departments, access wasn't cleaned upso an engineer who transferred to Finance still had access to the Engineering systems, creating security and compliance risks. When people left, there were inevitable gapssometimes taking weeks to discover someone still had access. The company had no central way to review who had access to what, and they were always scrambling to prove compliance to auditors.
 
 Leadership realized this manual process was becoming impossible as the company scaled. They needed a way to:
-- Automate the onboarding process (reduce from 3-5 days to hours)
+- Automate the onboarding process (reduce from to hours)
 - Instantly revoke access when people leave
 - Ensure access matches roles and responsibilities
 - Provide audit trails for compliance
@@ -70,7 +70,7 @@ SailPoint ISC is the platform that automates identity management. It reads data 
 
 **Example:**
 
-When Casey Kim is hired at Contoso as an Accounts Payable Clerk in Finance, instead of the Finance Manager manually requesting access to the Finance system, Active Directory, email, and the HRIS systemand each IT person handling that request individually over 3-5 daysISC automatically sees "Casey is a Finance AP Clerk" and instantly provisions access to all four systems in minutes. If Casey is promoted to Accounting Manager 18 months later, ISC automatically updates access. When Casey leaves Contoso, ISC automatically revokes access everywhere on departure day.
+When Casey Kim is hired at Contoso as an Accounts Payable Clerk in Finance, instead of the Finance Manager manually requesting access to the Finance system, Active Directory, email, and the HRIS systemand each IT person handling that request individually over 3-5 daysISC automatically sees "Casey is a Finance AP Clerk" and instantly provisions access to all four systems in minutes. If Casey is promoted to Accounting Manager later, ISC automatically updates access. When Casey leaves Contoso, ISC automatically revokes access everywhere on departure day.
 
 ---
 
@@ -135,8 +135,8 @@ IT leaders often struggle to justify investment in identity management because t
 SailPoint ISC's value comes from automation. Manual identity management is expensive (IT staff time), error-prone (humans forget things), and doesn't scale (cost grows with company size). Automation is fast, consistent, auditable, and scales.
 
 **Example (Contoso Before ISC):**
-- Onboarding: 3-5 days (Finance Manager request → IT receives request → IT creates accounts individually → access gradually appears)
-- Cost: 5 people × 2 hours each = 10 hours IT time per hire = $500+ in labor
+- Onboarding: (Finance Manager request → IT receives request → IT creates accounts individually → access gradually appears)
+- Cost: 5 people × each = IT time per hire = $500+ in labor
 - Risk: Sometimes access forgotten (people don't use it for weeks, compliance violation)
 - Audit: "I think Casey has access to Finance system, let me check the spreadsheet from last year..."
 
@@ -198,8 +198,8 @@ B) and C) are both correct examples, making D the most complete answer.
 ## 📚 ADDITIONAL RESOURCES
 
 **Related Modules:**
-- [Next: 1.2 - Identity vs Access vs Governance](/modules/1.2-identity-vs-access-vs-governance)  Clarify the distinctions between related concepts
-- [Reference: 1.19 - ISC Glossary & Terminology](/modules/1.19-isc-glossary-terminology)  Complete glossary of identity management terms
+- [Next: 1.2 - Identity vs Access vs Governance](/modules/1.2-identity-vs-access-vs-governance) Clarify the distinctions between related concepts
+- [Reference: 1.19 - ISC Glossary & Terminology](/modules/1.19-isc-glossary-terminology) Complete glossary of identity management terms
 
 **Official Documentation:**
 - SailPoint ISC Documentation: [What is Identity Governance?](https://example.com)

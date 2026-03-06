@@ -89,7 +89,7 @@ Unusual Pattern Alert:
 Exception Summary:
 ├─ Total exceptions active: 2
 ├─ Time-bound: 2
-├─ Expiring soon: 1 (less than 30 days)
+├─ Expiring soon: 1 (less than )
 ├─ Action: Review expiring exception before renewal
 ```
 
@@ -120,14 +120,14 @@ Request Status:
 ├─ Access requests submitted: 12 (this quarter)
 ├─ Approved: 11 (92%)
 ├─ Denied: 1 (8%, SoD conflict)
-├─ Average approval time: 1.5 days
-├─ Fastest approval: 2 hours
-└─ Longest approval: 3 days
+├─ Average approval time: 1.
+├─ Fastest approval: 
+└─ Longest approval: 
 
 Audit Metrics:
 ├─ Audit trail entries: 1,200+ (all actions logged)
 ├─ Entries with full detail: 100%
-├─ Longest audit lookback: 90 days
+├─ Longest audit lookback: 
 └─ Data retention: 7 years
 ```
 

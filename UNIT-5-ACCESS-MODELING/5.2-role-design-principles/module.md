@@ -30,19 +30,19 @@ Module 5.1: Access Modeling Fundamentals.
 **Example - Finance:**
 ```
 Too much access (WRONG):
-  Finance_Clerk role includes:
-  - Create invoices ✅ (needed)
-  - Approve invoices ✅ (needed)
-  - Delete financial records ❌ (NOT needed)
-  - Change exchange rates ❌ (NOT needed)
-  Result: If account compromised, attacker can delete records
+ Finance_Clerk role includes:
+ - Create invoices ✅ (needed)
+ - Approve invoices ✅ (needed)
+ - Delete financial records ❌ (NOT needed)
+ - Change exchange rates ❌ (NOT needed)
+ Result: If account compromised, attacker can delete records
 
 Right access (CORRECT):
-  Finance_Clerk role includes:
-  - Create invoices ✅
-  - Approve invoices (only up to $1000) ✅
-  - View reports ✅
-  Result: Clerk can do job, limited damage if compromised
+ Finance_Clerk role includes:
+ - Create invoices ✅
+ - Approve invoices (only up to $1000) ✅
+ - View reports ✅
+ Result: Clerk can do job, limited damage if compromised
 ```
 
 ---
@@ -66,9 +66,9 @@ Hundreds of roles, unmaintainable, hard to assign
 **Just Right (Goldilocks):**
 ```
 Roles map to job functions:
-  - Finance_AP_Clerk: invoice entry + approval of small amounts
-  - Finance_Manager: all invoice access + reconciliation + reporting
-  - Senior_Accountant: advanced accounting + period close
+ - Finance_AP_Clerk: invoice entry + approval of small amounts
+ - Finance_Manager: all invoice access + reconciliation + reporting
+ - Senior_Accountant: advanced accounting + period close
 Result: 5-10 roles per department, clear purpose, manageable
 ```
 
@@ -130,24 +130,24 @@ ISC: Grant or deny access
 **Before creating a role, ask:**
 
 1. **Clear job function?** Does role map to actual job?
-   - Good: "Senior_Engineer" (actual job title)
-   - Bad: "AccessGroup1" (no job function)
+ - Good: "Senior_Engineer" (actual job title)
+ - Bad: "AccessGroup1" (no job function)
 
 2. **Least privilege?** Does role include only needed access?
-   - Good: Finance_Manager = approve + view reports + reconcile
-   - Bad: Finance_Manager = everything + delete records + change rates
+ - Good: Finance_Manager = approve + view reports + reconcile
+ - Bad: Finance_Manager = everything + delete records + change rates
 
 3. **Owner identified?** Who will own/maintain this role?
-   - Good: Finance Manager owns Finance_AP_Clerk role
-   - Bad: No owner assigned
+ - Good: Finance Manager owns Finance_AP_Clerk role
+ - Bad: No owner assigned
 
 4. **Consistent with other roles?** Does it fit overall structure?
-   - Good: All engineering roles in "Engineering_*" pattern
-   - Bad: Roles named randomly
+ - Good: All engineering roles in "Engineering_*" pattern
+ - Bad: Roles named randomly
 
 5. **Sustainable?** Can this role scale as org grows?
-   - Good: Dynamic rule "IF department = Finance, add to Finance role"
-   - Bad: Need to manually maintain list of users
+ - Good: Dynamic rule "IF department = Finance, add to Finance role"
+ - Bad: Need to manually maintain list of users
 
 ---
 

@@ -59,7 +59,7 @@ Data Analysis:
 ├─ Risk scores: Both 3.5-3.8 (high but justified)
 ├─ Violations: 0 (excellent behavior)
 ├─ Audit trail: All actions logged and reviewed
-├─ 90-day usage: Both actively using all systems
+├─ usage: Both actively using all systems
 └─ Monthly monitoring: No anomalies detected
 
 Data-Driven Insight:
@@ -83,8 +83,8 @@ Question: Where should we automate to save effort?
 Data Analysis:
 ├─ Manual tasks: Review process (40 hrs/quarter)
 ├─ Automation opportunity: Review reminders, routing
-├─ Current effort: 40 hours per quarter
-├─ Projected savings: 8 hours per quarter (20%)
+├─ Current effort: per quarter
+├─ Projected savings: per quarter (20%)
 ├─ Cost: $15K for system improvements
 ├─ Payback: 3 years (if salary is $100K)
 └─ Intangible: Better compliance, fewer delays
@@ -99,7 +99,7 @@ Data-Driven Insight:
 Recommendation:
 ├─ Status: Invest in automation
 ├─ Areas: Review reminders, approval routing, reporting
-├─ Timeline: Q2 2026
+├─ 
 ├─ Expected benefit: 20% admin time savings + better compliance
 └─ Action: Budget and plan for Q2 implementation
 ```
@@ -110,10 +110,10 @@ Recommendation:
 Optimization #1: Approval Workflow Timing
 
 Current Performance:
-├─ Average approval time: 1.5 days
-├─ Target: < 2 days (met ✓)
-├─ Fastest: 2 hours (manager pre-approved)
-├─ Slowest: 3 days (required executive sign-off)
+├─ Average approval time: 1.
+├─ Target: < (met ✓)
+├─ Fastest: (manager pre-approved)
+├─ Slowest: (required executive sign-off)
 ├─ Bottleneck: Role owner approvals take 4+ hours
 
 Data-Driven Adjustment:
@@ -121,7 +121,7 @@ Data-Driven Adjustment:
 ├─ Root cause: Notifications buried in email
 ├─ Solution: Create role owner dashboard
 ├─ Expected improvement: 50% faster role owner approval
-├─ New target: < 1 day average
+├─ New target: < average
 └─ Implementation: Q2 2026
 
 Optimization #2: Exception Auto-Expiration
@@ -136,7 +136,7 @@ Current Performance:
 Data-Driven Adjustment:
 ├─ Finding: 1 out of 2 recent exceptions nearly missed expiration
 ├─ Root cause: No reminder system before expiration
-├─ Solution: Add 30-day renewal reminders
+├─ Solution: Add renewal reminders
 ├─ Implementation: Automatic email to user + manager
 ├─ Success metric: 100% of exceptions either auto-expire or renew
 └─ Benefit: Compliance maintained, no manual overhead
@@ -153,7 +153,7 @@ Current Performance:
 Data Analysis:
 ├─ Issues by type: Access creep (0), SoD (0), wrong system (1)
 ├─ Issues by severity: 1 minor, 0 major found per year
-├─ Remediation time: < 1 day when found
+├─ Remediation time: < when found
 ├─ Compliance impact: Reviews detect issues reliably
 └─ Burden: Managers sometimes late (capacity issue)
 
@@ -182,7 +182,7 @@ Root Cause Analysis:
 └─ Solution: Earlier reminders + calendar integration
 
 Actions Taken:
-├─ 30-day reminder (instead of 14-day)
+├─ reminder (instead of )
 ├─ Calendar invites (direct manager calendars)
 ├─ Monthly check-ins (vs quarterly only)
 ├─ Manager training refresh
@@ -211,7 +211,7 @@ Root Cause Analysis:
 Actions Planned:
 ├─ Implement auto-expiration for exceptions
 ├─ Create project access designation (time-bound)
-├─ Quarterly cleanup of "unused in 90 days"
+├─ Quarterly cleanup of "unused in "
 ├─ Enhanced monitoring for at-risk users
 └─ Estimated reduction: 10% to < 5%
 
@@ -236,9 +236,9 @@ Access Control Effectiveness:
 
 Operational Efficiency:
 ├─ Provisioning time per user: 3.5 min (target < 5, EXCELLENT)
-├─ Request approval time: 1.5 days (target < 2, EXCELLENT)
-├─ Remediation time: 0.5 days (target < 1, EXCELLENT)
-├─ Admin hours per review: 2 hours (target < 2.5, EXCELLENT)
+├─ Request approval time: 1. (target < 2, EXCELLENT)
+├─ Remediation time: 0. (target < 1, EXCELLENT)
+├─ Admin hours per review: (target < 2.5, EXCELLENT)
 └─ Overall: HIGHLY EFFICIENT
 
 Compliance Status:

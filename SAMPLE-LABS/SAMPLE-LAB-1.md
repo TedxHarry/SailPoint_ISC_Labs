@@ -36,7 +36,7 @@ By the end of this module, you will be able to:
 **Scenario:** Contoso Ltd (Small Organization)
 
 **Business Background:**
-Contoso Ltd is a 50-person professional services firm with Finance, HR, Engineering, and Operations departments. Currently, their user access is managed manually across multiple systems (Active Directory, Salesforce, a custom Finance app, and an HRIS system). When new employees join, it takes 3-5 days to manually provision access to all systems. When employees move departments, access is often not cleaned up, creating compliance risk. Leadership has decided to implement SailPoint Identity Security Cloud to automate these processes and ensure compliance.
+Contoso Ltd is a 50-person professional services firm with Finance, HR, Engineering, and Operations departments. Currently, their user access is managed manually across multiple systems (Active Directory, Salesforce, a custom Finance app, and an HRIS system). When new employees join, it takes to manually provision access to all systems. When employees move departments, access is often not cleaned up, creating compliance risk. Leadership has decided to implement SailPoint Identity Security Cloud to automate these processes and ensure compliance.
 
 As the identity admin beginning this implementation, your first task is to understand what ISC is and how it will help Contoso solve these problems.
 
@@ -59,7 +59,7 @@ Without ISC, Contoso manually manages accessa slow, error-prone process that cre
 When you log into ISC, you're accessing a cloud-hosted system shared by thousands of customers. You don't need to install software or manage servers. ISC automatically updates with new features without your involvement.
 
 **Example:**
-When finance_user1 is hired at Contoso, instead of manually creating accounts in Entra ID, Finance App, and HRIS, ISC automatically provisions access to all three systems based on her Finance department rolea process that takes minutes instead of days.
+When finance_user1 is hired at Contoso, instead of manually creating accounts in Entra ID, Finance App, and HRIS, ISC automatically provisions access to all three systems based on her Finance department rolea process that occurs instead of days.
 
 ### Core Concept 2: Identity Governance
 
@@ -116,7 +116,7 @@ Before starting, verify:
 - [ ] You have ISC sandbox access (email with access details)
 - [ ] You have a working web browser (Chrome recommended)
 - [ ] You have internet connectivity
-- [ ] You have 2-3 hours available for this session
+- [ ] You have available for this session
 - [ ] You have a notepad or Word doc to save important info
 
 ### Lab Scenario
@@ -146,33 +146,33 @@ Navigate and explore your ISC sandbox to understand its structure, main features
 **Actions:**
 
 1. **Open your web browser**
-   - Open Chrome, Edge, Firefox, or Safari
-   - Do NOT use Internet Explorer (too old, won't work)
+ - Open Chrome, Edge, Firefox, or Safari
+ - Do NOT use Internet Explorer (too old, won't work)
 
 2. **Navigate to your ISC sandbox URL**
-   - Check your ISC onboarding email for "Sandbox Access" link
-   - Should look like: `https://[your-org].identitynow.com` or similar
-   - Click the link OR copy/paste into address bar
-   - Expected: You see ISC login page with username/password fields
+ - Check your ISC onboarding email for "Sandbox Access" link
+ - Should look like: `https://[your-org].identitynow.com` or similar
+ - Click the link OR copy/paste into address bar
+ - Expected: You see ISC login page with username/password fields
 
 3. **Enter your credentials**
-   - **User principal name:** [Email address from onboarding email]
-   - **Password:** [Temporary password from onboarding email]
-   - Click: **[Sign In]** button
-   - Expected: You see "Loading..." briefly, then ISC dashboard appears
-   - Note: First login may take 30-45 seconds
+ - **User principal name:** [Email address from onboarding email]
+ - **Password:** [Temporary password from onboarding email]
+ - Click: **[Sign In]** button
+ - Expected: You see "Loading..." briefly, then ISC dashboard appears
+ - Note: First login may take 30-45 seconds
 
 4. **If prompted for Multi-Factor Authentication (MFA)**
-   - Check email for verification code OR
-   - Use authenticator app if configured
-   - Enter code in MFA prompt
-   - Click: **[Verify]**
-   - Expected: You proceed to ISC dashboard
+ - Check email for verification code OR
+ - Use authenticator app if configured
+ - Enter code in MFA prompt
+ - Click: **[Verify]**
+ - Expected: You proceed to ISC dashboard
 
 **Troubleshooting (for this step):**
-- **If:** You see "Invalid credentials" error → **Then:** Double-check you copied email/password correctly from onboarding email. Try again. If still fails after 3 attempts, wait 10 minutes (account lockout protection).
+- **If:** You see "Invalid credentials" error → **Then:** Double-check you copied email/password correctly from onboarding email. Try again. If still fails after 3 attempts, wait (account lockout protection).
 - **If:** You don't see the login page → **Then:** Verify you're using the correct sandbox URL from your onboarding email. Bookmark it for future use.
-- **If:** ISC loads but says "Loading..." for >1 minute → **Then:** Refresh the page (Ctrl+R or Cmd+R). If problem persists, try different browser.
+- **If:** ISC loads but says "Loading..." for > → **Then:** Refresh the page (Ctrl+R or Cmd+R). If problem persists, try different browser.
 
 ### STEP 2: Understand the ISC Dashboard
 
@@ -181,55 +181,55 @@ Navigate and explore your ISC sandbox to understand its structure, main features
 **Actions:**
 
 1. **Look at the main dashboard page**
-   - You'll see several sections:
-     - Top bar (with logo, search bar, user profile icon)
-     - Left sidebar (navigation menu)
-     - Main content area (shows dashboard/widgets)
-   - Don't click anything yet, just observe
+ - You'll see several sections:
+ - Top bar (with logo, search bar, user profile icon)
+ - Left sidebar (navigation menu)
+ - Main content area (shows dashboard/widgets)
+ - Don't click anything yet, just observe
 
 2. **Identify the left sidebar navigation**
-   - Look at the **left side** of the screen
-   - You should see menu items like:
-     - Search
-     - Identities
-     - Access
-     - Reports
-     - Administration
-     - [Other items]
-   - **Count how many main menu items** you see
-   - Note down any that look interesting
+ - Look at the **left side** of the screen
+ - You should see menu items like:
+ - Search
+ - Identities
+ - Access
+ - Reports
+ - Administration
+ - [Other items]
+ - **Count how many main menu items** you see
+ - Note down any that look interesting
 
 3. **Find the main dashboard widgets**
-   - In the center of the screen, you should see **cards/boxes** showing:
-     - Number of identities ("X identities in your system")
-     - Tasks or requests ("X pending requests")
-     - Access insights or charts
-     - Recent activity
-   - These widgets may be empty (that's okay, you have no data yet)
+ - In the center of the screen, you should see **cards/boxes** showing:
+ - Number of identities ("X identities in your system")
+ - Tasks or requests ("X pending requests")
+ - Access insights or charts
+ - Recent activity
+ - These widgets may be empty (that's okay, you have no data yet)
 
 4. **Locate the top bar**
-   - At the very top, you should see:
-     - SailPoint logo (left side)
-     - Search bar in the middle
-     - Your user profile icon (right side - usually a circle with initials)
-   - This top bar is available on every page
+ - At the very top, you should see:
+ - SailPoint logo (left side)
+ - Search bar in the middle
+ - Your user profile icon (right side - usually a circle with initials)
+ - This top bar is available on every page
 
 **Expected Visual:**
 ```
 ┌─────────────────────────────────────────────────┐
-│ SailPoint Logo    [Search Bar]    [Profile 👤] │  ← TOP BAR
+│ SailPoint Logo [Search Bar] [Profile 👤] │ ← TOP BAR
 ├──────────────┬───────────────────────────────────┤
-│              │                                   │
-│ ☰ Search    │    DASHBOARD                      │
-│   Identities │    ┌──────────────────────────┐  │
-│   Access    │    │ 0 Identities             │  │  ← WIDGETS
-│   Reports   │    │ 0 Pending Tasks          │  │
-│   Admin     │    │ 0 Access Violations      │  │
-│              │    └──────────────────────────┘  │
-│              │                                   │
+│ │ │
+│ ☰ Search │ DASHBOARD │
+│ Identities │ ┌──────────────────────────┐ │
+│ Access │ │ 0 Identities │ │ ← WIDGETS
+│ Reports │ │ 0 Pending Tasks │ │
+│ Admin │ │ 0 Access Violations │ │
+│ │ └──────────────────────────┘ │
+│ │ │
 └──────────────┴───────────────────────────────────┘
 
-LEFT SIDEBAR      MAIN CONTENT AREA
+LEFT SIDEBAR MAIN CONTENT AREA
 ```
 
 **Troubleshooting (for this step):**
@@ -243,30 +243,30 @@ LEFT SIDEBAR      MAIN CONTENT AREA
 **Actions:**
 
 1. **Locate the Search bar**
-   - At the **top center** of the page, you'll see a text box that says "Search"
-   - Click: On this search box
-   - Expected: Search box becomes active (you can see cursor)
+ - At the **top center** of the page, you'll see a text box that says "Search"
+ - Click: On this search box
+ - Expected: Search box becomes active (you can see cursor)
 
 2. **See search suggestion**
-   - Type: `user` (just the word "user")
-   - You should see a dropdown with search types:
-     - Identity
-     - Account
-     - Entitlement
-     - Access Profile
-     - [Others]
-   - Don't click anything yet, just observe
+ - Type: `user` (just the word "user")
+ - You should see a dropdown with search types:
+ - Identity
+ - Account
+ - Entitlement
+ - Access Profile
+ - [Others]
+ - Don't click anything yet, just observe
 
 3. **Perform a simple search**
-   - In the search box, type: `finance`
-   - Press: **Enter** key
-   - Expected: Search results page loads showing identities/accounts matching "finance"
-   - Note: Results may be empty right now (no data imported yet) - that's okay
+ - In the search box, type: `finance`
+ - Press: **Enter** key
+ - Expected: Search results page loads showing identities/accounts matching "finance"
+ - Note: Results may be empty right now (no data imported yet) - that's okay
 
 4. **Navigate back to dashboard**
-   - Click: **SailPoint logo** (top-left) OR
-   - Click: **"Dashboard"** in left sidebar
-   - Expected: You return to the main dashboard
+ - Click: **SailPoint logo** (top-left) OR
+ - Click: **"Dashboard"** in left sidebar
+ - Expected: You return to the main dashboard
 
 **Troubleshooting (for this step):**
 - **If:** Search doesn't work → **Then:** Refresh the page and try again.
@@ -279,51 +279,51 @@ LEFT SIDEBAR      MAIN CONTENT AREA
 **Actions:**
 
 1. **Find Access Modeling features**
-   - In left sidebar, click: **"Access"** or **"Governance"** menu item
-   - Look for sub-items like:
-     - Roles
-     - Access Profiles
-     - Role Recommendations
-   - Click: **"Roles"** (if visible)
-   - Expected: You see a Roles page (probably empty)
-   - **Note:** This is the Access Modeling module
+ - In left sidebar, click: **"Access"** or **"Governance"** menu item
+ - Look for sub-items like:
+ - Roles
+ - Access Profiles
+ - Role Recommendations
+ - Click: **"Roles"** (if visible)
+ - Expected: You see a Roles page (probably empty)
+ - **Note:** This is the Access Modeling module
 
 2. **Find Lifecycle Management features**
-   - Look in left sidebar for:
-     - Lifecycle
-     - Identity Profiles
-     - Identity Creation Rules
-   - If you see these items, click one to explore
-   - **Note:** This is the Lifecycle Management module
+ - Look in left sidebar for:
+ - Lifecycle
+ - Identity Profiles
+ - Identity Creation Rules
+ - If you see these items, click one to explore
+ - **Note:** This is the Lifecycle Management module
 
 3. **Find Compliance Management features**
-   - Look in left sidebar for:
-     - Compliance
-     - Certifications
-     - Access Reviews
-     - Policies
-   - Click: **"Certifications"** (if visible)
-   - Expected: You see certifications page (empty for now)
-   - **Note:** This is the Compliance Management module
+ - Look in left sidebar for:
+ - Compliance
+ - Certifications
+ - Access Reviews
+ - Policies
+ - Click: **"Certifications"** (if visible)
+ - Expected: You see certifications page (empty for now)
+ - **Note:** This is the Compliance Management module
 
 4. **Find Analytics features**
-   - In left sidebar, click: **"Reports"** or **"Analytics"**
-   - Expected: You see a Reports page with charts/dashboards
-   - Look for items like:
-     - Identity Analytics
-     - Access Risk Dashboard
-     - Compliance Dashboard
-   - **Note:** This is the Analytics module
+ - In left sidebar, click: **"Reports"** or **"Analytics"**
+ - Expected: You see a Reports page with charts/dashboards
+ - Look for items like:
+ - Identity Analytics
+ - Access Risk Dashboard
+ - Compliance Dashboard
+ - **Note:** This is the Analytics module
 
 5. **Document what you found**
-   - Create a simple list in notepad:
-     ```
-     ISC MODULES FOUND:
-     ✓ Access Modeling: Located in [Left Sidebar > ...]
-     ✓ Lifecycle Mgmt: Located in [Left Sidebar > ...]
-     ✓ Compliance Mgmt: Located in [Left Sidebar > ...]
-     ✓ Analytics: Located in [Left Sidebar > ...]
-     ```
+ - Create a simple list in notepad:
+ ```
+ ISC MODULES FOUND:
+ ✓ Access Modeling: Located in [Left Sidebar > ...]
+ ✓ Lifecycle Mgmt: Located in [Left Sidebar > ...]
+ ✓ Compliance Mgmt: Located in [Left Sidebar > ...]
+ ✓ Analytics: Located in [Left Sidebar > ...]
+ ```
 
 **Troubleshooting (for this step):**
 - **If:** You can't find some modules → **That's okay!** Different ISC tenants may have different menu structures. Look for the concepts (Roles for Access Modeling, Reviews for Compliance, etc.)
@@ -336,44 +336,44 @@ LEFT SIDEBAR      MAIN CONTENT AREA
 **Actions:**
 
 1. **Navigate to Administration**
-   - Click: **"Administration"** in left sidebar
-   - Expected: Admin dashboard loads
-   - You should see sections like:
-     - Tenants
-     - Identity Sources
-     - Applications
-     - Users
-     - System
+ - Click: **"Administration"** in left sidebar
+ - Expected: Admin dashboard loads
+ - You should see sections like:
+ - Tenants
+ - Identity Sources
+ - Applications
+ - Users
+ - System
 
 2. **Look at Tenants section**
-   - Under Administration, find and click: **"Tenants"** or **"System Settings"**
-   - Expected: You see your ISC tenant information
-   - Look for details like:
-     - Tenant name
-     - Org name
-     - Status
-   - Note down: Your tenant name/ID
+ - Under Administration, find and click: **"Tenants"** or **"System Settings"**
+ - Expected: You see your ISC tenant information
+ - Look for details like:
+ - Tenant name
+ - Org name
+ - Status
+ - Note down: Your tenant name/ID
 
 3. **Explore Users section**
-   - Under Administration, find and click: **"Users"**
-   - Expected: You see a list of ISC users (probably just you)
-   - Look for:
-     - Your user account
-     - Your email
-     - Your role (probably "Admin")
+ - Under Administration, find and click: **"Users"**
+ - Expected: You see a list of ISC users (probably just you)
+ - Look for:
+ - Your user account
+ - Your email
+ - Your role (probably "Admin")
 
 4. **Look at System settings**
-   - Under Administration, find and click: **"System"** or **"Settings"**
-   - Explore available options (don't change anything)
-   - You should see:
-     - Logging settings
-     - API configuration
-     - Audit settings
-     - Other infrastructure items
+ - Under Administration, find and click: **"System"** or **"Settings"**
+ - Explore available options (don't change anything)
+ - You should see:
+ - Logging settings
+ - API configuration
+ - Audit settings
+ - Other infrastructure items
 
 5. **Return to Dashboard**
-   - Click: **"Dashboard"** in left sidebar
-   - You're back at the main page
+ - Click: **"Dashboard"** in left sidebar
+ - You're back at the main page
 
 **Troubleshooting (for this step):**
 - **If:** You don't see Administration menu → **Then:** You may not have admin permissions. Ask your ISC administrator to grant you admin access.
@@ -386,34 +386,34 @@ LEFT SIDEBAR      MAIN CONTENT AREA
 **Actions:**
 
 1. **Use the Search Bar (top center)**
-   - Click: The search box at very top center
-   - Type: `admin`
-   - Look for dropdown showing search options
-   - Press: **Escape** to close (don't perform search)
+ - Click: The search box at very top center
+ - Type: `admin`
+ - Look for dropdown showing search options
+ - Press: **Escape** to close (don't perform search)
 
 2. **Access Your Profile (top right)**
-   - Click: Your profile icon (circle with initials, top-right corner)
-   - Expected: Menu appears showing:
-     - Your name
-     - Your email
-     - "Settings" or "My Settings"
-     - "Sign Out"
-   - Click: **"Settings"** (if available)
-   - Explore your user settings page
-   - Click: Back button or navigate away
+ - Click: Your profile icon (circle with initials, top-right corner)
+ - Expected: Menu appears showing:
+ - Your name
+ - Your email
+ - "Settings" or "My Settings"
+ - "Sign Out"
+ - Click: **"Settings"** (if available)
+ - Explore your user settings page
+ - Click: Back button or navigate away
 
 3. **Look for Help/Support (if visible)**
-   - Some sandboxes show help icon in top bar
-   - If you see a **?** or **Help** icon, click it
-   - Expected: Help menu appears with links to:
-     - Documentation
-     - Support
-     - Community
-   - If it appears, note the links
+ - Some sandboxes show help icon in top bar
+ - If you see a **?** or **Help** icon, click it
+ - Expected: Help menu appears with links to:
+ - Documentation
+ - Support
+ - Community
+ - If it appears, note the links
 
 4. **Return to Dashboard**
-   - Click: **SailPoint Logo** (top-left)
-   - Expected: You're back at dashboard
+ - Click: **SailPoint Logo** (top-left)
+ - Expected: You're back at dashboard
 
 **Troubleshooting (for this step):**
 - **If:** Profile menu doesn't appear → **Then:** Try clicking a bit lower or to the left of where you clicked.
@@ -457,14 +457,14 @@ You have successfully completed this lab if:
 2. Verify you're copying password exactly (watch for extra spaces)
 3. Clear your browser cache: Ctrl+Shift+Delete (most browsers)
 4. Try again
-5. If still failing, wait 15 minutes (account might be temporarily locked)
+5. If still failing, wait (account might be temporarily locked)
 6. If problem persists, contact ISC administrator
 
 **Prevention:** Save your username and password in a password manager immediately after first successful login
 
 ### Common Issue 2: Page Takes Forever to Load
 
-**Problem:** After login, ISC dashboard takes >1 minute to appear, or shows "Loading..." indefinitely
+**Problem:** After login, ISC dashboard takes > to appear, or shows "Loading..." indefinitely
 
 **Root Cause:** Usually slow internet connection, or ISC service temporarily slow
 
@@ -472,7 +472,7 @@ You have successfully completed this lab if:
 1. Wait 30 more seconds (some loads are genuinely slow)
 2. If still loading, refresh page: Ctrl+R (or Cmd+R on Mac)
 3. If refresh doesn't help, try different browser
-4. If problem continues, try again in 10 minutes (service may be temporarily slow)
+4. If problem continues, try again in (service may be temporarily slow)
 5. Check internet connection speed
 
 **Prevention:** Use a modern browser (Chrome/Edge) on a stable internet connection
@@ -515,9 +515,9 @@ You have successfully completed this lab if:
 **Solution:**
 1. That's completely okay! The core concepts are the same
 2. Look for equivalent functionality:
-   - Search still at top
-   - Navigation still on left (or hamburger menu)
-   - Modules still present (may have different names)
+ - Search still at top
+ - Navigation still on left (or hamburger menu)
+ - Modules still present (may have different names)
 3. Focus on understanding concepts, not exact button names
 4. If something important is missing, ask in SailPoint community
 
@@ -529,33 +529,33 @@ You have successfully completed this lab if:
 
 **For This Module, Create:**
 
-1. **Exploration Notes (5-10 minutes to complete):**
-   Save a document with:
-   ```
-   ISC SANDBOX EXPLORATION NOTES
+1. **Exploration Notes ( to complete):**
+ Save a document with:
+ ```
+ ISC SANDBOX EXPLORATION NOTES
 
-   1. Sandbox URL: ______________________
-   2. Admin Username: __________________
-   3. Tenant Name: _____________________
+ 1. Sandbox URL: ______________________
+ 2. Admin Username: __________________
+ 3. Tenant Name: _____________________
 
-   4. Navigation Findings:
-      - Access Modeling: Found in ________
-      - Lifecycle: Found in ______________
-      - Compliance: Found in _____________
-      - Analytics: Found in ______________
+ 4. Navigation Findings:
+ - Access Modeling: Found in ________
+ - Lifecycle: Found in ______________
+ - Compliance: Found in _____________
+ - Analytics: Found in ______________
 
-   5. First Impression: [2-3 sentences about ISC]
-   ```
+ 5. First Impression: [2-3 sentences about ISC]
+ ```
 
 2. **Saved Screenshots (Optional):**
-   - Take screenshot of ISC dashboard (full screen)
-   - Take screenshot of each module you found
-   - Save in a "screenshots" folder
+ - Take screenshot of ISC dashboard (full screen)
+ - Take screenshot of each module you found
+ - Save in a "screenshots" folder
 
 3. **Key Observations:**
-   - What surprised you about ISC?
-   - What looks most useful?
-   - What was confusing at first?
+ - What surprised you about ISC?
+ - What looks most useful?
+ - What was confusing at first?
 
 ---
 
@@ -573,12 +573,12 @@ You have successfully completed this lab if:
 
 **Certification Domain(s) Covered:**
 - **Domain:** Fundamentals
-  - Exam focus: Understanding what ISC is and how it's structured
-  - Coverage level: Basic (foundational knowledge)
+ - Exam focus: Understanding what ISC is and how it's structured
+ - Coverage level: Basic (foundational knowledge)
 
 - **Domain:** Platforms & Architecture
-  - Exam focus: Cloud-native architecture, multi-tenant design
-  - Coverage level: Basic
+ - Exam focus: Cloud-native architecture, multi-tenant design
+ - Coverage level: Basic
 
 **Practice Exam Questions:**
 
@@ -632,19 +632,19 @@ If you finish early and want to explore more:
 - Note down: What API calls might be useful for identity management
 - Try using the API explorer (if available in your sandbox)
 
-**Expected Time:** +30 minutes
+**
 
 ### Challenge 2: Customization Exploration (Advanced)
 
 For those wanting deeper understanding:
 - Navigate to Administration → Customization
 - Look for options for:
-  - Custom fields
-  - Custom branding
-  - Custom workflows
+ - Custom fields
+ - Custom branding
+ - Custom workflows
 - Document: What customizations are available in your sandbox
 
-**Expected Time:** +1 hour
+**
 
 ---
 

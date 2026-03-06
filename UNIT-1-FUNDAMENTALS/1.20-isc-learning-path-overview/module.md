@@ -14,7 +14,7 @@ Overview of the complete 14-unit curriculum. What you've learned, what's next, a
 
 ## 📋 UNIT 1: COMPLETED
 
-**ISC Fundamentals & Concepts (20 modules, 180-200 hours)**
+**ISC Fundamentals & Concepts (20 modules, )**
 
 You've learned:
 - What identity management is and why it matters
@@ -41,11 +41,10 @@ You've learned:
 
 **Units:**
 - Unit 1: ISC Fundamentals & Concepts (COMPLETED)
-- Unit 2: Entra ID Setup & ISC Sandbox (16-18 modules)  Hands-on setup of your test environment
-- Unit 3: Identity Profiles & Sources (18-20 modules)  How ISC maps data (connectors, aggregation, correlation)
-- Unit 4: Aggregation & Correlation (18-20 modules)  Deep dive into data ingestion
+- Unit 2: Entra ID Setup & ISC Sandbox (16-18 modules) Hands-on setup of your test environment
+- Unit 3: Identity Profiles & Sources (18-20 modules) How ISC maps data (connectors, aggregation, correlation)
+- Unit 4: Aggregation & Correlation (18-20 modules) Deep dive into data ingestion
 
-**Timeline:** 8-12 weeks
 **Deliverable:** Contoso test environment with Entra ID and ISC sandbox connected and synced
 **Certification:** SailPoint Identity Security Professional (Knowledge Credential)
 
@@ -56,14 +55,13 @@ You've learned:
 **Objective:** Deploy ISC for 50-100 person organization (Contoso Ltd)
 
 **Units:**
-- Unit 5: Access Modeling (20-22 modules)  Design roles and rules
-- Unit 6: Provisioning & Deprovisioning (18-20 modules)  Create/remove access automatically
-- Unit 7: Lifecycle Management (16-18 modules)  Automate Join/Move/Leave
-- Unit 8: Access Request & User Portal (14-16 modules)  Self-service access requests
+- Unit 5: Access Modeling (20-22 modules) Design roles and rules
+- Unit 6: Provisioning & Deprovisioning (18-20 modules) Create/remove access automatically
+- Unit 7: Lifecycle Management (16-18 modules) Automate Join/Move/Leave
+- Unit 8: Access Request & User Portal (14-16 modules) Self-service access requests
 
 **What you'll do:** Design roles for Contoso, automate onboarding/offboarding, implement access request portal
 
-**Timeline:** 10-14 weeks
 **Deliverable:** Working Contoso deployment with automated provisioning and user portal
 **Certification Preparation:** Early phase for ISC Engineer certification
 
@@ -74,15 +72,14 @@ You've learned:
 **Objective:** Scale to 300+ people, implement governance, advanced features
 
 **Units:**
-- Unit 9: Governance & Certification (20-22 modules)  Access reviews, SoD enforcement
-- Unit 10: Rules, Transforms & Logic (18-20 modules)  Advanced provisioning rules, BeanShell, Velocity
-- Unit 11: Workflows & Orchestration (16-18 modules)  Approval workflows, automation
-- Unit 12: Advanced Topics (18-20 modules)  Multi-source integration, complex scenarios
-- Unit 13: Search, Analytics & Reporting (16-18 modules)  Dashboards, reporting, insights
+- Unit 9: Governance & Certification (20-22 modules) Access reviews, SoD enforcement
+- Unit 10: Rules, Transforms & Logic (18-20 modules) Advanced provisioning rules, BeanShell, Velocity
+- Unit 11: Workflows & Orchestration (16-18 modules) Approval workflows, automation
+- Unit 12: Advanced Topics (18-20 modules) Multi-source integration, complex scenarios
+- Unit 13: Search, Analytics & Reporting (16-18 modules) Dashboards, reporting, insights
 
 **What you'll do:** Implement quarterly access certifications, advanced approval workflows, governance enforcement, analytics dashboards
 
-**Timeline:** 12-16 weeks
 **Deliverable:** RegionTech implementation (larger organization) with full governance
 **Certification Target:** SailPoint Certified Identity Security Engineer (Professional certification)
 
@@ -93,11 +90,10 @@ You've learned:
 **Objective:** Deploy for 5000+ users, multi-region, complex compliance
 
 **Units:**
-- Unit 14: Enterprise Case Studies (20-22 modules)  Three complete case study implementations (GlobalBank scenarios)
+- Unit 14: Enterprise Case Studies (20-22 modules) Three complete case study implementations (GlobalBank scenarios)
 
 **What you'll do:** Design and implement ISC for large enterprise, handle complexity and scale
 
-**Timeline:** 6-8 weeks
 **Deliverable:** GlobalBank case studies, enterprise architecture, implementation strategy
 **Result:** Expert-level ISC knowledge
 
@@ -124,20 +120,20 @@ You've learned:
 
 ## 📋 LEARNING PATHS
 
-**Fast Track (18-24 months, full-time)**
+**Fast Track (, full-time)**
 - Complete all 14 units sequentially
-- 2,260-2,600 hours
+- 2,260-2,
 - Deep expertise, all specializations
 
-**Focused Path (12-18 months, full-time)**
-- Units 1-4: Foundations (8-12 weeks)
-- Units 5-8: Small organization (10-14 weeks)
-- Units 9-13: Mid-market (12-16 weeks)
+**Focused Path (, full-time)**
+- Units 1-4: Foundations ()
+- Units 5-8: Small organization ()
+- Units 9-13: Mid-market ()
 - Skip Unit 14: Enterprise case studies
 - Result: Professional-level expertise for most organizations
 
 **Professional Path (Part-time, 3-4 years)**
-- 10 hours per week
+- per week
 - Complete all 14 units at lower intensity
 - Manageable alongside job
 
@@ -227,11 +223,11 @@ Before proceeding to Unit 2:
 
 ## 🔄 LEARNING RESOURCES
 
-- GLOSSARY.md  Complete ISC terminology glossary
-- CHARACTER-PROFILES.md  Contoso Ltd employee profiles used throughout curriculum
-- TABLE-OF-CONTENTS-v2.md  Complete 14-unit curriculum plan
-- SERIES-PROMPT.md  Module template and standards
-- SAMPLE-LAB-*.md  Example modules showing expected format/depth
+- GLOSSARY.md Complete ISC terminology glossary
+- CHARACTER-PROFILES.md Contoso Ltd employee profiles used throughout curriculum
+- TABLE-OF-CONTENTS-v2.md Complete 14-unit curriculum plan
+- SERIES-PROMPT.md Module template and standards
+- SAMPLE-LAB-*.md Example modules showing expected format/depth
 
 ---
 
@@ -239,7 +235,7 @@ Before proceeding to Unit 2:
 
 **Unit 1 is foundational.** The remaining 13 units build on these concepts. If you feel weak on any concept, re-read the relevant module before proceeding.
 
-**This curriculum is comprehensive.** Completing all 14 units takes 18-24 months full-time. That's intentionalISC expertise takes time. Don't rush through.
+**This curriculum is comprehensive.** Completing all 14 units takes full-time. That's intentionalISC expertise takes time. Don't rush through.
 
 **You're learning a valuable skill.** ISC expertise is in high demand. Organizations are standardizing on ISC. Your time investment will pay off.
 

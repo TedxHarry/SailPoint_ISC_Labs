@@ -26,7 +26,7 @@ In ISC_Test_App > Certificates & secrets > New client secret:
 
 **Description:** ISC Test Connector Secret
 
-**Expires:** 24 months (or your preference)
+**Expires:** (or your preference)
 
 Click: Add
 

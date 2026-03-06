@@ -199,7 +199,7 @@
 
 **2. Troubleshooting Sections**
 - Every module has "If X then Y" troubleshooting
-- Addresses actual beginner mistakes ("If login fails, then wait 10 minutes")
+- Addresses actual beginner mistakes ("If login fails, then wait ")
 - Prevents students from giving up
 - Shows instructor understands common issues
 
@@ -294,18 +294,18 @@
 
 | Path | Promised | Reading | Labs | Total | Reality |
 |------|----------|---------|------|-------|---------|
-| **Professional** | 8-12 weeks | 30 hrs | 30 hrs | 60 hrs | ✅ Realistic |
-| **Engineer** | 18-24 weeks | 50 hrs | 50 hrs | 100 hrs | ⚠️ Optimistic (Units 9-10 missing) |
+| **Professional** | | 30 hrs | 30 hrs | 60 hrs | ✅ Realistic |
+| **Engineer** | | 50 hrs | 50 hrs | 100 hrs | ⚠️ Optimistic (Units 9-10 missing) |
 
 ### Hidden Time Not Counted:
 
-- Setting up Azure/Entra ID: 2-4 hours
-- ISC sandbox access delays: 1-2 weeks
-- Troubleshooting failures: 5-10 hours per unit
-- Reading official SailPoint docs: 20-30 hours
-- Certification prep: 20-30 hours additional
+- Setting up Azure/Entra ID: 
+- ISC sandbox access delays: 
+- Troubleshooting failures: per unit
+- Reading official SailPoint docs: 
+- Certification prep: additional
 
-**Realistic Total:** Professional path = 12-16 weeks; Engineer path = 28-36 weeks (if Units 9-10 added)
+**Realistic Total:** Professional path = ; Engineer path = (if Units 9-10 added)
 
 ---
 
@@ -355,20 +355,20 @@
 
 ### CRITICAL (Required for Certification Path):
 1. **Write Units 9-10** (11 modules)
-   - Unit 9: CIEM, PAM, Non-employees, Advanced Analytics, APIs
-   - Unit 10: Enterprise architecture, migration, case studies
+ - Unit 9: CIEM, PAM, Non-employees, Advanced Analytics, APIs
+ - Unit 10: Enterprise architecture, migration, case studies
 
 ### HIGH PRIORITY (Quick wins):
-1. Fix all broken navigation links (2-4 hours)
-2. Add module difficulty badges (1-2 hours)
-3. Create glossary with cross-references (4-6 hours)
-4. Add 50+ practice exam questions (8-12 hours)
+1. Fix all broken navigation links ()
+2. Add module difficulty badges ()
+3. Create glossary with cross-references ()
+4. Add 50+ practice exam questions ()
 
 ### MEDIUM PRIORITY:
-1. Record 5 key module video walkthroughs (10-15 hours)
-2. Add role design decision framework (4-6 hours)
-3. Add real-world connector examples (6-8 hours)
-4. Create certification study guide (6-8 hours)
+1. Record 5 key module video walkthroughs ()
+2. Add role design decision framework ()
+3. Add real-world connector examples ()
+4. Create certification study guide ()
 
 ### IF COMPLETED:
 - **Grade: A (Excellent, industry-leading)**

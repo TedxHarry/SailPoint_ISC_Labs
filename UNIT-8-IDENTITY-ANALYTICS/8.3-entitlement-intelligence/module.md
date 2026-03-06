@@ -63,44 +63,44 @@ Action: Investigate if still needed
 Common Patterns of Unnecessary Access:
 
 1. Access Creep (Old Role, New Job):
-   User: User4 (former Developer, now Senior)
-   ├─ Old role: Engineer_Developer
-   ├─ New role: Engineer_Senior
-   ├─ Issue: Still has Developer access even though promoted
-   ├─ Impact: Highest-level access + lower-level access
-   ├─ Discovery: Role changed but access not updated
-   └─ Action: Remove old Developer access
+ User: User4 (former Developer, now Senior)
+ ├─ Old role: Engineer_Developer
+ ├─ New role: Engineer_Senior
+ ├─ Issue: Still has Developer access even though promoted
+ ├─ Impact: Highest-level access + lower-level access
+ ├─ Discovery: Role changed but access not updated
+ └─ Action: Remove old Developer access
 
 2. Project Ended Access Not Removed:
-   User: User7 (Sales Rep)
-   ├─ Project: Sales Engineer initiative (ended 6 months ago)
-   ├─ Granted: AWS developer access (temporary)
-   ├─ Issue: Still has AWS access after project ended
-   ├─ Discovery: Exception should have auto-expired
-   └─ Action: Remove AWS access, improve auto-expiration
+ User: User7 (Sales Rep)
+ ├─ Project: Sales Engineer initiative (ended ago)
+ ├─ Granted: AWS developer access (temporary)
+ ├─ Issue: Still has AWS access after project ended
+ ├─ Discovery: Exception should have auto-expired
+ └─ Action: Remove AWS access, improve auto-expiration
 
 3. System That User Doesn't Actually Use:
-   User: Casey Kim (Finance Manager)
-   ├─ Access: GitHub read-only
-   ├─ Usage: Requested by manager "just in case"
-   ├─ Reality: Never accessed or used
-   ├─ Discovery: Check system access logs
-   └─ Action: Remove if not used in 90 days
+ User: Casey Kim (Finance Manager)
+ ├─ Access: GitHub read-only
+ ├─ Usage: Requested by manager "just in case"
+ ├─ Reality: Never accessed or used
+ ├─ Discovery: Check system access logs
+ └─ Action: Remove if not used in 
 
 4. Redundant Role Assignment:
-   User: User10 (IT Administrator)
-   ├─ Roles: IT_Administrator + IT_Senior_Admin + Security_Ops
-   ├─ Issue: Three roles with overlapping permissions
-   ├─ Impact: Confusing, too much privilege
-   ├─ Discovery: Role comparison shows redundancy
-   └─ Action: Keep highest, remove lower two
+ User: User10 (IT Administrator)
+ ├─ Roles: IT_Administrator + IT_Senior_Admin + Security_Ops
+ ├─ Issue: Three roles with overlapping permissions
+ ├─ Impact: Confusing, too much privilege
+ ├─ Discovery: Role comparison shows redundancy
+ └─ Action: Keep highest, remove lower two
 
 5. Wrong Department Access:
-   User: User5 (Finance AP Clerk)
-   ├─ Access: QB (finance), ADP (finance), LinkedIn Sales (why?)
-   ├─ Issue: Sales system access inappropriate
-   ├─ Discovery: System doesn't match department
-   └─ Action: Remove LinkedIn access
+ User: User5 (Finance AP Clerk)
+ ├─ Access: QB (finance), ADP (finance), LinkedIn Sales (why?)
+ ├─ Issue: Sales system access inappropriate
+ ├─ Discovery: System doesn't match department
+ └─ Action: Remove LinkedIn access
 ```
 
 ### Access Optimization
@@ -142,7 +142,7 @@ Current State:
 Optimized State:
 ├─ Centralized: All exceptions in ISC dashboard
 ├─ Auto-expiration: System removes on date
-├─ Notifications: 30-day before reminder
+├─ Notifications: before reminder
 ├─ Benefit: No manual overhead, compliance tracked
 ```
 
@@ -159,25 +159,21 @@ Finding #1 (HIGH): Redundant Role - User10
 ├─ Issue: Both provide domain admin access
 ├─ Recommendation: Remove redundant role
 ├─ Impact: Cleaner access, same functionality
-└─ Timeline: Immediate
+└─ 
 
 Finding #2 (MEDIUM): Unused Access - User7
 ├─ User: User7 (Sales Rep)
 ├─ Access: AWS developer access (90+ days unused)
-├─ Reason: Old project (ended 6 months ago)
+├─ Reason: Old project (ended ago)
 ├─ Recommendation: Remove if still not needed
 ├─ Verification: Manager confirmation needed
-└─ Timeline: 30 days
-
-Finding #3 (LOW): Questionable Access - Casey
+└─ 
 ├─ User: Casey Kim (Finance Manager)
 ├─ Access: GitHub read-only (not in job description)
 ├─ Reason: Might be used for vendor communications
 ├─ Recommendation: Verify business need
 ├─ Verification: Manager interview
-└─ Timeline: 60 days
-
-Optimization Summary:
+└─ 
 
 Access Removed:
 ├─ Redundant roles: 1
@@ -219,7 +215,7 @@ Entitlement Health Score: 92/100
 
 ## 🎓 CERTIFICATION
 
-**Q:** User has been in new role for 6 months but old role's systems still assigned. What should happen?
+**Q:** User has been in new role for but old role's systems still assigned. What should happen?
 
 A) Keep it (might need it later)
 B) ✅ Remove unnecessary access (clean up after role change)

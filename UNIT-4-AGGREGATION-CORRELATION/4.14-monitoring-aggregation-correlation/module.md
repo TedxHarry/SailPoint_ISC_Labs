@@ -28,11 +28,11 @@ Module 4.4: Run Aggregation in ISC.
 **Page shows:** All source connectors with status indicators
 
 ```
-Connector Name              | Status | Last Aggregation  | Objects | Next Schedule
+Connector Name | Status | Last Aggregation | Objects | Next Schedule
 ---|---|---|---|---
-Contoso_Entra_ID           | 🟢 Green | 2024-03-02 2:01am | 20    | 2024-03-03 2:00am
-(If Okta added later)      | 🟡 Yellow| 2024-02-28 3:45am | 50   | (Paused)
-(If Oracle added)          | 🔴 Red   | Failed            | 0     | (Failed)
+Contoso_Entra_ID | 🟢 Green | 2024-03-02 2:01am | 20 | 2024-03-03 2:00am
+(If Okta added later) | 🟡 Yellow| 2024-02-28 3:45am | 50 | (Paused)
+(If Oracle added) | 🔴 Red | Failed | 0 | (Failed)
 ```
 
 **Status indicators:**
@@ -51,20 +51,20 @@ Contoso_Entra_ID           | 🟢 Green | 2024-03-02 2:01am | 20    | 2024-03-03
 - Last aggregation: Date/time/duration
 - Next aggregation: Scheduled time
 - Object counts:
-  ```
-  Total objects: 20
-  Users: 13
-  Groups: 7
-  ```
+ ```
+ Total objects: 20
+ Users: 13
+ Groups: 7
+ ```
 - Recent activity log (last 10 aggregations shown)
 
 **Activity log shows each aggregation:**
 ```
-Date/Time           | Type     | Status      | Objects | Errors
+Date/Time | Type | Status | Objects | Errors
 ---|---|---|---|---|---
-2024-03-02 02:01am  | Full     | SUCCESSFUL  | 45 sec   | 20      | 0
-2024-03-01 02:00am  | Full     | SUCCESSFUL  | 48 sec   | 20      | 0
-2024-02-28 02:01am  | Full     | SUCCESSFUL  | 52 sec   | 20      | 0
+2024-03-02 02:01am | Full | SUCCESSFUL | 45 sec | 20 | 0
+2024-03-01 02:00am | Full | SUCCESSFUL | 48 sec | 20 | 0
+2024-02-28 02:01am | Full | SUCCESSFUL | 52 sec | 20 | 0
 ```
 
 ---
@@ -74,19 +74,19 @@ Date/Time           | Type     | Status      | Objects | Errors
 **Navigate:** ISC > Administration > Logs (or Audit)
 
 **Filter options:**
-- By date range (last 24 hours, last week, custom)
+- By date range (last , last week, custom)
 - By source (Contoso_Entra_ID)
 - By event type (Aggregation, Correlation, Error)
 - By level (All, Errors only, Warnings)
 
 **Example log entries:**
 ```
-2024-03-02 02:00:01 | INFO  | [Contoso_Entra_ID] Aggregation started (Full)
-2024-03-02 02:00:05 | INFO  | [Contoso_Entra_ID] Connection test: PASSED
-2024-03-02 02:00:10 | INFO  | [Contoso_Entra_ID] Discovered 13 users, 7 groups
-2024-03-02 02:00:45 | INFO  | [Contoso_Entra_ID] Stored 13 identities, 13 accounts
-2024-03-02 02:00:46 | INFO  | [Contoso_Entra_ID] Correlation: 13 accounts matched
-2024-03-02 02:00:47 | INFO  | [Contoso_Entra_ID] Aggregation completed: SUCCESSFUL
+2024-03-02 02:00:01 | INFO | [Contoso_Entra_ID] Aggregation started (Full)
+2024-03-02 02:00:05 | INFO | [Contoso_Entra_ID] Connection test: PASSED
+2024-03-02 02:00:10 | INFO | [Contoso_Entra_ID] Discovered 13 users, 7 groups
+2024-03-02 02:00:45 | INFO | [Contoso_Entra_ID] Stored 13 identities, 13 accounts
+2024-03-02 02:00:46 | INFO | [Contoso_Entra_ID] Correlation: 13 accounts matched
+2024-03-02 02:00:47 | INFO | [Contoso_Entra_ID] Aggregation completed: SUCCESSFUL
 ```
 
 ---
@@ -97,11 +97,11 @@ Date/Time           | Type     | Status      | Objects | Errors
 
 **View correlation status per account:**
 ```
-Account ID              | Identity         | Correlation Status | Last Update
+Account ID | Identity | Correlation Status | Last Update
 ---|---|---|---
-alex.lee@contoso.com    | Alex Lee        | CORRELATED         | 2024-03-02
-morgan.chen@contoso.com | Morgan Chen     | CORRELATED         | 2024-03-02
-casey.kim@contoso.com   | Casey Kim       | CORRELATED         | 2024-03-02
+alex.lee@contoso.com | Alex Lee | CORRELATED | 2024-03-02
+morgan.chen@contoso.com | Morgan Chen | CORRELATED | 2024-03-02
+casey.kim@contoso.com | Casey Kim | CORRELATED | 2024-03-02
 (13 total, all correlated)
 ```
 
@@ -121,7 +121,7 @@ casey.kim@contoso.com   | Casey Kim       | CORRELATED         | 2024-03-02
 
 **Configure alerts (if available):**
 - Email: Send alert to admin@contoso.com when aggregation fails
-- Threshold: Alert if aggregation takes > 5 minutes
+- Threshold: Alert if aggregation takes > 
 - Frequency: Daily digest of all aggregation activity
 
 ---
@@ -161,12 +161,12 @@ Status should be 🟢 Green
 **Check 2: Aggregation running on schedule?**
 ```
 ISC > Sources > Contoso_Entra_ID > Last aggregation
-Should show recent timestamp (within last 24 hours)
+Should show recent timestamp (within last )
 ```
 
 **Check 3: No error accumulation?**
 ```
-ISC > Logs > Filter: Errors, Source: Contoso_Entra_ID, Last 24 hours
+ISC > Logs > Filter: Errors, Source: Contoso_Entra_ID, Last 
 Should show 0 errors (or just expected operational warnings)
 ```
 
@@ -191,9 +191,7 @@ Verify accounts linked
 **Warning signs to watch for:**
 
 **Warning 1: Aggregation time increasing**
-- Week 1: 45 seconds
-- Week 2: 60 seconds
-- Week 3: 90 seconds
+
 - Action: Check for performance issues (Module 4.13)
 
 **Warning 2: Intermittent failures**
@@ -219,7 +217,7 @@ Verify accounts linked
 **Healthy monitoring state:**
 
 ✅ Source status: Green
-✅ Last aggregation: Recent (within 24 hours)
+✅ Last aggregation: Recent (within )
 ✅ Aggregation success rate: 100%
 ✅ Correlation rate: 100% (all accounts linked)
 ✅ Error logs: Empty (no errors)

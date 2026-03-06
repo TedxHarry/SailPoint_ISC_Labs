@@ -66,10 +66,10 @@ Correlation Score: 100% (if ISC calculates confidence)
 ```
 
 5. **If not linked:**
-   - Shows "No linked identity" or "Unlinked"
-   - Check correlation rule (Module 4.7)
-   - Check account attributes exist
-   - Check identity attributes exist
+ - Shows "No linked identity" or "Unlinked"
+ - Check correlation rule (Module 4.7)
+ - Check account attributes exist
+ - Check identity attributes exist
 
 ---
 
@@ -101,9 +101,9 @@ Status: COMPLETE
 3. Results:
 ```
 ✅ 13 accounts matched to identities
-   - 13 via Rule 1 (Email Match)
-   - 0 via Rule 2
-   - 0 manual
+ - 13 via Rule 1 (Email Match)
+ - 0 via Rule 2
+ - 0 manual
 ```
 
 ---

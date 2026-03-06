@@ -95,34 +95,34 @@ Phase 4: Remediation
 
 ```
 1. Identity Management Team
-   ├─ Administers ISC system
-   ├─ Supports governance processes
-   ├─ Runs compliance audits
-   └─ Reports to executives
+ ├─ Administers ISC system
+ ├─ Supports governance processes
+ ├─ Runs compliance audits
+ └─ Reports to executives
 
 2. Department Managers
-   ├─ Certify their team's access (quarterly review)
-   ├─ Request exceptions (if needed)
-   ├─ Approve/deny access requests
-   └─ Accountable for team's access decisions
+ ├─ Certify their team's access (quarterly review)
+ ├─ Request exceptions (if needed)
+ ├─ Approve/deny access requests
+ └─ Accountable for team's access decisions
 
 3. Role Owners
-   ├─ Own specific roles (Finance_Manager, Engineer_Senior, etc.)
-   ├─ Certify role membership (do these people still need this role?)
-   ├─ Approve new assignments to their role
-   └─ Update role as job requirements change
+ ├─ Own specific roles (Finance_Manager, Engineer_Senior, etc.)
+ ├─ Certify role membership (do these people still need this role?)
+ ├─ Approve new assignments to their role
+ └─ Update role as job requirements change
 
 4. Executives
-   ├─ Receive governance reports
-   ├─ Approve governance policies
-   ├─ Responsible for compliance
-   └─ Address escalated issues
+ ├─ Receive governance reports
+ ├─ Approve governance policies
+ ├─ Responsible for compliance
+ └─ Address escalated issues
 
 5. Audit/Compliance
-   ├─ Verify governance processes work
-   ├─ Audit access decisions
-   ├─ Report to regulators (if needed)
-   └─ Identify improvements
+ ├─ Verify governance processes work
+ ├─ Audit access decisions
+ ├─ Report to regulators (if needed)
+ └─ Identify improvements
 ```
 
 **What Governance Includes:**
@@ -236,7 +236,7 @@ D) Reduce IT work
 **Q:** How often should department managers review team access?
 
 A) Never (one-time)
-B) ✅ Quarterly (every 3 months)
+B) ✅ Quarterly (every )
 C) Annually (once a year)
 D) Only when user leaves
 

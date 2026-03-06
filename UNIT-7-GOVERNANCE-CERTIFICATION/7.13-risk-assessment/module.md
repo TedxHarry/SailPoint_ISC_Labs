@@ -29,32 +29,32 @@ Module 7.12: Test Approval Workflows. Approval testing complete.
 Risk Factors (scored 1-5):
 
 1. Privilege Level:
-   ├─ Read-only: 1 (lowest risk)
-   ├─ Editor: 2
-   ├─ Admin: 3
-   ├─ Root access: 4
-   └─ Super-admin: 5 (highest risk)
+ ├─ Read-only: 1 (lowest risk)
+ ├─ Editor: 2
+ ├─ Admin: 3
+ ├─ Root access: 4
+ └─ Super-admin: 5 (highest risk)
 
 2. System Sensitivity:
-   ├─ Public data: 1
-   ├─ Internal systems: 2
-   ├─ Finance/PII: 3
-   ├─ Executive/secrets: 4
-   └─ Security/credentials: 5
+ ├─ Public data: 1
+ ├─ Internal systems: 2
+ ├─ Finance/PII: 3
+ ├─ Executive/secrets: 4
+ └─ Security/credentials: 5
 
 3. Access Justification:
-   ├─ Role-based, current: 1
-   ├─ Role-based, outdated: 2
-   ├─ Exception, documented: 3
-   ├─ Exception, justification weak: 4
-   └─ No clear justification: 5
+ ├─ Role-based, current: 1
+ ├─ Role-based, outdated: 2
+ ├─ Exception, documented: 3
+ ├─ Exception, justification weak: 4
+ └─ No clear justification: 5
 
 4. Orphan Status:
-   ├─ User still employed: 1
-   ├─ Role changed, access not: 2
-   ├─ Former role, still has access: 3
-   ├─ Project ended, access remains: 4
-   └─ User left company, still has access: 5
+ ├─ User still employed: 1
+ ├─ Role changed, access not: 2
+ ├─ Former role, still has access: 3
+ ├─ Project ended, access remains: 4
+ └─ User left company, still has access: 5
 
 Risk Score = (Privilege + Sensitivity + Justification + Orphan) / 4
 
@@ -88,7 +88,7 @@ User12 (DevOps):
 
 User9 (HR Manager):
 ├─ Access: ADP admin
-├─ Justification: Weak (temporary project ended 6 months ago)
+├─ Justification: Weak (temporary project ended ago)
 ├─ Privilege: 4 (admin access)
 ├─ Sensitivity: 4 (PII/salary data)
 ├─ Orphan: 3 (project ended, access not removed)
@@ -112,27 +112,25 @@ User5:
 HIGH RISK User9:
 ├─ Issue: ADP admin access after project ended
 ├─ Remediation options:
-│  ├─ Option 1: Remove completely (primary)
-│  ├─ Option 2: Downgrade to standard HR user
-│  ├─ Option 3: Keep as exception (rare, with strong justification)
-│  └─ Decision: Remove (no business justification)
+│ ├─ Option 1: Remove completely (primary)
+│ ├─ Option 2: Downgrade to standard HR user
+│ ├─ Option 3: Keep as exception (rare, with strong justification)
+│ └─ Decision: Remove (no business justification)
 ├─ Process:
-│  ├─ Notify user: "Your ADP admin access is being removed"
-│  ├─ Notify manager: "User9 ADP admin access removed"
-│  ├─ Deprovision: Remove from ADP_Admin role
-│  ├─ Verify: User cannot access admin features
-│  └─ Document: Reason + date in audit trail
-└─ Timeline: 48 hours
-
-MEDIUM RISK User10:
+│ ├─ Notify user: "Your ADP admin access is being removed"
+│ ├─ Notify manager: "User9 ADP admin access removed"
+│ ├─ Deprovision: Remove from ADP_Admin role
+│ ├─ Verify: User cannot access admin features
+│ └─ Document: Reason + date in audit trail
+└─ 
 ├─ Issue: High privilege (domain admin) requires oversight
 ├─ Mitigation:
-│  ├─ No removal (legitimate role)
-│  ├─ Enhanced monitoring: Log all domain changes
-│  ├─ MFA: Enforce multi-factor authentication
-│  ├─ Session recording: Record admin sessions
-│  └─ Quarterly review: Risk assessment every 3 months
-└─ Timeline: Ongoing
+│ ├─ No removal (legitimate role)
+│ ├─ Enhanced monitoring: Log all domain changes
+│ ├─ MFA: Enforce multi-factor authentication
+│ ├─ Session recording: Record admin sessions
+│ └─ Quarterly review: Risk assessment every 
+└─ 
 ```
 
 ---

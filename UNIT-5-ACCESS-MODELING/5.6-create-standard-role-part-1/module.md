@@ -28,9 +28,9 @@ Create "Finance_Manager" role for Casey Kim (Finance Manager at Contoso).
 - Name: Finance_Manager
 - Owner: (You - for test purposes)
 - Access Profiles needed:
-  - QB_Finance_Manager (QuickBooks manager access)
-  - Bank_Reconciliation (bank systems)
-  - Excel_Reports (report creation)
+ - QB_Finance_Manager (QuickBooks manager access)
+ - Bank_Reconciliation (bank systems)
+ - Excel_Reports (report creation)
 - Users: Casey Kim
 
 ---
@@ -103,9 +103,9 @@ Roles List
 ```
 Finance_Manager role
 ├─ Access Profiles:
-│  ├─ QB_Manager
-│  ├─ Bank_Reconciliation
-│  └─ Excel_Reports
+│ ├─ QB_Manager
+│ ├─ Bank_Reconciliation
+│ └─ Excel_Reports
 └─ (Entitlements will auto-populate from profiles)
 ```
 
@@ -156,9 +156,9 @@ Finance_Manager Role
 ├─ Owner: (Your name)
 ├─ Enabled: Yes
 ├─ Access Profiles: 3
-│  ├─ QB_Manager
-│  ├─ Bank_Reconciliation
-│  └─ Excel_Reports
+│ ├─ QB_Manager
+│ ├─ Bank_Reconciliation
+│ └─ Excel_Reports
 └─ Total Entitlements: 15
 ```
 

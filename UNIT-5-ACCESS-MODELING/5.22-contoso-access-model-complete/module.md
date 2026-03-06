@@ -83,38 +83,38 @@ All 13 users automatically included in appropriate dynamic roles
 
 ```
 Rule 1: Finance_AP_Clerk ↔ Finance_Manager CONFLICT
-  ├─ Reason: AP Clerk creates invoices, Manager approves
-  ├─ Fraud Risk: Create + approve = pay yourself
-  └─ Status: ENFORCED (blocks conflicting assignment)
+ ├─ Reason: AP Clerk creates invoices, Manager approves
+ ├─ Fraud Risk: Create + approve = pay yourself
+ └─ Status: ENFORCED (blocks conflicting assignment)
 
 Rule 2: Create_GL_Entry ↔ Reconcile_GL CONFLICT
-  ├─ Reason: Create (transaction posting) + Reconcile (hiding discrepancies)
-  ├─ Fraud Risk: Post unauthorized entries then hide them
-  └─ Status: ENFORCED
+ ├─ Reason: Create (transaction posting) + Reconcile (hiding discrepancies)
+ ├─ Fraud Risk: Post unauthorized entries then hide them
+ └─ Status: ENFORCED
 
 Rule 3: Delete_Invoice ↔ Create_Invoice CONFLICT
-  ├─ Reason: Create (transaction) + Delete (audit trail destruction)
-  ├─ Fraud Risk: Create fake transaction, delete evidence
-  └─ Status: ENFORCED
+ ├─ Reason: Create (transaction) + Delete (audit trail destruction)
+ ├─ Fraud Risk: Create fake transaction, delete evidence
+ └─ Status: ENFORCED
 ```
 
 **IT/Security SoD Rules (Prevent Unauthorized Access):**
 
 ```
 Rule 4: Create_User ↔ Approve_Access_Request CONFLICT
-  ├─ Reason: Create account + approve own access requests
-  ├─ Security Risk: Self-approving unauthorized access
-  └─ Status: ENFORCED
+ ├─ Reason: Create account + approve own access requests
+ ├─ Security Risk: Self-approving unauthorized access
+ └─ Status: ENFORCED
 
 Rule 5: Deploy_Production ↔ Approve_Deployment CONFLICT
-  ├─ Reason: Deploy code + approve own deployments
-  ├─ Security Risk: Bypass code review, inject malware
-  └─ Status: ENFORCED
+ ├─ Reason: Deploy code + approve own deployments
+ ├─ Security Risk: Bypass code review, inject malware
+ └─ Status: ENFORCED
 
 Rule 6: Manage_Audit_Logs ↔ System_Admin CONFLICT
-  ├─ Reason: Admin actions + ability to delete audit evidence
-  ├─ Security Risk: Commit unauthorized changes, delete evidence
-  └─ Status: FLAG FOR REVIEW (allows with documentation)
+ ├─ Reason: Admin actions + ability to delete audit evidence
+ ├─ Security Risk: Commit unauthorized changes, delete evidence
+ └─ Status: FLAG FOR REVIEW (allows with documentation)
 ```
 
 **SoD Validation Result:**
@@ -192,8 +192,8 @@ Annual Review:
 Example: Finance_Manager Role
 
 Purpose:
-  Manage company financial operations, approve transactions, reconcile accounts.
-  Required for: CFO, Accounting managers, financial planning staff.
+ Manage company financial operations, approve transactions, reconcile accounts.
+ Required for: CFO, Accounting managers, financial planning staff.
 
 Owner: Casey Kim (Finance Manager)
 Status: Active
@@ -201,22 +201,22 @@ Created: Module 5.20
 Last Reviewed: Today
 
 Access Includes:
-  ├─ QB_Admin (create/approve invoices, post GL, reconcile)
-  ├─ Reports_Finance (P&L, balance sheet, aging reports)
-  ├─ Bank_Access (view transfers, approve payments)
-  └─ GL_Reconciliation (period close, variance analysis)
+ ├─ QB_Admin (create/approve invoices, post GL, reconcile)
+ ├─ Reports_Finance (P&L, balance sheet, aging reports)
+ ├─ Bank_Access (view transfers, approve payments)
+ └─ GL_Reconciliation (period close, variance analysis)
 
 Users: Casey Kim (1 user)
 
 SoD Conflicts (Cannot combine with):
-  ├─ Finance_AP_Clerk role (conflict with creation + approval)
-  ├─ Create_GL_Entry + Reconcile_GL combo
-  └─ Delete_Invoice entitlement
+ ├─ Finance_AP_Clerk role (conflict with creation + approval)
+ ├─ Create_GL_Entry + Reconcile_GL combo
+ └─ Delete_Invoice entitlement
 
 Certification:
-  ├─ Quarterly: Q1 certification
-  ├─ Owner: Casey Kim
-  └─ Next review: April 2026
+ ├─ Quarterly: Q1 certification
+ ├─ Owner: Casey Kim
+ └─ Next review: April 2026
 
 (Repeat for all 11 standard + 8 dynamic roles)
 ```
@@ -224,16 +224,16 @@ Certification:
 **SoD Conflicts Matrix (Complete):**
 
 ```
-                Create Invoice  Approve Invoice  Post GL  Delete GL  Manage Audit
-AP Clerk              ✓              ✗            ✗        ✗           ✗
-Finance Manager       ✗              ✓            ✓        ✓           ✗
-Senior Accountant     ✗              ✗            ✓        ✗           ✗
-Create User           ✓              ✗            ✗        ✗           ✗
-Approve Access        ✗              ✓            ✗        ✗           ✗
-Deploy Code           ✓              ✗            ✗        ✗           ✗
-Approve Deploy        ✗              ✓            ✗        ✗           ✗
-System Admin          ✗              ✗            ✗        ✗           ✓*
-Audit Manager         ✗              ✗            ✗        ✗           ✗
+ Create Invoice Approve Invoice Post GL Delete GL Manage Audit
+AP Clerk ✓ ✗ ✗ ✗ ✗
+Finance Manager ✗ ✓ ✓ ✓ ✗
+Senior Accountant ✗ ✗ ✓ ✗ ✗
+Create User ✓ ✗ ✗ ✗ ✗
+Approve Access ✗ ✓ ✗ ✗ ✗
+Deploy Code ✓ ✗ ✗ ✗ ✗
+Approve Deploy ✗ ✓ ✗ ✗ ✗
+System Admin ✗ ✗ ✗ ✗ ✓*
+Audit Manager ✗ ✗ ✗ ✗ ✗
 
 * System Admin + Manage Audit flagged for review (compensating controls exist)
 ✓ = Has this permission
@@ -246,33 +246,33 @@ Audit Manager         ✗              ✗            ✗        ✗           �
 Contoso Ltd (50 people)
 │
 ├─ Finance Dept (3 users)
-│  ├─ Finance_Manager → QB_Admin, Reports_Finance, Bank_Access
-│  ├─ Senior_Accountant → QB_User, GL_Reporting
-│  └─ AP_Clerk → QB_Invoice_Entry, Expense_Reporting
-│  └─ Finance_Employee (dynamic) → QB_User (all dept members)
+│ ├─ Finance_Manager → QB_Admin, Reports_Finance, Bank_Access
+│ ├─ Senior_Accountant → QB_User, GL_Reporting
+│ └─ AP_Clerk → QB_Invoice_Entry, Expense_Reporting
+│ └─ Finance_Employee (dynamic) → QB_User (all dept members)
 │
 ├─ Engineering Dept (3 users)
-│  ├─ Engineer_Senior → GitHub_Admin, Jenkins_Admin, AWS_Prod
-│  ├─ Engineer_Developer → GitHub_User, Jenkins_Build, AWS_Dev
-│  └─ DevOps → GitHub_Admin, Jenkins_Full, AWS_Infrastructure
-│  └─ Engineering_Employee (dynamic) → GitHub_User (all dept members)
-│  └─ Technical_Staff (dynamic) → Tools_Admin (dept + IT)
+│ ├─ Engineer_Senior → GitHub_Admin, Jenkins_Admin, AWS_Prod
+│ ├─ Engineer_Developer → GitHub_User, Jenkins_Build, AWS_Dev
+│ └─ DevOps → GitHub_Admin, Jenkins_Full, AWS_Infrastructure
+│ └─ Engineering_Employee (dynamic) → GitHub_User (all dept members)
+│ └─ Technical_Staff (dynamic) → Tools_Admin (dept + IT)
 │
 ├─ IT Dept (2 users)
-│  ├─ IT_Administrator → AD_Admin, Exchange_Admin, ISC_Admin
-│  └─ Security_Officer → ISC_Monitor, Audit_Reports, Security_Tools
-│  └─ IT_Employee (dynamic) → Tools_Admin (all dept members)
-│  └─ Technical_Staff (dynamic) → Tools_Admin (engineering + IT)
+│ ├─ IT_Administrator → AD_Admin, Exchange_Admin, ISC_Admin
+│ └─ Security_Officer → ISC_Monitor, Audit_Reports, Security_Tools
+│ └─ IT_Employee (dynamic) → Tools_Admin (all dept members)
+│ └─ Technical_Staff (dynamic) → Tools_Admin (engineering + IT)
 │
 ├─ Sales Dept (2 users)
-│  ├─ Sales_Rep → Salesforce_User, CRM_Reports, Slack_Sales
-│  └─ Sales_Rep → Salesforce_User, CRM_Reports, Slack_Sales
-│  └─ Sales_Employee (dynamic) → Salesforce_User (all dept members)
+│ ├─ Sales_Rep → Salesforce_User, CRM_Reports, Slack_Sales
+│ └─ Sales_Rep → Salesforce_User, CRM_Reports, Slack_Sales
+│ └─ Sales_Employee (dynamic) → Salesforce_User (all dept members)
 │
 └─ HR Dept (2 users)
-   ├─ HR_Specialist → ADP_User, Workday_Benefits, Recruiting_Tools
-   ├─ HR_Manager → ADP_Admin, Workday_Admin, Recruiting_Admin
-   └─ HR_Employee (dynamic) → ADP_User (all dept members)
+ ├─ HR_Specialist → ADP_User, Workday_Benefits, Recruiting_Tools
+ ├─ HR_Manager → ADP_Admin, Workday_Admin, Recruiting_Admin
+ └─ HR_Employee (dynamic) → ADP_User (all dept members)
 ```
 
 ---
@@ -316,13 +316,13 @@ Result: 100% entitlement coverage
 
 ```
 ✅ Casey Kim (Finance_Manager, Finance_Employee):
-   └─ NOT assigned Finance_AP_Clerk (conflict prevented) ✓
+ └─ NOT assigned Finance_AP_Clerk (conflict prevented) ✓
 
 ✅ User5 (Finance_AP_Clerk, Finance_Employee):
-   └─ NOT assigned Finance_Manager (conflict prevented) ✓
+ └─ NOT assigned Finance_Manager (conflict prevented) ✓
 
 ✅ User10 (IT_Administrator, IT_Employee):
-   └─ NOT assigned Approve_Access_Request (conflict prevented) ✓
+ └─ NOT assigned Approve_Access_Request (conflict prevented) ✓
 
 (Repeat for all users - ZERO violations)
 
@@ -390,7 +390,7 @@ After: ISC logs all access decisions, complete audit trail
 
 **Onboarding (new hire):**
 ```
-Before: Manual role assignment by IT, ~2 hours per person, error-prone
+Before: Manual role assignment by IT, ~ per person, error-prone
 After: Dynamic rules auto-assign based on department (instant + accurate)
 
 Department Transfer (person changes jobs):**
@@ -480,7 +480,7 @@ Advanced Scenarios (6.16-6.20):
 ├─ Emergency access (break glass)
 └─ Disaster recovery
 
-Total: 20 modules, ~10 hours each = 200 hours
+Total: 20 modules, ~ each = 
 ```
 
 **Why Provisioning Matters:**
@@ -530,7 +530,7 @@ D) No role structure (just manual assignment)
 
 **Q:** If a new engineer is hired, what happens to role assignments?
 
-A) Manual IT admin must assign roles (2-3 hours)
+A) Manual IT admin must assign roles ()
 B) ✅ Dynamic rules auto-assign Engineering_Employee role (instant)
 C) New hire has no access until next quarter review
 D) New hire must request access manually

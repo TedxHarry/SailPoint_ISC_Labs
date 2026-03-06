@@ -69,29 +69,29 @@ Example error:
 
 Diagnosis Steps:
 1. Check system status
-   ├─ Is QB website responding?
-   ├─ Check: status.intuit.com
-   ├─ Check: Twitter for outages (@QB_Support)
-   └─ If down: Wait for system to come back online
+ ├─ Is QB website responding?
+ ├─ Check: status.intuit.com
+ ├─ Check: Twitter for outages (@QB_Support)
+ └─ If down: Wait for system to come back online
 
 2. Check network connectivity
-   ├─ From ISC appliance: ping [system IP]
-   ├─ From ISC appliance: traceroute [system IP]
-   └─ If no response: Network issue, check firewall
+ ├─ From ISC appliance: ping [system IP]
+ ├─ From ISC appliance: traceroute [system IP]
+ └─ If no response: Network issue, check firewall
 
 3. Check ISC IP whitelisting
-   ├─ QB Settings: Verify ISC IP whitelisted
-   ├─ GitHub Settings: Verify ISC IP accessible
-   ├─ If not whitelisted: Add ISC IP
-   └─ Retry provisioning
+ ├─ QB Settings: Verify ISC IP whitelisted
+ ├─ GitHub Settings: Verify ISC IP accessible
+ ├─ If not whitelisted: Add ISC IP
+ └─ Retry provisioning
 
 4. Check connector credentials
-   ├─ API key might have expired
-   ├─ ISC > Connectors > QB > Settings
-   ├─ Check: Last used, expiration date
-   ├─ If expired: Regenerate in target system
-   ├─ Update ISC with new credentials
-   └─ Retry
+ ├─ API key might have expired
+ ├─ ISC > Connectors > QB > Settings
+ ├─ Check: Last used, expiration date
+ ├─ If expired: Regenerate in target system
+ ├─ Update ISC with new credentials
+ └─ Retry
 
 Solution Checklist:
 ☐ Verify target system online
@@ -119,21 +119,21 @@ Example:
 
 Diagnosis:
 1. Check workflow error handling
-   ├─ ISC > Workflows > QB_Finance_Manager_Provisioning
-   ├─ Step: "Set QB Permissions"
-   ├─ Status: Did this step fail?
-   └─ Error message: What error occurred?
+ ├─ ISC > Workflows > QB_Finance_Manager_Provisioning
+ ├─ Step: "Set QB Permissions"
+ ├─ Status: Did this step fail?
+ └─ Error message: What error occurred?
 
 2. Check QB API error
-   ├─ Workflow might have timed out
-   ├─ Or permission level name wrong
-   ├─ Or API doesn't support requested level
-   └─ Review QB API docs
+ ├─ Workflow might have timed out
+ ├─ Or permission level name wrong
+ ├─ Or API doesn't support requested level
+ └─ Review QB API docs
 
 3. Fix manually then update workflow
-   ├─ Manually in QB: Set casey's permission to admin
-   ├─ Update workflow: Fix permission name or add retry logic
-   └─ Retry for other users with corrected workflow
+ ├─ Manually in QB: Set casey's permission to admin
+ ├─ Update workflow: Fix permission name or add retry logic
+ └─ Retry for other users with corrected workflow
 
 Solution Checklist:
 ☐ Identify which workflow step failed
@@ -167,21 +167,21 @@ Causes:
 
 Diagnosis:
 1. Check if old account is same person
-   ├─ QB: Find account 'casey'
-   ├─ Email: Is it casey@contoso.com?
-   ├─ Created date: When was it created?
-   └─ If same person: Can reuse account
+ ├─ QB: Find account 'casey'
+ ├─ Email: Is it casey@contoso.com?
+ ├─ Created date: When was it created?
+ └─ If same person: Can reuse account
 
 2. Check if old account needs deletion
-   ├─ If test account or different person: Delete it
-   ├─ Note: Some systems need 24-hour grace before reuse
-   └─ After deletion: Retry provisioning
+ ├─ If test account or different person: Delete it
+ ├─ Note: Some systems need grace before reuse
+ └─ After deletion: Retry provisioning
 
 Solution Checklist:
 ☐ Identify if account is old (same user) or different
 ☐ If same user: Update workflow to use existing account
 ☐ If different user: Delete old account first
-☐ Wait 24 hours for system cache/replication
+☐ Wait for system cache/replication
 ☐ Retry provisioning
 ☐ Verify: Correct account now has permissions
 
@@ -202,17 +202,17 @@ Example:
 
 Diagnosis:
 1. Check ISC user attributes
-   ├─ ISC > Identities > User4
-   ├─ Email field: Is it filled in?
-   ├─ Department field: Is it filled in?
-   ├─ Other fields: Check workflow requirements
-   └─ If missing: Add the data
+ ├─ ISC > Identities > User4
+ ├─ Email field: Is it filled in?
+ ├─ Department field: Is it filled in?
+ ├─ Other fields: Check workflow requirements
+ └─ If missing: Add the data
 
 2. Check workflow requirements
-   ├─ Workflow might require: Email, phone, manager, etc.
-   ├─ AWS requires: Email for login
-   ├─ GitHub requires: Email for notifications
-   └─ Check what's required
+ ├─ Workflow might require: Email, phone, manager, etc.
+ ├─ AWS requires: Email for login
+ ├─ GitHub requires: Email for notifications
+ └─ Check what's required
 
 Solution Checklist:
 ☐ Identify which attribute missing
@@ -242,17 +242,17 @@ Example:
 
 Diagnosis:
 1. Check GitHub documentation
-   ├─ GitHub role levels: Owner > Maintainer > Write > Triage > Read > Pull
-   ├─ ISC "Contributor" might map to "Write" (not "Member")
-   ├─ Mapping might be wrong
-   └─ Check ISC workflow configuration
+ ├─ GitHub role levels: Owner > Maintainer > Write > Triage > Read > Pull
+ ├─ ISC "Contributor" might map to "Write" (not "Member")
+ ├─ Mapping might be wrong
+ └─ Check ISC workflow configuration
 
 2. Check ISC workflow mapping
-   ├─ ISC > Workflows > GitHub_Engineer_Developer_Provisioning
-   ├─ Step: "Add to GitHub team"
-   ├─ Configured role: What's currently set?
-   ├─ Expected role: What should it be?
-   └─ If wrong: Fix the mapping
+ ├─ ISC > Workflows > GitHub_Engineer_Developer_Provisioning
+ ├─ Step: "Add to GitHub team"
+ ├─ Configured role: What's currently set?
+ ├─ Expected role: What should it be?
+ └─ If wrong: Fix the mapping
 
 Solution Checklist:
 ☐ Check target system documentation for role names
@@ -285,16 +285,16 @@ Cause:
 
 Diagnosis:
 1. Check connector account permissions
-   ├─ AWS: Is service account (via IAM credentials) an admin?
-   ├─ QB: Is API key from admin user account?
-   ├─ GitHub: Does token have org admin scope?
-   └─ Each system different
+ ├─ AWS: Is service account (via IAM credentials) an admin?
+ ├─ QB: Is API key from admin user account?
+ ├─ GitHub: Does token have org admin scope?
+ └─ Each system different
 
 2. Upgrade connector account
-   ├─ AWS: Make service account IAM admin
-   ├─ QB: Use admin user's API key
-   ├─ GitHub: Use token with admin:org scope
-   └─ Depends on system
+ ├─ AWS: Make service account IAM admin
+ ├─ QB: Use admin user's API key
+ ├─ GitHub: Use token with admin:org scope
+ └─ Depends on system
 
 Solution Checklist:
 ☐ Identify which connector account is insufficient
@@ -345,16 +345,16 @@ Step 3: Diagnose
 
 Step 4: Resolve
 ├─ Option A: Delete old account
-│  ├─ QB: Delete 'user5' account
-│  ├─ Wait: 24 hours for QB cache clear
-│  ├─ Retry: Provisioning (will create new account)
-│  └─ Verify: New account has correct permissions
+│ ├─ QB: Delete 'user5' account
+│ ├─ Wait: for QB cache clear
+│ ├─ Retry: Provisioning (will create new account)
+│ └─ Verify: New account has correct permissions
 │
 ├─ Option B: Reuse existing account
-│  ├─ ISC workflow: Update to handle "account exists" case
-│  ├─ New logic: Use existing account, set permissions
-│  ├─ Retry: Provisioning (will use existing, set perms)
-│  └─ Verify: Permissions now correct
+│ ├─ ISC workflow: Update to handle "account exists" case
+│ ├─ New logic: Use existing account, set permissions
+│ ├─ Retry: Provisioning (will use existing, set perms)
+│ └─ Verify: Permissions now correct
 │
 └─ Choose: Option B (faster, keeps account history)
 
@@ -391,32 +391,32 @@ Examples requiring escalation:
 
 Escalation Process:
 1. Gather documentation
-   ├─ ISC audit logs
-   ├─ Target system logs
-   ├─ Error messages (full text)
-   ├─ Timestamps
-   ├─ All attempted solutions
-   └─ Step-by-step reproduction
+ ├─ ISC audit logs
+ ├─ Target system logs
+ ├─ Error messages (full text)
+ ├─ Timestamps
+ ├─ All attempted solutions
+ └─ Step-by-step reproduction
 
 2. Contact target system support
-   ├─ Provide: Full error message (not summary)
-   ├─ Provide: API key/token used (securely)
-   ├─ Provide: Steps to reproduce
-   ├─ Ask: Is this known issue?
-   └─ Ask: What's the workaround?
+ ├─ Provide: Full error message (not summary)
+ ├─ Provide: API key/token used (securely)
+ ├─ Provide: Steps to reproduce
+ ├─ Ask: Is this known issue?
+ └─ Ask: What's the workaround?
 
 3. Contact ISC support (if connector issue)
-   ├─ Provide: ISC version
-   ├─ Provide: Connector version
-   ├─ Provide: Audit logs from ISC
-   ├─ Ask: Is this known connector issue?
-   └─ Ask: Any fixes available?
+ ├─ Provide: ISC version
+ ├─ Provide: Connector version
+ ├─ Provide: Audit logs from ISC
+ ├─ Ask: Is this known connector issue?
+ └─ Ask: Any fixes available?
 
 4. Implement workaround
-   ├─ While waiting for fix
-   ├─ Manual account creation (temporary)
-   ├─ Alert users: Access will be automated soon
-   └─ Don't leave users without access
+ ├─ While waiting for fix
+ ├─ Manual account creation (temporary)
+ ├─ Alert users: Access will be automated soon
+ └─ Don't leave users without access
 ```
 
 ---
@@ -429,34 +429,34 @@ Escalation Process:
 Best Practices:
 
 1. Test before production
-   ├─ Sandbox environment first
-   ├─ Test all scenarios (success and failure)
-   ├─ Test error handling
-   └─ Only deploy after successful testing
+ ├─ Sandbox environment first
+ ├─ Test all scenarios (success and failure)
+ ├─ Test error handling
+ └─ Only deploy after successful testing
 
 2. Monitor ongoing
-   ├─ Weekly check: Provisioning dashboard
-   ├─ Alert on: Any failures
-   ├─ Review: Audit logs for anomalies
-   └─ Action: Fix before they become problems
+ ├─ Weekly check: Provisioning dashboard
+ ├─ Alert on: Any failures
+ ├─ Review: Audit logs for anomalies
+ └─ Action: Fix before they become problems
 
 3. Document everything
-   ├─ Issue: Description, cause, resolution
-   ├─ Change: What was modified and why
-   ├─ Lesson learned: How to prevent next time
-   └─ Runbook: Step-by-step procedure for fix
+ ├─ Issue: Description, cause, resolution
+ ├─ Change: What was modified and why
+ ├─ Lesson learned: How to prevent next time
+ └─ Runbook: Step-by-step procedure for fix
 
 4. Rotate credentials regularly
-   ├─ API keys: Every 90 days
-   ├─ Service accounts: Every 6 months
-   ├─ Passwords: Follow organizational policy
-   └─ Retired: Old credentials fully disabled
+ ├─ API keys: Every 
+ ├─ Service accounts: Every 
+ ├─ Passwords: Follow organizational policy
+ └─ Retired: Old credentials fully disabled
 
 5. Have backup plans
-   ├─ If connector down: Manual provisioning process
-   ├─ If system down: Temporary system access via other method
-   ├─ If ISC down: Standalone credentials for emergency
-   └─ Plan: Tested and documented
+ ├─ If connector down: Manual provisioning process
+ ├─ If system down: Temporary system access via other method
+ ├─ If ISC down: Standalone credentials for emergency
+ └─ Plan: Tested and documented
 ```
 
 ---
