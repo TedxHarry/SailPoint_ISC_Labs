@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SailPoint ISC Labs - Interactive Documentation Viewer</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0F172A;
+            --bg-secondary: #1E293B;
+            --bg-tertiary: #334155;
+            --accent-primary: #22C55E;
+            --accent-secondary: #3B82F6;
+            --accent-tertiary: #8B5CF6;
+            --text-primary: #F8FAFC;
+            --text-secondary: #CBD5E1;
+            --text-muted: #94A3B8;
+            --border-color: rgba(148, 163, 184, 0.1);
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg-primary: #F8FAFC;
+                --bg-secondary: #F1F5F9;
+                --bg-tertiary: #E2E8F0;
+                --accent-primary: #16A34A;
+                --accent-secondary: #1D4ED8;
+                --accent-tertiary: #7C3AED;
+                --text-primary: #0F172A;
+                --text-secondary: #334155;
+                --text-muted: #64748B;
+                --border-color: rgba(71, 85, 105, 0.1);
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-primary) 0%, #1a1f3a 100%);
+            color: var(--text-primary);
+            font-family: 'IBM Plex Sans', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-secondary), var(--accent-primary), var(--accent-tertiary));
+            width: 0%;
+            z-index: 1000;
+            transition: width 0.3s ease-out;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            right: 1rem;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+            border-radius: 12px;
+            animation: slideDown 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .nav-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            flex: 1;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        button {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+
+        button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Main Content */
+        main {
+            display: grid;
+            grid-template-columns: 250px 1fr 300px;
+            gap: 2rem;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 6rem 2rem 2rem;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1200px) {
+            main {
+                grid-template-columns: 200px 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            main {
+                grid-template-columns: 1fr;
+                padding-top: 5rem;
+            }
+            nav {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 6rem;
+            height: fit-content;
+            max-height: calc(100vh - 8rem);
+            overflow-y: auto;
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            animation: fadeInLeft 0.6s ease-out;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .sidebar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: var(--accent-primary);
+            border-radius: 3px;
+        }
+
+        .sidebar h3 {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .toc-list {
+            list-style: none;
+        }
+
+        .toc-list li {
+            margin-bottom: 0.75rem;
+        }
+
+        .toc-list a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+            display: block;
+            padding: 0.5rem;
+            border-left: 2px solid transparent;
+            border-radius: 4px;
+        }
+
+        .toc-list a:hover {
+            color: var(--accent-primary);
+            border-left-color: var(--accent-primary);
+            background: rgba(34, 197, 94, 0.1);
+            padding-left: 0.75rem;
+        }
+
+        .toc-list a.active {
+            color: var(--accent-primary);
+            border-left-color: var(--accent-primary);
+            background: rgba(34, 197, 94, 0.1);
+            font-weight: 600;
+        }
+
+        /* Content */
+        .content {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .breadcrumbs {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+        }
+
+        .breadcrumbs a {
+            color: var(--accent-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumbs a:hover {
+            color: var(--accent-primary);
+        }
+
+        .breadcrumbs span {
+            opacity: 0.6;
+        }
+
+        .page {
+            display: none;
+            opacity: 0;
+            animation: pageIn 0.4s ease-out forwards;
+        }
+
+        .page.active {
+            display: block;
+            opacity: 1;
+        }
+
+        @keyframes pageIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            font-weight: 600;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--accent-secondary);
+            font-weight: 600;
+        }
+
+        h4, h5, h6 {
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        a {
+            color: var(--accent-secondary);
+            text-decoration: none;
+            transition: all 0.2s;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        a:hover {
+            color: var(--accent-primary);
+            border-bottom-color: var(--accent-primary);
+        }
+
+        ul, ol {
+            margin-bottom: 1rem;
+            margin-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        /* Code Blocks */
+        pre {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            animation: codeSlideIn 0.5s ease-out;
+        }
+
+        @keyframes codeSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        pre::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        pre::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        pre::-webkit-scrollbar-thumb {
+            background: var(--accent-primary);
+            border-radius: 3px;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            border: none;
+            color: inherit;
+        }
+
+        code:not(pre code) {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: var(--accent-secondary);
+            font-size: 0.85em;
+        }
+
+        /* Callout Boxes */
+        .callout {
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent-primary);
+            background: rgba(34, 197, 94, 0.1);
+            border-radius: 8px;
+            animation: calloutSlideIn 0.5s ease-out;
+        }
+
+        @keyframes calloutSlideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .callout.info {
+            border-left-color: var(--accent-secondary);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .callout.warning {
+            border-left-color: #FFA500;
+            background: rgba(255, 165, 0, 0.1);
+        }
+
+        .callout.danger {
+            border-left-color: #EF4444;
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .callout strong {
+            color: var(--text-primary);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .callout p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        /* Blockquote */
+        blockquote {
+            border-left: 4px solid var(--accent-tertiary);
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background: rgba(30, 41, 59, 0.6);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: var(--accent-primary);
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Right Sidebar - Quick Info */
+        .info-panel {
+            position: sticky;
+            top: 6rem;
+            height: fit-content;
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            animation: fadeInRight 0.6s ease-out;
+            font-size: 0.875rem;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .info-panel h3 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+
+        .reading-time, .page-stats {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .reading-time strong, .page-stats strong {
+            color: var(--text-primary);
+        }
+
+        /* Pagination Controls */
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            gap: 1rem;
+        }
+
+        .pagination-info {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .pagination-buttons {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        /* Animations */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            main {
+                padding-top: 5rem;
+            }
+
+            .sidebar, .info-panel {
+                display: none;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            .breadcrumbs {
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Highlight.js customization for dark mode */
+        .hljs {
+            background: transparent;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar"></div>
+
+    <nav>
+        <div class="nav-title">📚 SailPoint ISC Labs</div>
+        <div class="nav-buttons">
+            <button id="prevBtn" onclick="previousPage()">← Previous</button>
+            <button id="nextBtn" onclick="nextPage()">Next →</button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Sidebar - Table of Contents -->
+        <aside class="sidebar">
+            <h3>📖 Contents</h3>
+            <ul class="toc-list" id="tocList"></ul>
+        </aside>
+
+        <!-- Main Content -->
+        <article class="content">
+            <div class="breadcrumbs" id="breadcrumbs"></div>
+            <div id="contentArea"></div>
+            <div class="pagination">
+                <div class="pagination-info">
+                    <span id="pageCounter"></span>
+                </div>
+                <div class="pagination-buttons">
+                    <button id="prevBtn2" onclick="previousPage()">← Previous</button>
+                    <button id="nextBtn2" onclick="nextPage()">Next →</button>
+                </div>
+            </div>
+        </article>
+
+        <!-- Right Sidebar - Quick Info -->
+        <aside class="info-panel">
+            <h3>📊 Page Info</h3>
+            <div class="reading-time">
+                <strong>Reading Time:</strong><br>
+                <span id="readingTime">—</span> min
+            </div>
+            <div class="page-stats">
+                <strong>Word Count:</strong><br>
+                <span id="wordCount">—</span>
+            </div>
+            <div class="page-stats">
+                <strong>Last Updated:</strong><br>
+                <span id="lastUpdated">—</span>
+            </div>
+        </aside>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        // Enhanced markdown to HTML converter
+        function markdownToHtml(markdown) {
+            let html = markdown;
+
+            // Code blocks (must be before inline code)
+            html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
+                const language = lang || 'plaintext';
+                const highlighted = hljs.highlight(code.trim(), { language, ignoreIllegals: true }).value;
+                return `<pre><code class="language-${language}">${highlighted}</code></pre>`;
+            });
+
+            // Callouts
+            html = html.replace(/> \*\*(Note|Info|Warning|Danger):\*\* (.*?)(?=\n\n|$)/gs, (match, type, content) => {
+                const typeClass = type.toLowerCase();
+                return `<div class="callout ${typeClass}"><strong>${type}:</strong> <p>${content.trim()}</p></div>`;
+            });
+
+            // Headers
+            html = html.replace(/^### (.*?)$/gm, '<h3>$1</h3>');
+            html = html.replace(/^## (.*?)$/gm, '<h2>$1</h2>');
+            html = html.replace(/^# (.*?)$/gm, '<h1>$1</h1>');
+
+            // Bold and italic
+            html = html.replace(/\*\*\*(.*?)\*\*\*/g, '<strong><em>$1</em></strong>');
+            html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+            // Links
+            html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>');
+
+            // Inline code
+            html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+
+            // Blockquotes
+            html = html.replace(/^> (.*?)$/gm, '<blockquote>$1</blockquote>');
+
+            // Lists
+            html = html.replace(/^\* (.*?)$/gm, '<li>$1</li>');
+            html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
+            html = html.replace(/^\d+\. (.*?)$/gm, '<li>$1</li>');
+
+            // Paragraphs
+            const lines = html.split('\n');
+            let inBlock = false;
+            html = lines.map(line => {
+                if (line.startsWith('<') || line === '' || inBlock) {
+                    inBlock = line.startsWith('<') && !line.endsWith('>');
+                    return line;
+                }
+                return `<p>${line}</p>`;
+            }).join('\n');
+
+            return html;
+        }
+
+        // Document database - will be loaded dynamically
+        let documents = [];
+        const isServerMode = window.location.hostname !== 'file://';
+        const API_BASE = isServerMode ? '' : null;
+
+        let currentPageIndex = 0;
+        let contentCache = {};
+
+        // Initialize - load files from server API
+        async function init() {
+            try {
+                const response = await fetch('/api/files');
+                if (!response.ok) {
+                    throw new Error('Failed to load file list');
+                }
+                documents = await response.json();
+
+                if (documents.length === 0) {
+                    console.error('No markdown files found');
+                    document.getElementById('contentArea').innerHTML = `
+                        <div class="callout warning">
+                            <strong>No Files Found</strong>
+                            <p>No markdown (.md) or text (.txt) files were found in this directory.</p>
+                            <p>Place your markdown files in the same directory as this viewer.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                renderTOC();
+                await loadPage(0);
+                setupProgressBar();
+            } catch (err) {
+                console.error('Initialization error:', err);
+                document.getElementById('contentArea').innerHTML = `
+                    <div class="callout danger">
+                        <strong>Server Connection Error</strong>
+                        <p>${err.message}</p>
+                        <p style="font-size: 0.9rem; margin-top: 1rem; color: #94A3B8;">
+                            Make sure the server is running. Run: <code style="background: rgba(0,0,0,0.2);">node server.js</code>
+                        </p>
+                    </div>
+                `;
+            }
+        }
+
+        function renderTOC() {
+            const tocList = document.getElementById('tocList');
+            tocList.innerHTML = '';
+
+            documents.forEach((doc, index) => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = '#';
+                a.textContent = doc.title;
+                a.dataset.index = index;
+                a.onclick = (e) => {
+                    e.preventDefault();
+                    loadPage(index);
+                };
+                li.appendChild(a);
+                tocList.appendChild(li);
+            });
+
+            updateActiveTOC();
+        }
+
+        function updateActiveTOC() {
+            document.querySelectorAll('.toc-list a').forEach((a, i) => {
+                a.classList.toggle('active', i === currentPageIndex);
+            });
+        }
+
+        async function loadPage(index) {
+            if (index < 0 || index >= documents.length) return;
+
+            currentPageIndex = index;
+            const doc = documents[index];
+
+            // Update breadcrumbs
+            const breadcrumbs = document.getElementById('breadcrumbs');
+            breadcrumbs.innerHTML = `
+                <a href="#" onclick="loadPage(0); return false;">Home</a>
+                <span>></span>
+                <span>${doc.category}</span>
+                <span>></span>
+                <span>${doc.title}</span>
+            `;
+
+            // Show loading state
+            const contentArea = document.getElementById('contentArea');
+            contentArea.innerHTML = '<div style="text-align: center; padding: 2rem; color: #94A3B8;"><div style="font-size: 1.5rem; animation: spin 1s linear infinite;">⏳</div><p style="margin-top: 1rem;">Loading content...</p></div>';
+
+            try {
+                // Fetch actual content from server
+                const response = await fetch(`/api/content/${doc.fullPath}`);
+
+                if (!response.ok) {
+                    throw new Error('Failed to load content');
+                }
+
+                const data = await response.json();
+
+                // Update content with actual markdown converted to HTML
+                contentArea.innerHTML = data.html;
+
+                // Store page stats for later use
+                contentArea.dataset.wordCount = data.words;
+                contentArea.dataset.readingTime = data.readingTime;
+                contentArea.dataset.lastUpdated = data.lastUpdated;
+
+                // Highlight code blocks
+                document.querySelectorAll('pre code').forEach(block => {
+                    hljs.highlightElement(block);
+                });
+            } catch (err) {
+                contentArea.innerHTML = `
+                    <div class="callout danger">
+                        <strong>Error Loading Content</strong>
+                        <p>Unable to load the file: ${doc.title}</p>
+                        <p style="font-size: 0.85rem; color: #94A3B8; margin-top: 0.5rem;">${err.message}</p>
+                    </div>
+                `;
+            }
+
+            // Update stats
+            updatePageStats();
+            updateActiveTOC();
+            updatePaginationButtons();
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function generateSampleContent(doc) {
+            const sampleContents = {
+                'Welcome': `
+                    <h1>Welcome to SailPoint ISC Labs</h1>
+                    <p>This interactive documentation viewer provides a comprehensive learning platform for SailPoint Identity Cloud (ISC).</p>
+                    <div class="callout info">
+                        <strong>Info:</strong> <p>Use the navigation to explore different topics. Each section includes detailed explanations and code examples.</p>
+                    </div>
+                    <h2>Features</h2>
+                    <ul>
+                        <li>Interactive dark theme with smooth animations</li>
+                        <li>Syntax-highlighted code blocks</li>
+                        <li>Easy navigation with table of contents</li>
+                        <li>Mobile-responsive design</li>
+                        <li>Reading time estimates</li>
+                    </ul>
+                    <h2>Getting Started</h2>
+                    <p>Navigate through the units using the sidebar. Each unit covers essential concepts for the ISC certification.</p>
+                `,
+                'Unit 1: Fundamentals': `
+                    <h1>Unit 1: Identity Management Fundamentals</h1>
+                    <p>Learn the core concepts of identity and access management.</p>
+                    <h2>Topics Covered</h2>
+                    <ul>
+                        <li>What is Identity Management</li>
+                        <li>Identity vs Access vs Governance</li>
+                        <li>ISC Architecture Overview</li>
+                        <li>Data Model Fundamentals</li>
+                        <li>Identity Lifecycle (JML)</li>
+                    </ul>
+                    <h2>Example Configuration</h2>
+                    <pre><code class="language-json">{
+  "identityProfile": {
+    "name": "Active Directory",
+    "type": "ConnectorBundle",
+    "attributes": {
+      "uid": "samAccountName",
+      "email": "mail",
+      "firstName": "givenName",
+      "lastName": "sn"
+    }
+  }
+}</code></pre>
+                    <div class="callout warning">
+                        <strong>Warning:</strong> <p>Ensure all attribute mappings are correctly configured before running aggregation.</p>
+                    </div>
+                `,
+                'Unit 2: Entra ID Setup': `
+                    <h1>Unit 2: Entra ID Setup & Configuration</h1>
+                    <p>Set up your ISC sandbox environment with Entra ID integration.</p>
+                    <h2>Prerequisites</h2>
+                    <ul>
+                        <li>Azure subscription with Entra ID access</li>
+                        <li>ISC sandbox environment</li>
+                        <li>Admin permissions in both systems</li>
+                    </ul>
+                    <h2>Setup Steps</h2>
+                    <ol>
+                        <li>Navigate to Azure Portal</li>
+                        <li>Create test users and groups</li>
+                        <li>Register ISC application</li>
+                        <li>Configure Microsoft Graph permissions</li>
+                        <li>Generate client secret</li>
+                    </ol>
+                    <div class="callout danger">
+                        <strong>Danger:</strong> <p>Never share your client secret. Store it securely in your ISC configuration.</p>
+                    </div>
+                `,
+                'Unit 3: Identity Profiles': `
+                    <h1>Unit 3: Identity Profiles & Sources</h1>
+                    <p>Configure identity profiles and manage source connectors.</p>
+                    <h2>Identity Profile Components</h2>
+                    <ul>
+                        <li><strong>Source:</strong> System of record (HR, AD, etc.)</li>
+                        <li><strong>Attributes:</strong> Data fields mapped from source</li>
+                        <li><strong>Rules:</strong> Business logic for identity processing</li>
+                        <li><strong>Correlation:</strong> Linking identities across sources</li>
+                    </ul>
+                    <h2>Attribute Mapping Example</h2>
+                    <pre><code class="language-java">Identity identity = new Identity();
+identity.setName(sourceData.get("uid"));
+identity.setAttribute("email", sourceData.get("mail"));
+identity.setAttribute("department", sourceData.get("dept"));
+identity.save();</code></pre>
+                `,
+                'Unit 4: Aggregation': `
+                    <h1>Unit 4: Aggregation & Correlation</h1>
+                    <p>Master the aggregation process and correlation rules.</p>
+                    <h2>Aggregation Types</h2>
+                    <ul>
+                        <li><strong>Full:</strong> Entire identity population</li>
+                        <li><strong>Incremental:</strong> Changed records only</li>
+                        <li><strong>Account:</strong> Specific account objects</li>
+                    </ul>
+                    <h2>Correlation Rules</h2>
+                    <pre><code class="language-xml">&lt;Correlations&gt;
+  &lt;Correlation&gt;
+    &lt;Rules&gt;
+      &lt;Rule&gt;
+        &lt;Attribute name="email" /&gt;
+      &lt;/Rule&gt;
+    &lt;/Rules&gt;
+  &lt;/Correlation&gt;
+&lt;/Correlations&gt;</code></pre>
+                `,
+                'Unit 5: Access Modeling': `
+                    <h1>Unit 5: Access Modeling</h1>
+                    <p>Design and implement access control strategies.</p>
+                    <h2>Role-Based Access Control (RBAC)</h2>
+                    <p>Define roles based on job responsibilities and group them into role hierarchies.</p>
+                    <h2>Dynamic Roles</h2>
+                    <pre><code class="language-javascript">const dynamicRole = {
+  name: "Manager",
+  criteria: [
+    { attribute: "title", contains: "Manager" },
+    { attribute: "department", equals: "Engineering" }
+  ],
+  entitlements: ["access-team-repo", "approve-requests"]
+};</code></pre>
+                `,
+                'Unit 10: Enterprise Architecture': `
+                    <h1>Unit 10: Enterprise Architecture</h1>
+                    <p>Design scalable, resilient ISC deployments.</p>
+                    <h2>High Availability & Disaster Recovery</h2>
+                    <ul>
+                        <li>Multi-region deployment</li>
+                        <li>Database replication</li>
+                        <li>Failover mechanisms</li>
+                        <li>Recovery strategies</li>
+                    </ul>
+                    <h2>Migration Planning</h2>
+                    <div class="callout info">
+                        <strong>Info:</strong> <p>Plan migration in phases: assessment, design, build, test, deploy.</p>
+                    </div>
+                `,
+                'Practice Exam': `
+                    <h1>Practice Exam Questions</h1>
+                    <p>Test your knowledge with these certification exam questions.</p>
+                    <h2>Sample Question 1</h2>
+                    <p><strong>What is the primary purpose of identity aggregation?</strong></p>
+                    <p>A) To combine identity data from multiple sources<br>
+                    B) To delete unused accounts<br>
+                    C) To create backup copies<br>
+                    D) To encrypt sensitive data</p>
+                    <p><em>Answer: A</em></p>
+                `,
+                'Glossary': `
+                    <h1>Glossary</h1>
+                    <h2>Common Terms</h2>
+                    <ul>
+                        <li><strong>Aggregation:</strong> Process of collecting identity data from source systems</li>
+                        <li><strong>Correlation:</strong> Linking identity records across multiple systems</li>
+                        <li><strong>Provisioning:</strong> Creating and managing user accounts</li>
+                        <li><strong>Source:</strong> System that contains identity data (AD, HR, etc.)</li>
+                    </ul>
+                `
+            };
+
+            return sampleContents[doc.title] || `
+                <h1>${doc.title}</h1>
+                <p>Content for ${doc.title} will be loaded from ${doc.path}</p>
+                <div class="callout info">
+                    <strong>Info:</strong> <p>In production, this would load the actual markdown file.</p>
+                </div>
+            `;
+        }
+
+        function updatePageStats() {
+            const contentArea = document.getElementById('contentArea');
+            const words = contentArea.dataset.wordCount || '—';
+            const readingTime = contentArea.dataset.readingTime || '—';
+            const lastUpdated = contentArea.dataset.lastUpdated || new Date().toLocaleDateString();
+
+            document.getElementById('wordCount').textContent = words !== '—' ? parseInt(words).toLocaleString() : '—';
+            document.getElementById('readingTime').textContent = readingTime;
+            document.getElementById('pageCounter').textContent = `Page ${currentPageIndex + 1} of ${documents.length}`;
+            document.getElementById('lastUpdated').textContent = lastUpdated;
+        }
+
+        function updatePaginationButtons() {
+            document.getElementById('prevBtn').disabled = currentPageIndex === 0;
+            document.getElementById('nextBtn').disabled = currentPageIndex === documents.length - 1;
+            document.getElementById('prevBtn2').disabled = currentPageIndex === 0;
+            document.getElementById('nextBtn2').disabled = currentPageIndex === documents.length - 1;
+        }
+
+        function nextPage() {
+            if (currentPageIndex < documents.length - 1) {
+                loadPage(currentPageIndex + 1);
+            }
+        }
+
+        function previousPage() {
+            if (currentPageIndex > 0) {
+                loadPage(currentPageIndex - 1);
+            }
+        }
+
+        function setupProgressBar() {
+            window.addEventListener('scroll', () => {
+                const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrolled = window.scrollY;
+                const progress = (scrolled / scrollHeight) * 100;
+                document.querySelector('.progress-bar').style.width = progress + '%';
+            });
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextPage();
+            if (e.key === 'ArrowLeft') previousPage();
+        });
+
+        // Initialize on load
+        window.addEventListener('load', init);
+    </script>
+</body>
+</html>
