@@ -13,24 +13,41 @@ const app = {
     })(),
 
     init() {
+        this.setupDOM();
         this.setupEventListeners();
         this.loadModuleLinks();
         this.handleHashRoute();
         window.addEventListener('hashchange', () => this.handleHashRoute());
+        console.log('✨ SailPoint ISC Labs loaded! Base path:', this.basePath);
+    },
+
+    setupDOM() {
+        // Ensure essential elements exist
+        if (!document.getElementById('readerWrapper')) {
+            console.error('❌ Reader wrapper not found!');
+        }
     },
 
     setupEventListeners() {
-        // Sidebar toggle
-        const sidebarToggle = document.getElementById('sidebarToggle');
-        const sidebar = document.querySelector('.sidebar');
-        if (sidebarToggle) {
-            sidebarToggle.addEventListener('click', () => {
-                sidebar.classList.toggle('open');
+        // Menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const closeSidebar = document.getElementById('closeSidebar');
+        const sidebar = document.getElementById('sidebar');
+
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                sidebar?.classList.toggle('open');
             });
         }
 
-        // Close sidebar on link click (mobile)
-        document.querySelectorAll('.nav-link').forEach(link => {
+        if (closeSidebar) {
+            closeSidebar.addEventListener('click', () => {
+                sidebar?.classList.remove('open');
+            });
+        }
+
+        // Close sidebar on link click
+        document.querySelectorAll('.module-link').forEach(link => {
             link.addEventListener('click', () => {
                 if (window.innerWidth <= 768) {
                     sidebar?.classList.remove('open');
@@ -42,6 +59,9 @@ const app = {
         const searchInput = document.getElementById('searchInput');
         if (searchInput) {
             searchInput.addEventListener('input', (e) => this.filterNavigation(e.target.value));
+            searchInput.addEventListener('focus', () => {
+                this.showToast('Type to search modules...');
+            });
         }
 
         // Theme toggle
@@ -49,14 +69,27 @@ const app = {
         if (themeToggle) {
             themeToggle.addEventListener('click', () => this.toggleTheme());
         }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                searchInput?.focus();
+            }
+            if (e.key === 'Escape') {
+                sidebar?.classList.remove('open');
+            }
+        });
     },
 
     loadModuleLinks() {
-        document.querySelectorAll('.nav-link[data-module]').forEach(link => {
+        document.querySelectorAll('.module-link').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const module = link.getAttribute('data-module');
-                this.loadModule(module);
+                if (module) {
+                    this.loadModule(module);
+                }
             });
         });
     },
@@ -66,29 +99,38 @@ const app = {
         if (hash.startsWith('module-')) {
             const module = hash.replace('module-', '');
             this.loadModule(module);
-        } else if (!hash) {
-            this.showHero();
         }
     },
 
     async loadModule(moduleName) {
         if (this.currentModule === moduleName) return;
 
-        const contentArea = document.getElementById('content');
+        const readerWrapper = document.getElementById('readerWrapper');
         const hero = document.getElementById('hero');
 
+        if (!readerWrapper) {
+            console.error('❌ Reader wrapper not found!');
+            return;
+        }
+
+        // Hide hero
         if (hero) hero.style.display = 'none';
 
         // Show loading state
-        contentArea.innerHTML = `
-            <div class="article-loading">
-                <div class="spinner"></div>
-                <p>Loading ${moduleName}...</p>
+        readerWrapper.innerHTML = `
+            <div style="text-align: center; padding: 60px 20px;">
+                <div style="display: inline-block; width: 50px; height: 50px; border: 3px solid rgba(99, 102, 241, 0.2); border-top-color: #6366f1; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                <p style="color: #cbd5e1; margin-top: 20px; font-size: 16px;">Loading ${this.escapeHtml(moduleName)}...</p>
             </div>
+            <style>
+                @keyframes spin {
+                    to { transform: rotate(360deg); }
+                }
+            </style>
         `;
 
         try {
-            // Try different path variations with base path for GitHub Pages
+            // Try different path variations with base path
             const paths = [
                 `${this.basePath}/${moduleName}.md`,
                 `${this.basePath}/${moduleName}/${moduleName.split('/').pop()}.md`,
@@ -116,7 +158,6 @@ const app = {
 
             this.renderMarkdown(content);
             this.currentModule = moduleName;
-            this.updateBreadcrumb(moduleName);
             this.updateActiveLink(moduleName);
             window.location.hash = `module-${moduleName}`;
 
@@ -129,6 +170,7 @@ const app = {
 
             // Scroll to top
             window.scrollTo(0, 0);
+            this.showToast('✨ Content loaded!');
         } catch (error) {
             this.showError(`Failed to load module: ${error.message}`);
             console.error('Module loading error:', error);
@@ -136,7 +178,7 @@ const app = {
     },
 
     renderMarkdown(markdown) {
-        const contentArea = document.getElementById('content');
+        const readerWrapper = document.getElementById('readerWrapper');
 
         // Configure marked options
         marked.setOptions({
@@ -149,12 +191,13 @@ const app = {
 
         try {
             const html = marked.parse(markdown);
-            contentArea.innerHTML = `<article class="article">${html}</article>`;
+            readerWrapper.innerHTML = `<article class="article">${html}</article>`;
 
             // Add click handlers for links
-            contentArea.querySelectorAll('a').forEach(link => {
+            readerWrapper.querySelectorAll('a').forEach(link => {
                 const href = link.getAttribute('href');
                 if (href && href.endsWith('.md')) {
+                    link.style.cursor = 'pointer';
                     link.addEventListener('click', (e) => {
                         e.preventDefault();
                         const module = href.replace('.md', '').replace('./', '');
@@ -162,53 +205,27 @@ const app = {
                     });
                 }
             });
+
+            // Add animation to images
+            readerWrapper.querySelectorAll('img').forEach(img => {
+                img.style.borderRadius = '12px';
+                img.style.marginTop = '20px';
+                img.style.marginBottom = '20px';
+                img.style.maxWidth = '100%';
+                img.style.height = 'auto';
+            });
         } catch (error) {
-            contentArea.innerHTML = `
+            readerWrapper.innerHTML = `
                 <article class="article">
-                    <h2>Error Rendering Content</h2>
-                    <p>Failed to parse markdown: ${error.message}</p>
+                    <h2 style="color: #ef4444;">⚠️ Error Rendering Content</h2>
+                    <p style="color: #cbd5e1;">Failed to parse markdown: ${this.escapeHtml(error.message)}</p>
                 </article>
             `;
         }
     },
 
-    showHero() {
-        const contentArea = document.getElementById('content');
-        const hero = document.getElementById('hero');
-
-        if (hero) {
-            hero.style.display = 'block';
-        }
-        contentArea.innerHTML = '';
-        this.currentModule = null;
-        this.updateBreadcrumb(null);
-        this.updateActiveLink(null);
-    },
-
-    updateBreadcrumb(moduleName) {
-        const breadcrumb = document.getElementById('breadcrumb');
-        if (!breadcrumb) return;
-
-        if (!moduleName) {
-            breadcrumb.innerHTML = '<a href="#" onclick="app.showHero(); return false;">Home</a>';
-            return;
-        }
-
-        const parts = moduleName.split('/');
-        const breadcrumbHTML = [
-            '<a href="#" onclick="app.showHero(); return false;">Home</a>',
-            ...parts.map((part, index) => {
-                const href = parts.slice(0, index + 1).join('/');
-                const label = part.replace(/-/g, ' ').replace(/^\d+\./, '');
-                return `<span> / </span><a href="#module-${href}">${label}</a>`;
-            })
-        ].join('');
-
-        breadcrumb.innerHTML = breadcrumbHTML;
-    },
-
     updateActiveLink(moduleName) {
-        document.querySelectorAll('.nav-link').forEach(link => {
+        document.querySelectorAll('.module-link').forEach(link => {
             link.classList.remove('active');
             if (moduleName && link.getAttribute('data-module') === moduleName) {
                 link.classList.add('active');
@@ -218,54 +235,79 @@ const app = {
 
     filterNavigation(query) {
         const normalizedQuery = query.toLowerCase();
-        document.querySelectorAll('.nav-link').forEach(link => {
-            const text = link.textContent.toLowerCase();
-            const module = link.getAttribute('data-module')?.toLowerCase() || '';
-            const matches = text.includes(normalizedQuery) || module.includes(normalizedQuery);
-            link.parentElement.style.display = matches ? 'block' : 'none';
+        let visibleSections = 0;
+
+        document.querySelectorAll('.module-section').forEach(section => {
+            let hasVisibleLinks = false;
+
+            section.querySelectorAll('.module-link').forEach(link => {
+                const text = link.textContent.toLowerCase();
+                const module = link.getAttribute('data-module')?.toLowerCase() || '';
+                const matches = text.includes(normalizedQuery) || module.includes(normalizedQuery);
+
+                if (matches) {
+                    link.parentElement.style.display = 'block';
+                    hasVisibleLinks = true;
+                } else {
+                    link.parentElement.style.display = 'none';
+                }
+            });
+
+            section.style.display = hasVisibleLinks ? 'block' : 'none';
+            if (hasVisibleLinks) visibleSections++;
         });
 
-        // Hide empty sections
-        document.querySelectorAll('.nav-section').forEach(section => {
-            const hasVisibleLinks = Array.from(section.querySelectorAll('.nav-list li'))
-                .some(li => li.style.display !== 'none');
-            section.style.display = hasVisibleLinks ? 'block' : 'none';
-        });
+        if (visibleSections === 0 && query) {
+            this.showToast('No modules found matching your search');
+        }
     },
 
     toggleTheme() {
         document.documentElement.style.filter =
             document.documentElement.style.filter === 'invert(1)' ? '' : 'invert(1)';
-        const icon = document.querySelector('.theme-toggle i');
+        const icon = document.querySelector('.theme-btn i');
         if (icon) {
             icon.classList.toggle('fa-moon');
             icon.classList.toggle('fa-sun');
         }
+        this.showToast('Theme toggled!');
     },
 
     showError(message) {
-        const contentArea = document.getElementById('content');
-        contentArea.innerHTML = `
+        const readerWrapper = document.getElementById('readerWrapper');
+        const hero = document.getElementById('hero');
+        if (hero) hero.style.display = 'none';
+
+        readerWrapper.innerHTML = `
             <article class="article">
-                <h2>⚠️ Error</h2>
-                <p>${message}</p>
-                <p><a href="#" onclick="app.showHero(); return false;">← Back to Home</a></p>
+                <h2 style="color: #ef4444;">⚠️ Error</h2>
+                <p style="color: #cbd5e1;">${this.escapeHtml(message)}</p>
+                <p><a href="#" onclick="location.hash=''; document.getElementById('hero').style.display='block'; document.getElementById('readerWrapper').innerHTML=''; return false;" style="color: #6366f1;">← Back to Home</a></p>
             </article>
         `;
     },
 
-    showToast(message, duration = 3000) {
+    showToast(message) {
         const toast = document.getElementById('toast');
         if (!toast) return;
 
         toast.textContent = message;
         toast.classList.add('show');
-        toast.classList.remove('hide');
 
         setTimeout(() => {
             toast.classList.remove('show');
-            toast.classList.add('hide');
-        }, duration);
+        }, 3000);
+    },
+
+    escapeHtml(text) {
+        const map = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#039;'
+        };
+        return text.replace(/[&<>"']/g, m => map[m]);
     }
 };
 
@@ -274,47 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
     app.init();
 });
 
-// ============= KEYBOARD SHORTCUTS =============
-document.addEventListener('keydown', (e) => {
-    // Cmd/Ctrl + K to focus search
-    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-        e.preventDefault();
-        const searchInput = document.getElementById('searchInput');
-        if (searchInput) searchInput.focus();
-    }
-
-    // Escape to close sidebar on mobile
-    if (e.key === 'Escape') {
-        const sidebar = document.querySelector('.sidebar');
-        if (sidebar?.classList.contains('open')) {
-            sidebar.classList.remove('open');
-        }
-    }
-});
-
-// ============= SMOOTH SCROLL FOR ANCHOR LINKS =============
-document.addEventListener('click', (e) => {
-    if (e.target.tagName === 'A') {
-        const href = e.target.getAttribute('href');
-        if (href && href.startsWith('#') && !href.startsWith('#module-')) {
-            const element = document.querySelector(href);
-            if (element) {
-                e.preventDefault();
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    }
-});
-
-// ============= RESPONSIVE SIDEBAR HANDLING =============
-window.addEventListener('resize', () => {
-    const sidebar = document.querySelector('.sidebar');
-    if (window.innerWidth > 768 && sidebar?.classList.contains('open')) {
-        sidebar.classList.remove('open');
-    }
-});
-
-// ============= LOCAL STORAGE FOR USER PREFERENCES =============
+// ============= LOCAL STORAGE FOR PREFERENCES =============
 const storage = {
     save(key, value) {
         try {
@@ -335,17 +337,16 @@ const storage = {
     }
 };
 
-// Save current module to resume reading
+// Resume last module
 window.addEventListener('beforeunload', () => {
     if (app.currentModule) {
         storage.save('lastModule', app.currentModule);
     }
 });
 
-// Resume last module on page load
-window.addEventListener('load', () => {
-    const lastModule = storage.load('lastModule');
-    if (lastModule && window.location.hash === '') {
-        app.loadModule(lastModule);
+// Check if page is taking too long to load
+setTimeout(() => {
+    if (!app.currentModule && window.location.hash === '') {
+        console.log('✨ Ready! Click a module from the sidebar to get started.');
     }
-});
+}, 100);
