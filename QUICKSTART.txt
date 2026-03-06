@@ -1,0 +1,55 @@
+==============================================================
+  🚀 QUICKEST SETUP - GitHub Pages (30 seconds)
+==============================================================
+
+You want the EASIEST way? Use GitHub Pages!
+
+STEP 1: Push to GitHub
+  git add .
+  git commit -m "Add viewer"
+  git push
+
+STEP 2: Enable GitHub Pages
+  1. Go to GitHub.com and open your repository
+  2. Click "Settings" (top right)
+  3. Scroll down to "Pages"
+  4. Select: Branch = main, Folder = / (root)
+  5. Click Save
+
+STEP 3: Visit Your Site
+  GitHub will show a URL like:
+  https://yourusername.github.io/SailPoint_ISC_Labs/
+
+  Click it! 📚
+
+THAT'S IT! Your files are now beautifully displayed!
+
+==============================================================
+  ✅ WHAT YOU GET
+==============================================================
+✓ Beautiful dark theme viewer
+✓ All files readable
+✓ Navigation sidebar
+✓ Code syntax highlighting
+✓ Reading time estimates
+✓ Mobile responsive
+✓ No server needed
+✓ Always online
+
+==============================================================
+  📚 ADD MORE FILES
+==============================================================
+The viewer shows these files by default:
+- README.md
+- GLOSSARY.md
+- PRACTICE-EXAM-QUESTIONS.md
+
+To add more files, you'll need to create an index.html viewer.
+I can help with that if you want!
+
+==============================================================
+  ❓ QUESTIONS?
+==============================================================
+Check GITHUB_PAGES_SETUP.md for detailed instructions
+
+==============================================================
