@@ -11,7 +11,9 @@
       "Bash(git commit -m \"UNIT 8: Add modules 8.4-8.6 \\(Anomaly detection, risk scoring, compliance trending\\)\")",
       "Bash(git add UNIT-8-IDENTITY-ANALYTICS/8.7-analytics-dashboards/module.md UNIT-8-IDENTITY-ANALYTICS/8.8-advanced-reporting/module.md UNIT-8-IDENTITY-ANALYTICS/8.9-data-driven-governance/module.md)",
       "Bash(git commit -m \"UNIT 8: Add modules 8.7-8.9 \\(Dashboards, advanced reporting, data-driven governance\\)\")",
-      "Bash(xargs wc -l)"
+      "Bash(xargs wc -l)",
+      "Bash(ls -lh *.html *.css *.js)",
+      "Bash(git commit:*)"
     ]
   }
 }
