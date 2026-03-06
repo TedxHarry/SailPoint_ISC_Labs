@@ -28,7 +28,7 @@ By the end, you'll have:
 | **Test Application (1)** | ISC_Test_App | For provisioning practice |
 | **Additional Users** | 10 more test users | For realistic scenarios |
 
-**Total setup time:** 
+**Total setup time:** 45-60 minutes (varies by experience level) 
 
 ---
 
@@ -361,7 +361,7 @@ You must create and save a Client Secret. ISC will use this to prove it's author
 6. **Click:** "+ New client secret" button
 7. **A box appears** asking for:
  - **Description:** Type `ISC_Test_Secret` (just a name for you)
- - **Expires:** Select `` (recommended for testing)
+ - **Expires:** Select `24 months` (recommended for testing - gives time to renew before expiry)
 8. **Click:** "Add" button
 9. **⚠️ IMPORTANT:** You'll see the secret value displayed. **COPY IT IMMEDIATELY** - it will only show once!
 10. **Paste it** into your safe storage:
@@ -415,7 +415,7 @@ For ISC labs to be realistic, create ~10 test users. Instead of doing one-by-one
  - **Usage location:** United States
 3. Click "Create"
 
-**Time estimate:** for all 10
+**Time estimate:** ~15-20 minutes for all 10 additional users
 
 ---
 
