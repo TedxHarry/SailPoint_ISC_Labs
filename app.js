@@ -3,6 +3,14 @@ const app = {
     currentModule: null,
     modules: {},
     isLoading: false,
+    basePath: (() => {
+        // Detect base path for GitHub Pages or local development
+        const pathname = window.location.pathname;
+        if (pathname.includes('/SailPoint_ISC_Labs/')) {
+            return '/SailPoint_ISC_Labs';
+        }
+        return '';
+    })(),
 
     init() {
         this.setupEventListeners();
@@ -80,10 +88,10 @@ const app = {
         `;
 
         try {
-            // Try different path variations
+            // Try different path variations with base path for GitHub Pages
             const paths = [
-                `./${moduleName}.md`,
-                `./${moduleName}/${moduleName.split('/').pop()}.md`,
+                `${this.basePath}/${moduleName}.md`,
+                `${this.basePath}/${moduleName}/${moduleName.split('/').pop()}.md`,
             ];
 
             let content = null;
