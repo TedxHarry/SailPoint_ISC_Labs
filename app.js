@@ -282,9 +282,20 @@ const app = {
             <article class="article">
                 <h2 style="color: #ef4444;">⚠️ Error</h2>
                 <p style="color: #cbd5e1;">${this.escapeHtml(message)}</p>
-                <p><a href="#" onclick="location.hash=''; document.getElementById('hero').style.display='block'; document.getElementById('readerWrapper').innerHTML=''; return false;" style="color: #6366f1;">← Back to Home</a></p>
+                <p><a href="#" id="backToHome" style="color: #6366f1;">← Back to Home</a></p>
             </article>
         `;
+
+        // Add event listener for back link
+        const backLink = document.getElementById('backToHome');
+        if (backLink) {
+            backLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.location.hash = '';
+                if (hero) hero.style.display = 'block';
+                readerWrapper.innerHTML = '';
+            });
+        }
     },
 
     showToast(message) {
