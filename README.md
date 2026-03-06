@@ -66,7 +66,7 @@ SailPoint_ISC_Labs/
 - [ ] Complete `SETUP.md` before starting labs
 
 ### 2. **Complete Setup in This Order**
-1. Read `SETUP-GUIDES/00-ENTRA-ID-FREE-TIER-GUIDE.md`
+1. Read [`SETUP-GUIDES/00-ENTRA-ID-FREE-TIER-GUIDE.md`](./SETUP-GUIDES/00-ENTRA-ID-FREE-TIER-GUIDE.md)
 2. Create test users/groups in Entra ID (as guided)
 3. Set up ISC sandbox connectivity
 4. Verify ISC can connect to Entra ID
@@ -167,7 +167,7 @@ All test data is **synthetic** and ready to use:
 | **RegionTech Inc** | 300 | 4 (Entra ID + 3 CSV) | Mid-market |
 | **GlobalBank Corp** | 500 | 5 (Entra ID + 4 CSV) | Enterprise |
 
-All CSV files are in `/TEST-DATA/` ready to import.
+All CSV files are in [TEST-DATA/](./TEST-DATA/) ready to import.
 
 ---
 
@@ -211,8 +211,7 @@ This repository is provided as an educational resource for learning SailPoint IS
 4. Review official SailPoint documentation
 
 ### Common Issues
-- Entra ID: See `SETUP-GUIDES/00-ENTRA-ID-FREE-TIER-GUIDE.md`
-- ISC: See `SETUP-GUIDES/01-ISC-SANDBOX-ACCESS.md`
+- Entra ID: See [`SETUP-GUIDES/00-ENTRA-ID-FREE-TIER-GUIDE.md`](./SETUP-GUIDES/00-ENTRA-ID-FREE-TIER-GUIDE.md)
 - Lab issues: Check module's troubleshooting section
 
 ---
@@ -221,11 +220,11 @@ This repository is provided as an educational resource for learning SailPoint IS
 
 | Resource | Link |
 |---|---|
-| **Setup Guide** | `/SETUP-GUIDES/00-ENTRA-ID-FREE-TIER-GUIDE.md` |
-| **Curriculum** | `/TABLE-OF-CONTENTS.md` |
-| **Lab Template** | `/SERIES-PROMPT.md` |
-| **Sample Labs** | `/SAMPLE-LABS/` |
-| **Test Data** | `/TEST-DATA/` |
+| **Setup Guide** | [SETUP-GUIDES/00-ENTRA-ID-FREE-TIER-GUIDE.md](./SETUP-GUIDES/00-ENTRA-ID-FREE-TIER-GUIDE.md) |
+| **Curriculum** | [TABLE-OF-CONTENTS.md](./TABLE-OF-CONTENTS.md) |
+| **Lab Template** | [SERIES-PROMPT.md](./SERIES-PROMPT.md) |
+| **Sample Labs** | [SAMPLE-LABS/](./SAMPLE-LABS/) |
+| **Test Data** | [TEST-DATA/](./TEST-DATA/) |
 
 ---
 
@@ -241,10 +240,10 @@ This repository is provided as an educational resource for learning SailPoint IS
 ## 🎯 Your Next Steps
 
 1. ✅ Clone this repository
-2. ✅ Read `SETUP.md`
-3. ✅ Follow `SETUP-GUIDES/00-ENTRA-ID-FREE-TIER-GUIDE.md`
-4. ✅ Review `SAMPLE-LABS/` to understand format
-5. ✅ Start `UNIT 1 - FUNDAMENTALS`
+2. ✅ Read [SETUP-GUIDES/00-ENTRA-ID-FREE-TIER-GUIDE.md](./SETUP-GUIDES/00-ENTRA-ID-FREE-TIER-GUIDE.md)
+3. ✅ Follow setup steps to configure Entra ID
+4. ✅ Review [SAMPLE-LABS/](./SAMPLE-LABS/) to understand format
+5. ✅ Start [UNIT 1 - FUNDAMENTALS](./UNIT-1-FUNDAMENTALS/)
 
 ---
 
