@@ -1,6 +1,6 @@
 # 5.18 - Test SoD Enforcement
 
-**Unit:** Access Modeling | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Access Modeling | **Tier:** 2 | 
 
 ---
 

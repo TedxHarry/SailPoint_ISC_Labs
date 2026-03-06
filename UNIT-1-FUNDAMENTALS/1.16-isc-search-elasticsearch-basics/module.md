@@ -1,6 +1,6 @@
 # 1.16 - ISC Search & Elasticsearch Basics
 
-**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | **Duration:** ~12 hours
+**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | 
 
 ---
 
@@ -168,7 +168,7 @@ D) Casey is orphaned
 
 ## 🔄 NEXT STEPS
 
-Module 1.17 covers APIs and integration—how external systems integrate with ISC.
+Module 1.17 covers APIs and integrationhow external systems integrate with ISC.
 
 ---
 

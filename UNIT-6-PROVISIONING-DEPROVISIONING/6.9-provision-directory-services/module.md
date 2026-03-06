@@ -1,6 +1,6 @@
 # 6.9 - Provision Directory Services
 
-**Unit:** Provisioning & Deprovisioning | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Provisioning & Deprovisioning | **Tier:** 2 | 
 
 ---
 

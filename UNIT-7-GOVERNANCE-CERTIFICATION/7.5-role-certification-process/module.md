@@ -1,6 +1,6 @@
 # 7.5 - Role Certification Process
 
-**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Governance & Certification | **Tier:** 2 | 
 
 **Coverage:** Role owner certification, process, verification, remediation.
 
@@ -95,7 +95,7 @@ Process:
    ├─ User: User4
    ├─ Role: Engineer_Senior (currently not assigned)
    ├─ Reason: "Promoted to senior engineer, handling advanced projects"
-   └─ Duration: Permanent
+   └─ 
 
 2. Route to: Alex Lee (Engineer_Senior role owner)
    ├─ Alex reviews: "Is User4 ready for senior role?"

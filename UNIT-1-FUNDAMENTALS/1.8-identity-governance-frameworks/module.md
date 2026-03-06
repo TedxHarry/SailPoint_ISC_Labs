@@ -1,6 +1,6 @@
 # 1.8 - Identity Governance Frameworks
 
-**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | **Duration:** ~12 hours
+**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | 
 
 ---
 

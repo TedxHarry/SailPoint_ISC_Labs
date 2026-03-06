@@ -1,6 +1,6 @@
 # 4.10 - Advanced Correlation Scenarios
 
-**Unit:** Aggregation & Correlation | **Tier:** 2 | **Duration:** ~12 hours
+**Unit:** Aggregation & Correlation | **Tier:** 2 | 
 
 ---
 

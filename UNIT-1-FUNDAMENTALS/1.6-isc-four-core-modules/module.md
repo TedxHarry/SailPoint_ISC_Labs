@@ -1,6 +1,6 @@
 # 1.6 - ISC Four Core Modules
 
-**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | 
 
 ---
 
@@ -25,8 +25,6 @@ By the end of this module, you will be able to:
 
 **Access Required:**
 - None for this module (conceptual reading only)
-
-**Time Required:** ~10 hours (2-3 hours reading, 5-7 hours research and scenario mapping)
 
 **Difficulty:** Beginner
 
@@ -63,7 +61,7 @@ The **Access Modeling Module** enables organizations to design role structures, 
 
 **Why It Matters:**
 
-Without role definitions, access governance is impossible. If you don't define what a Finance Manager should access, you can't provision it, govern it, or certify it. Access Modeling is the foundation—it's where organizations document their access strategy.
+Without role definitions, access governance is impossible. If you don't define what a Finance Manager should access, you can't provision it, govern it, or certify it. Access Modeling is the foundationit's where organizations document their access strategy.
 
 **In ISC Context:**
 
@@ -96,7 +94,7 @@ The **Lifecycle Management Module** automates identity lifecycle processes. It w
 
 **Why It Matters:**
 
-Manual lifecycle processes are the biggest pain point for IT. Lifecycle Management is often the #1 reason organizations deploy ISC—it reduces onboarding from days to hours, ensures everyone's access is revoked on their last day (compliance requirement), and eliminates manual work for IT staff.
+Manual lifecycle processes are the biggest pain point for IT. Lifecycle Management is often the #1 reason organizations deploy ISCit reduces onboarding from days to hours, ensures everyone's access is revoked on their last day (compliance requirement), and eliminates manual work for IT staff.
 
 **In ISC Context:**
 
@@ -181,16 +179,16 @@ Analytics in ISC includes:
 
 | Metric | Value | Trend | Action |
 |--------|-------|-------|--------|
-| **Finance Team Members** | 8 | — | — |
+| **Finance Team Members** | 8 |  |  |
 | **Avg Access Per Person** | 4.2 systems | ↑ 2% | Monitor |
 | **Users with Excessive Access** | 2 | ↑↑ | Review immediately |
 | **Policy Violations** | 1 (SoD) | ↓ | Good |
 | **Q1 Certification Completion** | 100% | ✅ | Compliant |
-| **Last Access Review Date** | 2024-01-15 | — | Next due 2024-04-15 |
+| **Last Access Review Date** | 2024-01-15 |  | Next due 2024-04-15 |
 
 Insights:
-- "Morgan Chen's access score: 8.2/10 (high risk) — has access to Approve Payments AND Process Payments (Separation of Duties violation)"
-- "Alex Torres has access to 6 systems (average is 4)—recommend review"
+- "Morgan Chen's access score: 8.2/10 (high risk)  has access to Approve Payments AND Process Payments (Separation of Duties violation)"
+- "Alex Torres has access to 6 systems (average is 4)recommend review"
 
 Result: Finance Director immediately sees which areas need attention and can proactively address risks.
 
@@ -225,12 +223,12 @@ Understanding this integration helps you grasp ISC's complete value and how to c
 3. MONITOR (Governance)
    - Review access regularly
    - Enforce policies
-   - Example: "Q1 Certification—Is everyone's access still appropriate?"
+   - Example: "Q1 CertificationIs everyone's access still appropriate?"
 
 4. MEASURE (Analytics)
    - Provide dashboards and insights
    - Identify risks
-   - Example: "This person has excessive access—flag for review"
+   - Example: "This person has excessive accessflag for review"
 
 5. IMPROVE
    - Insights feed back into design
@@ -267,34 +265,34 @@ D) Access Modeling Module (it defines roles)
 
 **Explanation:** The correct answer is **B) Lifecycle Management Module**. Lifecycle Management watches for hire events and automatically provisions access based on rules. While Access Modeling defines what access a Finance Manager should have, Lifecycle Management is what actually provisions it automatically when the hire event occurs.
 
-A) is incorrect—Governance reviews after provisioning; it doesn't automate provisioning.
-C) is incorrect—Analytics measures; it doesn't provision.
-D) is incorrect—Access Modeling defines rules; Lifecycle Management applies them.
+A) is incorrectGovernance reviews after provisioning; it doesn't automate provisioning.
+C) is incorrectAnalytics measures; it doesn't provision.
+D) is incorrectAccess Modeling defines rules; Lifecycle Management applies them.
 
 ---
 
-**Question 2:** During Q1 access certification, Alex Lee (Finance Manager) reviews his team's access and finds that Morgan Chen has access to both "Approve Payments" and "Process Payments"—a separation of duties violation. Which ISC module would have alerted the organization to this violation before certification?
+**Question 2:** During Q1 access certification, Alex Lee (Finance Manager) reviews his team's access and finds that Morgan Chen has access to both "Approve Payments" and "Process Payments"a separation of duties violation. Which ISC module would have alerted the organization to this violation before certification?
 
 A) ✅ Governance Module (detects policy violations) and Analytics Module (risk scoring)
 B) Lifecycle Management Module (it only provisions; doesn't detect violations)
 C) Access Modeling Module (it defines roles; doesn't detect violations)
-D) None—violation detection is only possible through manual review
+D) Noneviolation detection is only possible through manual review
 
 **Explanation:** The correct answer is **A) Governance Module (detects policy violations) and Analytics Module (risk scoring)**. Both modules should have flagged this violation. Governance enforces policies and detects when access violates them (e.g., "Can't have both Approve and Process permissions"). Analytics should have flagged Morgan with a high risk score due to the SoD violation. These modules work together to identify risks.
 
-B) is incorrect—Lifecycle only provisions; doesn't detect violations.
-C) is incorrect—Access Modeling defines what shouldn't happen; Governance detects when it does.
-D) is incorrect—Modern governance systems automatically detect violations, not just manual reviews.
+B) is incorrectLifecycle only provisions; doesn't detect violations.
+C) is incorrectAccess Modeling defines what shouldn't happen; Governance detects when it does.
+D) is incorrectModern governance systems automatically detect violations, not just manual reviews.
 
 ---
 
 ## 📚 ADDITIONAL RESOURCES
 
 **Related Modules:**
-- [Next: 1.7 - ISC Data Model Fundamentals](/modules/1.7-isc-data-model-fundamentals) — Data structures behind these modules
-- [Next: 1.9 - The Identity Lifecycle (JML)](/modules/1.9-the-identity-lifecycle-jml) — Deep dive into Lifecycle Management
-- [Unit 5: Access Modeling](/units/unit-5-access-modeling) — Detailed module design (future unit)
-- [Unit 9: Governance & Certification](/units/unit-9-governance-certification) — Governance deep dive (future unit)
+- [Next: 1.7 - ISC Data Model Fundamentals](/modules/1.7-isc-data-model-fundamentals)  Data structures behind these modules
+- [Next: 1.9 - The Identity Lifecycle (JML)](/modules/1.9-the-identity-lifecycle-jml)  Deep dive into Lifecycle Management
+- [Unit 5: Access Modeling](/units/unit-5-access-modeling)  Detailed module design (future unit)
+- [Unit 9: Governance & Certification](/units/unit-9-governance-certification)  Governance deep dive (future unit)
 
 **Official Documentation:**
 - [SailPoint ISC Modules Overview](https://example.com)

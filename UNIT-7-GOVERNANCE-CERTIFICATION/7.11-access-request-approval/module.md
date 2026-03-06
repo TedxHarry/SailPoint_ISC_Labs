@@ -1,6 +1,6 @@
 # 7.11 - Access Request Approval
 
-**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Governance & Certification | **Tier:** 2 | 
 
 Manage user access requests: Submit, route, approve, provision, track.
 

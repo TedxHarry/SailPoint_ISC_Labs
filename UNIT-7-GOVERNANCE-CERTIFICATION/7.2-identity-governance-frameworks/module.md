@@ -1,6 +1,6 @@
 # 7.2 - Identity Governance Frameworks
 
-**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Governance & Certification | **Tier:** 2 | 
 
 ---
 

@@ -1,6 +1,6 @@
 # 7.9 - Policy Enforcement
 
-**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Governance & Certification | **Tier:** 2 | 
 
 Enforce governance policies: SoD rules, approval workflows, least privilege, compliance requirements.
 

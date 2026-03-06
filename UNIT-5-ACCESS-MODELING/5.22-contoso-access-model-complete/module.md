@@ -1,6 +1,6 @@
 # 5.22 - Contoso Access Model Complete
 
-**Unit:** Access Modeling | **Tier:** 2 | **Duration:** ~5 hours
+**Unit:** Access Modeling | **Tier:** 2 | 
 
 ---
 
@@ -573,7 +573,7 @@ D) It's only needed for large companies
 
 **Ready for Unit 6:** Your access model is production-ready. You now understand how to design access for real organizations. Next you'll learn how to actually deliver that access to target systems.
 
-**Estimated Time Invested:** ~220 hours across 5 units (1-5)
+**
 **Knowledge Level:** Can design role structures, implement SoD controls, and validate access models
 
 Proceed to Unit 6: Provisioning & Deprovisioning when ready. The hard part (designing access correctly) is done. Now comes the technical implementation (actually granting access).

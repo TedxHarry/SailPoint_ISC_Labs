@@ -1,6 +1,6 @@
 # 7.1 - Governance Fundamentals
 
-**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Governance & Certification | **Tier:** 2 | 
 
 ---
 

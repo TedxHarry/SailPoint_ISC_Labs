@@ -1,6 +1,6 @@
 # 5.4 - Business Role Definition
 
-**Unit:** Access Modeling | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Access Modeling | **Tier:** 2 | 
 
 ---
 

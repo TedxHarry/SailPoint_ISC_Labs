@@ -1,6 +1,6 @@
 # 7.16 - Reporting Dashboards
 
-**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Governance & Certification | **Tier:** 2 | 
 
 Create governance reports: Access reports, compliance metrics, executive summaries.
 

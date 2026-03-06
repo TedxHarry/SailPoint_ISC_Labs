@@ -1,6 +1,6 @@
 # SAMPLE LAB 3: Module 4.3 - Create Standard Role (Finance_AP_Clerk) for Contoso
 
-**Unit:** Access Modeling | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Access Modeling | **Tier:** 2 | 
 
 **NOTE:** This sample shows how a practical **access modeling lab** is structured.
 
@@ -32,7 +32,7 @@ By the end of this module, you will:
 
 **Scenario:** Contoso Finance Department Access Model
 
-Contoso's Finance team currently has inconsistent access. Some people have access to "Approve Payments" AND "Sign Checks"—a serious control issue. You're creating the first ISC role to fix this.
+Contoso's Finance team currently has inconsistent access. Some people have access to "Approve Payments" AND "Sign Checks"a serious control issue. You're creating the first ISC role to fix this.
 
 **Role to Create:** Finance_AP_Clerk
 - **Purpose:** Accounts Payable Clerk with access to enter/review AP transactions

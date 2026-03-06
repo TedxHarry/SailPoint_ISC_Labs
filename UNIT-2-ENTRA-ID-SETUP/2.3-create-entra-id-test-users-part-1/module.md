@@ -1,6 +1,6 @@
 # 2.3 - Create Entra ID Test Users (Part 1)
 
-**Unit:** Entra ID Setup & ISC Sandbox | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** Entra ID Setup & ISC Sandbox | **Tier:** 1 | 
 
 ---
 

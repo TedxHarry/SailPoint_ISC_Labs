@@ -1,6 +1,6 @@
 # 7.4 - Design Review Workflow
 
-**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Governance & Certification | **Tier:** 2 | 
 
 ---
 

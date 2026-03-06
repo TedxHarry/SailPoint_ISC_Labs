@@ -1,6 +1,6 @@
 # SAMPLE LAB 2: Module 2.4 - Configure Entra ID Connector in ISC
 
-**Unit:** Setup, Configuration & Administration | **Tier:** 1 | **Duration:** ~12 hours
+**Unit:** Setup, Configuration & Administration | **Tier:** 1 | 
 
 **NOTE:** This is a shortened sample showing how a setup/integration lab is structured.
 

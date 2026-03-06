@@ -1,6 +1,6 @@
 # 5.15 - Separation of Duties Concepts
 
-**Unit:** Access Modeling | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Access Modeling | **Tier:** 2 | 
 
 ---
 

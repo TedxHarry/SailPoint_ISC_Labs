@@ -4,7 +4,7 @@
 **Target Audience:** Complete beginners (no ISC or Entra ID experience)
 **Total Modules:** 86 modules across 10 units
 **Total Learning Hours:** ~130 hours (10-12 hours per module average)
-**Duration:** 12-18 months full-time, 24+ months part-time
+
 **Certification:** Professional Credential + Identity Security Engineer
 **Practice Environment:** ISC Sandbox + Entra ID Free Tier + CSV Simulations
 

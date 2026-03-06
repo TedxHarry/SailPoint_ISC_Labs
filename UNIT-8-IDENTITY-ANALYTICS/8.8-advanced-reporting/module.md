@@ -1,6 +1,6 @@
 # 8.8 - Advanced Reporting
 
-**Unit:** Identity Analytics | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Identity Analytics | **Tier:** 2 | 
 
 Create advanced reports: Comparative analysis, predictive insights, executive summaries.
 

@@ -1,6 +1,6 @@
 # 1.14 - Provisioning Fundamentals
 
-**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | 
 
 ---
 
@@ -138,7 +138,7 @@ Module 1.6: ISC Four Core Modules. Module 1.13: Correlation Concepts.
 
 **Question 1:** Morgan Chen's job title changes from Senior Accountant to Accounting Manager. What should ISC do?
 
-A) Nothing—account already exists
+A) Nothingaccount already exists
 B) Create new accounts for Manager role
 C) ✅ Revoke Senior Accountant permissions, provision Accounting Manager permissions in existing accounts
 D) Require manager approval before proceeding
@@ -168,7 +168,7 @@ D) Manual provisioning is required
 
 ## 🔄 NEXT STEPS
 
-Module 1.15 covers roles and access profiles—the building blocks of provisioning rules.
+Module 1.15 covers roles and access profilesthe building blocks of provisioning rules.
 
 ---
 

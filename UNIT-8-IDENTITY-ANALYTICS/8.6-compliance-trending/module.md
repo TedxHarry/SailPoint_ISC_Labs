@@ -1,6 +1,6 @@
 # 8.6 - Compliance Trending
 
-**Unit:** Identity Analytics | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Identity Analytics | **Tier:** 2 | 
 
 Analyze compliance trends: Track compliance metrics over time, forecast improvements, identify issues.
 

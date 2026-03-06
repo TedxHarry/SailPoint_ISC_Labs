@@ -3,7 +3,7 @@
 
 A comprehensive, practical labs curriculum for beginners to become **SailPoint Certified Identity Security Engineers**.
 
-**Target:** Complete beginners | **Duration:** 12-18 months | **Certification:** Professional + Engineer
+**Target:** Complete beginners | 
 
 ---
 
@@ -135,11 +135,11 @@ Each lab includes:
 
 ## 📋 Certification Alignment
 
-| Certification | Units | Duration | Status |
+| Certification | Units | Status |
 |---|---|---|---|
-| **Professional Credential** | 1-5 | 8-12 weeks | Entry-level |
-| **Engineer Certification** | 1-9 | 18-24 weeks | Industry-recognized |
-| **Specialist Track** | 9-10 | 6+ weeks | Optional deep dives |
+| **Professional Credential** | 1-5 | Entry-level |
+| **Engineer Certification** | 1-9 | Industry-recognized |
+| **Specialist Track** | 9-10 | Optional deep dives |
 
 ---
 
@@ -177,7 +177,7 @@ All CSV files are in `/TEST-DATA/` ready to import.
 1. Each module is self-contained
 2. Labs are designed for 1-person practice
 3. All solutions are provided
-4. Estimated time per module: 10-12 hours
+4. 
 
 ### Customization
 - Modify CSV data for your use case

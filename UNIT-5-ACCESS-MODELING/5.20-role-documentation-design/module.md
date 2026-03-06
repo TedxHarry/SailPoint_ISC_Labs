@@ -1,6 +1,6 @@
 # 5.20 - Role Documentation & Design
 
-**Unit:** Access Modeling | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Access Modeling | **Tier:** 2 | 
 
 ---
 

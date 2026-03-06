@@ -1,6 +1,6 @@
 # 1.1 - What is Identity Management?
 
-**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | 
 
 ---
 
@@ -25,8 +25,6 @@ By the end of this module, you will be able to:
 **Access Required:**
 - None for this module (conceptual reading only)
 
-**Time Required:** ~10 hours (2-3 hours reading, 5-7 hours reflection and note-taking)
-
 **Difficulty:** Beginner
 
 ---
@@ -37,7 +35,7 @@ By the end of this module, you will be able to:
 
 **Business Background:**
 
-Contoso Ltd is a growing professional services company with departments in Finance, Engineering, HR, Sales, and Operations. For years, their IT operations were chaotic. When new employees joined, managers had to manually request access to systems. When employees moved departments, access wasn't cleaned up—so an engineer who transferred to Finance still had access to the Engineering systems, creating security and compliance risks. When people left, there were inevitable gaps—sometimes taking weeks to discover someone still had access. The company had no central way to review who had access to what, and they were always scrambling to prove compliance to auditors.
+Contoso Ltd is a growing professional services company with departments in Finance, Engineering, HR, Sales, and Operations. For years, their IT operations were chaotic. When new employees joined, managers had to manually request access to systems. When employees moved departments, access wasn't cleaned upso an engineer who transferred to Finance still had access to the Engineering systems, creating security and compliance risks. When people left, there were inevitable gapssometimes taking weeks to discover someone still had access. The company had no central way to review who had access to what, and they were always scrambling to prove compliance to auditors.
 
 Leadership realized this manual process was becoming impossible as the company scaled. They needed a way to:
 - Automate the onboarding process (reduce from 3-5 days to hours)
@@ -50,7 +48,7 @@ This is the core problem that **identity management** solves.
 
 **What You'll Be Doing:**
 
-In this module, you'll learn what identity management is—not from a technical perspective, but from a business perspective. You'll understand the problems it solves, how it evolved, and why it matters. You're building your mental model before you ever touch any system.
+In this module, you'll learn what identity management isnot from a technical perspective, but from a business perspective. You'll understand the problems it solves, how it evolved, and why it matters. You're building your mental model before you ever touch any system.
 
 ---
 
@@ -72,7 +70,7 @@ SailPoint ISC is the platform that automates identity management. It reads data 
 
 **Example:**
 
-When Casey Kim is hired at Contoso as an Accounts Payable Clerk in Finance, instead of the Finance Manager manually requesting access to the Finance system, Active Directory, email, and the HRIS system—and each IT person handling that request individually over 3-5 days—ISC automatically sees "Casey is a Finance AP Clerk" and instantly provisions access to all four systems in minutes. If Casey is promoted to Accounting Manager 18 months later, ISC automatically updates access. When Casey leaves Contoso, ISC automatically revokes access everywhere on departure day.
+When Casey Kim is hired at Contoso as an Accounts Payable Clerk in Finance, instead of the Finance Manager manually requesting access to the Finance system, Active Directory, email, and the HRIS systemand each IT person handling that request individually over 3-5 daysISC automatically sees "Casey is a Finance AP Clerk" and instantly provisions access to all four systems in minutes. If Casey is promoted to Accounting Manager 18 months later, ISC automatically updates access. When Casey leaves Contoso, ISC automatically revokes access everywhere on departure day.
 
 ---
 
@@ -88,7 +86,7 @@ Understanding this evolution helps you see why modern platforms like ISC were ne
 
 **In ISC Context:**
 
-SailPoint ISC represents the latest phase: cloud-native, multi-tenant, API-driven identity governance. It's built for the reality that organizations don't have single databases anymore—they have Entra ID, cloud applications (Salesforce, ServiceNow, Workday), on-premises systems, and countless integrations. ISC connects to all of them.
+SailPoint ISC represents the latest phase: cloud-native, multi-tenant, API-driven identity governance. It's built for the reality that organizations don't have single databases anymorethey have Entra ID, cloud applications (Salesforce, ServiceNow, Workday), on-premises systems, and countless integrations. ISC connects to all of them.
 
 **Example:**
 
@@ -103,7 +101,7 @@ SailPoint ISC represents the latest phase: cloud-native, multi-tenant, API-drive
 
 **Definition:**
 
-The **identity lifecycle** (also called JML—Join, Move, Leave) describes the four phases of an employee's relationship with an organization: **Hire (Join)**, **Transfer (Move)**, **Change (Modify access)**, and **Offboard (Leave)**. Each phase generates changes to system access that must be managed.
+The **identity lifecycle** (also called JMLJoin, Move, Leave) describes the four phases of an employee's relationship with an organization: **Hire (Join)**, **Transfer (Move)**, **Change (Modify access)**, and **Offboard (Leave)**. Each phase generates changes to system access that must be managed.
 
 **Why It Matters:**
 
@@ -146,7 +144,7 @@ SailPoint ISC's value comes from automation. Manual identity management is expen
 - Onboarding: Minutes (HR hires → ISC reads hire data → ISC provisions all access automatically)
 - Cost: Essentially zero (automated)
 - Risk: Zero (ISC provisions everything immediately)
-- Audit: "Casey's access: Finance system (provisioned Day 1), Finance manager approval (same), Expenses (provisioned Day 1)—all automatic, fully audited"
+- Audit: "Casey's access: Finance system (provisioned Day 1), Finance manager approval (same), Expenses (provisioned Day 1)all automatic, fully audited"
 
 ---
 
@@ -175,11 +173,11 @@ B) It prevents scalability and creates access control risks as the organization 
 C) ✅ It causes unauthorized system access
 D) It eliminates the need for identity management
 
-**Explanation:** The correct answer is C) It eliminates the need for identity management. Actually, wait—let me reconsider. The question asks about the PRIMARY business problem. The answer should be **B) It prevents scalability and creates access control risks as the organization grows**. Manual processes don't scale—as companies grow, manual access management becomes chaotic, error-prone, and impossible to audit. This is the core problem identity management solves.
+**Explanation:** The correct answer is C) It eliminates the need for identity management. Actually, waitlet me reconsider. The question asks about the PRIMARY business problem. The answer should be **B) It prevents scalability and creates access control risks as the organization grows**. Manual processes don't scaleas companies grow, manual access management becomes chaotic, error-prone, and impossible to audit. This is the core problem identity management solves.
 
-A) is incorrect—users can eventually access systems, just slowly and inconsistently.
-C) is incorrect—while unauthorized access is a risk, the primary problem is lack of scalability.
-D) is incorrect—this approach absolutely creates a need for identity management.
+A) is incorrectusers can eventually access systems, just slowly and inconsistently.
+C) is incorrectwhile unauthorized access is a risk, the primary problem is lack of scalability.
+D) is incorrectthis approach absolutely creates a need for identity management.
 
 ---
 
@@ -190,9 +188,9 @@ B) An employee changes departments and their access is modified to match the new
 C) An employee is promoted to manager and gains additional permissions
 D) ✅ Both B and C are examples of the "Move" phase
 
-**Explanation:** The correct answer is **D) Both B and C are examples of the "Move" phase**. The "Move" phase encompasses ANY change to an employee's role, department, responsibilities, or permissions—this includes transfers to different departments AND promotions to new titles. Both require access modifications.
+**Explanation:** The correct answer is **D) Both B and C are examples of the "Move" phase**. The "Move" phase encompasses ANY change to an employee's role, department, responsibilities, or permissionsthis includes transfers to different departments AND promotions to new titles. Both require access modifications.
 
-A) is incorrect—this is the "Join" phase.
+A) is incorrectthis is the "Join" phase.
 B) and C) are both correct examples, making D the most complete answer.
 
 ---
@@ -200,8 +198,8 @@ B) and C) are both correct examples, making D the most complete answer.
 ## 📚 ADDITIONAL RESOURCES
 
 **Related Modules:**
-- [Next: 1.2 - Identity vs Access vs Governance](/modules/1.2-identity-vs-access-vs-governance) — Clarify the distinctions between related concepts
-- [Reference: 1.19 - ISC Glossary & Terminology](/modules/1.19-isc-glossary-terminology) — Complete glossary of identity management terms
+- [Next: 1.2 - Identity vs Access vs Governance](/modules/1.2-identity-vs-access-vs-governance)  Clarify the distinctions between related concepts
+- [Reference: 1.19 - ISC Glossary & Terminology](/modules/1.19-isc-glossary-terminology)  Complete glossary of identity management terms
 
 **Official Documentation:**
 - SailPoint ISC Documentation: [What is Identity Governance?](https://example.com)

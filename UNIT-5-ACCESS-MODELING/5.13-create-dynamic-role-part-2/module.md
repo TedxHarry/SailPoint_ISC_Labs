@@ -1,6 +1,6 @@
 # 5.13 - Create Dynamic Role (Part 2)
 
-**Unit:** Access Modeling | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Access Modeling | **Tier:** 2 | 
 
 ---
 

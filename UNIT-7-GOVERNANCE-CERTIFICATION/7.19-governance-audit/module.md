@@ -1,6 +1,6 @@
 # 7.19 - Governance Audit
 
-**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Governance & Certification | **Tier:** 2 | 
 
 Comprehensive governance audit: Verify controls, assess effectiveness, document findings.
 

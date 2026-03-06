@@ -1,6 +1,6 @@
 # 8.9 - Data-Driven Governance
 
-**Unit:** Identity Analytics | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Identity Analytics | **Tier:** 2 | 
 
 Use analytics for governance: Data-driven decisions, policy optimization, governance improvements.
 

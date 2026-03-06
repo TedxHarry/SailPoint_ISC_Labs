@@ -100,7 +100,7 @@ Initial curriculum review identified **7 critical issues, 8 important issues, an
 | **Units** | 10 | 14 | +4 units for specialization |
 | **Modules** | 86 | 226-260 | +140-174 modules |
 | **Hours** | 130 | 2,260-2,600 | +2,130-2,470 hours |
-| **Duration (FT)** | 6-12 months | 18-24 months | More realistic for true mastery |
+| **Duration (FT)** | 18-24 months | More realistic for true mastery |
 | **Case Studies** | 1 (Contoso) | 3 (Contoso, RegionTech, GlobalBank) | Real enterprise scenarios |
 
 ### New Units Added
@@ -189,7 +189,7 @@ This curriculum is **production-ready** for module writing. All critical issues 
 | **New Documents Created** | 4 |
 | **Total Modules in v2** | 226-260 |
 | **Total Hours in v2** | 2,260-2,600 |
-| **Projected Completion Time (FT)** | 18-24 months |
+| **Projected Completion Time (FT)** |
 
 ---
 

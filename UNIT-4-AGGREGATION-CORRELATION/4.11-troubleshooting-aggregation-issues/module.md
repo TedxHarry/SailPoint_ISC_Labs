@@ -1,6 +1,6 @@
 # 4.11 - Troubleshooting Aggregation Issues
 
-**Unit:** Aggregation & Correlation | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Aggregation & Correlation | **Tier:** 2 | 
 
 ---
 

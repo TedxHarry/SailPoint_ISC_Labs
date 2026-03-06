@@ -1,6 +1,6 @@
 # 4.18 - Pre-Provisioning Checklist
 
-**Unit:** Aggregation & Correlation | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** Aggregation & Correlation | **Tier:** 1 | 
 
 ---
 
@@ -231,7 +231,7 @@ Verify security controls in place:
 
 Verify aggregation performance acceptable:
 
-**Aggregation Duration:**
+**Aggregation 
 - [ ] Full aggregation completes in <5 minutes (target for 13 users)
 - [ ] No timeouts or stuck processes
 - [ ] Throughput: >5 objects/second

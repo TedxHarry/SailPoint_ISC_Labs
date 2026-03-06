@@ -1,6 +1,6 @@
 # 2.1 - Entra ID Free Tier Overview
 
-**Unit:** Entra ID Setup & ISC Sandbox | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** Entra ID Setup & ISC Sandbox | **Tier:** 1 | 
 
 ---
 
@@ -97,9 +97,9 @@ Entra ID Free sufficient for:
 
 **Question 1:** Contoso plans to create 13 test users and 7 groups in Entra ID Free. Is this possible?
 
-A) No—Free tier allows maximum 5 users
-B) No—Free tier is for individuals only
-C) ✅ Yes—Free tier supports up to 500,000 objects
+A) NoFree tier allows maximum 5 users
+B) NoFree tier is for individuals only
+C) ✅ YesFree tier supports up to 500,000 objects
 D) Only with Premium license
 
 **Answer: C.** Free tier has plenty of capacity for test users.

@@ -1,6 +1,6 @@
 # 4.16 - Aggregation Scheduling & Automation
 
-**Unit:** Aggregation & Correlation | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** Aggregation & Correlation | **Tier:** 1 | 
 
 ---
 
@@ -104,7 +104,7 @@ Next run: 2024-03-03 02:00 UTC
 
 **Shows:**
 ```
-Scheduled Run Date/Time       | Status      | Duration | Objects | Next Run
+Scheduled Run Date/Time       | Status      | Objects | Next Run
 ---|---|---|---|---
 2024-03-02 02:00 UTC          | SUCCESSFUL  | 47 sec   | 20      | 2024-03-03
 2024-03-01 02:00 UTC          | SUCCESSFUL  | 45 sec   | 20      | 2024-03-02

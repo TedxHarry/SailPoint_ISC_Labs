@@ -4,7 +4,7 @@
 **Target Audience:** Complete beginners (zero prior identity management or ISC experience)
 **Total Modules:** 226-260 modules across 14 units
 **Total Learning Hours:** 2,260-2,600 hours
-**Duration:** 18-24 months full-time | 3-4 years part-time (10 hrs/week)
+
 **Certifications:** SailPoint Identity Security Professional + SailPoint Certified Identity Security Engineer
 **Job-Ready:** Yes - comprehensive professional-level expertise
 **Practice Environment:** ISC Sandbox + Entra ID Free Tier + CSV Simulations
@@ -37,14 +37,14 @@
 
 ### **Tier 1: Foundations (Units 1-4)**
 **Objective:** Master ISC fundamentals, set up systems, understand data flow
-**Duration:** 8-12 weeks
+
 **Certification Target:** SailPoint Identity Security Professional (Knowledge Credential)
 **Modules:** 70-80 modules
 **Hours:** 700-800 hours
 
 ### **Tier 2: Small Organization Implementation (Units 5-8)**
 **Objective:** Deploy ISC for 50-100 person organization (Contoso Ltd)
-**Duration:** 10-14 weeks
+
 **Certification Prep:** Early phase for Engineer certification
 **Modules:** 68-76 modules
 **Hours:** 680-760 hours
@@ -52,7 +52,7 @@
 
 ### **Tier 3: Mid-Market to Advanced (Units 9-13)**
 **Objective:** Scale to 300+ people, implement governance, advanced features
-**Duration:** 12-16 weeks
+
 **Certification Target:** SailPoint Certified Identity Security Engineer (Professional)
 **Modules:** 88-100 modules
 **Hours:** 880-1,000 hours
@@ -60,7 +60,7 @@
 
 ### **Tier 4: Enterprise Architecture (Unit 14)**
 **Objective:** Deploy for 5000+ users, multi-region, complex compliance
-**Duration:** 6-8 weeks
+
 **Modules:** 20-22 modules
 **Hours:** 200-220 hours
 **Deliverable:** GlobalBank case studies, enterprise architecture, implementation strategy
@@ -541,7 +541,7 @@
 | **Total Units** | 14 |
 | **Total Modules** | 226-260 |
 | **Total Hours** | 2,260-2,600 |
-| **Time Commitment (FT)** | 18-24 months |
+| **Time Commitment (FT)** |
 | **Time Commitment (PT)** | 3-4 years (10 hrs/week) |
 | **Hands-On Labs** | 150+ practical labs |
 | **Case Studies** | 3 comprehensive (Contoso, RegionTech, GlobalBank) |

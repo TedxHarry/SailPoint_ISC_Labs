@@ -1,6 +1,6 @@
 # 1.15 - Roles & Access Profiles
 
-**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | 
 
 ---
 
@@ -144,7 +144,7 @@ D) Use a generic "Manager" role for all managers
 A) They lose Manager permissions (replaced by Director)
 B) ✅ They keep Manager permissions (inherited) plus gain budget authority
 C) They must be assigned both Manager and Director roles
-D) No change—role stays same
+D) No changerole stays same
 
 **Answer: B.** Role inheritance means Director has both Manager permissions (inherited) and new Director permissions.
 
@@ -159,7 +159,7 @@ D) No change—role stays same
 
 ## 🔄 NEXT STEPS
 
-Module 1.16 covers search and analytics—how to query and report on all this role and access data.
+Module 1.16 covers search and analyticshow to query and report on all this role and access data.
 
 ---
 

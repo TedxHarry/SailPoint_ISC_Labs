@@ -1,6 +1,6 @@
 # 3.9 - Entra ID Connector Basics
 
-**Unit:** Identity Profiles & Sources | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** Identity Profiles & Sources | **Tier:** 1 | 
 
 ---
 

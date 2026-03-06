@@ -1,6 +1,6 @@
 # 1.12 - Aggregation Fundamentals
 
-**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | 
 
 ---
 
@@ -146,7 +146,7 @@ D) Never (manual request required)
 
 ## 🔄 NEXT STEPS
 
-Module 1.13 covers correlation—how ISC matches accounts across sources to the same identity.
+Module 1.13 covers correlationhow ISC matches accounts across sources to the same identity.
 
 ---
 

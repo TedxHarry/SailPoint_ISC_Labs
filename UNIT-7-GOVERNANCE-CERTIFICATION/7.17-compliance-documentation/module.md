@@ -1,6 +1,6 @@
 # 7.17 - Compliance Documentation
 
-**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Governance & Certification | **Tier:** 2 | 
 
 Document compliance: Procedures, evidence, attestations, regulatory alignment.
 
@@ -138,7 +138,7 @@ Exception Trail:
 ├─ Access: AWS_Audit role
 ├─ Justification: Compliance audit project
 ├─ Approvers: Manager ✓, Compliance ✓
-├─ Duration: 2026-02-01 to 2026-06-30
+├─ 
 ├─ Status: Expires 2026-06-30
 └─ Evidence: Approval emails + provisioning logs
 

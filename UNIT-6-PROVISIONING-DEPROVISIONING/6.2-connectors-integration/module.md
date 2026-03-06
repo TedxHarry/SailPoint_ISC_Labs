@@ -1,6 +1,6 @@
 # 6.2 - Connectors & Integration
 
-**Unit:** Provisioning & Deprovisioning | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Provisioning & Deprovisioning | **Tier:** 2 | 
 
 ---
 

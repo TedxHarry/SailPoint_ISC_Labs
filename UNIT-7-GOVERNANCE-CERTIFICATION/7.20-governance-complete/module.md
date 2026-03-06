@@ -1,6 +1,6 @@
 # 7.20 - Governance Complete
 
-**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~5 hours
+**Unit:** Governance & Certification | **Tier:** 2 | 
 
 Unit 7 capstone: Review governance implementation, prepare for Unit 8.
 
@@ -137,7 +137,7 @@ Violations & Remediation:
 
 Exception Management:
 ├─ Exceptions granted: 2
-├─ Duration: Both time-bound (< 6 months)
+├─ 
 ├─ Auto-expiration set: Yes, both
 ├─ Tracking: Centralized log
 └─ Compliance: 100% documented
@@ -345,7 +345,7 @@ D) Prevent all access changes
 - Conduct audits
 - Maintain regulatory compliance
 
-**Estimated Time Invested:** ~300 hours across 7 units (Units 1-7)
+**
 
 **Knowledge Level:** Can design and manage governance programs in real environments
 

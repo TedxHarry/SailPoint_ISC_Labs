@@ -1,6 +1,6 @@
 # 7.8 - Detect Access Anomalies
 
-**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Governance & Certification | **Tier:** 2 | 
 
 Identify and investigate access drift, unusual patterns, and compliance violations.
 

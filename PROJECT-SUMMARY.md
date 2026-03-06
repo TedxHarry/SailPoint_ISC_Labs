@@ -231,7 +231,7 @@ SailPoint_ISC_Labs/
 
 1. **Entra ID Integration**
    - Uses real Entra ID Free tier (no cost)
-   - Not just theory—actual system integration
+   - Not just theoryactual system integration
    - Teaches both systems (Entra ID + ISC)
 
 2. **Test Data First**

@@ -1,6 +1,6 @@
 # 1.4 - ISC vs IdentityIQ vs IdentityNow: SailPoint Product Comparison
 
-**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | 
 
 ---
 
@@ -25,8 +25,6 @@ By the end of this module, you will be able to:
 
 **Access Required:**
 - None for this module (conceptual reading only)
-
-**Time Required:** ~10 hours (3 hours reading, 5-7 hours research and comparison)
 
 **Difficulty:** Beginner
 
@@ -123,7 +121,7 @@ A 200-person manufacturing company wanted access governance but couldn't afford 
 
 **Definition:**
 
-**SailPoint ISC** is the next-generation cloud-native identity governance platform that combines the power of IdentityIQ with the simplicity of cloud delivery. It's positioned as the strategic future—new customers should choose ISC, and existing IdentityIQ/IdentityNow customers should plan to migrate to ISC.
+**SailPoint ISC** is the next-generation cloud-native identity governance platform that combines the power of IdentityIQ with the simplicity of cloud delivery. It's positioned as the strategic futurenew customers should choose ISC, and existing IdentityIQ/IdentityNow customers should plan to migrate to ISC.
 
 **Why It Matters:**
 
@@ -171,7 +169,7 @@ You can use this matrix to explain ISC positioning to stakeholders, understand m
 | **Deployment** | On-premises | Cloud SaaS | Cloud SaaS |
 | **Infrastructure Cost** | $500K-$2M+ | $50K-$200K | $50K-$200K |
 | **Customization** | Extensive (code) | Limited (config) | Extensive (APIs, config) |
-| **Time to Deploy** | 6-12 months | 2-4 months | 2-4 months |
+| **Time to Deploy** | 2-4 months |
 | **Maintenance Burden** | High (customer) | Low (SailPoint) | Low (SailPoint) |
 | **Scalability** | Limited by hardware | Automatic | Automatic |
 | **Update Frequency** | Quarterly (customer applies) | Monthly (automatic) | Frequent (automatic) |
@@ -187,8 +185,8 @@ You can use this matrix to explain ISC positioning to stakeholders, understand m
 - **IdentityIQ is the legacy on-premises standard** that has proven itself for 15+ years but carries operational overhead
 - **IdentityNow was the bridge** to cloud-native but is being consolidated into ISC
 - **ISC is the modern strategic direction** and the platform you should master
-- **ISC combines IdentityIQ's power with cloud simplicity** — powerful customization without operational overhead
-- **For new deployments, ISC is the clear choice** — for legacy environments, migration paths vary
+- **ISC combines IdentityIQ's power with cloud simplicity**  powerful customization without operational overhead
+- **For new deployments, ISC is the clear choice**  for legacy environments, migration paths vary
 
 ---
 
@@ -207,11 +205,11 @@ B) ✅ ISC is cloud-native (no infrastructure overhead) while maintaining Identi
 C) ISC can only manage cloud applications, while IdentityIQ can manage all systems
 D) ISC is less powerful than IdentityIQ but simpler to use
 
-**Explanation:** The correct answer is **B) ISC is cloud-native (no infrastructure overhead) while maintaining IdentityIQ-level customization, reducing operational burden on IT staff**. This is the core value proposition of ISC—power of IdentityIQ with simplicity of cloud. The enterprise's problem is operational overhead (4 staff members just for maintenance). ISC solves that by moving infrastructure to SailPoint while maintaining customization capability.
+**Explanation:** The correct answer is **B) ISC is cloud-native (no infrastructure overhead) while maintaining IdentityIQ-level customization, reducing operational burden on IT staff**. This is the core value proposition of ISCpower of IdentityIQ with simplicity of cloud. The enterprise's problem is operational overhead (4 staff members just for maintenance). ISC solves that by moving infrastructure to SailPoint while maintaining customization capability.
 
-A) is incorrect—ISC doesn't necessarily have more features, just different ones.
-C) is incorrect—ISC manages on-premises systems too via connectors and Virtual Appliances.
-D) is incorrect—ISC is as powerful as IdentityIQ, just delivered as SaaS.
+A) is incorrectISC doesn't necessarily have more features, just different ones.
+C) is incorrectISC manages on-premises systems too via connectors and Virtual Appliances.
+D) is incorrectISC is as powerful as IdentityIQ, just delivered as SaaS.
 
 ---
 
@@ -224,17 +222,17 @@ D) IdentityNow is replacing ISC in the product portfolio
 
 **Explanation:** The correct answer is **B) IdentityNow is being consolidated/merged into ISC as SailPoint's cloud offering evolves**. SailPoint is consolidating its cloud offerings. IdentityNow served as a simpler entry point, but ISC is the strategic direction. New customers should choose ISC; existing IdentityNow customers will eventually migrate to ISC.
 
-A) is incorrect—ISC is now the preferred platform.
-C) is incorrect—they are related (IdentityNow is transitioning to ISC).
-D) is incorrect—ISC is not replacing IdentityNow; ISC is the evolution that IdentityNow is merging into.
+A) is incorrectISC is now the preferred platform.
+C) is incorrectthey are related (IdentityNow is transitioning to ISC).
+D) is incorrectISC is not replacing IdentityNow; ISC is the evolution that IdentityNow is merging into.
 
 ---
 
 ## 📚 ADDITIONAL RESOURCES
 
 **Related Modules:**
-- [Previous: 1.3 - Introduction to SailPoint ISC](/modules/1.3-introduction-to-sailpoint-isc) — ISC fundamentals
-- [Next: 1.5 - ISC Architecture Overview](/modules/1.5-isc-architecture-overview) — How ISC works internally
+- [Previous: 1.3 - Introduction to SailPoint ISC](/modules/1.3-introduction-to-sailpoint-isc)  ISC fundamentals
+- [Next: 1.5 - ISC Architecture Overview](/modules/1.5-isc-architecture-overview)  How ISC works internally
 
 **Official Documentation:**
 - [SailPoint Product Portfolio Overview](https://example.com)
@@ -249,10 +247,10 @@ D) is incorrect—ISC is not replacing IdentityNow; ISC is the evolution that Id
 
 ## 🔄 NEXT STEPS
 
-You now understand SailPoint's product strategy and why ISC is the modern standard. In **Module 1.5 - ISC Architecture Overview**, you'll learn how ISC actually works internally—the components, data flow, and architectural decisions that make it powerful.
+You now understand SailPoint's product strategy and why ISC is the modern standard. In **Module 1.5 - ISC Architecture Overview**, you'll learn how ISC actually works internallythe components, data flow, and architectural decisions that make it powerful.
 
 **Before moving forward:**
-- Research your current or previous organization's identity platform—do they use IdentityIQ, IdentityNow, ISC, or something else?
+- Research your current or previous organization's identity platformdo they use IdentityIQ, IdentityNow, ISC, or something else?
 - Think about why an organization might choose one over another
 - Consider the trade-offs between on-premises power and cloud simplicity
 

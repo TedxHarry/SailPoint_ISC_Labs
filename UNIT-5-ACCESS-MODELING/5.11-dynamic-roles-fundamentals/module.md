@@ -1,6 +1,6 @@
 # 5.11 - Dynamic Roles Fundamentals
 
-**Unit:** Access Modeling | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Access Modeling | **Tier:** 2 | 
 
 ---
 

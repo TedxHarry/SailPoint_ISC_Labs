@@ -1,6 +1,6 @@
 # 3.4 - Attribute Mapping Basics
 
-**Unit:** Identity Profiles & Sources | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** Identity Profiles & Sources | **Tier:** 1 | 
 
 ---
 

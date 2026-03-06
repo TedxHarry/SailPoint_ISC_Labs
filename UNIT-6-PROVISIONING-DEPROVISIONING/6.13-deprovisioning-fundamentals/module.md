@@ -1,6 +1,6 @@
 # 6.13 - Deprovisioning Fundamentals
 
-**Unit:** Provisioning & Deprovisioning | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Provisioning & Deprovisioning | **Tier:** 2 | 
 
 ---
 

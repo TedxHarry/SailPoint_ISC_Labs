@@ -1,6 +1,6 @@
 # 7.14 - Remediation Workflows
 
-**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Governance & Certification | **Tier:** 2 | 
 
 Execute remediation: Remove unauthorized access, resolve violations, document actions.
 

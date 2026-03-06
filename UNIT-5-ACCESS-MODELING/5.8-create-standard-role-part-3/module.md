@@ -1,6 +1,6 @@
 # 5.8 - Create Standard Role (Part 3)
 
-**Unit:** Access Modeling | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Access Modeling | **Tier:** 2 | 
 
 ---
 

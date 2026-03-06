@@ -1,6 +1,6 @@
 # 6.15 - Offboarding Complete
 
-**Unit:** Provisioning & Deprovisioning | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Provisioning & Deprovisioning | **Tier:** 2 | 
 
 ---
 

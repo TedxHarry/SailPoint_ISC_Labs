@@ -1,6 +1,6 @@
 # 7.15 - Identity Analytics
 
-**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Governance & Certification | **Tier:** 2 | 
 
 Analyze access patterns: Understand access distribution, identify anomalies, discover insights.
 

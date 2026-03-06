@@ -1,6 +1,6 @@
 # 1.1 - Introduction to SailPoint Identity Security Cloud
 
-**Unit:** ISC Fundamentals | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** ISC Fundamentals | **Tier:** 1 | 
 
 ---
 
@@ -27,7 +27,6 @@ By the end of this module, you will be able to:
 - [ ] Working web browser (Chrome, Edge, Firefox, Safari)
 - [ ] Stable internet connection
 
-**Time Required:** ~10 hours (2-3 hours reading, 5-7 hours hands-on exploration)
 **Difficulty:** Beginner
 
 ---
@@ -42,7 +41,7 @@ Contoso Ltd is a 50-person professional services firm with Finance, HR, Engineer
 As the identity admin beginning this implementation, your first task is to understand what ISC is and how it will help Contoso solve these problems.
 
 **What You'll Be Doing:**
-In this lab, you'll explore your ISC sandbox for the first time, tour the interface, understand the core modules, and complete some basic navigation tasks. This is your first hands-on experience with ISC—the starting point for building professional expertise.
+In this lab, you'll explore your ISC sandbox for the first time, tour the interface, understand the core modules, and complete some basic navigation tasks. This is your first hands-on experience with ISCthe starting point for building professional expertise.
 
 ---
 
@@ -54,13 +53,13 @@ In this lab, you'll explore your ISC sandbox for the first time, tour the interf
 SailPoint Identity Security Cloud is a cloud-native, multi-tenant Software-as-a-Service (SaaS) platform that enables organizations to govern user identities, manage access rights, enforce compliance policies, and automate provisioning/deprovisioning across all business systems.
 
 **Why It Matters:**
-Without ISC, Contoso manually manages access—a slow, error-prone process that creates security risks and compliance violations. ISC automates these processes, reducing onboarding time from days to minutes, ensuring access reviews happen regularly, and providing audit trails for compliance.
+Without ISC, Contoso manually manages accessa slow, error-prone process that creates security risks and compliance violations. ISC automates these processes, reducing onboarding time from days to minutes, ensuring access reviews happen regularly, and providing audit trails for compliance.
 
 **In ISC Context:**
 When you log into ISC, you're accessing a cloud-hosted system shared by thousands of customers. You don't need to install software or manage servers. ISC automatically updates with new features without your involvement.
 
 **Example:**
-When finance_user1 is hired at Contoso, instead of manually creating accounts in Entra ID, Finance App, and HRIS, ISC automatically provisions access to all three systems based on her Finance department role—a process that takes minutes instead of days.
+When finance_user1 is hired at Contoso, instead of manually creating accounts in Entra ID, Finance App, and HRIS, ISC automatically provisions access to all three systems based on her Finance department rolea process that takes minutes instead of days.
 
 ### Core Concept 2: Identity Governance
 
@@ -68,13 +67,13 @@ When finance_user1 is hired at Contoso, instead of manually creating accounts in
 Identity governance is the process of ensuring the right people have the right access to the right resources at the right time, and that access is continuously reviewed and managed.
 
 **Why It Matters:**
-At Contoso, several Finance employees have access to both "Approve Payments" and "Sign Checks" in the Finance app—a conflict that creates risk of fraud. ISC enforces policies to prevent such conflicts and automatically detects them during reviews.
+At Contoso, several Finance employees have access to both "Approve Payments" and "Sign Checks" in the Finance appa conflict that creates risk of fraud. ISC enforces policies to prevent such conflicts and automatically detects them during reviews.
 
 **In ISC Context:**
 ISC provides tools for access certification (reviews), policy enforcement (preventing conflicts), and governance workflows (approvals).
 
 **Example:**
-An access certification in ISC allows the Finance Manager to review all Finance team members' access and revoke anything that shouldn't be there—a task that happens automatically on a schedule.
+An access certification in ISC allows the Finance Manager to review all Finance team members' access and revoke anything that shouldn't be therea task that happens automatically on a schedule.
 
 ### Core Concept 3: The Four Core Modules
 
@@ -99,13 +98,13 @@ When you log into ISC, you'll see these four areas prominently featured. Most of
 IdentityIQ (IIQ) is an on-premises identity platform requiring significant infrastructure and customization. ISC is cloud-native, SaaS, and configuration-focused.
 
 **Why It Matters:**
-ISC eliminates infrastructure overhead—you don't manage servers, databases, or patches. This is especially important for smaller organizations like Contoso that don't have large identity teams.
+ISC eliminates infrastructure overheadyou don't manage servers, databases, or patches. This is especially important for smaller organizations like Contoso that don't have large identity teams.
 
 **In ISC Context:**
 Everything you do in ISC is configuration, not coding. No need to know Java or write connectors (though advanced users can extend ISC with APIs).
 
 **Example:**
-With IdentityIQ, Contoso would need to: buy servers, hire infrastructure team, perform database maintenance, manually upgrade software. With ISC, Contoso configures access models and policies—SailPoint handles everything else.
+With IdentityIQ, Contoso would need to: buy servers, hire infrastructure team, perform database maintenance, manually upgrade software. With ISC, Contoso configures access models and policiesSailPoint handles everything else.
 
 ---
 
@@ -271,7 +270,7 @@ LEFT SIDEBAR      MAIN CONTENT AREA
 
 **Troubleshooting (for this step):**
 - **If:** Search doesn't work → **Then:** Refresh the page and try again.
-- **If:** Search returns "No results found" → **Then:** That's expected—you haven't imported any identities yet. We'll do that in future labs.
+- **If:** Search returns "No results found" → **Then:** That's expectedyou haven't imported any identities yet. We'll do that in future labs.
 
 ### STEP 4: Identify the Four Core Modules
 
@@ -378,7 +377,7 @@ LEFT SIDEBAR      MAIN CONTENT AREA
 
 **Troubleshooting (for this step):**
 - **If:** You don't see Administration menu → **Then:** You may not have admin permissions. Ask your ISC administrator to grant you admin access.
-- **If:** Administration section is different → **Then:** That's expected—different ISC versions may differ. The important thing is finding where configuration happens.
+- **If:** Administration section is different → **Then:** That's expecteddifferent ISC versions may differ. The important thing is finding where configuration happens.
 
 ### STEP 6: Test the Top Navigation Bar
 
@@ -490,7 +489,7 @@ You have successfully completed this lab if:
 3. Sidebar should expand to show menu items
 4. Click a menu item to navigate
 
-**Prevention:** None needed—sidebar can be toggled as needed
+**Prevention:** None neededsidebar can be toggled as needed
 
 ### Common Issue 4: Can't Find Search Bar
 
@@ -522,7 +521,7 @@ You have successfully completed this lab if:
 3. Focus on understanding concepts, not exact button names
 4. If something important is missing, ask in SailPoint community
 
-**Prevention:** This is normal and expected—ISC evolves regularly
+**Prevention:** This is normal and expectedISC evolves regularly
 
 ---
 
@@ -565,7 +564,7 @@ You have successfully completed this lab if:
 - **ISC is cloud-native SaaS:** You don't manage servers, databases, or patches
 - **Four modules work together:** Access Modeling + Lifecycle + Compliance + Analytics = complete identity governance
 - **Navigation is standardized:** Left sidebar for menu, top bar for search/profile, main area for content
-- **Empty sandbox is normal:** You're starting fresh—data comes from integrating your systems
+- **Empty sandbox is normal:** You're starting freshdata comes from integrating your systems
 - **ISC is configurable, not code-heavy:** You won't be writing code to make ISC work
 
 ---
@@ -591,7 +590,7 @@ You have successfully completed this lab if:
 
 **Correct Answer:** B
 
-**Explanation:** ISC is explicitly cloud-native (no infrastructure), SaaS-delivered (cloud-hosted), and designed for identity governance and access management (Modules: Access, Lifecycle, Compliance, Analytics). Option A describes IdentityIQ (older product). Options C and D are incorrect—ISC doesn't store credentials and ISC doesn't directly manage AD (though it integrates with it).
+**Explanation:** ISC is explicitly cloud-native (no infrastructure), SaaS-delivered (cloud-hosted), and designed for identity governance and access management (Modules: Access, Lifecycle, Compliance, Analytics). Option A describes IdentityIQ (older product). Options C and D are incorrectISC doesn't store credentials and ISC doesn't directly manage AD (though it integrates with it).
 
 ---
 
@@ -669,7 +668,7 @@ For those wanting deeper understanding:
 4. ✅ Complete exploration notes document
 5. → Proceed to **Module 1.2 - ISC Architecture & Components**
 
-In Module 1.2, you'll learn the technical architecture behind ISC—how the platform is built and why that matters for your deployment.
+In Module 1.2, you'll learn the technical architecture behind ISChow the platform is built and why that matters for your deployment.
 
 ---
 
@@ -691,5 +690,5 @@ In Module 1.2, you'll learn the technical architecture behind ISC—how the plat
 **Module Created:** March 2, 2026
 **Last Updated:** March 2, 2026
 **Difficulty:** Beginner
-**Estimated Time:** 10 hours (2-3 hours reading, 5-7 hours exploration)
+**
 **Status:** Complete

@@ -1,6 +1,6 @@
 # 1.7 - ISC Data Model Fundamentals
 
-**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | 
 
 ---
 
@@ -27,8 +27,6 @@ By the end of this module, you will be able to:
 **Access Required:**
 - None for this module (conceptual reading only)
 
-**Time Required:** ~10 hours (3 hours reading, 5-7 hours research and data mapping)
-
 **Difficulty:** Beginner
 
 ---
@@ -39,17 +37,17 @@ By the end of this module, you will be able to:
 
 **Business Background:**
 
-When you configure ISC, you're not just clicking buttons—you're working with data. ISC's data model is designed around a few core concepts:
+When you configure ISC, you're not just clicking buttonsyou're working with data. ISC's data model is designed around a few core concepts:
 
 - **Identity:** The person (Morgan Chen)
 - **Account:** The person's login in a system (morgan.chen@finance.app)
 - **Entitlement:** A permission in a system (Finance_Manager_Role, Approve_Payments_Permission)
 
-Everything ISC does—provisioning, governance, analytics—operates on these data types. Understanding the data model helps you understand ISC's capabilities and limitations. It also helps you understand configuration and troubleshooting.
+Everything ISC doesprovisioning, governance, analyticsoperates on these data types. Understanding the data model helps you understand ISC's capabilities and limitations. It also helps you understand configuration and troubleshooting.
 
 **What You'll Be Doing:**
 
-You're learning the fundamental data structures that ISC uses. This knowledge is foundational for everything you'll configure later. It's like learning that a car has an engine, transmission, and wheels—understanding these basics helps you understand everything else.
+You're learning the fundamental data structures that ISC uses. This knowledge is foundational for everything you'll configure later. It's like learning that a car has an engine, transmission, and wheelsunderstanding these basics helps you understand everything else.
 
 ---
 
@@ -63,7 +61,7 @@ An **Identity** in ISC represents a person in the organization. It's the unified
 
 **Why It Matters:**
 
-Identity is the foundation. ISC's purpose is identity governance—managing the access of identities. If ISC doesn't have accurate identity data, everything else fails. Access Modeling rules depend on identity attributes. Provisioning decisions depend on identity attributes. Governance depends on understanding identities.
+Identity is the foundation. ISC's purpose is identity governancemanaging the access of identities. If ISC doesn't have accurate identity data, everything else fails. Access Modeling rules depend on identity attributes. Provisioning decisions depend on identity attributes. Governance depends on understanding identities.
 
 **In ISC Context:**
 
@@ -110,7 +108,7 @@ An **Account** is a user account in a target system. An identity may have many a
 
 **Why It Matters:**
 
-ISC's job is to manage accounts. When someone is hired, ISC creates accounts. When someone is fired, ISC disables/deletes accounts. When someone changes roles, ISC updates accounts. Understanding accounts helps you understand what ISC actually does—it creates/updates/disables user accounts in target systems.
+ISC's job is to manage accounts. When someone is hired, ISC creates accounts. When someone is fired, ISC disables/deletes accounts. When someone changes roles, ISC updates accounts. Understanding accounts helps you understand what ISC actually doesit creates/updates/disables user accounts in target systems.
 
 **In ISC Context:**
 
@@ -229,7 +227,7 @@ When Morgan's identity changes (promoted to Manager), the rules re-evaluate, and
 
 **Why It Matters:**
 
-This distinction is foundational. ISC doesn't create identities—it reads them from sources. ISC creates/manages accounts/entitlements in target systems based on identity data. Understanding this helps you understand:
+This distinction is foundational. ISC doesn't create identitiesit reads them from sources. ISC creates/manages accounts/entitlements in target systems based on identity data. Understanding this helps you understand:
 - Why you must have good source systems (Entra ID must have accurate department/title data)
 - What ISC can and cannot do (can't create identities, only read them)
 - Configuration patterns (discover accounts from targets, read identities from sources)
@@ -295,9 +293,9 @@ D) Accounts and Entitlements are the same thing
 
 **Explanation:** The correct answer is **B) One Identity has multiple Accounts (in different systems), and each Account has multiple Entitlements (1:N:N)**. Morgan Chen (1 identity) has 5 accounts (one per system), and each account has multiple entitlements (Senior_Accountant_Role + View_GL in Finance app, Accounting_Access in QuickBooks, etc.).
 
-A) is incorrect—identities have multiple accounts and entitlements.
-C) is incorrect—accounts often have multiple entitlements.
-D) is incorrect—they're distinct concepts.
+A) is incorrectidentities have multiple accounts and entitlements.
+C) is incorrectaccounts often have multiple entitlements.
+D) is incorrectthey're distinct concepts.
 
 ---
 
@@ -310,19 +308,19 @@ D) Entitlements that users currently have
 
 **Explanation:** The correct answer is **B) Identity attributes that ISC uses to determine what accounts and entitlements to provision**. Identity attributes from source systems (Entra ID and HRIS) are the raw data ISC uses. Rules evaluate these attributes ("If department=Finance AND title=Manager") to decide what access (accounts and entitlements) to provision in target systems.
 
-A) is incorrect—these are source attributes, not accounts/entitlements created by ISC.
-C) is incorrect—Entra ID and HRIS are source systems providing identity data, not target systems receiving accounts.
-D) is incorrect—these are attributes used to determine entitlements, not current entitlements.
+A) is incorrectthese are source attributes, not accounts/entitlements created by ISC.
+C) is incorrectEntra ID and HRIS are source systems providing identity data, not target systems receiving accounts.
+D) is incorrectthese are attributes used to determine entitlements, not current entitlements.
 
 ---
 
 ## 📚 ADDITIONAL RESOURCES
 
 **Related Modules:**
-- [Previous: 1.6 - ISC Four Core Modules](/modules/1.6-isc-four-core-modules) — How modules work with this data model
-- [Next: 1.8 - Identity Governance Frameworks](/modules/1.8-identity-governance-frameworks) — Using this data for governance
-- [Unit 3: Identity Profiles & Sources](/units/unit-3-identity-profiles) — Deep dive into Identity Profiles (future unit)
-- [Unit 5: Access Modeling](/units/unit-5-access-modeling) — Using entitlements in role design (future unit)
+- [Previous: 1.6 - ISC Four Core Modules](/modules/1.6-isc-four-core-modules)  How modules work with this data model
+- [Next: 1.8 - Identity Governance Frameworks](/modules/1.8-identity-governance-frameworks)  Using this data for governance
+- [Unit 3: Identity Profiles & Sources](/units/unit-3-identity-profiles)  Deep dive into Identity Profiles (future unit)
+- [Unit 5: Access Modeling](/units/unit-5-access-modeling)  Using entitlements in role design (future unit)
 
 **Official Documentation:**
 - [SailPoint ISC Data Model Overview](https://example.com)

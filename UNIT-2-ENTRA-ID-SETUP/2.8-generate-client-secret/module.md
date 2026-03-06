@@ -1,6 +1,6 @@
 # 2.8 - Generate Client Secret for ISC
 
-**Unit:** Entra ID Setup & ISC Sandbox | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** Entra ID Setup & ISC Sandbox | **Tier:** 1 | 
 
 ---
 

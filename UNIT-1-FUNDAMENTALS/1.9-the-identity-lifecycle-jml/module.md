@@ -1,6 +1,6 @@
 # 1.9 - The Identity Lifecycle (Join/Move/Leave)
 
-**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | 
 
 ---
 
@@ -157,7 +157,7 @@ D) IT staff are overworked
 
 **Question 2:** Alex promoted from Engineer to Engineering Manager. HRIS updates title. What should happen in ISC?
 
-A) Nothing—Alex already had access as Engineer
+A) NothingAlex already had access as Engineer
 B) ISC asks Alex which permissions to grant
 C) ✅ ISC detects title change, revokes Engineer permissions, provisions Manager permissions automatically
 D) Manual IT request needed

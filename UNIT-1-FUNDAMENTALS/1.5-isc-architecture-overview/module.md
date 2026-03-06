@@ -1,6 +1,6 @@
 # 1.5 - ISC Architecture Overview
 
-**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | 
 
 ---
 
@@ -26,8 +26,6 @@ By the end of this module, you will be able to:
 **Access Required:**
 - None for this module (conceptual reading only; no hands-on)
 
-**Time Required:** ~10 hours (3 hours reading, 5-7 hours research and visualization)
-
 **Difficulty:** Beginner
 
 ---
@@ -50,7 +48,7 @@ ISC's architecture elegantly solves these problems. Understanding the design hel
 
 **What You'll Be Doing:**
 
-You're learning ISC's technical design—not to become an architect, but to understand how ISC works. This knowledge helps you configure it properly, understand its limitations, and troubleshoot issues.
+You're learning ISC's technical designnot to become an architect, but to understand how ISC works. This knowledge helps you configure it properly, understand its limitations, and troubleshoot issues.
 
 ---
 
@@ -64,11 +62,11 @@ ISC is a **multi-tenant SaaS platform**, meaning thousands of customers share th
 
 **Why It Matters:**
 
-Multi-tenancy is what makes ISC economical. SailPoint doesn't maintain separate infrastructure for each customer—they maintain one platform that serves thousands. This is why ISC costs much less than on-premises IdentityIQ (lower infrastructure costs, economies of scale). But multi-tenancy introduces security and isolation requirements that ISC must handle carefully.
+Multi-tenancy is what makes ISC economical. SailPoint doesn't maintain separate infrastructure for each customerthey maintain one platform that serves thousands. This is why ISC costs much less than on-premises IdentityIQ (lower infrastructure costs, economies of scale). But multi-tenancy introduces security and isolation requirements that ISC must handle carefully.
 
 **In ISC Context:**
 
-When you log into your ISC sandbox, you're logging into a dedicated tenant—an isolated copy of ISC that is completely separate from other customers' data. Your data doesn't mix with anyone else's. Your configurations don't affect anyone else. But you're running on the same physical infrastructure.
+When you log into your ISC sandbox, you're logging into a dedicated tenantan isolated copy of ISC that is completely separate from other customers' data. Your data doesn't mix with anyone else's. Your configurations don't affect anyone else. But you're running on the same physical infrastructure.
 
 **Example:**
 
@@ -94,7 +92,7 @@ Understanding these components helps you recognize which ISC service handles dif
 
 **In ISC Context:**
 
-These services work together seamlessly—you usually don't think about them as separate—but understanding them helps you grasp how ISC works.
+These services work together seamlesslyyou usually don't think about them as separatebut understanding them helps you grasp how ISC works.
 
 **Core Services:**
 
@@ -111,7 +109,7 @@ These services work together seamlessly—you usually don't think about them as 
 
 When Casey Kim is hired at Contoso:
 1. **Identity Engine:** Reads Casey's data from Entra ID (name, email, department) and HRIS (job title, manager, hire date)
-2. **Identity Engine:** Correlates data—realizes this is the same person across systems, creates unified identity
+2. **Identity Engine:** Correlates datarealizes this is the same person across systems, creates unified identity
 3. **Provisioning Service:** Sees Casey is Finance AP Clerk, evaluates provisioning rules
 4. **Provisioning Service:** Creates accounts via Connector Framework (Finance app account, email group membership)
 5. **Governance Service:** Records the provisioning event in audit log
@@ -191,7 +189,7 @@ This flow happens continuously, triggered by scheduled jobs and real-time events
    - Governance Service monitors all access
    - Stores audit trail: "Morgan provisioned access on 2024-01-15"
    - Triggers reviews: "Quarterly: Does Morgan still need this access?"
-   - Detects violations: "Morgan has conflicting access—should be flagged"
+   - Detects violations: "Morgan has conflicting accessshould be flagged"
 
 5. REPEAT
    - Continuous cycle: identity changes → provisioning updates → governance monitors
@@ -214,7 +212,7 @@ This flow happens continuously, triggered by scheduled jobs and real-time events
 **T=18 months (Offboard):**
 1. Read: HR system shows "Casey Kim terminated"
 2. Correlate: ISC marks Casey's identity as terminated
-3. Provision: ISC revokes all access—Finance app disabled, email suspended, QuickBooks access removed
+3. Provision: ISC revokes all accessFinance app disabled, email suspended, QuickBooks access removed
 4. Govern: ISC records "Casey's access fully revoked on 2024-12-15 per termination"
 
 ---
@@ -246,9 +244,9 @@ D) ISC requires a VPN tunnel to all systems
 
 **Explanation:** The correct answer is **B) ISC uses Cloud Connectors for cloud systems (API-based) and Virtual Appliances for on-premises systems (secure outbound connections)**. ISC's architecture is specifically designed to handle both cloud and on-premises. Cloud systems connect via APIs; on-premises systems connect through Virtual Appliances (lightweight servers in the customer network).
 
-A) is incorrect—different connection types are used based on system location and security requirements.
-C) is incorrect—ISC absolutely can connect to on-premises systems via Virtual Appliances.
-D) is incorrect—VPN is not required; Virtual Appliances make outbound HTTPS connections.
+A) is incorrectdifferent connection types are used based on system location and security requirements.
+C) is incorrectISC absolutely can connect to on-premises systems via Virtual Appliances.
+D) is incorrectVPN is not required; Virtual Appliances make outbound HTTPS connections.
 
 ---
 
@@ -261,17 +259,17 @@ D) API Gateway
 
 **Explanation:** The correct answer is **B) Identity Engine (via Connectors/Virtual Appliances)**. The Identity Engine is responsible for reading/ingesting identity data from source systems. It uses Connectors (for cloud) and Virtual Appliances (for on-premises) to reach external systems and read their data.
 
-A) is incorrect—Provisioning Service writes to target systems, not reads from sources.
-C) is incorrect—Governance Service monitors compliance, not reads source data.
-D) is incorrect—API Gateway provides extensibility, not source system integration.
+A) is incorrectProvisioning Service writes to target systems, not reads from sources.
+C) is incorrectGovernance Service monitors compliance, not reads source data.
+D) is incorrectAPI Gateway provides extensibility, not source system integration.
 
 ---
 
 ## 📚 ADDITIONAL RESOURCES
 
 **Related Modules:**
-- [Next: 1.6 - ISC Four Core Modules](/modules/1.6-isc-four-core-modules) — How architecture components deliver business value
-- [Next: 1.7 - ISC Data Model Fundamentals](/modules/1.7-isc-data-model-fundamentals) — Identity, Account, Entitlement data structures
+- [Next: 1.6 - ISC Four Core Modules](/modules/1.6-isc-four-core-modules)  How architecture components deliver business value
+- [Next: 1.7 - ISC Data Model Fundamentals](/modules/1.7-isc-data-model-fundamentals)  Identity, Account, Entitlement data structures
 
 **Official Documentation:**
 - [SailPoint ISC Architecture Overview](https://example.com)
@@ -289,7 +287,7 @@ D) is incorrect—API Gateway provides extensibility, not source system integrat
 You now understand ISC's cloud-native architecture and how it connects to systems. In **Module 1.6 - ISC Four Core Modules**, you'll learn how these architectural components deliver business value through access modeling, lifecycle management, governance, and analytics.
 
 **Before moving forward:**
-- Visualize your organization's systems—which are cloud-based? Which are on-premises?
+- Visualize your organization's systemswhich are cloud-based? Which are on-premises?
 - Think about how ISC would need to connect to each
 - Consider security implications of connecting cloud and on-premises systems
 

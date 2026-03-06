@@ -1,6 +1,6 @@
 # 1.11 - Sources, Connectors & Integration
 
-**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | 
 
 ---
 
@@ -153,7 +153,7 @@ D) API Gateway
 
 **Question 2:** A connector to QuickBooks shows status "Error: Authentication failed." What's the impact?
 
-A) No impact—ISC has cached the data
+A) No impactISC has cached the data
 B) ✅ ISC can't read/write QuickBooks accounts. Provisioning fails, access gaps occur
 C) ISC automatically tries again later
 D) Only affects new users
@@ -171,7 +171,7 @@ D) Only affects new users
 
 ## 🔄 NEXT STEPS
 
-Module 1.12 covers aggregation—how ISC reads and ingests all this data from source connectors.
+Module 1.12 covers aggregationhow ISC reads and ingests all this data from source connectors.
 
 ---
 

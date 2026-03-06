@@ -1,6 +1,6 @@
 # 4.15 - Data Reconciliation
 
-**Unit:** Aggregation & Correlation | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Aggregation & Correlation | **Tier:** 2 | 
 
 ---
 

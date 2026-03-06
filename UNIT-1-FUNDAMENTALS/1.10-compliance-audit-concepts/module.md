@@ -1,6 +1,6 @@
 # 1.10 - Compliance & Audit Concepts
 
-**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | **Duration:** ~12 hours
+**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | 
 
 ---
 
@@ -146,7 +146,7 @@ ISC shows: "Casey's access revoked 2024-12-15 (termination date) by Lifecycle pr
 A) HIPAA minimum necessary principle
 B) SOX approval requirement
 C) GDPR data isolation
-D) ✅ A—HIPAA minimum necessary means access limited to what's needed for the job
+D) ✅ AHIPAA minimum necessary means access limited to what's needed for the job
 
 **Answer: A.** Minimum necessary is HIPAA's core principle.
 

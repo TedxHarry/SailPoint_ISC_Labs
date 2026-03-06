@@ -1,6 +1,6 @@
 # 1.18 - ISC Security & Multi-Tenancy
 
-**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | **Duration:** ~12 hours
+**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | 
 
 ---
 
@@ -144,9 +144,9 @@ Example: Contoso's Finance Manager role in ISC
 
 **Question 1:** Contoso and a competitor both use ISC on shared infrastructure. Is there a risk of data leakage?
 
-A) Yes—shared infrastructure means data might leak
-B) ✅ No—ISC's multi-tenancy ensures complete isolation. Data is encrypted and isolated by tenant.
-C) Yes—unless each customer has own servers
+A) Yesshared infrastructure means data might leak
+B) ✅ NoISC's multi-tenancy ensures complete isolation. Data is encrypted and isolated by tenant.
+C) Yesunless each customer has own servers
 D) Depends on the competitor
 
 **Answer: B.** Multi-tenancy is specifically designed for this. Complete isolation is the whole point.
@@ -155,7 +155,7 @@ D) Depends on the competitor
 
 **Question 2:** ISC admin needs to query the database directly to recover a deleted identity. What's the risk?
 
-A) None—admins can access anything
+A) Noneadmins can access anything
 B) ✅ Risk of encryption key exposure, credential leaks, audit trail bypass. Direct DB access should avoid unless absolutely necessary.
 C) Only possible with SailPoint help
 D) No risk if admin has right password

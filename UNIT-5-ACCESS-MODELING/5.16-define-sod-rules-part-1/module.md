@@ -1,6 +1,6 @@
 # 5.16 - Define SoD Rules (Part 1)
 
-**Unit:** Access Modeling | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Access Modeling | **Tier:** 2 | 
 
 ---
 

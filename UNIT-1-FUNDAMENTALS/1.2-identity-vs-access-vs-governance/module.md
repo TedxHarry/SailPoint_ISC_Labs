@@ -1,6 +1,6 @@
 # 1.2 - Identity vs Access vs Governance
 
-**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | 
 
 ---
 
@@ -24,8 +24,6 @@ By the end of this module, you will be able to:
 **Access Required:**
 - None for this module (conceptual reading only)
 
-**Time Required:** ~10 hours (2-3 hours reading, 5-7 hours reflection and research)
-
 **Difficulty:** Beginner
 
 ---
@@ -41,11 +39,11 @@ At Contoso Ltd, the Finance team uses three critical systems: QuickBooks (for ac
 - Finance App: API credentials for the payment approval system
 - HRIS: Role-based permissions (Accountant, Manager, Reviewer)
 
-The Finance Manager asked IT, "Should Morgan have access?" The answer wasn't simple—it required understanding WHO Morgan is (identity), WHAT systems Morgan needs (access), and WHETHER Morgan should have the permissions they're requesting (governance).
+The Finance Manager asked IT, "Should Morgan have access?" The answer wasn't simpleit required understanding WHO Morgan is (identity), WHAT systems Morgan needs (access), and WHETHER Morgan should have the permissions they're requesting (governance).
 
 **What You'll Be Doing:**
 
-You're learning the vocabulary and conceptual distinctions that underpin everything in ISC. These three words—identity, access, governance—are used thousands of times in ISC documentation and configuration. Getting clear on them now prevents months of confusion later.
+You're learning the vocabulary and conceptual distinctions that underpin everything in ISC. These three wordsidentity, access, governanceare used thousands of times in ISC documentation and configuration. Getting clear on them now prevents months of confusion later.
 
 ---
 
@@ -55,7 +53,7 @@ You're learning the vocabulary and conceptual distinctions that underpin everyth
 
 **Definition:**
 
-**Identity** is the answer to the question "Who are you?" It's a set of attributes describing a person—their name, employee ID, email, department, manager, hire date, job title, location, and other characteristics that define them in the organization.
+**Identity** is the answer to the question "Who are you?" It's a set of attributes describing a persontheir name, employee ID, email, department, manager, hire date, job title, location, and other characteristics that define them in the organization.
 
 **Why It Matters:**
 
@@ -128,9 +126,9 @@ ISC's **Governance** and **Compliance** modules handle ongoing reviews. Periodic
 Scenario: It's Q3 2024, and Alex Lee (Finance Manager) receives a Governance notification: "Review your team's access."
 
 Alex reviews his team:
-- **Morgan Chen, Senior Accountant:** QuickBooks ✅ Yes (needs for accounting), Finance App ✅ Yes (approves payments), HRIS ✅ Yes, Engineering Git Repo ❌ NO—Morgan doesn't work in Engineering, revoke this
-- **Casey Kim, AP Clerk:** Finance App ✅ Yes (enters invoices), QuickBooks ✅ Yes (entry level), CEO Dashboard ❌ NO—Casey doesn't need executive dashboard, revoke
-- **Alex Torres, Accounting Manager (transferred from Sales):** All approvals ✅ Yes, but Sales Commission system ❌ NO—Alex is no longer in Sales, revoke immediately
+- **Morgan Chen, Senior Accountant:** QuickBooks ✅ Yes (needs for accounting), Finance App ✅ Yes (approves payments), HRIS ✅ Yes, Engineering Git Repo ❌ NOMorgan doesn't work in Engineering, revoke this
+- **Casey Kim, AP Clerk:** Finance App ✅ Yes (enters invoices), QuickBooks ✅ Yes (entry level), CEO Dashboard ❌ NOCasey doesn't need executive dashboard, revoke
+- **Alex Torres, Accounting Manager (transferred from Sales):** All approvals ✅ Yes, but Sales Commission system ❌ NOAlex is no longer in Sales, revoke immediately
 
 Result: ISC revokes inappropriate access and documents the review for compliance purposes.
 
@@ -164,18 +162,18 @@ SailPoint ISC is built on this three-pillar model. The three core modules are:
 3. **Governance:** Every quarter, Finance Manager certifies Casey still needs this access ✅
 4. **Change:** Casey promoted to Accounting Manager (HRIS updates job title)
 5. **Re-Access:** ISC sees job title changed → revokes AP Clerk access, grants Manager approval permissions
-6. **Governance:** Q4 review—Finance Manager certifies Casey needs all manager-level access ✅
+6. **Governance:** Q4 reviewFinance Manager certifies Casey needs all manager-level access ✅
 7. **Offboarding:** Casey accepts position at another company (HRIS records termination)
-8. **Access Removal:** ISC automatically revokes all access—email suspended, Finance app accounts deleted, HRIS user deactivated
+8. **Access Removal:** ISC automatically revokes all accessemail suspended, Finance app accounts deleted, HRIS user deactivated
 9. **Governance:** Audit trail shows Casey's access was removed on termination date (compliance proof)
 
 ---
 
 ## 🧠 KEY CONCEPTS TO REMEMBER
 
-- **Identity answers "Who?"** — It's the data describing a person (name, email, department, job title, manager)
-- **Access answers "What?"** — It's the permissions in systems based on identity attributes
-- **Governance answers "Should?"** — It's the ongoing verification that access is still appropriate
+- **Identity answers "Who?"**  It's the data describing a person (name, email, department, job title, manager)
+- **Access answers "What?"**  It's the permissions in systems based on identity attributes
+- **Governance answers "Should?"**  It's the ongoing verification that access is still appropriate
 - **They work together as a cycle:** Identity determines access; access is granted; governance verifies; identity changes trigger new access cycles
 - **ISC does all three:** Identity aggregation → provisioning (access) → governance (certification)
 
@@ -198,9 +196,9 @@ D) Morgan's identity and access should be reviewed quarterly, but governance is 
 
 **Explanation:** The correct answer is **B) Morgan's access is determined by Morgan's identity attributes, but identity and access are distinct concepts**. Identity (who you are) and access (what you can do) are separate things. Access is BASED ON identity, but they're not the same. A person's identity is their attributes; their access is the permissions those attributes entitle them to.
 
-A) is incorrect—identity and access are different. Identity is attributes; access is permissions.
-C) is incorrect—governance doesn't determine identity; it verifies access is appropriate.
-D) is incorrect—governance IS required (quarterly is just one example).
+A) is incorrectidentity and access are different. Identity is attributes; access is permissions.
+C) is incorrectgovernance doesn't determine identity; it verifies access is appropriate.
+D) is incorrectgovernance IS required (quarterly is just one example).
 
 ---
 
@@ -213,18 +211,18 @@ D) The employee's governance status should change, but identity and access remai
 
 **Explanation:** The correct answer is **B) The employee's identity attributes change (department), triggering access changes (revoke engineering systems, provision finance systems)**. When an employee transfers departments, their identity attributes change (department field updates from "Engineering" to "Finance"). This change triggers automatic access provisioning/deprovisioning. This is the complete cycle: identity change → access change.
 
-A) is incorrect—when department changes, identity attributes change, which should trigger access changes.
-C) is incorrect—in modern systems like ISC, this is automatic, not manual.
-D) is incorrect—both identity and access change, not just governance.
+A) is incorrectwhen department changes, identity attributes change, which should trigger access changes.
+C) is incorrectin modern systems like ISC, this is automatic, not manual.
+D) is incorrectboth identity and access change, not just governance.
 
 ---
 
 ## 📚 ADDITIONAL RESOURCES
 
 **Related Modules:**
-- [Previous: 1.1 - What is Identity Management?](/modules/1.1-what-is-identity-management) — Foundational context
-- [Next: 1.3 - Introduction to SailPoint ISC](/modules/1.3-introduction-to-sailpoint-isc) — See these concepts in action
-- [Reference: 1.19 - ISC Glossary & Terminology](/modules/1.19-isc-glossary-terminology) — Look up identity, access, governance definitions
+- [Previous: 1.1 - What is Identity Management?](/modules/1.1-what-is-identity-management)  Foundational context
+- [Next: 1.3 - Introduction to SailPoint ISC](/modules/1.3-introduction-to-sailpoint-isc)  See these concepts in action
+- [Reference: 1.19 - ISC Glossary & Terminology](/modules/1.19-isc-glossary-terminology)  Look up identity, access, governance definitions
 
 **Official Documentation:**
 - SailPoint ISC: [Identity and Access Management Basics](https://example.com)

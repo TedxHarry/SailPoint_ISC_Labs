@@ -1,6 +1,6 @@
 # 6.17 - Reprovisioning Workflows
 
-**Unit:** Provisioning & Deprovisioning | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Provisioning & Deprovisioning | **Tier:** 2 | 
 
 ---
 
@@ -146,7 +146,7 @@ Entry 1 (Deprovisioning):
 ├─ User: User10
 ├─ Action: Role removed (by mistake)
 ├─ Status: Deprovisioned from all systems
-└─ Duration: < 5 minutes
+└─ 
 
 Entry 2 (Discovery):
 ├─ Timestamp: 2026-03-02 16:15:00

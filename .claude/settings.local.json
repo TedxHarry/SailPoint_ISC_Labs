@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -1d UNIT-7-GOVERNANCE-CERTIFICATION/7.*)",
+      "Bash(git rm --cached .claude/settings.local.json)",
+      "Bash(git commit --amend --no-edit)",
+      "Bash(git push origin main)",
+      "Bash(git add UNIT-8-IDENTITY-ANALYTICS/8.1-analytics-fundamentals/module.md UNIT-8-IDENTITY-ANALYTICS/8.2-access-pattern-analysis/module.md UNIT-8-IDENTITY-ANALYTICS/8.3-entitlement-intelligence/module.md)",
+      "Bash(git commit -m \"UNIT 8: Add modules 8.1-8.3 \\(Analytics fundamentals, access patterns, entitlements\\)\")",
+      "Bash(git add UNIT-8-IDENTITY-ANALYTICS/8.4-anomaly-detection/module.md UNIT-8-IDENTITY-ANALYTICS/8.5-risk-scoring-prediction/module.md UNIT-8-IDENTITY-ANALYTICS/8.6-compliance-trending/module.md)",
+      "Bash(git commit -m \"UNIT 8: Add modules 8.4-8.6 \\(Anomaly detection, risk scoring, compliance trending\\)\")",
+      "Bash(git add UNIT-8-IDENTITY-ANALYTICS/8.7-analytics-dashboards/module.md UNIT-8-IDENTITY-ANALYTICS/8.8-advanced-reporting/module.md UNIT-8-IDENTITY-ANALYTICS/8.9-data-driven-governance/module.md)",
+      "Bash(git commit -m \"UNIT 8: Add modules 8.7-8.9 \\(Dashboards, advanced reporting, data-driven governance\\)\")"
+    ]
+  }
+}

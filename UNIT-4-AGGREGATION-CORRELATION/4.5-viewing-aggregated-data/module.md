@@ -1,6 +1,6 @@
 # 4.5 - Viewing Aggregated Data
 
-**Unit:** Aggregation & Correlation | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** Aggregation & Correlation | **Tier:** 1 | 
 
 ---
 

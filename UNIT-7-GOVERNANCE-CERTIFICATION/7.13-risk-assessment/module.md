@@ -1,6 +1,6 @@
 # 7.13 - Risk Assessment
 
-**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Governance & Certification | **Tier:** 2 | 
 
 Assess access risk: Identify high-risk users, evaluate privilege, determine remediation priority.
 

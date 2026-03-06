@@ -37,7 +37,7 @@ Copy and paste this template for every module. Fill in each section completely.
 ```markdown
 # [Unit Number].[Module Number] - [Module Title]
 
-**Unit:** [Unit Name] | **Tier:** [1/2/3/4] | **Duration:** ~[X] hours
+**Unit:** [Unit Name] | **Tier:** [1/2/3/4] | 
 
 ---
 
@@ -63,7 +63,6 @@ By the end of this module, you will be able to:
 - [ ] Entra ID tenant access
 - [ ] CSV data files
 
-**Time Required:** ~[X] hours
 **Difficulty:** [Beginner/Intermediate/Advanced]
 
 ---
@@ -400,7 +399,7 @@ Both are acceptable if they achieve the same objectives.
 **Module Created:** [Date]
 **Last Updated:** [Date]
 **Difficulty:** [Beginner/Intermediate/Advanced]
-**Estimated Time:** ~[X] hours
+**
 **Status:** [Draft/Complete/Updated]
 
 ---
@@ -494,7 +493,7 @@ Here's what a complete module looks like. See `SAMPLE-LABS/` folder for full wor
 
 **Quick Reference:**
 - Full example: 3,000-4,000 words
-- Estimated time: ~10-12 hours for user
+- 
 - Steps: 4-6 major steps (with sub-steps)
 - Issues handled: 3-5 common problems
 

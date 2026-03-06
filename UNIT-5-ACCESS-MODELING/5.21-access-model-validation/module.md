@@ -1,6 +1,6 @@
 # 5.21 - Access Model Validation
 
-**Unit:** Access Modeling | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Access Modeling | **Tier:** 2 | 
 
 ---
 

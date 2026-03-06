@@ -1,6 +1,6 @@
 # 5.9 - Assign Members to Roles
 
-**Unit:** Access Modeling | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Access Modeling | **Tier:** 2 | 
 
 ---
 

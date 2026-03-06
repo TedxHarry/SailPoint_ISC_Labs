@@ -1,6 +1,6 @@
 # 3.1 - Identity Profiles Fundamentals
 
-**Unit:** Identity Profiles & Sources | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** Identity Profiles & Sources | **Tier:** 1 | 
 
 ---
 

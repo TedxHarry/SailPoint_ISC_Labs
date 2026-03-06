@@ -1,6 +1,6 @@
 # 7.18 - Continuous Improvement
 
-**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Governance & Certification | **Tier:** 2 | 
 
 Improve governance: Learn from reviews, refine processes, increase efficiency.
 

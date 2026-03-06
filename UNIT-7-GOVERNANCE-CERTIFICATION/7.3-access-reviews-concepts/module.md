@@ -1,6 +1,6 @@
 # 7.3 - Access Reviews Concepts
 
-**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Governance & Certification | **Tier:** 2 | 
 
 ---
 

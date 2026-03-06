@@ -1,6 +1,6 @@
 # 4.13 - Aggregation Performance & Optimization
 
-**Unit:** Aggregation & Correlation | **Tier:** 2 | **Duration:** ~12 hours
+**Unit:** Aggregation & Correlation | **Tier:** 2 | 
 
 ---
 

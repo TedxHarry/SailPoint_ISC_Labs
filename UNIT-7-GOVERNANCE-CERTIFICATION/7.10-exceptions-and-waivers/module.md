@@ -1,6 +1,6 @@
 # 7.10 - Exceptions and Waivers
 
-**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Governance & Certification | **Tier:** 2 | 
 
 Manage access exceptions: Request waivers, document justifications, track compliance, remediate violations.
 
@@ -63,7 +63,7 @@ Steps:
 
 ```
 Time-Bound Exception:
-├─ Duration: Specific end date
+├─ 
 ├─ Example: 3-month project access
 ├─ Auto-expiration: Remove on date
 └─ Review before removal

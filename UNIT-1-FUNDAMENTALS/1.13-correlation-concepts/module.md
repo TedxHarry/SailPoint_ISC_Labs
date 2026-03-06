@@ -1,6 +1,6 @@
 # 1.13 - Correlation Concepts
 
-**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | 
 
 ---
 
@@ -179,7 +179,7 @@ D) Accounts don't need to be correlated
 
 ## 🔄 NEXT STEPS
 
-Module 1.14 covers provisioning—once identities are correlated, ISC provisions access to target systems.
+Module 1.14 covers provisioningonce identities are correlated, ISC provisions access to target systems.
 
 ---
 

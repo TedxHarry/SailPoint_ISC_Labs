@@ -1,6 +1,6 @@
 # 4.4 - Run Aggregation in ISC
 
-**Unit:** Aggregation & Correlation | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** Aggregation & Correlation | **Tier:** 1 | 
 
 ---
 

@@ -1,6 +1,6 @@
 # 8.5 - Risk Scoring & Prediction
 
-**Unit:** Identity Analytics | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Identity Analytics | **Tier:** 2 | 
 
 Score access risk: Assess user risk profiles, predict future risks, enable proactive remediation.
 

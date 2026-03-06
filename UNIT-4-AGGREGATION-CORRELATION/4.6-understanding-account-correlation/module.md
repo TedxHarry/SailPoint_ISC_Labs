@@ -1,6 +1,6 @@
 # 4.6 - Understanding Account Correlation
 
-**Unit:** Aggregation & Correlation | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** Aggregation & Correlation | **Tier:** 1 | 
 
 ---
 

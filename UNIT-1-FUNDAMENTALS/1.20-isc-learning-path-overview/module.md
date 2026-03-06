@@ -1,6 +1,6 @@
 # 1.20 - ISC Learning Path Overview
 
-**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | **Duration:** ~5 hours
+**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | 
 
 **Type:** Planning & Orientation Document
 
@@ -41,9 +41,9 @@ You've learned:
 
 **Units:**
 - Unit 1: ISC Fundamentals & Concepts (COMPLETED)
-- Unit 2: Entra ID Setup & ISC Sandbox (16-18 modules) — Hands-on setup of your test environment
-- Unit 3: Identity Profiles & Sources (18-20 modules) — How ISC maps data (connectors, aggregation, correlation)
-- Unit 4: Aggregation & Correlation (18-20 modules) — Deep dive into data ingestion
+- Unit 2: Entra ID Setup & ISC Sandbox (16-18 modules)  Hands-on setup of your test environment
+- Unit 3: Identity Profiles & Sources (18-20 modules)  How ISC maps data (connectors, aggregation, correlation)
+- Unit 4: Aggregation & Correlation (18-20 modules)  Deep dive into data ingestion
 
 **Timeline:** 8-12 weeks
 **Deliverable:** Contoso test environment with Entra ID and ISC sandbox connected and synced
@@ -56,10 +56,10 @@ You've learned:
 **Objective:** Deploy ISC for 50-100 person organization (Contoso Ltd)
 
 **Units:**
-- Unit 5: Access Modeling (20-22 modules) — Design roles and rules
-- Unit 6: Provisioning & Deprovisioning (18-20 modules) — Create/remove access automatically
-- Unit 7: Lifecycle Management (16-18 modules) — Automate Join/Move/Leave
-- Unit 8: Access Request & User Portal (14-16 modules) — Self-service access requests
+- Unit 5: Access Modeling (20-22 modules)  Design roles and rules
+- Unit 6: Provisioning & Deprovisioning (18-20 modules)  Create/remove access automatically
+- Unit 7: Lifecycle Management (16-18 modules)  Automate Join/Move/Leave
+- Unit 8: Access Request & User Portal (14-16 modules)  Self-service access requests
 
 **What you'll do:** Design roles for Contoso, automate onboarding/offboarding, implement access request portal
 
@@ -74,11 +74,11 @@ You've learned:
 **Objective:** Scale to 300+ people, implement governance, advanced features
 
 **Units:**
-- Unit 9: Governance & Certification (20-22 modules) — Access reviews, SoD enforcement
-- Unit 10: Rules, Transforms & Logic (18-20 modules) — Advanced provisioning rules, BeanShell, Velocity
-- Unit 11: Workflows & Orchestration (16-18 modules) — Approval workflows, automation
-- Unit 12: Advanced Topics (18-20 modules) — Multi-source integration, complex scenarios
-- Unit 13: Search, Analytics & Reporting (16-18 modules) — Dashboards, reporting, insights
+- Unit 9: Governance & Certification (20-22 modules)  Access reviews, SoD enforcement
+- Unit 10: Rules, Transforms & Logic (18-20 modules)  Advanced provisioning rules, BeanShell, Velocity
+- Unit 11: Workflows & Orchestration (16-18 modules)  Approval workflows, automation
+- Unit 12: Advanced Topics (18-20 modules)  Multi-source integration, complex scenarios
+- Unit 13: Search, Analytics & Reporting (16-18 modules)  Dashboards, reporting, insights
 
 **What you'll do:** Implement quarterly access certifications, advanced approval workflows, governance enforcement, analytics dashboards
 
@@ -93,7 +93,7 @@ You've learned:
 **Objective:** Deploy for 5000+ users, multi-region, complex compliance
 
 **Units:**
-- Unit 14: Enterprise Case Studies (20-22 modules) — Three complete case study implementations (GlobalBank scenarios)
+- Unit 14: Enterprise Case Studies (20-22 modules)  Three complete case study implementations (GlobalBank scenarios)
 
 **What you'll do:** Design and implement ISC for large enterprise, handle complexity and scale
 
@@ -227,11 +227,11 @@ Before proceeding to Unit 2:
 
 ## 🔄 LEARNING RESOURCES
 
-- GLOSSARY.md — Complete ISC terminology glossary
-- CHARACTER-PROFILES.md — Contoso Ltd employee profiles used throughout curriculum
-- TABLE-OF-CONTENTS-v2.md — Complete 14-unit curriculum plan
-- SERIES-PROMPT.md — Module template and standards
-- SAMPLE-LAB-*.md — Example modules showing expected format/depth
+- GLOSSARY.md  Complete ISC terminology glossary
+- CHARACTER-PROFILES.md  Contoso Ltd employee profiles used throughout curriculum
+- TABLE-OF-CONTENTS-v2.md  Complete 14-unit curriculum plan
+- SERIES-PROMPT.md  Module template and standards
+- SAMPLE-LAB-*.md  Example modules showing expected format/depth
 
 ---
 
@@ -239,7 +239,7 @@ Before proceeding to Unit 2:
 
 **Unit 1 is foundational.** The remaining 13 units build on these concepts. If you feel weak on any concept, re-read the relevant module before proceeding.
 
-**This curriculum is comprehensive.** Completing all 14 units takes 18-24 months full-time. That's intentional—ISC expertise takes time. Don't rush through.
+**This curriculum is comprehensive.** Completing all 14 units takes 18-24 months full-time. That's intentionalISC expertise takes time. Don't rush through.
 
 **You're learning a valuable skill.** ISC expertise is in high demand. Organizations are standardizing on ISC. Your time investment will pay off.
 

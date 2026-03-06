@@ -1,6 +1,6 @@
 # 6.11 - Test Provisioning Results
 
-**Unit:** Provisioning & Deprovisioning | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Provisioning & Deprovisioning | **Tier:** 2 | 
 
 ---
 
@@ -311,7 +311,7 @@ Process:
 Lockout test:
 ├─ Intentionally enter wrong password 5 times
 ├─ After 5th attempt: Account locked
-├─ Lock duration: 30 minutes
+├─ Lock 
 ├─ After 30 min: Can try again
 └─ Result: Lockout policy working ✓
 ```
@@ -353,7 +353,7 @@ Details:
 ├─ Groups: Accounting, Management, Reports
 ├─ Initiated by: ISC Provisioning Workflow
 ├─ Completed by: QB Connector
-├─ Duration: 45 seconds
+├─ 
 └─ Log: "QB account provisioned successfully"
 
 Result: Audit trail entry complete ✓
@@ -375,7 +375,7 @@ Details:
 ├─ Password: Generated, temporary
 ├─ Initiated by: AD_User_Provisioning Workflow
 ├─ Completed by: AD Connector
-├─ Duration: 2 minutes (includes replication)
+├─ 
 └─ Log: "AD account created and replicated"
 
 Result: Audit trail entry complete ✓

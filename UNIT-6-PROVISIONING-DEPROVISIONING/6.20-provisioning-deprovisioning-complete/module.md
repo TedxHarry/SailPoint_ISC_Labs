@@ -1,6 +1,6 @@
 # 6.20 - Provisioning & Deprovisioning Complete
 
-**Unit:** Provisioning & Deprovisioning | **Tier:** 2 | **Duration:** ~5 hours
+**Unit:** Provisioning & Deprovisioning | **Tier:** 2 | 
 
 ---
 
@@ -384,7 +384,7 @@ D) Documenting past access
 - Can ensure SoD compliance
 - Can audit and validate access
 
-**Estimated Time Invested:** ~240 hours across 6 units (Units 1-6)
+**
 
 **Knowledge Level:** Can implement access provisioning in real environments
 

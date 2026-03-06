@@ -1,6 +1,6 @@
 # 1.19 - ISC Glossary & Terminology
 
-**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | **Duration:** ~5 hours
+**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | 
 
 **Type:** Reference Document
 
@@ -74,15 +74,15 @@ Quick reference for ISC terminology used throughout Unit 1. For complete glossar
 
 **Deprovisioning:** Removing access when someone leaves or no longer needs it.
 
-**Join:** Onboarding—new employee starts, needs initial access.
+**Join:** Onboardingnew employee starts, needs initial access.
 
-**JML:** Join, Move, Leave—the three lifecycle phases (Move covers promotion, transfer, leave covers offboarding).
+**JML:** Join, Move, Leavethe three lifecycle phases (Move covers promotion, transfer, leave covers offboarding).
 
-**Leave:** Offboarding—employee leaves organization, access revoked.
+**Leave:** Offboardingemployee leaves organization, access revoked.
 
 **Lifecycle Event:** Event triggering access changes (hire, termination, promotion, transfer).
 
-**Move:** Change in role/department—employee transfers or promoted, access changes.
+**Move:** Change in role/departmentemployee transfers or promoted, access changes.
 
 **Provisioning:** Creating accounts and granting initial access.
 
@@ -106,11 +106,11 @@ Quick reference for ISC terminology used throughout Unit 1. For complete glossar
 
 ## 📋 GOVERNANCE FRAMEWORKS
 
-**ABAC:** Attribute-Based Access Control—access decisions based on attributes (department, title, hire date).
+**ABAC:** Attribute-Based Access Controlaccess decisions based on attributes (department, title, hire date).
 
-**RBAC:** Role-Based Access Control—access based on roles (Finance Manager role gets Finance access).
+**RBAC:** Role-Based Access Controlaccess based on roles (Finance Manager role gets Finance access).
 
-**SoD:** Separation of Duties—policy preventing conflicts of interest.
+**SoD:** Separation of Dutiespolicy preventing conflicts of interest.
 
 ---
 
@@ -118,15 +118,15 @@ Quick reference for ISC terminology used throughout Unit 1. For complete glossar
 
 **Audit Trail:** Log of all actions (who accessed what, when, who approved).
 
-**GDPR:** General Data Protection Regulation—EU data privacy law.
+**GDPR:** General Data Protection RegulationEU data privacy law.
 
-**HIPAA:** Health Insurance Portability Act—US healthcare privacy law.
+**HIPAA:** Health Insurance Portability ActUS healthcare privacy law.
 
 **Compliance:** Meeting legal/regulatory requirements.
 
 **Risk:** Potential harm (access violations, unauthorized access, data breach).
 
-**SOX:** Sarbanes-Oxley—US financial system controls law.
+**SOX:** Sarbanes-OxleyUS financial system controls law.
 
 ---
 
@@ -138,7 +138,7 @@ Quick reference for ISC terminology used throughout Unit 1. For complete glossar
 
 **Encryption:** Converting data to unreadable form (AES-256).
 
-**MFA:** Multi-Factor Authentication—login requires multiple factors (password + phone).
+**MFA:** Multi-Factor Authenticationlogin requires multiple factors (password + phone).
 
 **Multi-Tenancy:** Multiple customers on shared infrastructure with data isolation.
 
@@ -164,7 +164,7 @@ Quick reference for ISC terminology used throughout Unit 1. For complete glossar
 
 ## 📋 MODULE TERMS
 
-**Certification:** Part of Governance—managers review access quarterly.
+**Certification:** Part of Governancemanagers review access quarterly.
 
 **Governance:** Module for access reviews, SoD enforcement, risk detection.
 

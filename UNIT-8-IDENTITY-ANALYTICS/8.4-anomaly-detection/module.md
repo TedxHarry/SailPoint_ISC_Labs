@@ -1,6 +1,6 @@
 # 8.4 - Anomaly Detection
 
-**Unit:** Identity Analytics | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Identity Analytics | **Tier:** 2 | 
 
 Detect access anomalies: Identify unusual patterns, investigate causes, recommend actions.
 
@@ -159,7 +159,7 @@ Risk Factors:
 ├─ System sensitivity: Finance/HR = 5, Ops = 3, General = 1
 ├─ Expected pattern match: Matches 1, Unusual 3, Unexpected 5
 ├─ Justification: Documented = 1, Unclear = 3, None = 5
-└─ Duration: Minutes 1, Days 2, Weeks 3, Months 5
+└─ 
 
 Calculation:
 Score = (Privilege + Sensitivity + Expectation + Justification + Duration) / 5
@@ -169,7 +169,7 @@ Example 1 - User6 AWS Access:
 ├─ Sensitivity: 3 (infrastructure)
 ├─ Expectation: 3 (unusual for sales)
 ├─ Justification: 1 (project documented)
-├─ Duration: 2 (ongoing, but time-bound)
+├─ 
 ├─ Score: 2.4 (LOW RISK - explained)
 └─ Action: Monitor, remove when project ends
 
@@ -178,7 +178,7 @@ Example 2 - User5 ADP Access:
 ├─ Sensitivity: 5 (HR/payroll)
 ├─ Expectation: 5 (no business reason)
 ├─ Justification: 5 (no justification)
-├─ Duration: 5 (6 months - stale)
+├─ 
 ├─ Score: 4.4 (MEDIUM-HIGH RISK - action needed)
 └─ Action: Remove access immediately
 

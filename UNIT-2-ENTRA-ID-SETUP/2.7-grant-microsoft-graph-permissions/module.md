@@ -1,6 +1,6 @@
 # 2.7 - Grant Microsoft Graph API Permissions
 
-**Unit:** Entra ID Setup & ISC Sandbox | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** Entra ID Setup & ISC Sandbox | **Tier:** 1 | 
 
 ---
 

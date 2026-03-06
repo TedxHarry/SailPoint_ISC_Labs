@@ -1,6 +1,6 @@
 # 2.14 - ISC User Management
 
-**Unit:** Entra ID Setup & ISC Sandbox | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** Entra ID Setup & ISC Sandbox | **Tier:** 1 | 
 
 ---
 

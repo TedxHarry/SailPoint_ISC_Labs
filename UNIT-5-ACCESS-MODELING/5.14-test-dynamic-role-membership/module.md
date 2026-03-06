@@ -1,6 +1,6 @@
 # 5.14 - Test Dynamic Role Membership
 
-**Unit:** Access Modeling | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Access Modeling | **Tier:** 2 | 
 
 ---
 

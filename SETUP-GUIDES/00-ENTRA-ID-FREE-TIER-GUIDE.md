@@ -2,7 +2,7 @@
 ## For SailPoint ISC Labs (Beginners)
 
 **Audience:** Complete beginners with no Entra ID experience
-**Time Required:** 30-45 minutes
+
 **Prerequisites:** None (just need Entra ID Free tier access)
 
 ---
@@ -604,4 +604,4 @@ A: Yes, you can delete test users anytime.
 **Document Version:** 1.0
 **Last Updated:** March 2, 2026
 **Difficulty:** Beginner
-**Estimated Time:** 30-45 minutes
+**

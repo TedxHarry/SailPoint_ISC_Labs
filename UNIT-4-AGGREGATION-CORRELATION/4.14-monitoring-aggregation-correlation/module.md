@@ -1,6 +1,6 @@
 # 4.14 - Monitoring Aggregation & Correlation
 
-**Unit:** Aggregation & Correlation | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** Aggregation & Correlation | **Tier:** 1 | 
 
 ---
 
@@ -60,7 +60,7 @@ Contoso_Entra_ID           | 🟢 Green | 2024-03-02 2:01am | 20    | 2024-03-03
 
 **Activity log shows each aggregation:**
 ```
-Date/Time           | Type     | Status      | Duration | Objects | Errors
+Date/Time           | Type     | Status      | Objects | Errors
 ---|---|---|---|---|---
 2024-03-02 02:01am  | Full     | SUCCESSFUL  | 45 sec   | 20      | 0
 2024-03-01 02:00am  | Full     | SUCCESSFUL  | 48 sec   | 20      | 0
@@ -140,7 +140,7 @@ casey.kim@contoso.com   | Casey Kim       | CORRELATED         | 2024-03-02
 **Example metrics:**
 ```
 Aggregation Success Rate: 100% (20/20 successful)
-Average Duration: 48 seconds
+Average 
 Total Identities: 13
 Total Accounts: 13
 Correlation Rate: 100% (13/13 correlated)

@@ -1,6 +1,6 @@
 # 3.5 - Advanced Attribute Mapping
 
-**Unit:** Identity Profiles & Sources | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** Identity Profiles & Sources | **Tier:** 1 | 
 
 ---
 

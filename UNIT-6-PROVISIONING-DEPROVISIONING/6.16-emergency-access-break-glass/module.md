@@ -1,6 +1,6 @@
 # 6.16 - Emergency Access Break Glass
 
-**Unit:** Provisioning & Deprovisioning | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Provisioning & Deprovisioning | **Tier:** 2 | 
 
 ---
 
@@ -153,7 +153,7 @@ Actions taken:
 ├─ 02:03 - Restarted database service
 ├─ 02:04 - Verified: Database responding
 ├─ 02:05 - Disconnected
-├─ Duration: 5 minutes
+├─ 
 ├─ Issue: Resolved, customers can access again
 └─ Next steps: Investigate root cause in morning
 

@@ -1,6 +1,6 @@
 # 1.17 - ISC APIs & Integration Patterns
 
-**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | **Duration:** ~12 hours
+**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | 
 
 ---
 
@@ -135,7 +135,7 @@ Authorization: Bearer {token}
 **Question 1:** A custom financial application needs to call ISC to check if user "mchen" should have access. Which approach is best?
 
 A) Use Salesforce connector
-B) ✅ Use ISC REST API—financial app calls ISC API to query access
+B) ✅ Use ISC REST APIfinancial app calls ISC API to query access
 C) Use Virtual Appliance
 D) Manual integration
 
@@ -145,7 +145,7 @@ D) Manual integration
 
 **Question 2:** Integration token is being shared among multiple services. What's the risk?
 
-A) No risk—tokens are secure
+A) No risktokens are secure
 B) ✅ If token is compromised, all services lose access. Can't control permissions per service.
 C) Tokens automatically rotate
 D) Risk only if token is in code
@@ -163,7 +163,7 @@ D) Risk only if token is in code
 
 ## 🔄 NEXT STEPS
 
-Module 1.18 covers security and multi-tenancy—how ISC protects data and isolates customers.
+Module 1.18 covers security and multi-tenancyhow ISC protects data and isolates customers.
 
 ---
 

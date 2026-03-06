@@ -1,6 +1,6 @@
 # 1.3 - Introduction to SailPoint Identity Security Cloud (ISC)
 
-**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** ISC Fundamentals & Concepts | **Tier:** 1 | 
 
 ---
 
@@ -24,8 +24,6 @@ By the end of this module, you will be able to:
 
 **Access Required:**
 - None for this module (conceptual reading only)
-
-**Time Required:** ~10 hours (3 hours reading, 5-7 hours research and reflection)
 
 **Difficulty:** Beginner
 
@@ -57,7 +55,7 @@ You're learning what ISC is, how it's positioned, and what problems it solves. T
 
 **Definition:**
 
-**SailPoint Identity Security Cloud (ISC)** is a cloud-native, multi-tenant Software-as-a-Service (SaaS) platform that automates identity governance across all systems—on-premises, cloud, and hybrid environments—by managing identities, provisioning access, and enforcing compliance policies at scale.
+**SailPoint Identity Security Cloud (ISC)** is a cloud-native, multi-tenant Software-as-a-Service (SaaS) platform that automates identity governance across all systemson-premises, cloud, and hybrid environmentsby managing identities, provisioning access, and enforcing compliance policies at scale.
 
 **Why It Matters:**
 
@@ -101,7 +99,7 @@ ISC is cloud-native. You don't worry about infrastructure, patches, or databases
 | **Patches/Updates** | Customer schedules and applies | SailPoint applies automatically |
 | **Backup/Recovery** | Customer responsible | SailPoint handles automatically |
 | **Scalability** | Customer buys bigger servers | Automatic (transparent to user) |
-| **Time to Deploy** | 6-12 months | Weeks/months |
+| **Time to Deploy** | Weeks/months |
 | **Staff Required** | 2-5 identity engineers | 0 infrastructure staff |
 | **Cost Model** | Large upfront CAPEX | Smaller ongoing OPEX |
 
@@ -115,7 +113,7 @@ ISC's main use cases are: **Access Governance** (who should have access?), **Com
 
 **Why It Matters:**
 
-Organizations don't deploy identity platforms because they want to—they deploy them because business problems force them to. ISC solves specific, expensive problems. Understanding these problems helps you understand why ISC exists and what value it delivers.
+Organizations don't deploy identity platforms because they want tothey deploy them because business problems force them to. ISC solves specific, expensive problems. Understanding these problems helps you understand why ISC exists and what value it delivers.
 
 **In ISC Context:**
 
@@ -135,7 +133,7 @@ These five use cases map to ISC's five core capabilities:
 - **Solution:** ISC discovers all access, displays it in one place, enforces rules so new access matches roles
 
 **Problem 2: Compliance Management**
-- Auditors ask "Prove that access is approved" — Contoso has no documentation
+- Auditors ask "Prove that access is approved"  Contoso has no documentation
 - SOX compliance requires that financial system access is restricted and approved
 - **Solution:** ISC maintains audit logs, documents approvals, proves controls
 
@@ -159,15 +157,15 @@ These five use cases map to ISC's five core capabilities:
 
 **Definition:**
 
-ISC is a **Comprehensive Identity Governance Platform**. It's not just provisioning, not just governance, not just compliance—it does all of them. It competes with products like Okta, Microsoft Entra (Identity Governance), and specialized governance tools. It's positioned as the industry-leading identity governance solution.
+ISC is a **Comprehensive Identity Governance Platform**. It's not just provisioning, not just governance, not just complianceit does all of them. It competes with products like Okta, Microsoft Entra (Identity Governance), and specialized governance tools. It's positioned as the industry-leading identity governance solution.
 
 **Why It Matters:**
 
-The identity market is fragmented. Some tools focus on authentication (Okta, Entra ID). Some focus on provisioning. Some focus on governance. ISC is comprehensive—it does everything. This is important because a fragmented identity solution creates silos, increased complexity, and gaps in coverage.
+The identity market is fragmented. Some tools focus on authentication (Okta, Entra ID). Some focus on provisioning. Some focus on governance. ISC is comprehensiveit does everything. This is important because a fragmented identity solution creates silos, increased complexity, and gaps in coverage.
 
 **In ISC Context:**
 
-SailPoint's vision is that ISC is your "single platform for identity governance." You don't need separate tools for provisioning, governance, and compliance. ISC does it all. This is critical for your career—ISC knowledge makes you valuable because it's the comprehensive solution enterprises are standardizing on.
+SailPoint's vision is that ISC is your "single platform for identity governance." You don't need separate tools for provisioning, governance, and compliance. ISC does it all. This is critical for your careerISC knowledge makes you valuable because it's the comprehensive solution enterprises are standardizing on.
 
 **Example (Contoso's Perspective):**
 
@@ -175,7 +173,7 @@ Contoso evaluated:
 - **Okta:** Great for authentication (SSO), but doesn't do governance well
 - **Microsoft Entra (Identity Governance):** Good for Microsoft-centric environments, but weaker on non-Microsoft systems
 - **Specialized governance tools:** Strong on governance, but don't provision access
-- **SailPoint ISC:** Strong on all of it—identity, access, provisioning, governance, compliance
+- **SailPoint ISC:** Strong on all of itidentity, access, provisioning, governance, compliance
 
 Contoso chose ISC because it's comprehensive and works across all their systems (Entra ID, Salesforce, QuickBooks, custom apps, legacy systems).
 
@@ -184,10 +182,10 @@ Contoso chose ISC because it's comprehensive and works across all their systems 
 ## 🧠 KEY CONCEPTS TO REMEMBER
 
 - **ISC is a SaaS platform**, not software you install. It's cloud-hosted, maintained automatically, and accessed via web browser.
-- **ISC is comprehensive**—it handles identity, provisioning, governance, and compliance all in one platform.
+- **ISC is comprehensive**it handles identity, provisioning, governance, and compliance all in one platform.
 - **ISC solves specific business problems**: slow onboarding, compliance gaps, access governance, user analytics.
 - **ISC is multi-tenant**, meaning thousands of customers use it safely and securely through separate isolated instances.
-- **ISC is the industry leader** in comprehensive identity governance—understanding it will make you valuable to employers.
+- **ISC is the industry leader** in comprehensive identity governanceunderstanding it will make you valuable to employers.
 
 ---
 
@@ -201,16 +199,16 @@ Contoso chose ISC because it's comprehensive and works across all their systems 
 
 **Question 1:** Contoso Ltd needs to automate onboarding (currently 3-5 days), implement compliance governance, and ensure access across systems matches job roles. Which of the following best describes why ISC is appropriate for Contoso?
 
-A) ISC is only for compliance—it cannot provision access automatically
+A) ISC is only for complianceit cannot provision access automatically
 B) ✅ ISC is a comprehensive identity governance platform that handles provisioning, access governance, and compliance
-C) ISC is only for cloud-native organizations—it cannot manage on-premises systems
+C) ISC is only for cloud-native organizationsit cannot manage on-premises systems
 D) ISC requires large infrastructure investment upfront
 
-**Explanation:** The correct answer is **B) ISC is a comprehensive identity governance platform that handles provisioning, access governance, and compliance**. This is the core value of ISC—it's not a single-purpose tool; it's comprehensive. It solves all three of Contoso's problems.
+**Explanation:** The correct answer is **B) ISC is a comprehensive identity governance platform that handles provisioning, access governance, and compliance**. This is the core value of ISCit's not a single-purpose tool; it's comprehensive. It solves all three of Contoso's problems.
 
-A) is incorrect—ISC definitely provisions access (automates onboarding).
-C) is incorrect—ISC can integrate with on-premises systems via connectors and Virtual Appliances.
-D) is incorrect—ISC is SaaS with low upfront costs (OPEX model, not CAPEX).
+A) is incorrectISC definitely provisions access (automates onboarding).
+C) is incorrectISC can integrate with on-premises systems via connectors and Virtual Appliances.
+D) is incorrectISC is SaaS with low upfront costs (OPEX model, not CAPEX).
 
 ---
 
@@ -223,18 +221,18 @@ D) There is no functional difference; they are identical products in different d
 
 **Explanation:** The correct answer is **B) ISC is cloud-hosted, automatically maintained, and accessible via web; IdentityIQ requires on-premises infrastructure and IT staff to maintain**. The key difference is deployment and operational model. ISC is SaaS (no infrastructure needed); IdentityIQ is on-premises (customer responsible for infrastructure).
 
-A) is incorrect—both can govern access.
-C) is incorrect—ISC can manage all systems, on-premises or cloud.
-D) is incorrect—they have different operational models and target different markets.
+A) is incorrectboth can govern access.
+C) is incorrectISC can manage all systems, on-premises or cloud.
+D) is incorrectthey have different operational models and target different markets.
 
 ---
 
 ## 📚 ADDITIONAL RESOURCES
 
 **Related Modules:**
-- [Previous: 1.2 - Identity vs Access vs Governance](/modules/1.2-identity-vs-access-vs-governance) — Conceptual foundation
-- [Next: 1.4 - ISC vs IdentityIQ vs IdentityNow](/modules/1.4-isc-vs-identityiq-vs-identitynow) — Deeper positioning
-- [Next: 1.5 - ISC Architecture Overview](/modules/1.5-isc-architecture-overview) — How ISC actually works
+- [Previous: 1.2 - Identity vs Access vs Governance](/modules/1.2-identity-vs-access-vs-governance)  Conceptual foundation
+- [Next: 1.4 - ISC vs IdentityIQ vs IdentityNow](/modules/1.4-isc-vs-identityiq-vs-identitynow)  Deeper positioning
+- [Next: 1.5 - ISC Architecture Overview](/modules/1.5-isc-architecture-overview)  How ISC actually works
 
 **Official Documentation:**
 - [SailPoint ISC Product Overview](https://example.com)

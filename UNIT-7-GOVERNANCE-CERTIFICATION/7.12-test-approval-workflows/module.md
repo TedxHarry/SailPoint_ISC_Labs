@@ -1,6 +1,6 @@
 # 7.12 - Test Approval Workflows
 
-**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Governance & Certification | **Tier:** 2 | 
 
 Test access request approval: Verify routing, test edge cases, validate provisioning.
 

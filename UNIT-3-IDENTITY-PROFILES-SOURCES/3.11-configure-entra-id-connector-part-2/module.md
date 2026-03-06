@@ -1,6 +1,6 @@
 # 3.11 - Configure Entra ID Connector (Part 2)
 
-**Unit:** Identity Profiles & Sources | **Tier:** 1 | **Duration:** ~10 hours
+**Unit:** Identity Profiles & Sources | **Tier:** 1 | 
 
 ---
 

@@ -1,6 +1,6 @@
 # 8.3 - Entitlement Intelligence
 
-**Unit:** Identity Analytics | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Identity Analytics | **Tier:** 2 | 
 
 Discover entitlements: Analyze permissions, identify unnecessary access, optimize assignments.
 

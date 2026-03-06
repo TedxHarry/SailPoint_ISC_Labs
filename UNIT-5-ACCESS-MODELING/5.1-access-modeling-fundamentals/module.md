@@ -1,6 +1,6 @@
 # 5.1 - Access Modeling Fundamentals
 
-**Unit:** Access Modeling | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Access Modeling | **Tier:** 2 | 
 
 ---
 

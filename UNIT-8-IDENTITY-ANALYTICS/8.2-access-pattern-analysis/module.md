@@ -1,6 +1,6 @@
 # 8.2 - Access Pattern Analysis
 
-**Unit:** Identity Analytics | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Identity Analytics | **Tier:** 2 | 
 
 Analyze access patterns: Distribution, concentration, outliers, trends.
 

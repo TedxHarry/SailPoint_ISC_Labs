@@ -1,6 +1,6 @@
 # 7.6 - Execute Role Certification
 
-**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Governance & Certification | **Tier:** 2 | 
 
 ---
 

@@ -1,6 +1,6 @@
 # 7.7 - Access Compliance Audit
 
-**Unit:** Governance & Certification | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Governance & Certification | **Tier:** 2 | 
 
 Comprehensive audit of access against policies, SoD rules, entitlements, and compliance requirements.
 

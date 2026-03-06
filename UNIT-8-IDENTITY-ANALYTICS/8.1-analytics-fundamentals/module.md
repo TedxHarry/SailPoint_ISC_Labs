@@ -1,6 +1,6 @@
 # 8.1 - Analytics Fundamentals
 
-**Unit:** Identity Analytics | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Identity Analytics | **Tier:** 2 | 
 
 Understand identity analytics: Data collection, analysis types, business value.
 

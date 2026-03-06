@@ -1,6 +1,6 @@
 # 8.7 - Analytics Dashboards
 
-**Unit:** Identity Analytics | **Tier:** 2 | **Duration:** ~10 hours
+**Unit:** Identity Analytics | **Tier:** 2 | 
 
 Build analytics dashboards: Visualize access data, track metrics, enable insights.
 
