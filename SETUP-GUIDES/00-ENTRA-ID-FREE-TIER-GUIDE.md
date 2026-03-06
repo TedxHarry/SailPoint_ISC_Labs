@@ -370,7 +370,7 @@ You must create and save a Client Secret. ISC will use this to prove it's author
 ISC_Test_App Credentials:
 ├─ Application ID: [FROM STEP 4.3]
 ├─ Tenant ID: [FROM STEP 4.3]
-├─ Client Secret: [PASTE_SECRET_HERE - KEEP SAFE!]
+├─ Client Secret: 8075704c-63de-4792-8f15-9b01335f8111
 └─ Created: [TODAY'S DATE]
 ```
 
