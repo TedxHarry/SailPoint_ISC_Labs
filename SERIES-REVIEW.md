@@ -239,7 +239,7 @@
 ### ❌ Broken Navigation Links
 
 **Examples:**
-- Module references: "[Next: 1.2 - Identity vs Access](../../../1.2-.../1.2-....md)"
+- Module references: "[Next: 1.2 - Identity vs Access](../../../1.2-.../1.2-...)"
 - Path doesn't exist in repository
 - Students must manually navigate to next module
 - Professional presentation compromised

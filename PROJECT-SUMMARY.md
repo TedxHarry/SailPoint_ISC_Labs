@@ -9,14 +9,14 @@
 
 ## 📊 What Was Created
 
-### 1. ✅ Complete Curriculum (TABLE-OF-CONTENTS.md)
+### 1. ✅ Complete Curriculum (TABLE-OF-CONTENTS)
 - **86 modules** across 10 units
 - **4 learning tiers** (Fundamentals → Small Org → Mid-Market → Enterprise)
 - **2 certification paths** (Professional Credential + Engineer Certification)
 - **130+ hours** of structured learning
 - **4 practice scenarios** (Contoso, RegionTech, GlobalBank)
 
-### 2. ✅ Entra ID Setup Guide (SETUP-GUIDES/00-ENTRA-ID-FREE-TIER-GUIDE.md)
+### 2. ✅ Entra ID Setup Guide (SETUP-GUIDES/00-ENTRA-ID-FREE-TIER-GUIDE)
 - ** setup guide** for Entra ID Free tier
 - **Step-by-step instructions** for complete beginners
 - Create 13 test users
@@ -31,7 +31,7 @@
 - Ready to import directly into labs
 - Contains realistic data: departments, managers, job titles, locations
 
-### 4. ✅ Lab Writing Template (SERIES-PROMPT.md)
+### 4. ✅ Lab Writing Template (SERIES-PROMPT)
 - **Complete template** for writing consistent modules
 - **10-section structure** for every module
 - **Guidelines for language, troubleshooting, certification alignment**
@@ -54,14 +54,14 @@
  - Business scenario focus (Finance controls)
  - Validation and deliverables
 
-### 6. ✅ Documentation (README.md)
+### 6. ✅ Documentation (README)
 - Project overview and quick start
 - Learning outcomes by tier
 - Certification alignment
 - Resource links
 - File structure explanation
 
-### 7. ✅ GitHub Setup Guide (GITHUB-SETUP.md)
+### 7. ✅ GitHub Setup Guide (GITHUB-SETUP)
 - Instructions to create GitHub repository
 - Step-by-step push to GitHub
 - Troubleshooting common issues
@@ -139,7 +139,7 @@ SailPoint_ISC_Labs/
 - [x] Complete curriculum structure (86 modules)
 - [x] Entra ID Free tier setup guide
 - [x] Test data files (ready to import)
-- [x] Lab writing template (SERIES-PROMPT.md)
+- [x] Lab writing template (SERIES-PROMPT)
 - [x] 3 sample labs (showing format)
 - [x] GitHub repository setup
 - [x] Full documentation
@@ -336,7 +336,7 @@ SailPoint_ISC_Labs/
 - [Developer Community](https://developer.sailpoint.com/discuss/c/identity-security-cloud/)
 
 ### This Project:
-- GitHub Repository: (to be created following GITHUB-SETUP.md)
+- GitHub Repository: (to be created following GITHUB-SETUP)
 - Local Path: `C:/Users/punna/Videos/Github Learning/SailPoint_ISC_Labs/`
 
 ---
