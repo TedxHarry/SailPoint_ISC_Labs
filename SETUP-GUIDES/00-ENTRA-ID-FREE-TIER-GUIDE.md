@@ -293,8 +293,8 @@ FIELD: Redirect URI
 **Store these somewhere safe** (notepad or password manager):
 ```
 ISC_Test_App Details:
-├─ Application ID: [PASTE_HERE]
-├─ Tenant ID: [PASTE_HERE]
+├─ Application ID: d62ccc0d-b3e6-49e9-9614-35f4c6de8b77
+├─ Tenant ID: 149b9f72-c8ae-4209-96ec-52f97642d7c7
 └─ Created: [DATE]
 ```
 
@@ -370,7 +370,7 @@ You must create and save a Client Secret. ISC will use this to prove it's author
 ISC_Test_App Credentials:
 ├─ Application ID: [FROM STEP 4.3]
 ├─ Tenant ID: [FROM STEP 4.3]
-├─ Client Secret: [PASTE_SECRET_HERE - KEEP SAFE!]
+├─ Client Secret: 8075704c-63de-4792-8f15-9b01335f8111
 └─ Created: [TODAY'S DATE]
 ```
 
